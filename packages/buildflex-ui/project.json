@@ -1,0 +1,8 @@
+{
+  "name": "buildflex-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/buildflex-ui/src",
+  "projectType": "application",
+  "targets": {},
+  "tags": []
+}
