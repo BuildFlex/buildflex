@@ -1,0 +1,7 @@
+{
+  "name": "buildflex-sheet-base-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/buildflex-sheet-base-e2e/src",
+  "targets": {},
+  "implicitDependencies": ["buildflex-sheet-base"]
+}

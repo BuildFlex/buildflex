@@ -1,0 +1,8 @@
+{
+  "name": "buildflex-sheet-base",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/buildflex-sheet-base",
+  "projectType": "application",
+  "targets": {},
+  "tags": []
+}
