@@ -1,5 +1,6 @@
 import './global.css';
 import { StyledComponentsRegistry } from './registry';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 export const metadata = {
   title: 'Welcome to demo2',
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <AntdRegistry>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </AntdRegistry>
       </body>
     </html>
   );
