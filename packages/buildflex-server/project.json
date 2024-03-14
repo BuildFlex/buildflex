@@ -18,6 +18,10 @@
           "buildTarget": "buildflex-server:build:production"
         }
       }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f packages/buildflex-server/Dockerfile . -t buildflex-server"
     }
   },
   "tags": []
