@@ -1,0 +1,6 @@
+git stash -k -u
+npm run format
+git add .
+npm run lint
+git add .
+git stash pop
