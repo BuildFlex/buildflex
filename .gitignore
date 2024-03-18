@@ -45,3 +45,4 @@ storybook-static
 
 # Next.js
 .next
+.env
