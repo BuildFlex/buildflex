@@ -1,8 +1,8 @@
 'use client';
 
 import styled from 'styled-components';
-import { Button } from '@shared-ui';
-import MenuLeft from '../components/Menu';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
 import Table from '../components/Table';
 
 const StyledPage = styled.div`
@@ -17,10 +17,9 @@ const StyledPage = styled.div`
 export default function Index() {
   return (
     <StyledPage>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Button />
-      <MenuLeft />
-      <Table />
+      <DndProvider backend={HTML5Backend}>
+        <Table />
+      </DndProvider>
     </StyledPage>
   );
 }
