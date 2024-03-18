@@ -1,8 +1,8 @@
 'use client';
 
 import styled from 'styled-components';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import { DndProvider } from 'react-dnd';
+import { Button } from '@shared-ui';
+import MenuLeft from '../components/Menu';
 import Table from '../components/Table';
 
 const StyledPage = styled.div`
@@ -15,14 +15,12 @@ const StyledPage = styled.div`
 `;
 
 export default function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.styled-components file.
-   */
   return (
     <StyledPage>
-      <div>aaaaaa</div>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Button />
+      <MenuLeft />
+      <Table />
     </StyledPage>
   );
 }
