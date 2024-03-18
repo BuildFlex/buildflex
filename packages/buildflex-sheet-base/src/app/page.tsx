@@ -1,15 +1,15 @@
 'use client';
 
 import styled from 'styled-components';
-import {Button} from "@shared-ui";
-import MenuLeft from "../components/Menu";
+import { Button } from '@shared-ui';
+import MenuLeft from '../components/Menu';
 
 const StyledPage = styled.div`
   .page {
   }
 `;
 
-export default async function Index() {
+export default function Index() {
   /*
    * Replace the elements below with your own.
    *
@@ -18,7 +18,8 @@ export default async function Index() {
   return (
     <StyledPage>
       <Button />
-      <MenuLeft/>
+      <MenuLeft />
+      <div>aaaaaa</div>
     </StyledPage>
   );
 }

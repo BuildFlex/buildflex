@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button } from '../components/Button'
+import { Button } from '../components/Button';
 export function NxWelcome({ title }: { title: string }) {
   return (
-  <>
-    <h1>BuildFlex - UI Component</h1>
-    <Button />
-  </>
+    <>
+      <h1>BuildFlex - UI Component</h1>
+      <Button />
+    </>
   );
 }
 
