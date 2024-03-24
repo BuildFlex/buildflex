@@ -20,6 +20,8 @@ interface ITab {
     children: React.ReactNode;
     key: string;
   }[];
+  handleAdd: () => void;
+  handleRemove: (targetKey: string) => void;
 }
 
 const DraggableTabNode = ({ className, ...props }: DraggableTabPaneProps) => {
@@ -43,7 +45,7 @@ const DraggableTabNode = ({ className, ...props }: DraggableTabPaneProps) => {
   });
 };
 
-const Tab: React.FC = ({ itemsTab }: ITab) => {
+const Tab: React.FC = ({ itemsTab, handleAdd, handleRemove }: ITab) => {
   const [items, setItems] = useState(
     itemsTab ?? [
       { label: 'Tab 1', children: 'Content of Tab 1', key: '1' },

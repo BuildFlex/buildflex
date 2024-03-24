@@ -44,6 +44,7 @@ export class TableController extends BaseController {
       await this.tableService.create(body);
       return this.successfulResponse({});
     } catch (e) {
+      console.log(e);
       return this.errorResponse(e);
     }
   }

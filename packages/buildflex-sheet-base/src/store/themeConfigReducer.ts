@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   darkTheme: false,
+  isLoading: false,
 };
 
 const authConfigSlice = createSlice({
@@ -14,9 +15,15 @@ const authConfigSlice = createSlice({
         darkTheme: payload,
       };
     },
+    setLoading: (state, { payload }) => {
+      return {
+        ...state,
+        isLoading: payload,
+      };
+    },
   },
 });
 
-export const { changeTheme } = authConfigSlice.actions;
+export const { changeTheme, setLoading } = authConfigSlice.actions;
 
 export default authConfigSlice.reducer;
