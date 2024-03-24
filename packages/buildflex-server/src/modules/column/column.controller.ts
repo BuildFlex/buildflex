@@ -12,7 +12,7 @@ import CreateColumnDto from './dto/createColumn.dto';
 import UpdateColumnDto from './dto/updateColumn.dto';
 import BaseController from '../../baseController';
 
-@Controller()
+@Controller('column')
 export class ColumnController extends BaseController {
   constructor(private readonly columnService: ColumnService) {
     super();

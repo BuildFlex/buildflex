@@ -8,4 +8,4 @@ import { PrismaModule } from '../prisma/postgres/prisma.module';
   controllers: [TableController],
   providers: [TableService],
 })
-export class AppModule {}
+export class TableModule {}
