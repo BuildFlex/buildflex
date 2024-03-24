@@ -12,7 +12,7 @@ import CreateTableDto from './dto/createTable.dto';
 import UpdateTableDto from './dto/updateTable.dto';
 import BaseController from '../../baseController';
 
-@Controller()
+@Controller('table')
 export class TableController extends BaseController {
   constructor(private readonly tableService: TableService) {
     super();
