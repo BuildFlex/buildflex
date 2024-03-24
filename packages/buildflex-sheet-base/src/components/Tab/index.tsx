@@ -14,6 +14,14 @@ interface DraggableTabPaneProps extends React.HTMLAttributes<HTMLDivElement> {
   'data-node-key': string;
 }
 
+interface ITab {
+  itemsTab: {
+    label: string;
+    children: React.ReactNode;
+    key: string;
+  }[];
+}
+
 const DraggableTabNode = ({ className, ...props }: DraggableTabPaneProps) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({
@@ -35,24 +43,18 @@ const DraggableTabNode = ({ className, ...props }: DraggableTabPaneProps) => {
   });
 };
 
-const App: React.FC = () => {
-  const [items, setItems] = useState([
-    {
-      key: '1',
-      label: 'Tab 1',
-      children: 'Content of Tab Pane 1',
-    },
-    {
-      key: '2',
-      label: 'Tab 2',
-      children: 'Content of Tab Pane 2',
-    },
-    {
-      key: '3',
-      label: 'Tab 3',
-      children: 'Content of Tab Pane 3',
-    },
-  ]);
+const Tab: React.FC = ({ itemsTab }: ITab) => {
+  const [items, setItems] = useState(
+    itemsTab ?? [
+      { label: 'Tab 1', children: 'Content of Tab 1', key: '1' },
+      { label: 'Tab 2', children: 'Content of Tab 2', key: '2' },
+      {
+        label: 'Tab 3',
+        children: 'Content of Tab 3',
+        key: '3',
+      },
+    ]
+  );
 
   const [activeKey, setActiveKey] = useState(items[0].key);
   const newTabIndex = useRef(0);
@@ -145,4 +147,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Tab;
