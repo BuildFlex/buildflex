@@ -1,0 +1,81 @@
+body {
+  background: #ecf0f1;
+}
+
+.th_cell {
+  position: relative;
+}
+
+.resize_col {
+  position: absolute;
+  top: 0;
+  right: -3px;
+
+  width: 3px;
+  height: 100%;
+  cursor: col-resize;
+  background-color: black;
+  z-index: 99;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+}
+
+table {
+  border-collapse: collapse;
+  outline: none;
+  table-layout: fixed;
+}
+
+table tr td,
+table tr th {
+  word-wrap: break-word;
+  border: 1px solid #000;
+  min-width: 130px;
+  padding: 5px;
+  position: relative;
+  text-align: left;
+  box-sizing: border-box;
+  min-width: 30px;
+}
+
+/*table tr td:nth-child(1), table tr td:nth-child(4){text-align: left;}
+      .x_resize{position: absolute; left: 0; top: 0; width: 102%; height: 1px; background: red; cursor: row-resize;}*/
+
+.y_resize {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 102%;
+  background: transparent;
+  cursor: col-resize;
+}
+
+.gp-header {
+  font-family: georgia;
+  font-size: 40px;
+  color: #555;
+  font-style: italic;
+  margin-top: 31px;
+  margin-bottom: 30px;
+}
+
+.gp-footer {
+  position: fixed;
+  color: #111;
+  bottom: 10px;
+  left: 50%;
+  font-family: georgia;
+  font-style: italic;
+  transform: translateX(-50%);
+}
+
+.gp-footer .soc_icons {
+  display: inline-block;
+  color: #333;
+  margin: 0px 0px;
+}
