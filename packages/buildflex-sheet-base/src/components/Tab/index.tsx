@@ -7,7 +7,7 @@ import {
   useSortable,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tabs } from 'antd';
 
 interface DraggableTabPaneProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -46,20 +46,11 @@ const DraggableTabNode = ({ className, ...props }: DraggableTabPaneProps) => {
 };
 
 const Tab: React.FC = ({ itemsTab, handleAdd, handleRemove }: ITab) => {
-  const [items, setItems] = useState(
-    itemsTab ?? [
-      { label: 'Tab 1', children: 'Content of Tab 1', key: '1' },
-      { label: 'Tab 2', children: 'Content of Tab 2', key: '2' },
-      {
-        label: 'Tab 3',
-        children: 'Content of Tab 3',
-        key: '3',
-      },
-    ]
-  );
+  const [items, setItems] = useState([
+    { label: 'Loading', children: 'Loading', key: '1' },
+  ]);
 
   const [activeKey, setActiveKey] = useState(items[0].key);
-  const newTabIndex = useRef(0);
 
   const sensor = useSensor(PointerSensor, {
     activationConstraint: { distance: 10 },
@@ -79,11 +70,12 @@ const Tab: React.FC = ({ itemsTab, handleAdd, handleRemove }: ITab) => {
     setActiveKey(newActiveKey);
   };
 
-  const add = () => {
-    const newActiveKey = `newTab${newTabIndex.current++}`;
+  const add = async () => {
+    const tableName = `table - ${items.length + 2} `;
+    const newActiveKey = await handleAdd(tableName);
     const newPanes = [...items];
     newPanes.push({
-      label: 'New Tab',
+      label: tableName,
       children: 'Content of new Tab',
       key: newActiveKey,
     });
@@ -121,6 +113,10 @@ const Tab: React.FC = ({ itemsTab, handleAdd, handleRemove }: ITab) => {
       remove(targetKey);
     }
   };
+
+  useEffect(() => {
+    if (itemsTab?.length > 0) setItems(itemsTab);
+  }, [itemsTab]);
 
   return (
     <Tabs

@@ -1,38 +1,37 @@
 'use client';
 
-import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 import Tab from '../components/Tab';
-import { useEffect } from 'react';
 import { createTableApi, getTableApi } from '../services/table';
 import { useDispatch } from 'react-redux';
 import { setLoading } from '../store/themeConfigReducer';
 
-const StyledPage = styled.div`
-  .page {
-    flex: 1px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-`;
-
 export default function Index() {
   const dispatch = useDispatch();
+  const [table, setTable] = useState([]);
   const getTable = async () => {
     try {
       dispatch(setLoading(true));
       const res = await getTableApi();
-      console.log(res);
+      console.log(res.data?.data);
+      setTable(
+        res.data?.data.map((item) => ({
+          label: item.name,
+          children: 'Content of Tab 1',
+          key: item.tableId,
+        }))
+      );
     } catch (e) {
       console.error(e);
     }
   };
 
-  const handleAddTable = async () => {
+  const handleAddTable = async (tableName: string) => {
     try {
       dispatch(setLoading(true));
-      const res = await createTableApi();
+      const res = await createTableApi(tableName);
       console.log(res);
+      return res.data.data.tableId;
     } catch (e) {
       console.error(e);
     }
@@ -45,8 +44,12 @@ export default function Index() {
   }, []);
 
   return (
-    <StyledPage>
-      <Tab handleAdd={handleAddTable} handleRemove={handleRemoveTable} />
-    </StyledPage>
+    <>
+      <Tab
+        handleAdd={handleAddTable}
+        handleRemove={handleRemoveTable}
+        itemsTab={table}
+      />
+    </>
   );
 }

@@ -41,8 +41,8 @@ export class TableController extends BaseController {
   @Post()
   public async create(@Body() body: CreateTableDto) {
     try {
-      await this.tableService.create(body);
-      return this.successfulResponse({});
+      const table = await this.tableService.create(body);
+      return this.successfulResponse({ tableId: table.tableId });
     } catch (e) {
       console.log(e);
       return this.errorResponse(e);
