@@ -8,7 +8,11 @@ export class TableService {
   constructor(private readonly prismaService: PrismaService) {}
 
   public getMany() {
-    return this.prismaService.table.findMany();
+    return this.prismaService.table.findMany({
+      orderBy: {
+        createdAt: 'asc',
+      },
+    });
   }
 
   public getOne(tableId: string) {

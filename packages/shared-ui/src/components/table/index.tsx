@@ -109,7 +109,7 @@ export const Table = (props: any) => {
   };
 
   const mouseDown = (event: any) => {
-    console.log("mouse downnnnn")
+    console.log('mouse downnnnn');
     const cursorPosition = event.pageX;
     const target = event.target;
     const headerCell = target.parentElement;
@@ -122,9 +122,13 @@ export const Table = (props: any) => {
     });
   };
 
-
   return (
-    <div className="container" id="container" ref={ctnRef} onMouseMove={mouseMove}>
+    <div
+      className="container"
+      id="container"
+      ref={ctnRef}
+      onMouseMove={mouseMove}
+    >
       <table
         border={0}
         cellPadding={0}
@@ -143,11 +147,7 @@ export const Table = (props: any) => {
         </thead>
         <tbody>
           {rows.map((row) => (
-            <Row
-              row={row}
-              onMouseDown={mouseDown}
-              onMouseUp={mouseUp}
-            />
+            <Row row={row} onMouseDown={mouseDown} onMouseUp={mouseUp} />
           ))}
         </tbody>
       </table>

@@ -20,7 +20,7 @@ const requestsToRefresh: any = [];
 let isRefreshToken = false;
 
 client.interceptors.response.use(
-  (res) => res,
+  (res) => res.data,
   (error) => {
     const { response, config } = error;
     const status = response?.status;

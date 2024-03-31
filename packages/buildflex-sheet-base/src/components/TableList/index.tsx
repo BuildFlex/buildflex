@@ -8,20 +8,16 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import React, { useEffect, useState } from 'react';
-import { Tabs } from 'antd';
+import { Tabs, TabsProps } from 'antd';
 
 interface DraggableTabPaneProps extends React.HTMLAttributes<HTMLDivElement> {
   'data-node-key': string;
 }
 
-interface ITab {
-  itemsTab: {
-    label: string;
-    children: React.ReactNode;
-    key: string;
-  }[];
-  handleAdd: () => void;
-  handleRemove: (targetKey: string) => void;
+interface Props {
+  itemsTab: TabsProps['items'];
+  handleAdd: (tableName: string) => Promise<void>;
+  handleRemove: (tableId: string) => Promise<void>;
 }
 
 const DraggableTabNode = ({ className, ...props }: DraggableTabPaneProps) => {
@@ -45,12 +41,13 @@ const DraggableTabNode = ({ className, ...props }: DraggableTabPaneProps) => {
   });
 };
 
-const Tab: React.FC = ({ itemsTab, handleAdd, handleRemove }: ITab) => {
-  const [items, setItems] = useState([
-    { label: 'Loading', children: 'Loading', key: '1' },
-  ]);
-
-  const [activeKey, setActiveKey] = useState(items[0].key);
+const TableList: React.FC<Props> = ({
+  itemsTab,
+  handleAdd,
+  handleRemove,
+}: Props) => {
+  const [items, setItems] = useState<NonNullable<TabsProps['items']>>([]);
+  const [activeKey, setActiveKey] = useState<string>('');
 
   const sensor = useSensor(PointerSensor, {
     activationConstraint: { distance: 10 },
@@ -71,19 +68,12 @@ const Tab: React.FC = ({ itemsTab, handleAdd, handleRemove }: ITab) => {
   };
 
   const add = async () => {
-    const tableName = `table - ${items.length + 2} `;
-    const newActiveKey = await handleAdd(tableName);
-    const newPanes = [...items];
-    newPanes.push({
-      label: tableName,
-      children: 'Content of new Tab',
-      key: newActiveKey,
-    });
-    setItems(newPanes);
-    setActiveKey(newActiveKey);
+    const tableName = `table - ${items.length + 1} `;
+    await handleAdd(tableName);
   };
 
-  const remove = (targetKey) => {
+  const remove = async (targetKey: string) => {
+    await handleRemove(targetKey);
     let newActiveKey = activeKey;
     let lastIndex = -1;
     items.forEach((item, i) => {
@@ -110,12 +100,12 @@ const Tab: React.FC = ({ itemsTab, handleAdd, handleRemove }: ITab) => {
     if (action === 'add') {
       add();
     } else {
-      remove(targetKey);
+      remove(targetKey as string);
     }
   };
 
   useEffect(() => {
-    if (itemsTab?.length > 0) setItems(itemsTab);
+    if (itemsTab && itemsTab.length > 0) setItems(itemsTab);
   }, [itemsTab]);
 
   return (
@@ -145,4 +135,4 @@ const Tab: React.FC = ({ itemsTab, handleAdd, handleRemove }: ITab) => {
   );
 };
 
-export default Tab;
+export default TableList;
