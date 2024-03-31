@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { getColumnApi } from '../../services/column';
+import { getDataTableApi } from '../../services/dataTable';
+import { updateColumnApi } from '../../services/column';
+import { IUpdateColumn } from '../../interfaces/column';
 
 const initialColumns = [
   { id: '11', name: 'Name', width: 100 },
@@ -14,15 +16,8 @@ interface ITable {
 }
 
 const Table = ({ id }: ITable) => {
-  const [columns, setColumns] = useState(initialColumns);
-  const [data, setData] = useState(
-    Array.from({ length: 100 }, (_, i) => ({
-      id: i,
-      11: 'a' + i,
-      22: '12' + i,
-      33: 'HN' + i,
-    }))
-  );
+  const [columns, setColumns] = useState([]);
+  const [data, setData] = useState(Array.from({ length: 10 }, (_, i) => ({})));
   const [draggedColumn, setDraggedColumn] = useState(null);
   const [draggedOverColumn, setDraggedOverColumn] = useState(null);
 
@@ -91,7 +86,12 @@ const Table = ({ id }: ITable) => {
     setIsDraging(false);
   };
 
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>, index: number) => {
+  const handleDrop = (
+    e: React.DragEvent<HTMLDivElement>,
+    index: number,
+    idColumn: string
+  ) => {
+    console.log(12312312);
     e.target.style.background = '';
     const newData = [...data];
     const item = newData.splice(oldIndex, 1)[0];
@@ -100,9 +100,33 @@ const Table = ({ id }: ITable) => {
     setOldIndex(-1);
   };
 
-  const getColumn = async (id: string) => {
+  const getDataTable = async (id: string) => {
     try {
-      const res = await getColumnApi(id);
+      const res = await getDataTableApi(id);
+      console.log(res.data.columns);
+      setColumns(
+        res.data.columns?.map((col: any) => ({ ...col, id: col.columnId }))
+      );
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const updateColumn = async ({ idColumn, columns }: IUpdateColumn) => {
+    try {
+      const body = {};
+
+      const properties = ['name', 'type', 'order', 'width', 'description'];
+
+      properties.forEach((property) => {
+        if (columns.hasOwnProperty(property)) {
+          body[property] = columns[property];
+        }
+      });
+
+      console.log(body);
+
+      const res = await updateColumnApi(idColumn, body);
       console.log(res);
     } catch (e) {
       console.error(e);
@@ -110,7 +134,7 @@ const Table = ({ id }: ITable) => {
   };
 
   useEffect(() => {
-    getColumn(id);
+    getDataTable(id);
   }, [id]);
 
   const renderDataRow = (rowData: any, index: number) => {
@@ -125,7 +149,7 @@ const Table = ({ id }: ITable) => {
           onDragStart={(e) => handleDragStart(e, index)}
           onDragOver={(e) => handleDragOver(e)}
           onDragLeave={(e) => handleDragExit(e)}
-          onDrop={(e) => handleDrop(e, index)}
+          onDrop={(e) => handleDrop(e, index, rowData.id)}
           onDragEnd={(e) => handleDragEnd(e)}
         ></div>
         {columns.map((col, index) => (
@@ -156,7 +180,7 @@ const Table = ({ id }: ITable) => {
   }, [handleMouseUp]);
 
   return (
-    <div className="inline-flex flex-col ml-20">
+    <div className="inline-flex flex-col ml-[16px]">
       <div className="inline-flex border-y border-y-gray-300">
         <div className="w-4"></div>
         {columns.map((col, index) => (

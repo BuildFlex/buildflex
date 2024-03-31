@@ -13,6 +13,14 @@ export class DataService {
       orderBy: {
         order: 'asc',
       },
+      select: {
+        columnId: true,
+        name: true,
+        type: true,
+        order: true,
+        width: true,
+        description: true,
+      },
     });
 
     const rows = await this.prismaService.row.findMany({

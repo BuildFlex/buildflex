@@ -4,8 +4,8 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
-  Put,
 } from '@nestjs/common';
 import { ColumnService } from './column.service';
 import CreateColumnDto from './dto/createColumn.dto';
@@ -48,7 +48,7 @@ export class ColumnController extends BaseController {
     }
   }
 
-  @Put(':columnId')
+  @Patch(':columnId')
   public async update(
     @Body() body: UpdateColumnDto,
     @Param('columnId') columnId: string

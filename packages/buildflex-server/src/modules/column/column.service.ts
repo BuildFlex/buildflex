@@ -28,6 +28,7 @@ export class ColumnService {
           type: data.type,
           description: data.description,
           order: data.order,
+          width: data?.width,
           table: { connect: { tableId: data.tableId } },
         },
       });

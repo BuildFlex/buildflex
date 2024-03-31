@@ -9,3 +9,10 @@ export async function getColumnApi(
 ): Promise<SuccessResponse<Column[]>> {
   return client.get(`${resource}/${id}`);
 }
+
+export async function updateColumnApi(
+  id: string,
+  body: any
+): Promise<SuccessResponse<Column[]>> {
+  return client.patch(`${resource}/${id}`, body);
+}

@@ -18,6 +18,10 @@ export default class CreateColumnDto {
   order: number;
 
   @IsOptional()
+  @IsNumber()
+  width?: number;
+
+  @IsOptional()
   @IsString()
   description?: string;
 }
