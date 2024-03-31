@@ -42,21 +42,20 @@ export class TableController extends BaseController {
   public async create(@Body() body: CreateTableDto) {
     try {
       const table = await this.tableService.create(body);
-      return this.successfulResponse({ tableId: table.tableId });
+      return this.successfulResponse(table);
     } catch (e) {
       console.log(e);
       return this.errorResponse(e);
     }
   }
-
   @Put(':tableId')
   public async update(
     @Body() body: UpdateTableDto,
     @Param('tableId') tableId: string
   ) {
     try {
-      await this.tableService.update(body, tableId);
-      return this.successfulResponse({});
+      const table = await this.tableService.update(body, tableId);
+      return this.successfulResponse(table);
     } catch (e) {
       return this.errorResponse(e);
     }
@@ -66,6 +65,7 @@ export class TableController extends BaseController {
   public async delete(@Param('tableId') tableId: string) {
     try {
       await this.tableService.delete(tableId);
+      console.log(11111);
       return this.successfulResponse({});
     } catch (e) {
       return this.errorResponse(e);

@@ -22,6 +22,11 @@ export class ColumnService {
 
   public create(data: CreateColumnDto) {
     return this.prismaService.$transaction(async (prisma) => {
+      await updateOrder(
+        prisma.column,
+        { tableId: data.tableId },
+        { new: data.order }
+      );
       await prisma.column.create({
         data: {
           name: data.name,
@@ -32,17 +37,20 @@ export class ColumnService {
           table: { connect: { tableId: data.tableId } },
         },
       });
-      await updateOrder(
-        prisma.column,
-        { tableId: data.tableId },
-        { new: data.order }
-      );
     });
   }
 
   public async update(data: UpdateColumnDto, columnId: string) {
     const column = await this.getOne(columnId);
     return this.prismaService.$transaction(async (prisma) => {
+      await updateOrder(
+        prisma.column,
+        { tableId: column.tableId },
+        {
+          new: data.order,
+          old: column.order,
+        }
+      );
       await prisma.column.update({
         where: {
           columnId,
@@ -53,25 +61,12 @@ export class ColumnService {
           order: data.order,
         },
       });
-      await updateOrder(
-        prisma.column,
-        { tableId: column.tableId },
-        {
-          new: data.order,
-          old: column.order,
-        }
-      );
     });
   }
 
   public async delete(columnId: string) {
     const column = await this.getOne(columnId);
     return this.prismaService.$transaction(async (prisma) => {
-      await this.prismaService.column.delete({
-        where: {
-          columnId,
-        },
-      });
       await updateOrder(
         prisma.column,
         { tableId: column.tableId },
@@ -79,6 +74,11 @@ export class ColumnService {
           old: column.order,
         }
       );
+      await prisma.column.delete({
+        where: {
+          columnId,
+        },
+      });
     });
   }
 }

@@ -5,15 +5,26 @@ interface Props {
   tableInfo: {
     name: string;
     tableId: string;
+    order: number;
   };
-  handleChangeName: (tableId: string, tableName: string) => Promise<void>;
+  handleChangeName: (
+    tableId: string,
+    data: { name: string; order: number }
+  ) => Promise<void>;
 }
 
 const TabLabel: React.FC<Props> = ({ tableInfo, handleChangeName }) => {
   const [newName, setNewName] = useState(tableInfo.name);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleSave = () => {
-    handleChangeName(tableInfo.tableId, newName);
+    setLoading(true);
+    handleChangeName(tableInfo.tableId, {
+      ...tableInfo,
+      name: newName,
+    }).then(() => {
+      setLoading(false);
+    });
   };
 
   useEffect(() => {
@@ -32,7 +43,7 @@ const TabLabel: React.FC<Props> = ({ tableInfo, handleChangeName }) => {
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
           />
-          <Button type="primary" onClick={handleSave}>
+          <Button loading={loading} type="primary" onClick={handleSave}>
             Save
           </Button>
         </div>

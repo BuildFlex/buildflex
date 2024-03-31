@@ -11,6 +11,7 @@ datasource db {
 model Table {
   tableId         String    @id @unique @default(uuid())
   name            String
+  order           Int       @default(0)
   frozenColumnId  String?
   primaryColumnId String?
   columns         Column[]

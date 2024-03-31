@@ -8,21 +8,18 @@ export async function getTableApi(): Promise<SuccessResponse<Table[]>> {
   return client.get(resource);
 }
 
-export async function createTableApi(
-  nameTable: string
-): Promise<SuccessResponse<{ tableId: string }>> {
-  return client.post(resource, {
-    name: nameTable,
-  });
+export async function createTableApi(data: {
+  name: string;
+  order: number;
+}): Promise<SuccessResponse<Table>> {
+  return client.post(resource, data);
 }
 
 export async function updateTableApi(
   tableId: string,
-  nameTable: string
+  data: { name: string; order: number }
 ): Promise<SuccessResponse<NonNullable<unknown>>> {
-  return client.put(`${resource}/${tableId}`, {
-    name: nameTable,
-  });
+  return client.put(`${resource}/${tableId}`, data);
 }
 
 export async function deleteTableApi(

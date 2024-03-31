@@ -112,26 +112,26 @@ const Table = ({ id }: ITable) => {
     }
   };
 
-  const updateColumn = async ({ idColumn, columns }: IUpdateColumn) => {
-    try {
-      const body = {};
-
-      const properties = ['name', 'type', 'order', 'width', 'description'];
-
-      properties.forEach((property) => {
-        if (columns.hasOwnProperty(property)) {
-          body[property] = columns[property];
-        }
-      });
-
-      console.log(body);
-
-      const res = await updateColumnApi(idColumn, body);
-      console.log(res);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+  // const updateColumn = async ({ idColumn, columns }: IUpdateColumn) => {
+  //   try {
+  //     const body = {};
+  //
+  //     const properties = ['name', 'type', 'order', 'width', 'description'];
+  //
+  //     properties.forEach((property) => {
+  //       if (columns.hasOwnProperty(property)) {
+  //         body[property] = columns[property];
+  //       }
+  //     });
+  //
+  //     console.log(body);
+  //
+  //     const res = await updateColumnApi(idColumn, body);
+  //     console.log(res);
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // };
 
   useEffect(() => {
     getDataTable(id);

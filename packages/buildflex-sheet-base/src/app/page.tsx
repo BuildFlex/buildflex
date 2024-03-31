@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import TableList from '../components/TableList';
 import {
   createTableApi,
@@ -11,53 +11,51 @@ import {
 import { useDispatch } from 'react-redux';
 import { setLoading } from '../store/themeConfigReducer';
 import TabLabel from '../components/TableList/TabLabel';
-import { TabsProps } from 'antd';
 import Table from '../components/TableList/Table';
+import { Table as TableInterface } from '../interfaces/table';
+import { sortByOrder } from '../ultils/sortByOrder';
+import { arrayMove } from '@dnd-kit/sortable';
 
 export default function Index() {
   const dispatch = useDispatch();
-  const [table, setTable] = useState<NonNullable<TabsProps['items']>>([]);
-  const handleChangeTableName = async (tableId: string, tableName: string) => {
+  const [table, setTable] = useState<TableInterface[]>([]);
+  const updateTable = async (
+    tableId: string,
+    data: { name: string; order: number }
+  ) => {
     try {
-      await updateTableApi(tableId, tableName);
+      await updateTableApi(tableId, data);
       setTable((oldData) =>
-        oldData?.map((table) => ({
-          ...table,
-          label:
-            table.key === tableId ? (
-              <TabLabel
-                tableInfo={{
-                  name: tableName,
-                  tableId,
-                }}
-                handleChangeName={handleChangeTableName}
-              />
-            ) : (
-              table.label
-            ),
-        }))
+        sortByOrder(
+          oldData.map((table) => ({
+            ...table,
+            name: table.tableId === tableId ? data.name : table.name,
+            order: table.tableId === tableId ? data.order : table.order,
+          }))
+        )
       );
     } catch (e) {
       console.error(e);
     }
   };
 
+  const handleUpdateOrderTable = async (
+    tableId: string,
+    oldIndex: number,
+    newIndex: number
+  ) => {
+    await updateTableApi(tableId, {
+      order: newIndex,
+      name: table[oldIndex].name,
+    });
+    setTable((prev) => arrayMove(prev, oldIndex, newIndex));
+  };
+
   const getTable = async () => {
     try {
       dispatch(setLoading(true));
       const res = await getTableApi();
-      setTable(
-        res.data?.map((item: { name: string; tableId: string }) => ({
-          label: (
-            <TabLabel
-              tableInfo={item}
-              handleChangeName={handleChangeTableName}
-            />
-          ),
-          children: <Table id={item.tableId} />,
-          key: item.tableId,
-        }))
-      );
+      setTable(res.data);
     } catch (e) {
       console.error(e);
     } finally {
@@ -67,23 +65,12 @@ export default function Index() {
 
   const handleAddTable = async (tableName: string) => {
     try {
-      const res = await createTableApi(tableName);
-      const tableId = res.data.tableId as string;
-      const newList = [...table];
-      newList.push({
-        label: (
-          <TabLabel
-            tableInfo={{
-              tableId,
-              name: tableName,
-            }}
-            handleChangeName={handleChangeTableName}
-          />
-        ),
-        children: tableId,
-        key: tableId,
-      });
-      setTable(newList);
+      const body = {
+        name: tableName,
+        order: table.length,
+      };
+      const res = await createTableApi(body);
+      setTable([...table, res.data]);
     } catch (e) {
       console.error(e);
     }
@@ -92,11 +79,21 @@ export default function Index() {
   const handleRemoveTable = async (tableId: string) => {
     try {
       await deleteTableApi(tableId);
-      setTable((oldData) => oldData.filter((item) => item.key !== tableId));
+      setTable((oldData) => oldData.filter((item) => item.tableId !== tableId));
     } catch (e) {
       console.error(e);
     }
   };
+
+  const parseTableToTab = useMemo(
+    () =>
+      table.map((item: TableInterface) => ({
+        label: <TabLabel tableInfo={item} handleChangeName={updateTable} />,
+        children: <Table id={item.tableId} />,
+        key: item.tableId,
+      })) || [],
+    [table]
+  );
 
   useEffect(() => {
     getTable();
@@ -107,7 +104,8 @@ export default function Index() {
       <TableList
         handleAdd={handleAddTable}
         handleRemove={handleRemoveTable}
-        itemsTab={table}
+        handleUpdateOrder={handleUpdateOrderTable}
+        itemsTab={parseTableToTab}
       />
     </>
   );

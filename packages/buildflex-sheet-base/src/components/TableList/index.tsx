@@ -20,6 +20,11 @@ interface Props {
   itemsTab: NonNullable<TabsProps['items']>;
   handleAdd: (tableName: string) => Promise<void>;
   handleRemove: (tableId: string) => Promise<void>;
+  handleUpdateOrder: (
+    tableId: string,
+    oldIndex: number,
+    newIndex: number
+  ) => Promise<void>;
 }
 
 const DraggableTabNode = ({ className, ...props }: DraggableTabPaneProps) => {
@@ -47,6 +52,7 @@ const TableList: React.FC<Props> = ({
   itemsTab,
   handleAdd,
   handleRemove,
+  handleUpdateOrder,
 }: Props) => {
   const [items, setItems] = useState<NonNullable<TabsProps['items']>>([]);
   const [activeKey, setActiveKey] = useState<string>('');
@@ -55,13 +61,11 @@ const TableList: React.FC<Props> = ({
     activationConstraint: { distance: 10 },
   });
 
-  const onDragEnd = ({ active, over }: DragEndEvent) => {
+  const onDragEnd = async ({ active, over }: DragEndEvent) => {
     if (active.id !== over?.id) {
-      setItems((prev) => {
-        const activeIndex = prev.findIndex((i) => i.key === active.id);
-        const overIndex = prev.findIndex((i) => i.key === over?.id);
-        return arrayMove(prev, activeIndex, overIndex);
-      });
+      const activeIndex = items.findIndex((i) => i.key === active.id);
+      const overIndex = items.findIndex((i) => i.key === over?.id);
+      await handleUpdateOrder(active.id as string, activeIndex, overIndex);
     }
   };
 
