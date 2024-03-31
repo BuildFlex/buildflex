@@ -24,9 +24,11 @@ export class ColumnService {
     return this.prismaService.$transaction(async (prisma) => {
       await prisma.column.create({
         data: {
+          name: data.name,
           type: data.type,
           description: data.description,
           order: data.order,
+          width: data?.width,
           table: { connect: { tableId: data.tableId } },
         },
       });

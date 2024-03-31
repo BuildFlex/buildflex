@@ -23,7 +23,9 @@ model Table {
 model Column {
   columnId    String    @id @unique @default(uuid())
   tableId     String
+  name        String
   type        Int
+  width       Int       @default(100)
   isHide      Boolean   @default(false)
   order       Int
   description String?

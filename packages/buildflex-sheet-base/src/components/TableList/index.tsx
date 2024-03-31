@@ -1,3 +1,5 @@
+'use client';
+
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext, PointerSensor, useSensor } from '@dnd-kit/core';
 import {
@@ -112,6 +114,7 @@ const TableList: React.FC<Props> = ({
       onEdit={onEdit}
       activeKey={activeKey}
       onChange={onChange}
+      destroyInactiveTabPane
       renderTabBar={(tabBarProps, DefaultTabBar) => (
         <DndContext sensors={[sensor]} onDragEnd={onDragEnd}>
           <SortableContext
