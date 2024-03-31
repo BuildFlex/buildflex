@@ -23,6 +23,7 @@ model Table {
 model Column {
   columnId    String    @id @unique @default(uuid())
   tableId     String
+  name        String
   type        Int
   isHide      Boolean   @default(false)
   order       Int

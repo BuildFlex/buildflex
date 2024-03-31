@@ -6,6 +6,10 @@ export default class CreateColumnDto {
   tableId: string;
 
   @IsNotEmpty()
+  @IsString()
+  name: string;
+
+  @IsNotEmpty()
   @IsNumber()
   type: number;
 

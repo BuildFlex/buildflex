@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { setLoading } from '../store/themeConfigReducer';
 import TabLabel from '../components/TableList/TabLabel';
 import { TabsProps } from 'antd';
+import Table from '../components/TableList/Table';
 
 export default function Index() {
   const dispatch = useDispatch();
@@ -53,7 +54,7 @@ export default function Index() {
               handleChangeName={handleChangeTableName}
             />
           ),
-          children: item.tableId,
+          children: <Table id={item.tableId} />,
           key: item.tableId,
         }))
       );

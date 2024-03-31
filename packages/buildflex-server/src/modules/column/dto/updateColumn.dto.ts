@@ -6,6 +6,10 @@ export default class UpdateColumnDto {
   type: number;
 
   @IsNotEmpty()
+  @IsString()
+  name: string;
+
+  @IsNotEmpty()
   @IsNumber()
   order: number;
 
