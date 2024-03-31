@@ -5,6 +5,7 @@ import { StyledComponentsRegistry } from './registry';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { Provider } from 'react-redux';
 import store from '../store';
+import Loading from './loading';
 
 export default function RootLayout({
   children,
@@ -16,6 +17,7 @@ export default function RootLayout({
       <Provider store={store}>
         <body>
           <AntdRegistry>
+            <Loading />
             <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
           </AntdRegistry>
         </body>

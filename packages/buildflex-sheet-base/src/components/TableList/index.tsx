@@ -15,7 +15,7 @@ interface DraggableTabPaneProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 interface Props {
-  itemsTab: TabsProps['items'];
+  itemsTab: NonNullable<TabsProps['items']>;
   handleAdd: (tableName: string) => Promise<void>;
   handleRemove: (tableId: string) => Promise<void>;
 }
@@ -74,23 +74,15 @@ const TableList: React.FC<Props> = ({
 
   const remove = async (targetKey: string) => {
     await handleRemove(targetKey);
-    let newActiveKey = activeKey;
-    let lastIndex = -1;
-    items.forEach((item, i) => {
-      if (item.key === targetKey) {
-        lastIndex = i - 1;
-      }
-    });
-    const newPanes = items.filter((item) => item.key !== targetKey);
-    if (newPanes.length && newActiveKey === targetKey) {
-      if (lastIndex >= 0) {
-        newActiveKey = newPanes[lastIndex].key;
+    if (activeKey === targetKey) {
+      let index = items.findIndex((v) => v.key === targetKey);
+      if (index === 0) {
+        index++;
       } else {
-        newActiveKey = newPanes[0].key;
+        index--;
       }
+      setActiveKey(items[index]?.key || '');
     }
-    setItems(newPanes);
-    setActiveKey(newActiveKey);
   };
 
   const onEdit = (
@@ -105,9 +97,14 @@ const TableList: React.FC<Props> = ({
   };
 
   useEffect(() => {
-    if (itemsTab && itemsTab.length > 0) setItems(itemsTab);
+    if (itemsTab.length > 0) {
+      setItems(itemsTab);
+      setActiveKey((old) => old || itemsTab[0].key);
+    } else {
+      setItems([]);
+      setActiveKey('');
+    }
   }, [itemsTab]);
-
   return (
     <Tabs
       type="editable-card"

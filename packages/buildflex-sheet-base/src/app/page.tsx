@@ -18,7 +18,6 @@ export default function Index() {
   const [table, setTable] = useState<NonNullable<TabsProps['items']>>([]);
   const handleChangeTableName = async (tableId: string, tableName: string) => {
     try {
-      dispatch(setLoading(true));
       await updateTableApi(tableId, tableName);
       setTable((oldData) =>
         oldData?.map((table) => ({
@@ -47,7 +46,7 @@ export default function Index() {
       dispatch(setLoading(true));
       const res = await getTableApi();
       setTable(
-        res.data?.map((item: { name: any; tableId: any }) => ({
+        res.data?.map((item: { name: string; tableId: string }) => ({
           label: (
             <TabLabel
               tableInfo={item}
@@ -60,12 +59,13 @@ export default function Index() {
       );
     } catch (e) {
       console.error(e);
+    } finally {
+      dispatch(setLoading(false));
     }
   };
 
   const handleAddTable = async (tableName: string) => {
     try {
-      dispatch(setLoading(true));
       const res = await createTableApi(tableName);
       const tableId = res.data.tableId as string;
       const newList = [...table];
@@ -90,8 +90,8 @@ export default function Index() {
 
   const handleRemoveTable = async (tableId: string) => {
     try {
-      dispatch(setLoading(true));
       await deleteTableApi(tableId);
+      setTable((oldData) => oldData.filter((item) => item.key !== tableId));
     } catch (e) {
       console.error(e);
     }

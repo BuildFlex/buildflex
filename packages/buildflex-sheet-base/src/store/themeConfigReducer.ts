@@ -5,8 +5,8 @@ const initialState = {
   isLoading: false,
 };
 
-const authConfigSlice = createSlice({
-  name: 'auth',
+const themeSlice = createSlice({
+  name: 'theme',
   initialState: initialState,
   reducers: {
     changeTheme: (state, { payload }) => {
@@ -24,6 +24,6 @@ const authConfigSlice = createSlice({
   },
 });
 
-export const { changeTheme, setLoading } = authConfigSlice.actions;
+export const { changeTheme, setLoading } = themeSlice.actions;
 
-export default authConfigSlice.reducer;
+export default themeSlice.reducer;
