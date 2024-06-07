@@ -1,0 +1,59 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Table {
+  tableId         String    @id @unique @default(uuid())
+  name            String
+  frozenColumnId  String?
+  primaryColumnId String?
+  columns         Column[]
+  rows            Row[]
+  updatedAt       DateTime? @updatedAt @db.Timestamp(6)
+  createdAt       DateTime? @default(now()) @db.Timestamp(6)
+  deletedAt       DateTime?
+}
+
+model Column {
+  columnId    String    @id @unique @default(uuid())
+  tableId     String
+  type        Int
+  isHide      Boolean   @default(false)
+  order       Int
+  description String?
+  table       Table     @relation(fields: [tableId], references: [tableId])
+  cells       Cell[]
+  updatedAt   DateTime? @updatedAt @db.Timestamp(6)
+  createdAt   DateTime? @default(now()) @db.Timestamp(6)
+  deletedAt   DateTime?
+}
+
+model Row {
+  rowId     String    @id @unique @default(uuid())
+  tableId   String
+  order     Int
+  table     Table     @relation(fields: [tableId], references: [tableId])
+  cells     Cell[]
+  updatedAt DateTime? @updatedAt @db.Timestamp(6)
+  createdAt DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model Cell {
+  cellId    String    @id @unique @default(uuid())
+  columnId  String
+  rowId     String
+  value     String
+  column    Column    @relation(fields: [columnId], references: [columnId])
+  row       Row       @relation(fields: [rowId], references: [rowId])
+  updatedAt DateTime? @updatedAt @db.Timestamp(6)
+  createdAt DateTime? @default(now()) @db.Timestamp(6)
+
+  @@unique([cellId, columnId])
+  @@index([cellId, columnId], name: "cell_column_index")
+}

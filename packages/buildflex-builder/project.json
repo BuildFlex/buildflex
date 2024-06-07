@@ -3,6 +3,11 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/buildflex-builder/src",
   "projectType": "application",
-  "targets": {},
+  "targets": {
+    "docker-build": {
+      "dependsOn": ["build"],
+      "command": "docker build -f packages/buildflex-builder/Dockerfile . -t buildflex-builder"
+    }
+  },
   "tags": []
 }
