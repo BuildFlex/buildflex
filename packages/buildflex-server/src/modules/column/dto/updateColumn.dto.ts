@@ -1,21 +1,13 @@
-import { IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export default class UpdateColumnDto {
-  @IsOptional()
+  @IsNotEmpty()
   @IsNumber()
   type: number;
 
-  @IsOptional()
-  @IsString()
-  name: string;
-
-  @IsOptional()
+  @IsNotEmpty()
   @IsNumber()
   order: number;
-
-  @IsOptional()
-  @IsNumber()
-  width: number;
 
   @IsOptional()
   @IsString()

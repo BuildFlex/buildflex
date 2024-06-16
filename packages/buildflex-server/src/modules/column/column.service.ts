@@ -22,35 +22,25 @@ export class ColumnService {
 
   public create(data: CreateColumnDto) {
     return this.prismaService.$transaction(async (prisma) => {
+      await prisma.column.create({
+        data: {
+          type: data.type,
+          description: data.description,
+          order: data.order,
+          table: { connect: { tableId: data.tableId } },
+        },
+      });
       await updateOrder(
         prisma.column,
         { tableId: data.tableId },
         { new: data.order }
       );
-      await prisma.column.create({
-        data: {
-          name: data.name,
-          type: data.type,
-          description: data.description,
-          order: data.order,
-          width: data?.width,
-          table: { connect: { tableId: data.tableId } },
-        },
-      });
     });
   }
 
   public async update(data: UpdateColumnDto, columnId: string) {
     const column = await this.getOne(columnId);
     return this.prismaService.$transaction(async (prisma) => {
-      await updateOrder(
-        prisma.column,
-        { tableId: column.tableId },
-        {
-          new: data.order,
-          old: column.order,
-        }
-      );
       await prisma.column.update({
         where: {
           columnId,
@@ -61,12 +51,25 @@ export class ColumnService {
           order: data.order,
         },
       });
+      await updateOrder(
+        prisma.column,
+        { tableId: column.tableId },
+        {
+          new: data.order,
+          old: column.order,
+        }
+      );
     });
   }
 
   public async delete(columnId: string) {
     const column = await this.getOne(columnId);
     return this.prismaService.$transaction(async (prisma) => {
+      await this.prismaService.column.delete({
+        where: {
+          columnId,
+        },
+      });
       await updateOrder(
         prisma.column,
         { tableId: column.tableId },
@@ -74,11 +77,6 @@ export class ColumnService {
           old: column.order,
         }
       );
-      await prisma.column.delete({
-        where: {
-          columnId,
-        },
-      });
     });
   }
 }

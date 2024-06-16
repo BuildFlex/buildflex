@@ -5,25 +5,19 @@ export const updateOrder = async (
 ) => {
   const oldOrder = order.old;
   const newOrder = order.new;
-  console.log(oldOrder, newOrder);
   if (oldOrder === newOrder) return;
-  console.log(1);
-  if (oldOrder === undefined) {
-    console.log(2);
+  if (!oldOrder) {
     await updateOrderWhenCreate(model, where, newOrder);
     return;
   }
-  if (newOrder === undefined) {
-    console.log(3);
+  if (!newOrder) {
     await updateOrderWhenDelete(model, where, oldOrder);
     return;
   }
   if (oldOrder > newOrder) {
-    console.log(4);
     await updateOrderWhenOrderDown(model, where, order);
     return;
   } else {
-    console.log(5);
     await updateOrderWhenOrderUp(model, where, order);
     return;
   }
@@ -66,16 +60,6 @@ async function updateOrderWhenOrderDown(
   where: any,
   order: { new?: number; old?: number }
 ) {
-  console.log(
-    await model.findMany({
-      where: {
-        order: {
-          gte: order.new,
-          lt: order.old,
-        },
-      },
-    })
-  );
   await model.updateMany({
     where: {
       ...where,
