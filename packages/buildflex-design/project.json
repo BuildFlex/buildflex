@@ -1,0 +1,8 @@
+{
+  "name": "buildflex-design",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/buildflex-design/src",
+  "projectType": "application",
+  "targets": {},
+  "tags": []
+}

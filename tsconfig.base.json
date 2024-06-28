@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@shared-ui": ["packages/shared-ui/src/index.ts"],
       "utils": ["packages/utils/src/index.ts"]
     }
   },
