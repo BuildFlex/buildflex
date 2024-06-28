@@ -17,14 +17,14 @@ const Table = () => {
       11: 'a' + i,
       22: '12' + i,
       33: 'HN' + i,
-    })),
+    }))
   );
   const [draggedColumn, setDraggedColumn] = useState(null);
   const [draggedOverColumn, setDraggedOverColumn] = useState(null);
 
   const handleMouseDown = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    column: any,
+    column: any
   ) => {
     setDraggedColumn(column);
   };
@@ -34,16 +34,16 @@ const Table = () => {
 
     const updatedColumns = [...columns];
     const draggedIndex = columns.findIndex(
-      (col) => col.id === draggedColumn.id,
+      (col) => col.id === draggedColumn.id
     );
     const droppedIndex = columns.findIndex(
-      (col) => col.id === draggedOverColumn.id,
+      (col) => col.id === draggedOverColumn.id
     );
 
     updatedColumns.splice(
       droppedIndex,
       0,
-      updatedColumns.splice(draggedIndex, 1)[0],
+      updatedColumns.splice(draggedIndex, 1)[0]
     );
 
     setColumns(updatedColumns);
@@ -53,7 +53,7 @@ const Table = () => {
 
   const handleMouseMove = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    column: any,
+    column: any
   ) => {
     if (!draggedColumn) return;
 
@@ -64,7 +64,7 @@ const Table = () => {
   const [isDraging, setIsDraging] = useState(false);
   const handleDragStart = (
     e: React.DragEvent<HTMLDivElement>,
-    index: number,
+    index: number
   ) => {
     e.dataTransfer.setData('index', String(index));
     e.target.style.background = '#0000002b';

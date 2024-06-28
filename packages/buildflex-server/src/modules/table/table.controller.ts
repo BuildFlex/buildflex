@@ -51,7 +51,7 @@ export class TableController extends BaseController {
   @Put(':tableId')
   public async update(
     @Body() body: UpdateTableDto,
-    @Param('tableId') tableId: string,
+    @Param('tableId') tableId: string
   ) {
     try {
       await this.tableService.update(body, tableId);

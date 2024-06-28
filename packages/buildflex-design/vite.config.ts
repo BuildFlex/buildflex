@@ -2,7 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
-
+import path from 'path';
 export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/packages/buildflex-design',
@@ -18,6 +18,12 @@ export default defineConfig({
   },
 
   plugins: [react(), nxViteTsPaths()],
+  resolve: {
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@themes': path.resolve(__dirname, 'src/themes'),
+    },
+  },
 
   // Uncomment this if you are using workers.
   // worker: {

@@ -1,15 +1,12 @@
 {
-  "name": "buildflex-ui",
+  "name": "buildflex-design",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "postcss.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "nx": {
-    "includedScripts": []
-  }
+  "description": ""
 }
