@@ -17,7 +17,7 @@ const Table = () => {
 
   const handleDragStart = (
     e: React.DragEvent<HTMLDivElement>,
-    index: number
+    index: number,
   ) => {
     e.dataTransfer.setData('index', String(index));
     e.target.style.background = '#0000002b';

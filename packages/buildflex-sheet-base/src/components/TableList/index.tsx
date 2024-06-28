@@ -23,7 +23,7 @@ interface Props {
   handleUpdateOrder: (
     tableId: string,
     oldIndex: number,
-    newIndex: number
+    newIndex: number,
   ) => Promise<void>;
 }
 
@@ -93,7 +93,7 @@ const TableList: React.FC<Props> = ({
 
   const onEdit = (
     targetKey: React.MouseEvent | React.KeyboardEvent | string,
-    action: 'add' | 'remove'
+    action: 'add' | 'remove',
   ) => {
     if (action === 'add') {
       add();

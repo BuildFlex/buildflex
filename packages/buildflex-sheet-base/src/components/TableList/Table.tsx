@@ -23,7 +23,7 @@ const Table = ({ id }: ITable) => {
 
   const handleMouseDown = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    column: any
+    column: any,
   ) => {
     setDraggedColumn(column);
   };
@@ -33,16 +33,16 @@ const Table = ({ id }: ITable) => {
 
     const updatedColumns = [...columns];
     const draggedIndex = columns.findIndex(
-      (col) => col.id === draggedColumn.id
+      (col) => col.id === draggedColumn.id,
     );
     const droppedIndex = columns.findIndex(
-      (col) => col.id === draggedOverColumn.id
+      (col) => col.id === draggedOverColumn.id,
     );
 
     updatedColumns.splice(
       droppedIndex,
       0,
-      updatedColumns.splice(draggedIndex, 1)[0]
+      updatedColumns.splice(draggedIndex, 1)[0],
     );
 
     setColumns(updatedColumns);
@@ -52,7 +52,7 @@ const Table = ({ id }: ITable) => {
 
   const handleMouseMove = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    column: any
+    column: any,
   ) => {
     if (!draggedColumn) return;
 
@@ -63,7 +63,7 @@ const Table = ({ id }: ITable) => {
   const [isDraging, setIsDraging] = useState(false);
   const handleDragStart = (
     e: React.DragEvent<HTMLDivElement>,
-    index: number
+    index: number,
   ) => {
     e.dataTransfer.setData('index', String(index));
     e.target.style.background = '#0000002b';
@@ -89,7 +89,7 @@ const Table = ({ id }: ITable) => {
   const handleDrop = (
     e: React.DragEvent<HTMLDivElement>,
     index: number,
-    idColumn: string
+    idColumn: string,
   ) => {
     console.log(12312312);
     e.target.style.background = '';
@@ -105,7 +105,7 @@ const Table = ({ id }: ITable) => {
       const res = await getDataTableApi(id);
       console.log(res.data.columns);
       setColumns(
-        res.data.columns?.map((col: any) => ({ ...col, id: col.columnId }))
+        res.data.columns?.map((col: any) => ({ ...col, id: col.columnId })),
       );
     } catch (e) {
       console.error(e);

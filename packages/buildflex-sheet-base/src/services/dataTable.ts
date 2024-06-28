@@ -4,7 +4,7 @@ import { SuccessResponse } from '../interfaces/reponse';
 const resource = '/dataTable';
 
 export async function getDataTableApi(
-  id: string
+  id: string,
 ): Promise<SuccessResponse<any>> {
   return client.get(`${resource}/${id}`);
 }

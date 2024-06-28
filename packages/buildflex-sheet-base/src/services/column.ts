@@ -5,14 +5,14 @@ import client from './client';
 const resource = '/column';
 
 export async function getColumnApi(
-  id: string
+  id: string,
 ): Promise<SuccessResponse<Column[]>> {
   return client.get(`${resource}/${id}`);
 }
 
 export async function updateColumnApi(
   id: string,
-  body: any
+  body: any,
 ): Promise<SuccessResponse<Column[]>> {
   return client.patch(`${resource}/${id}`, body);
 }

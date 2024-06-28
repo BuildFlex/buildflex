@@ -51,7 +51,7 @@ export class ColumnController extends BaseController {
   @Put(':columnId')
   public async update(
     @Body() body: UpdateColumnDto,
-    @Param('columnId') columnId: string
+    @Param('columnId') columnId: string,
   ) {
     try {
       await this.columnService.update(body, columnId);

@@ -1,6 +1,6 @@
 export function sortByOrder(
   arr: { order: number }[],
-  order: 'asc' | 'desc' = 'asc'
+  order: 'asc' | 'desc' = 'asc',
 ): any[] {
   return arr.slice().sort((a, b) => {
     if (order === 'asc') {

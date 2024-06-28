@@ -1,7 +1,7 @@
 export const updateOrder = async (
   model: any,
   where: any,
-  order: { new?: number; old?: number }
+  order: { new?: number; old?: number },
 ) => {
   const oldOrder = order.old;
   const newOrder = order.new;
@@ -58,7 +58,7 @@ async function updateOrderWhenDelete(model: any, where: any, oldOrder: number) {
 async function updateOrderWhenOrderDown(
   model: any,
   where: any,
-  order: { new?: number; old?: number }
+  order: { new?: number; old?: number },
 ) {
   await model.updateMany({
     where: {
@@ -79,7 +79,7 @@ async function updateOrderWhenOrderDown(
 async function updateOrderWhenOrderUp(
   model: any,
   where: any,
-  order: { new?: number; old?: number }
+  order: { new?: number; old?: number },
 ) {
   return await model.updateMany({
     where: {

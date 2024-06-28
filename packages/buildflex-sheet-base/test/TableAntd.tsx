@@ -95,7 +95,7 @@ const TableAntd: React.FC = () => {
       name: `Edward King ${i}`,
       age: 32,
       address: `London, Park Lane no. ${i}`,
-    }))
+    })),
   );
 
   // return (

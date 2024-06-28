@@ -33,7 +33,7 @@ export class ColumnService {
       await updateOrder(
         prisma.column,
         { tableId: data.tableId },
-        { new: data.order }
+        { new: data.order },
       );
     });
   }
@@ -57,7 +57,7 @@ export class ColumnService {
         {
           new: data.order,
           old: column.order,
-        }
+        },
       );
     });
   }
@@ -75,7 +75,7 @@ export class ColumnService {
         { tableId: column.tableId },
         {
           old: column.order,
-        }
+        },
       );
     });
   }

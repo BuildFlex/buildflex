@@ -9,7 +9,7 @@ interface Props {
   };
   handleChangeName: (
     tableId: string,
-    data: { name: string; order: number }
+    data: { name: string; order: number },
   ) => Promise<void>;
 }
 
