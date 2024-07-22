@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx", "prettier"],
+  "plugins": ["@nx"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -37,15 +37,6 @@
         "jest": true
       },
       "rules": {}
-    },
-    {
-      "extends": [
-        "prettier"
-      ],
-      "rules": {
-        "prettier/prettier": "error"
-      },
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"]
     }
   ]
 }
