@@ -6,7 +6,7 @@ module.exports = {
   content: [
     join(
       __dirname,
-      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
+      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html,js,jsx}'
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
@@ -14,15 +14,24 @@ module.exports = {
     extend: {
       colors: {
         'brand': {
+          PRIMARY: '#15A0A3',
+          'bf-gradient-start': '#21D4A7',
+          'bf-gradient-end': '#0DA8D3',
+        },
+        'primary': {
           PRIMARY: '#0BA5EC',
           50: '#F0F9FF',
           100: '#E0F2FE',
           200: '#B9E6FE',
           300: '#7CD4FD',
-          600: '#0BA5EC',
+          600: '#087AAF',
           700: '#026AA2',
           800: '#065B89',
           900: '#062538',
+        },
+        'gradient': {
+          'sheet-base-start': "#076D9C",
+          'sheet-base-end': "#014F7A"
         },
         'gray': {
           50: '#F9FAFB',
@@ -69,6 +78,10 @@ module.exports = {
         8: '3.2rem',
         9: '3.6rem',
         10: '4.0rem',
+      },
+      fontFamily: {
+        'sans': ['Lato', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', "Segoe UI", 'Roboto', "Helvetica Neue", 'Arial', "Noto Sans", 'sans-serif', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+        'lato': ['Lato', 'sans-serif'],
       },
       fontSize: {
         xs: ['1.2rem', {lineHeight: '1.6rem'}],

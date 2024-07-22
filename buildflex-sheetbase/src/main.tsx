@@ -1,9 +1,8 @@
 import {StrictMode} from 'react';
 import * as ReactDOM from 'react-dom/client';
 import {BrowserRouter} from 'react-router-dom';
-import {ConfigProvider} from 'antd';
-import {StyleProvider} from '@ant-design/cssinjs';
-import 'antd/dist/reset.css';
+// import {ConfigProvider} from 'antd';
+// import {StyleProvider} from '@ant-design/cssinjs';
 
 import App from './app/app';
 
@@ -13,19 +12,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <StrictMode>
     <BrowserRouter>
-      <ConfigProvider
-        theme={{
-          token: {
-            // Customize Ant Design theme here
-            colorPrimary: '#1890ff',
-          },
-        }}
-      >
-        <StyleProvider hashPriority="high">
+      {/*<ConfigProvider>*/}
+      {/*  <StyleProvider hashPriority="high">*/}
           <App/>
-        </StyleProvider>
-      </ConfigProvider>
-
+        {/*</StyleProvider>*/}
+      {/*</ConfigProvider>*/}
     </BrowserRouter>
   </StrictMode>
 );
