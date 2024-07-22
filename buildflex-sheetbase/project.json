@@ -1,0 +1,9 @@
+{
+  "name": "buildflex-sheetbase",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "buildflex-sheetbase/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project buildflex-sheetbase --web",
+  "targets": {}
+}
