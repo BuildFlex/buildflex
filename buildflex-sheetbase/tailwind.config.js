@@ -1,24 +1,24 @@
-const {createGlobPatternsForDependencies} = require('@nx/react/tailwind');
-const {join} = require('path');
+const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
+const { join } = require('path');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     join(
       __dirname,
-      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html,js,jsx}'
+      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html,js,jsx}',
     ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
     extend: {
       colors: {
-        'brand': {
+        brand: {
           PRIMARY: '#15A0A3',
           'bf-gradient-start': '#21D4A7',
           'bf-gradient-end': '#0DA8D3',
         },
-        'primary': {
+        primary: {
           PRIMARY: '#0BA5EC',
           50: '#F0F9FF',
           100: '#E0F2FE',
@@ -29,11 +29,11 @@ module.exports = {
           800: '#065B89',
           900: '#062538',
         },
-        'gradient': {
-          'sheet-base-start': "#076D9C",
-          'sheet-base-end': "#014F7A"
+        gradient: {
+          'sheet-base-start': '#076D9C',
+          'sheet-base-end': '#014F7A',
         },
-        'gray': {
+        gray: {
           50: '#F9FAFB',
           100: '#F2F4F7',
           200: '#D0D5DD',
@@ -41,32 +41,41 @@ module.exports = {
           400: '#344054',
           500: '#101828',
         },
-        'semantic': {
+        semantic: {
           DEFAULT: '#0D7FAB',
           50: '#E3EEF2',
           100: '#86BFD4',
           600: '#0D7FAB',
         },
-        'success': {
+        success: {
           DEFAULT: '#12B981',
           50: '#ECFBF3',
           100: '#D1FAE5',
           200: '#88DCBF',
           600: '#12B981',
         },
-        'warning': {
+        warning: {
           DEFAULT: '#FCBF25',
           50: '#FFFAF0',
           100: '#FFE9B2',
           200: '#FDDF92',
           600: '#FCBF25',
         },
-        'danger': {
+        danger: {
           DEFAULT: '#F87171',
           50: '#FEF0EF',
           100: '#FAC8BE',
           200: '#FBB7B7',
           400: '#F87171',
+        },
+        natural: {
+          TERTIARY: '#FEFEFE',
+          50: '#F9FAFB',
+          200: '#CACFD8',
+          500: '#F9FAFB',
+        },
+        'natural-dark': {
+          500: '#101828',
         },
       },
       lineHeight: {
@@ -80,23 +89,34 @@ module.exports = {
         10: '4.0rem',
       },
       fontFamily: {
-        'sans': ['Lato', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', "Segoe UI", 'Roboto', "Helvetica Neue", 'Arial', "Noto Sans", 'sans-serif', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
-        'lato': ['Lato', 'sans-serif'],
+        sans: [
+          'Lato',
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'Noto Sans',
+          'sans-serif',
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+          'Noto Color Emoji',
+        ],
+        lato: ['Lato', 'sans-serif'],
       },
       fontSize: {
-        xs: ['1.2rem', {lineHeight: '1.6rem'}],
-        sm: ['1.4rem', {lineHeight: '2.0rem'}],
-        base: ['1.6rem', {lineHeight: '2.4rem'}],
-        lg: ['1.8rem', {lineHeight: '2.8rem'}],
-        xl: ['2.0rem', {lineHeight: '2.8rem'}],
-        '2xl': ['2.4rem', {lineHeight: '3.2rem'}],
-        '3xl': ['3.0rem', {lineHeight: '3.6rem'}],
-        '4xl': ['3.6rem', {lineHeight: '4.0rem'}],
-        '5xl': ['4.8rem', {lineHeight: '1'}],
-        '6xl': ['6.0rem', {lineHeight: '1'}],
-        '7xl': ['7.2rem', {lineHeight: '1'}],
-        '8xl': ['9.6rem', {lineHeight: '1'}],
-        '9xl': ['12.8rem', {lineHeight: '1'}],
+        xs: ['1.2rem', { lineHeight: '1.6rem' }],
+        sm: ['1.4rem', { lineHeight: '2.0rem' }],
+        base: ['1.6rem', { lineHeight: '2.4rem' }],
+        lg: ['1.8rem', { lineHeight: '2.3rem' }],
+        xl: ['2.0rem', { lineHeight: '2.6rem' }],
+        '2xl': ['2.4rem', { lineHeight: '3.2rem' }],
+        '3xl': ['2.8rem', { lineHeight: '3.6rem' }],
+        '4xl': ['3.6rem', { lineHeight: '4.6rem' }],
       },
       spacing: {
         px: '.1rem',
@@ -144,7 +164,7 @@ module.exports = {
       },
       borderRadius: {
         sm: '.2rem',
-        DEFAULT: '.4rem',
+        DEFAULT: '.8rem',
         md: '.6rem',
         lg: '.8rem',
         xl: '1.2rem',
@@ -173,6 +193,7 @@ module.exports = {
   },
   plugins: [],
   corePlugins: {
-    preflight: false, // This is important to prevent Tailwind from overriding Ant Design styles
+    // This is important to prevent Tailwind from overriding Ant Design styles
+    preflight: false,
   },
 };

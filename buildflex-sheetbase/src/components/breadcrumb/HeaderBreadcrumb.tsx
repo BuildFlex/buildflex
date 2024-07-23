@@ -1,29 +1,24 @@
-import {Breadcrumb, Button, ConfigProvider} from "antd";
-import React from "react";
-import {ArrowRight2} from "iconsax-react";
+import { Breadcrumb, Button, ConfigProvider, Menu } from 'antd';
+import React from 'react';
+import { ArrowRight2, Book } from 'iconsax-react';
+import { DatabaseFilled } from '@ant-design/icons';
 
-interface BreadcrumbProps {
-  items: [],
-  separator?: any,
-}
 export default function HeaderBreadcrumb() {
   return (
     <ConfigProvider
       theme={{
         components: {
           Breadcrumb: {
-            itemColor: "#FFF",
-            linkColor: "#FFF",
-            lastItemColor: "#FFF",
+            itemColor: '#FFF',
+            linkColor: '#FFF',
+            lastItemColor: '#FFF',
+            linkHoverColor: '#FFF',
           },
         },
       }}
     >
       <Breadcrumb
-        separator={<ArrowRight2
-          size="16"
-          color="#FFF"
-        />}
+        separator={<ArrowRight2 size="16" color="#FFF" />}
         items={[
           {
             href: '',
@@ -31,13 +26,19 @@ export default function HeaderBreadcrumb() {
           },
           {
             href: '',
-            title: (<span>Bien Hoang</span>),
+            title: 'Bien Hoang',
           },
           {
-            title: (<strong>NETKO SheetBase</strong>),
+            href: '',
+            title: (
+              <>
+                <DatabaseFilled />
+                <span>NETKO Book</span>
+              </>
+            ),
           },
         ]}
       />
     </ConfigProvider>
-  )
+  );
 }

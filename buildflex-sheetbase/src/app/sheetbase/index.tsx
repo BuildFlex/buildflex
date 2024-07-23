@@ -1,17 +1,20 @@
 import React from 'react';
-import { Avatar, Button, Breadcrumb } from 'antd';
+import { Avatar, Divider } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import {
   MessageQuestion,
   Notification,
   Clock,
-  People,
-  ArrowRight2,
   Share,
+  Driver2,
 } from 'iconsax-react';
 import SheetBaseIcon from '../../components/common/SheetBaseIcon';
 import ButtonLink from '../../components/button/ButtonLink';
+import Button from '../../components/button/Button';
 import HeaderBreadcrumb from '../../components/breadcrumb/HeaderBreadcrumb';
+import SideBar from '../../components/sidebar';
+import Title from '../../components/typography/Title';
+import Text from '../../components/typography/Text';
 
 export function SheetBase() {
   return (
@@ -27,15 +30,35 @@ export function SheetBase() {
           <div className="logo p-3">
             <SheetBaseIcon />
           </div>
-          <div className="workspace flex flex-col justify-center">
+          <div className="workspace flex flex-col justify-center mt-1">
             <HeaderBreadcrumb />
-            <div className="workspace__last-modified-status mt-1 text-xs">
-              Last modified:{' '}
-              <span className={'date-time'}>12:01 AM July 11</span>
+            <div className="workspace__base-status flex items-center mt-1">
+              <div className="workspace__last-modified-status">
+                <ButtonLink
+                  title={'BuildFlex'}
+                  icon={<Driver2 size={13} />}
+                  styles={{
+                    height: '1.6rem',
+                    fontSize: '1.2rem',
+                    padding: '0.6rem 0.6rem',
+                  }}
+                  defaultBg={'transparent'}
+                  defaultBorderColor={'transparent'}
+                  defaultColor={'white'}
+                  defaultHoverBg={'#087AAF'}
+                  defaultHoverColor={'white'}
+                  defaultHoverBorderColor={'transparent'}
+                />
+              </div>
+              <Divider type="vertical" className={'bg-white'} />
+              <div className="workspace__last-modified-status text-xs">
+                Last modified:{' '}
+                <span className={'date-time'}>12:01 AM July 11</span>
+              </div>
             </div>
           </div>
         </div>
-        <div className="nav-right ml-auto flex items-center gap-3 mr-3">
+        <div className="nav-right ml-auto flex items-center gap-3 mr-2">
           <ButtonLink
             icon={<Clock size={16} />}
             defaultBg={'transparent'}
@@ -45,18 +68,16 @@ export function SheetBase() {
             defaultHoverColor={'white'}
             defaultHoverBorderColor={'transparent'}
           />
-          <div className="help flex items-center mr-3">
-            <ButtonLink
-              title={'Help'}
-              icon={<MessageQuestion size={16} />}
-              defaultBg={'transparent'}
-              defaultBorderColor={'transparent'}
-              defaultColor={'white'}
-              defaultHoverBg={'#087AAF'}
-              defaultHoverColor={'white'}
-              defaultHoverBorderColor={'transparent'}
-            />
-          </div>
+          <ButtonLink
+            title={'Help'}
+            icon={<MessageQuestion size={16} />}
+            defaultBg={'transparent'}
+            defaultBorderColor={'transparent'}
+            defaultColor={'white'}
+            defaultHoverBg={'#087AAF'}
+            defaultHoverColor={'white'}
+            defaultHoverBorderColor={'transparent'}
+          />
           <ButtonLink
             title={'Share'}
             icon={<Share size={16} color={'#087AAF'} />}
@@ -75,13 +96,9 @@ export function SheetBase() {
           />
         </div>
       </header>
-      <main id={'main-content'} className={'flex flex-row h-lvh'}>
+      <main id={'main-content'} className={'flex flex-row'}>
         {/*Left menu here*/}
-        <aside className={'sidebar flex-1 max-w-64 bg-gray-500'}>
-          left menu
-          <section className="sidebarListTable"></section>
-          <section className="sidebarCreate"></section>
-        </aside>
+        <SideBar />
         <section className={'content flex-1 bg-orange-200'}>
           main content
         </section>

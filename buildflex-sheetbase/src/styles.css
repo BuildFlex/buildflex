@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-@layer tailwind-base;
+@layer tailwind-base, antd;
 
 @layer tailwind-base {
   @tailwind base;
@@ -15,5 +15,50 @@
 
   body {
     font-size: 1.4rem;
+    margin: 0;
   }
+}
+
+.ant-breadcrumb-separator {
+  display: flex;
+  align-items: center;
+}
+
+#main-content {
+  /*Max height minus the height of header*!*/
+  height: calc(100vh - 6.4rem);
+}
+
+.ant-collapse {
+  border-radius: 0;
+}
+
+.boxShadow {
+  @apply shadow-[0px_-1px_4px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.03),0px_1px_6px_-1px_rgba(0,0,0,0.02),0px_2px_4px_0px_rgba(0,0,0,0.02)] rounded-[1.6rem];
+  background: #fff;
+}
+
+.boxShadowSecondary {
+  @apply shadow-[0px_6px_16px_0px_rgba(0,0,0,0.04),0px_3px_6px_-4px_rgba(0,0,0,0.06),0px_9px_28px_8px_rgba(0,0,0,0.02)] rounded-[1.6rem];
+  background: #fff;
+}
+
+.boxShadowTertiary {
+  @apply shadow-[0px_1px_2px_0px_rgba(0,0,0,0.03),0px_1px_6px_-1px_rgba(0,0,0,0.02),0px_2px_4px_0px_rgba(0,0,0,0.02)] rounded-[1.6rem];
+  background: #fff;
+}
+
+.focusPrimary {
+  @apply shadow-[0px_0px_0px_2px_rgba(77,171,209,0.20)] rounded-[16rem];
+  background: #fff;
+}
+
+.focusWarning {
+  @apply shadow-[0px_0px_0px_2px_rgba(252,191,37,0.20)] rounded-[16rem];
+  background: #fff;
+}
+
+.focusError {
+  @apply shadow-[0px_0px_0px_2px_rgba(248,113,113,0.20)] rounded-[16rem];
+  background: #fff;
 }
