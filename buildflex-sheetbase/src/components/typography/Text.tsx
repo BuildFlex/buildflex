@@ -7,6 +7,7 @@ type TextVariant =
   | 'B2-Bold'
   | 'B2-Medium'
   | 'B2-Regular'
+  | 'sub-title'
   | 'B3-Bold'
   | 'B3-Medium'
   | 'B3-Regular'
@@ -40,6 +41,7 @@ const Text: React.FC<TextProps> = ({
     'B2-Bold': 'text-[14px] font-bold',
     'B2-Medium': 'text-[14px] font-medium',
     'B2-Regular': 'text-[14px] font-normal',
+    'sub-title': 'text-[12px] font-normal',
     'B3-Bold': 'text-[10px] font-bold',
     'B3-Medium': 'text-[10px] font-medium',
     'B3-Regular': 'text-[10px] font-normal',

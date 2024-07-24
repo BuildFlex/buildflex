@@ -3,7 +3,6 @@ import React, { cloneElement, ReactElement } from 'react';
 type ButtonSize = 'large' | 'medium' | 'small' | 'extra-small';
 type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'danger';
 type IconPosition = 'left' | 'right';
-type IconStyle = 'outline' | 'bold';
 
 interface ButtonProps {
   size: ButtonSize;
