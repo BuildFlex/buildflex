@@ -12,7 +12,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <StrictMode>
     <BrowserRouter>
-      <ConfigProvider>
+      <ConfigProvider
+        theme={{
+          token: {},
+        }}
+      >
         <StyleProvider hashPriority="high">
           <App />
         </StyleProvider>

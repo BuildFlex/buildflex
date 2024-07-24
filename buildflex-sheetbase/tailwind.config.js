@@ -68,13 +68,16 @@ module.exports = {
           200: '#FBB7B7',
           400: '#F87171',
         },
-        natural: {
+        neutral: {
           TERTIARY: '#FEFEFE',
           50: '#F9FAFB',
           200: '#CACFD8',
           500: '#F9FAFB',
         },
-        'natural-dark': {
+        'neutral-dark': {
+          100: '#F9FAFB',
+          300: '#6A758B',
+          400: '#3E4D65',
           500: '#101828',
         },
       },

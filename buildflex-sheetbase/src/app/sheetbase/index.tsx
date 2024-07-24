@@ -1,6 +1,6 @@
 import React from 'react';
 import { Avatar, Divider } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { ArrowsAltOutlined, UserOutlined } from '@ant-design/icons';
 import {
   MessageQuestion,
   Notification,
@@ -19,7 +19,6 @@ import Text from '../../components/typography/Text';
 export function SheetBase() {
   return (
     <div className={''}>
-      {/*Header*/}
       <header
         id={'header'}
         className={
@@ -99,9 +98,8 @@ export function SheetBase() {
       <main id={'main-content'} className={'flex flex-row'}>
         {/*Left menu here*/}
         <SideBar />
-        <section className={'content flex-1 bg-orange-200'}>
-          main content
-        </section>
+        <div className={'p-60 bg-orange-200'}></div>
+        <section className={'content flex-1 bg-orange-200'}></section>
       </main>
     </div>
   );

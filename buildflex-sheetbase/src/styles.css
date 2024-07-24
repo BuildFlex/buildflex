@@ -31,6 +31,25 @@
 
 .ant-collapse {
   border-radius: 0;
+  border: none !important;
+}
+
+.ant-collapse-header {
+  color: #fff !important;
+  padding-left: 2rem !important;
+  font-size: 1.4rem !important;
+  font-weight: 500 !important;
+  margin-right: 5px !important;
+  background-color: #065B89 !important;
+  border-radius: 0 !important;
+}
+
+.ant-collapse-expand-icon {
+  padding-inline-start: 0 !important;
+}
+
+.ant-collapse-content {
+  border-top: 0 !important;
 }
 
 .boxShadow {
