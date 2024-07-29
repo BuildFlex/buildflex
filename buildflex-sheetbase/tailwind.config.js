@@ -194,7 +194,7 @@ module.exports = {
       }),
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
   corePlugins: {
     // This is important to prevent Tailwind from overriding Ant Design styles
     preflight: false,

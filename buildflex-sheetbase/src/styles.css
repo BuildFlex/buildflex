@@ -19,37 +19,16 @@
   }
 }
 
-.ant-breadcrumb-separator {
-  display: flex;
-  align-items: center;
+@layer utilities {
+  /*Add custom class here and use it in className. It will be support by Tailwind modifiers such as hover, focus...*/
 }
 
+@layer components {
+  /*Use to extract class to re-use TailwindCSS class and make it DRY*/
+}
 #main-content {
   /*Max height minus the height of header*!*/
-  height: calc(100vh - 6.4rem);
-}
-
-.ant-collapse {
-  border-radius: 0;
-  border: none !important;
-}
-
-.ant-collapse-header {
-  color: #fff !important;
-  padding-left: 2rem !important;
-  font-size: 1.4rem !important;
-  font-weight: 500 !important;
-  margin-right: 5px !important;
-  background-color: #065B89 !important;
-  border-radius: 0 !important;
-}
-
-.ant-collapse-expand-icon {
-  padding-inline-start: 0 !important;
-}
-
-.ant-collapse-content {
-  border-top: 0 !important;
+  height: calc(100vh - 6rem);
 }
 
 .boxShadow {
@@ -64,20 +43,5 @@
 
 .boxShadowTertiary {
   @apply shadow-[0px_1px_2px_0px_rgba(0,0,0,0.03),0px_1px_6px_-1px_rgba(0,0,0,0.02),0px_2px_4px_0px_rgba(0,0,0,0.02)] rounded-[1.6rem];
-  background: #fff;
-}
-
-.focusPrimary {
-  @apply shadow-[0px_0px_0px_2px_rgba(77,171,209,0.20)] rounded-[16rem];
-  background: #fff;
-}
-
-.focusWarning {
-  @apply shadow-[0px_0px_0px_2px_rgba(252,191,37,0.20)] rounded-[16rem];
-  background: #fff;
-}
-
-.focusError {
-  @apply shadow-[0px_0px_0px_2px_rgba(248,113,113,0.20)] rounded-[16rem];
   background: #fff;
 }
