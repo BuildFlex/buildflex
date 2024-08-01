@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
+import { Add, Grid1, DocumentText, Clock, Document } from 'iconsax-react';
 import {
-  ArrowDown2,
-  ArrowRight2,
-  Add,
-  More,
-  Grid1,
-  DocumentText,
-  Clock,
-  Document,
-} from 'iconsax-react';
+  CaretDownFilled,
+  CaretRightFilled,
+  MoreOutlined,
+} from '@ant-design/icons';
 
 type ContentType = 'table' | 'dashboard' | 'form' | 'document';
 
@@ -38,15 +34,23 @@ const ContentItemComponent: React.FC<{ item: ContentItem }> = ({ item }) => {
 
   return (
     <div
-      className="flex items-center justify-between p-2 hover:bg-gray-100"
+      className="flex items-center justify-between px-6 py-2 hover:bg-primary-100 cursor-pointer relative rounded-sm my-1 text-neutral-dark-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex items-center">
-        <Icon size={20} className="mr-2 text-gray-500" />
-        <span className="text-sm">{item.title}</span>
+        <Icon size={16} className="mr-2 text-gray-500" />
+        <span className="text-sm font-normal font-lato">{item.title}</span>
       </div>
-      {isHovered && <More size={20} className="text-gray-500 cursor-pointer" />}
+      {isHovered && (
+        <span className="text-gray-500 cursor-pointer absolute right-2">
+          {' '}
+          <MoreOutlined
+            style={{ fontSize: '1.6rem', fontWeight: 600 }}
+            rotate={180}
+          />
+        </span>
+      )}
     </div>
   );
 };
@@ -58,30 +62,36 @@ const SectionComponent: React.FC<{
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="mb-2">
+    <div className="mt-[0.4rem]">
       <div
-        className="flex items-center justify-between p-2 bg-gray-50 hover:bg-gray-100 cursor-pointer"
+        className="flex items-center justify-between p-2 bg-gray-50 rounded-sm hover:bg-gray-100 cursor-pointer"
         onClick={onToggle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="flex items-center">
           {section.isOpen ? (
-            <ArrowDown2 size={20} className="mr-2" />
+            <CaretDownFilled size={16} className="mr-2" />
           ) : (
-            <ArrowRight2 size={20} className="mr-2" />
+            <CaretRightFilled size={16} className="mr-2" />
           )}
           <span className="font-medium">{section.title}</span>
         </div>
         {isHovered && (
           <div className="flex items-center">
-            <Add size={20} className="mr-2 text-gray-500 cursor-pointer" />
-            <More size={20} className="text-gray-500 cursor-pointer" />
+            <Add size={16} className="mr-2 text-gray-500 cursor-pointer" />
+            <span className="text-gray-500 cursor-pointer">
+              {' '}
+              <MoreOutlined
+                style={{ fontSize: '1.6rem', fontWeight: 600 }}
+                rotate={180}
+              />
+            </span>
           </div>
         )}
       </div>
       {section.isOpen && (
-        <div className="pl-6">
+        <div>
           {section.items.map((item) => (
             <ContentItemComponent key={item.id} item={item} />
           ))}
@@ -130,7 +140,7 @@ const ListContentItemsPanel: React.FC = () => {
   };
 
   return (
-    <div className="w-60 mt-2 p-3 bg-white overflow-hidden">
+    <div className="bg-white">
       {sections.map((section) => (
         <SectionComponent
           key={section.id}

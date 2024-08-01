@@ -11,6 +11,7 @@ import {
   ArrowDown2,
 } from 'iconsax-react';
 import HideFieldsPopup from './hide-field';
+import FindAField from './filter/components/FindAField';
 
 interface FilterItem {
   id: string;
@@ -113,20 +114,21 @@ const GridFilter: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center space-x-2 p-2 bg-gray-100">
+    <div className="flex items-center bg-white shrink-0 flex-wrap min-h-10">
       {filterItems.map((item) => (
         <div key={item.id} className="relative">
           <button
-            className="flex items-center px-3 py-2 rounded-md text-sm text-gray-600 hover:bg-gray-200"
+            className="flex items-center px-2 py-2 rounded-md text-sm text-neutral-dark-500 border-none bg-transparent cursor-pointer hover:bg-gray-100"
             onClick={() => handleFilterClick(item.id)}
           >
-            <item.icon size={20} className="mr-2" />
+            <item.icon size={16} className="mr-2" />
             <span>{item.label}</span>
             {item.hasDropdown && <ArrowDown2 size={16} className="ml-1" />}
           </button>
           {renderPopup(item)}
         </div>
       ))}
+      <FindAField />
     </div>
   );
 };

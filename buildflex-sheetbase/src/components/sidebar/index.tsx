@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SearchNormal1 } from 'iconsax-react';
-import { Input, Tooltip } from 'antd';
+import { Input } from 'antd';
 import CreateContentPanel from './components/CreateContentPanel';
 import ListContentItemsPanel from './components/ListContentItemsPanel';
 
@@ -8,8 +8,10 @@ export default function SideBar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
-    <aside className={'sidebar w-64 flex flex-col'}>
-      <div className="flex items-center justify-between px-3 pt-3 gap-2">
+    <aside
+      className={'sidebar max-w-[25rem] p-[1.2rem] flex flex-col box-border'}
+    >
+      <div className="flex items-center justify-between gap-2 mb-[0.4rem]">
         <div className="relative">
           <Input
             placeholder="Search"

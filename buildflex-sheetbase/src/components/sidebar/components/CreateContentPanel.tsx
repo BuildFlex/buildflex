@@ -37,7 +37,7 @@ const CreateContentPanel: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className="fixed left-0 bottom-0 w-64">
+    <div className="fixed left-0 bottom-0 min-w-[25rem]">
       <div className="bg-blue-600 text-white">
         <div
           className="flex justify-between items-center p-3 cursor-pointer"

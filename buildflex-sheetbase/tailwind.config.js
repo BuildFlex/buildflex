@@ -166,7 +166,8 @@ module.exports = {
         200: '80.0rem',
       },
       borderRadius: {
-        sm: '.2rem',
+        xs: '.2rem',
+        sm: '.4rem',
         DEFAULT: '.8rem',
         md: '.6rem',
         lg: '.8rem',
