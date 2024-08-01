@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "sheet:dev": "npx nx serve buildflex-sheetbase",
+    "server:dev": "npx nx serve buildflex-server",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\""
   },
