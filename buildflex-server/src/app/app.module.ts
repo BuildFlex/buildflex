@@ -20,6 +20,9 @@ import { WorkflowService } from './workflow/workflow.service';
 import { WorkspaceModule } from './workspace/workspace.module';
 import { WorkspaceController } from './workspace/workspace.controller';
 import { WorkspaceService } from './workspace/workspace.service';
+import { OrganizationModule } from '@app/organization/organization.module';
+import { OrganizationService } from './organization/organization.service';
+import { OrganizationController } from '@app/organization/organization.controller';
 
 @Module({
   imports: [
@@ -29,6 +32,7 @@ import { WorkspaceService } from './workspace/workspace.service';
     BuilderModule,
     WorkflowModule,
     WorkspaceModule,
+    OrganizationModule,
   ],
   controllers: [
     AppController,
@@ -38,6 +42,7 @@ import { WorkspaceService } from './workspace/workspace.service';
     BuilderController,
     WorkflowController,
     WorkspaceController,
+    OrganizationController,
   ],
   providers: [
     AppService,
@@ -47,6 +52,7 @@ import { WorkspaceService } from './workspace/workspace.service';
     BuilderService,
     WorkflowService,
     WorkspaceService,
+    OrganizationService,
   ],
 })
 export class AppModule {}
