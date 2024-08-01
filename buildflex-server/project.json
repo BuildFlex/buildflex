@@ -1,0 +1,24 @@
+{
+  "name": "buildflex-server",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "buildflex-server/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "buildflex-server:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "buildflex-server:build:development"
+        },
+        "production": {
+          "buildTarget": "buildflex-server:build:production"
+        }
+      }
+    }
+  }
+}
