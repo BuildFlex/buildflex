@@ -3,7 +3,6 @@ import { Grid1, Calendar, Gallery, Add, More, Magicpen } from 'iconsax-react';
 import GridFilter from '../view-filter/grid-filter/GridFilter';
 import { MoreOutlined } from '@ant-design/icons';
 import AIChatDrawer from '../extensions/ai-chat';
-import FindAField from '../view-filter/grid-filter/filter/components/FindAField';
 import Grid from '../grid/Grid';
 
 interface Tab {

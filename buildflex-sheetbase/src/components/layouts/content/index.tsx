@@ -1,5 +1,5 @@
 import React from 'react';
-import ContentViewTabs from '../../tab/ContentViewTabs';
+import ContentViewTabs from '@components/tab/ContentViewTabs';
 
 const ContentWrapper = () => {
   return (

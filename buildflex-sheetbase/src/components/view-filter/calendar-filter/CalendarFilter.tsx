@@ -89,7 +89,7 @@ const filterItems: FilterItem[] = [
   },
 ];
 
-const GridFilter: React.FC = () => {
+const CalendarFilter: React.FC = () => {
   const [activePopup, setActivePopup] = useState<string | null>(null);
 
   const [showHideFields, setShowHideFields] = useState(false);
@@ -131,4 +131,4 @@ const GridFilter: React.FC = () => {
   );
 };
 
-export default GridFilter;
+export default CalendarFilter;
