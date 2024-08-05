@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Add, Grid1, DocumentText, Clock, Document } from 'iconsax-react';
+import { Add, Grid1, DocumentText, Clock, Document, More } from 'iconsax-react';
 import {
   CaretDownFilled,
   CaretRightFilled,
   MoreOutlined,
 } from '@ant-design/icons';
+import { MoreVert } from '../../icons';
+import { cn } from '@utils/cn';
 
 type ContentType = 'table' | 'dashboard' | 'form' | 'document';
 
@@ -12,6 +14,7 @@ interface ContentItem {
   id: string;
   type: ContentType;
   title: string;
+  isActive?: boolean;
 }
 
 interface Section {
@@ -34,22 +37,26 @@ const ContentItemComponent: React.FC<{ item: ContentItem }> = ({ item }) => {
 
   return (
     <div
-      className="flex items-center justify-between px-6 py-2 hover:bg-primary-100 cursor-pointer relative rounded-sm my-1 text-neutral-dark-300"
+      className={cn(
+        'flex items-center justify-between pl-6 pr-2 py-2 cursor-pointer relative rounded-sm my-1 ',
+        item.isActive
+          ? 'bg-primary-100 text-primary-600'
+          : 'hover:bg-gray-100 hover:text-black text-neutral-dark-300',
+      )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex items-center">
-        <Icon size={16} className="mr-2 text-gray-500" />
+        <Icon size={16} className="mr-2 " />
         <span className="text-sm font-normal font-lato">{item.title}</span>
       </div>
       {isHovered && (
-        <span className="text-gray-500 cursor-pointer absolute right-2">
-          {' '}
-          <MoreOutlined
-            style={{ fontSize: '1.6rem', fontWeight: 600 }}
-            rotate={180}
-          />
-        </span>
+        <MoreVert
+          className={cn(
+            !item.isActive &&
+              'text-neutral-dark-300 hover:text-black cursor-pointer',
+          )}
+        />
       )}
     </div>
   );
@@ -64,7 +71,7 @@ const SectionComponent: React.FC<{
   return (
     <div className="mt-[0.4rem]">
       <div
-        className="flex items-center justify-between p-2 bg-gray-50 rounded-sm hover:bg-gray-100 cursor-pointer"
+        className="flex items-center justify-between p-2 rounded-sm hover:bg-gray-100 cursor-pointer"
         onClick={onToggle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -75,18 +82,19 @@ const SectionComponent: React.FC<{
           ) : (
             <CaretRightFilled size={16} className="mr-2" />
           )}
-          <span className="font-medium">{section.title}</span>
+          <span className="font-medium text-gray-500">{section.title}</span>
         </div>
         {isHovered && (
-          <div className="flex items-center">
-            <Add size={16} className="mr-2 text-gray-500 cursor-pointer" />
-            <span className="text-gray-500 cursor-pointer">
-              {' '}
-              <MoreOutlined
-                style={{ fontSize: '1.6rem', fontWeight: 600 }}
-                rotate={180}
-              />
-            </span>
+          <div className="flex items-center gap-2">
+            <Add
+              size={16}
+              onClick={(e) => {
+                e.stopPropagation();
+                console.log('Add new item');
+              }}
+              className=" text-neutral-dark-300 hover:text-gray-500 cursor-pointer"
+            />
+            <MoreVert className="text-neutral-dark-300 hover:text-gray-500 cursor-pointer" />
           </div>
         )}
       </div>
@@ -108,7 +116,7 @@ const ListContentItemsPanel: React.FC = () => {
       title: 'Project management',
       isOpen: true,
       items: [
-        { id: '1-1', type: 'table', title: 'Admin management' },
+        { id: '1-1', type: 'table', title: 'Admin management', isActive: true },
         { id: '1-2', type: 'table', title: 'Client management' },
         { id: '1-3', type: 'table', title: 'Product tracking' },
       ],

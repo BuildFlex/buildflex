@@ -15,6 +15,7 @@
       "@services/*": ["src/services/*"],
       "@redux/*": ["src/redux/*"],
       "@utils/*": ["src/utils/*"],
+      "@provider/*": ["src/provider/*"],
     }
   },
   "files": [],

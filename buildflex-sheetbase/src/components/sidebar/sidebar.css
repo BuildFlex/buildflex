@@ -1,0 +1,7 @@
+.sidebar__search::before{
+    display: none !important;
+}
+.sidebar__search .ant-input-prefix{
+    margin: 0;
+    margin-inline-end:0 !important
+}
