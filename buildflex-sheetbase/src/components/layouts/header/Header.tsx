@@ -1,11 +1,9 @@
 import React from 'react';
-import SheetBaseIcon from '../../common/SheetBaseIcon';
-import { Avatar, Divider } from 'antd';
-import { ArrowRight2, Folder2, Notification } from 'iconsax-react';
-import { FolderAddFilled, UserOutlined } from '@ant-design/icons';
-import Text from '../../typography/Text';
-import Button from '../../button/Button';
-import { Tooltip } from 'antd';
+import SheetBaseIcon from '@components/common/SheetBaseIcon';
+import { Avatar } from 'antd';
+import { ArrowRight2, Notification } from 'iconsax-react';
+import { UserOutlined } from '@ant-design/icons';
+import Text from '@components/typography/Text';
 
 const Header = () => {
   return (

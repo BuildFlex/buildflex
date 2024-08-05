@@ -1,7 +1,7 @@
 import React from 'react';
-import SideBar from '../../components/sidebar';
-import Header from '../../components/layouts/header/Header';
-import ContentWrapper from '../../components/layouts/content-wrapper';
+import SideBar from '@components/sidebar';
+import Header from '@components/layouts/header/Header';
+import ContentWrapper from '@components/layouts/content';
 
 export function SheetBase() {
   return (
