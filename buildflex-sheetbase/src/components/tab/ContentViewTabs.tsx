@@ -80,7 +80,7 @@ const TabComponent: React.FC = () => {
               </span>
               {isActive && (
                 <MoreOutlined
-                  style={{ fontSize: '1.6rem', fontWeight: 600 }}
+                  style={{ fontSize: '16px', fontWeight: 600 }}
                   className="ml-2 text-gray-400 cursor-pointer"
                   rotate={180}
                 />

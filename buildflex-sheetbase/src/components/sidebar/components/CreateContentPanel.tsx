@@ -9,6 +9,8 @@ import {
   Folder2,
   ArrowRight2,
 } from 'iconsax-react';
+import { useTheme } from '@provider/theme-provider';
+import { cn } from '@utils/cn';
 
 interface MenuItemProps {
   icon: IconType;
@@ -20,37 +22,48 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon: Icon, label }) => {
 
   return (
     <div
-      className="flex items-center justify-between p-3 hover:bg-blue-700 transition-colors duration-500 cursor-pointer"
+      className="flex items-center justify-between px-3  h-9 rounded hover:bg-white/20 transition-colors duration-500 cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex items-center">
-        <Icon size={24} variant="Outline" className="mr-3" />
+        <Icon size={16} variant="Outline" className="mr-3" />
         <span>{label}</span>
       </div>
-      {isHovered && <Add size={24} variant="Outline" />}
+      {isHovered && (
+        <Add
+          size={16}
+          className="text-neutral-200 hover:text-white"
+          variant="Outline"
+        />
+      )}
     </div>
   );
 };
 
 const CreateContentPanel: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
+  const { theme, setTheme } = useTheme();
   return (
-    <div className="fixed left-0 bottom-0 min-w-[25rem]">
-      <div className="bg-blue-600 text-white">
+    <div
+      className={cn(
+        'fixed left-0 bottom-0 min-w-[260px]',
+        theme.linearBackground,
+      )}
+    >
+      <div className={cn(' text-white')}>
         <div
-          className="flex justify-between items-center p-3 cursor-pointer"
+          className="flex justify-between  bg-gray-500/20 items-center px-4 h-9 cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span className="font-semibold">Create New</span>
+          <span className="font-medium ">Create New</span>
           <ArrowRight2
-            size={24}
+            size={16}
             className={`transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
           />
         </div>
         {isOpen && (
-          <div className="bg-gradient-to-b from-blue-500 to-blue-700 transition-all duration-500 ease-in-out">
+          <div className="transition-all duration-500 ease-in-out p-2">
             <MenuItem icon={Grid1} label="Table" />
             <MenuItem icon={ElementEqual} label="Form" />
             <MenuItem icon={Clock} label="Dashboard" />

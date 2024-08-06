@@ -1,6 +1,6 @@
 import React from 'react';
 
-type TextVariant =
+export type TextVariant =
   | 'B1-Bold'
   | 'B1-Medium'
   | 'B1-Regular'
