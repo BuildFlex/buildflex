@@ -2,7 +2,7 @@ import React from 'react';
 interface IconProps {
   className?: string;
 }
-
+// below icons is not supported by iconsax-react
 export const CollapseIcon = ({ className }: IconProps) => {
   return (
     <svg
@@ -38,6 +38,26 @@ export const MoreVert = ({ className }: IconProps) => {
       <path
         d="M7.99996 5.33329C8.73329 5.33329 9.33329 4.73329 9.33329 3.99996C9.33329 3.26663 8.73329 2.66663 7.99996 2.66663C7.26663 2.66663 6.66663 3.26663 6.66663 3.99996C6.66663 4.73329 7.26663 5.33329 7.99996 5.33329ZM7.99996 6.66663C7.26663 6.66663 6.66663 7.26663 6.66663 7.99996C6.66663 8.73329 7.26663 9.33329 7.99996 9.33329C8.73329 9.33329 9.33329 8.73329 9.33329 7.99996C9.33329 7.26663 8.73329 6.66663 7.99996 6.66663ZM7.99996 10.6666C7.26663 10.6666 6.66663 11.2666 6.66663 12C6.66663 12.7333 7.26663 13.3333 7.99996 13.3333C8.73329 13.3333 9.33329 12.7333 9.33329 12C9.33329 11.2666 8.73329 10.6666 7.99996 10.6666Z"
         fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export const CheckBoxIcon = ({ className }: IconProps) => {
+  return (
+    <svg
+      width="16"
+      height="11"
+      viewBox="0 0 16 11"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1 7L4.52642 9.82114C5.35374 10.483 6.55365 10.3848 7.2624 9.59733L15 1"
+        stroke="white"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   );

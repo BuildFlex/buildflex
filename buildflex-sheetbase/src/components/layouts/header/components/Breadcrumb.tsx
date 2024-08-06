@@ -4,10 +4,11 @@ import { ArrowRight2 } from 'iconsax-react';
 import { cn } from '@utils/cn';
 
 interface BreadcrumbItem {
-  text: string;
+  text?: string;
   variant: TextVariant;
   isLast?: boolean;
   className?: string;
+  component?: React.ReactNode;
 }
 
 interface BreadcrumbProps {
@@ -26,9 +27,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
             item.className,
           )}
         >
-          <Text variant={item.variant} as={'span'}>
-            {item.text}
-          </Text>
+          {item.component || (
+              <Text variant={item.variant} as={'span'}>
+                {item.text}
+              </Text>
+            ) ||
+            'Breadcumb Item'}
           {!item.isLast && <ArrowRight2 className="text-white" size="12" />}
         </div>
       ))}

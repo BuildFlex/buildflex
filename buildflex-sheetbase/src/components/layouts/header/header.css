@@ -1,0 +1,60 @@
+/*  ProjectNameDropdown CSS*/
+.ProjectNameDropdown{
+    border-radius: 8px;
+    overflow: hidden;
+    width: 400px;
+    top: 40px !important;
+    
+}
+.ProjectNameDropdown .ant-collapse-header{
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    display: flex  !important;
+    align-items: center !important;
+    
+}
+.ProjectNameDropdown .ant-collapse-expand-icon{
+    padding-right: 8px !important;
+}
+.ProjectNameDropdown .ant-dropdown-menu{
+    padding: 12px !important;
+}
+.ProjectNameDropdown .ant-dropdown-menu-item-group-title ,.ProjectNameDropdown .ant-dropdown-menu-item {
+    padding: 0 !important;
+}
+
+
+/*  Collapse CSS */
+
+.ProjectNameDropdown .ant-collapse, .ProjectNameDropdown .ant-collapse-content{
+    background-color: white !important;
+    border: none !important;
+    border-radius: 0;
+}
+.ProjectNameDropdown .ant-collapse-item {
+    border-top: 1px solid #EDEDED !important;
+    border-bottom: none !important;
+
+}
+.ProjectNameDropdown .ant-collapse:hover{
+    background-color: white !important;
+}
+.ProjectNameDropdown  .ant-collapse-content-active{
+    border: none !important;
+}
+.ProjectNameDropdown .ant-collapse-content-box{
+    padding: 0 !important;
+}
+
+/*  Search  CSS */
+.project_name_dropdown__search{
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.project_name_dropdown__search .ant-input-prefix{
+    margin: 0 !important;
+}
+.project_name_dropdown__search input::placeholder {
+    color: #6A758B !important;
+  }

@@ -69,7 +69,7 @@ const SectionComponent: React.FC<{
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="mt-[0.4rem]">
+    <div className="mt-2">
       <div
         className="flex items-center justify-between p-2 rounded-sm hover:bg-gray-100 cursor-pointer"
         onClick={onToggle}

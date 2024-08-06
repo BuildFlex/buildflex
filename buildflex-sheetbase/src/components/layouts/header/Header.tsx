@@ -1,75 +1,36 @@
 import React from 'react';
-import SheetBaseIcon from '../../common/SheetBaseIcon';
 import { Avatar } from 'antd';
-import {
-  Clock,
-  Folder2,
-  MessageQuestion,
-  Notification,
-  People,
-} from 'iconsax-react';
+import { Clock, MessageQuestion, Notification, People } from 'iconsax-react';
 import { UserOutlined } from '@ant-design/icons';
-import Text, { TextVariant } from '../../typography/Text';
 import Breadcrumb from './components/Breadcrumb';
-import { useTheme } from '../../../provider/theme-provider';
 import { cn } from '@utils/cn';
-
-const breadcrumbItems = [
-  {
-    text: 'NETKO Solution',
-    variant: 'B2-Regular' as TextVariant,
-    className: 'text-gray-100',
-  },
-  {
-    text: 'Michael Nguyen',
-    variant: 'B2-Regular' as TextVariant,
-    className: 'text-gray-100',
-  },
-  {
-    text: 'NETKO’s Project Management',
-    variant: 'B2-Bold' as TextVariant,
-    isLast: true,
-    className: 'text-white',
-  },
-];
+import Text, { TextVariant } from '@/components/typography/Text';
+import { useTheme } from '@/provider/theme-provider';
+import ProjectNameDropdown from './components/dropdown/ProjectNameDropdown';
+import './header.css';
+import Logo from './components/Logo';
+import ProjectStatus from './components/ProjectStatus';
 
 const Header = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   return (
     <header
       id={'header'}
       className={cn(
-        `flex p-3 box-border h-[6rem] bg-red-200  text-white`,
+        `flex p-3 box-border  bg-red-200  text-white`,
         theme.linearBackground,
       )}
     >
       {/*Base Left Nav*/}
       <div className="nav-left flex justify-center items-center gap-2">
-        <div className="logo p-1 rounded-[8px] w-8 h-8">
-          <SheetBaseIcon />
-        </div>
+        <Logo />
         {/*Base Breadcrumb*/}
         <div className="workspace flex flex-col justify-between h-full">
           <div className="workspace__breadcrumb">
             <Breadcrumb items={breadcrumbItems} />
           </div>
           {/*Base Status*/}
-          <div className="workspace__base-status flex items-center  gap-1">
-            <div className="workspace__drive text-xs flex items-center gap-1 cursor-pointer">
-              <Folder2 size={16} variant="Bold" color="#F2F4F7" />
-              <Text as={'span'} variant={'sub-title'} className="text-gray-100">
-                Drive
-              </Text>
-            </div>
-            <Text as={'span'} variant={'sub-title'} className="text-gray-100">
-              |
-            </Text>
-            <div className="workspace__last-modified-status text-xs">
-              <Text as={'span'} variant={'sub-title'} className="text-gray-100">
-                Lasted modifield: 12:01 Am Jul 11
-              </Text>
-            </div>
-          </div>
+          <ProjectStatus />
         </div>
       </div>
       {/*Base Right Nav*/}
@@ -105,3 +66,22 @@ const Header = () => {
 };
 
 export default Header;
+
+const breadcrumbItems = [
+  {
+    text: 'NETKO Solution',
+    variant: 'B2-Regular' as TextVariant,
+    className: 'text-gray-100',
+  },
+  {
+    text: 'Michael Nguyen',
+    variant: 'B2-Regular' as TextVariant,
+    className: 'text-gray-100',
+  },
+  {
+    variant: 'B2-Bold' as TextVariant,
+    isLast: true,
+    className: 'text-white ',
+    component: <ProjectNameDropdown name="NETKO’s Project Management 2" />,
+  },
+];

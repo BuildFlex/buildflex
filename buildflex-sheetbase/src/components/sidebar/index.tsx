@@ -13,12 +13,10 @@ export default function SideBar() {
     <aside
       className={cn(
         'sidebar max-w-[260px]    flex flex-col box-border',
-        isCollapsed
-          ? 'w-10 p-0 relative top-0 left-0 pr-10'
-          : 'p-[1.2rem] w-[260px] ',
+        isCollapsed ? 'w-10 p-0 relative top-0 left-0 pr-10' : 'p-3 w-[260px] ',
       )}
     >
-      <div className="flex items-center justify-between gap-2 mb-[0.4rem]">
+      <div className="flex items-center justify-between gap-2 mb-2">
         <div className={cn('relative', isCollapsed && 'hidden')}>
           <Input
             placeholder="Search"

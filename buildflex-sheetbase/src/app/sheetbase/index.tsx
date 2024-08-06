@@ -1,8 +1,8 @@
 import React from 'react';
-import SideBar from '../../components/sidebar';
-import Header from '../../components/layouts/header/Header';
-import ContentWrapper from '../../components/layouts/content-wrapper';
-import { ThemeProvider } from '../../provider/theme-provider';
+import SideBar from '@components/sidebar';
+import Header from '@components/layouts/header/Header';
+import ContentWrapper from '@components/layouts/content';
+import { ThemeProvider } from '@/provider/theme-provider';
 
 export function SheetBase() {
   return (

@@ -9,12 +9,12 @@
 
 @layer base {
   html {
-    font-size: 62.5%;
+    font-size: 100%;
     font-family: 'Lato', sans-serif;
   }
 
   body {
-    font-size: 1.4rem;
+    font-size: 16px;
     margin: 0;
   }
 }
@@ -28,7 +28,7 @@
 }
 #main-content {
   /*Max height minus the height of header*!*/
-  height: calc(100vh - 6rem);
+  height: calc(100vh - 64px);
 }
 
 .boxShadow {
@@ -40,8 +40,13 @@
   @apply shadow-[0px_6px_16px_0px_rgba(0,0,0,0.04),0px_3px_6px_-4px_rgba(0,0,0,0.06),0px_9px_28px_8px_rgba(0,0,0,0.02)] rounded-[1.6rem];
   background: #fff;
 }
-
 .boxShadowTertiary {
   @apply shadow-[0px_1px_2px_0px_rgba(0,0,0,0.03),0px_1px_6px_-1px_rgba(0,0,0,0.02),0px_2px_4px_0px_rgba(0,0,0,0.02)] rounded-[1.6rem];
   background: #fff;
+}
+
+
+/* Iconsax border */
+.stroke-medium path {
+  stroke-width: 1.5px !important;
 }

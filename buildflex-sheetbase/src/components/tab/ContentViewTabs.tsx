@@ -3,7 +3,7 @@ import { Grid1, Calendar, Gallery, Add, More, Magicpen } from 'iconsax-react';
 import GridFilter from '../view-filter/grid-filter/GridFilter';
 import { MoreOutlined } from '@ant-design/icons';
 import AIChatDrawer from '../extensions/ai-chat';
-import FindAField from '../view-filter/grid-filter/filter/components/FindAField';
+import Grid from '../grid/Grid';
 
 interface Tab {
   id: string;
@@ -16,6 +16,7 @@ interface Tab {
 const AdminManagement: React.FC = () => (
   <>
     <GridFilter />
+    <Grid />
   </>
 );
 const CalendarView: React.FC = () => (
@@ -79,7 +80,7 @@ const TabComponent: React.FC = () => {
               </span>
               {isActive && (
                 <MoreOutlined
-                  style={{ fontSize: '1.6rem', fontWeight: 600 }}
+                  style={{ fontSize: '16px', fontWeight: 600 }}
                   className="ml-2 text-gray-400 cursor-pointer"
                   rotate={180}
                 />
