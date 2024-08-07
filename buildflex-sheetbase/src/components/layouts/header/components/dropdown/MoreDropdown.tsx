@@ -7,9 +7,10 @@ const MoreDropdown = () => {
     <Dropdown
       menu={{ items: moreItems }}
       trigger={['click']}
-      placement="bottomLeft"
-      className="flex items-center justify-center"
-      overlayClassName=" boxShadowSecondary"
+      placement="bottomRight"
+      className="flex items-center relative justify-center"
+      overlayClassName=" boxShadowSecondary project-more-dropdown "
+      // align={{ offset: [50, -20] }}
     >
       <div>
         <MoreVert className="size-4 px-2 cursor-pointer text-neutral-dark-500" />
@@ -35,7 +36,7 @@ const moreItems: MenuProps['items'] = [
     label: (
       <div className="flex gap-2 items-center text-neutral-dark-500">
         <Slack size={16} />
-        <span> Duplicate base</span>
+        <span>Slack notifications</span>
       </div>
     ),
   },

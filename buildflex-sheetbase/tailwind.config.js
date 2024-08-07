@@ -19,6 +19,17 @@ module.exports = {
           'bf-gradient-start': '#21D4A7',
           'bf-gradient-end': '#0DA8D3',
         },
+        theme: {
+          'ocean-blue': '#087AAF',
+          'midnight-gray': '#333F53',
+          'royal-purple': '#6840C4',
+          'crimson-red': '#B12318',
+          'burnt-orange': '#B24608',
+          'forest-green': '#027947',
+          'steel-blue': '#353E70',
+          'magenta-pink': '#BF1573',
+          'ruby-red': '#BE1048',
+        },
         primary: {
           PRIMARY: '#0BA5EC',
           50: '#F0F9FF',

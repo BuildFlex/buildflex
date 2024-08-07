@@ -10,6 +10,7 @@ import ProjectNameDropdown from './components/dropdown/ProjectNameDropdown';
 import './header.css';
 import Logo from './components/Logo';
 import ProjectStatus from './components/ProjectStatus';
+import HistoryDropdown from './components/dropdown/history/HistoryDropdown';
 
 const Header = () => {
   const { theme } = useTheme();
@@ -35,9 +36,7 @@ const Header = () => {
       </div>
       {/*Base Right Nav*/}
       <div className="nav-right ml-auto flex items-center gap-3 ">
-        <div className="clock flex justify-center items-center cursor-pointer ">
-          <Clock size={16} color={'#FFFFFF'} />
-        </div>
+        <HistoryDropdown />
 
         <div className="help flex gap-2 items-center cursor-pointer">
           <MessageQuestion size={16} color={'#FFFFFF'} />
@@ -46,13 +45,13 @@ const Header = () => {
           </Text>
         </div>
         <div className="share  box-border	 py-1.5 px-4 rounded-lg cursor-pointer  gap-2 bg-white max-h-9 h-9  flex items-center justify-center">
-          <People color="#087AAF" size={16} />
-          <Text variant={'B2-Medium'} as="span" className="text-primary-600">
+          <People color={theme.hexCode} size={16} />
+          <Text variant={'B2-Medium'} as="span" className={`${theme.color}`}>
             Share
           </Text>
         </div>
         <div className="notification rounded-full bg-white cursor-pointer size-9 flex items-center justify-center">
-          <Notification size={16} color={'#087AAF'} />
+          <Notification size={16} color={theme.hexCode} />
         </div>
         <Avatar
           size={36}
