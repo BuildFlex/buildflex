@@ -16,6 +16,9 @@ export const ThemesMap = new Map([
     {
       name: 'ocean-blue',
       linearBackground: 'bg-gradient-ocean-blue',
+      backgroundColor: 'bg-theme-ocean-blue',
+      hexCode: '#087AAF',
+      color: 'text-theme-ocean-blue',
     },
   ],
   [
@@ -23,6 +26,9 @@ export const ThemesMap = new Map([
     {
       name: 'midnight-gray',
       linearBackground: 'bg-gradient-midnight-gray',
+      backgroundColor: 'bg-theme-midnight-gray',
+      hexCode: '#333F53',
+      color: 'text-theme-midnight-gray',
     },
   ],
   [
@@ -30,6 +36,9 @@ export const ThemesMap = new Map([
     {
       name: 'royal-purple',
       linearBackground: 'bg-gradient-royal-purple',
+      backgroundColor: 'bg-theme-royal-purple',
+      hexCode: '#6840C4',
+      color: 'text-theme-royal-purple',
     },
   ],
   [
@@ -37,6 +46,9 @@ export const ThemesMap = new Map([
     {
       name: 'crimson-red',
       linearBackground: 'bg-gradient-crimson-red',
+      backgroundColor: 'bg-theme-crimson-red',
+      hexCode: '#B12318',
+      color: 'text-theme-crimson-red',
     },
   ],
   [
@@ -44,6 +56,9 @@ export const ThemesMap = new Map([
     {
       name: 'burnt-orange',
       linearBackground: 'bg-gradient-burnt-orange',
+      backgroundColor: 'bg-theme-burnt-orange',
+      hexCode: '#B24608',
+      color: 'text-theme-burnt-orange',
     },
   ],
   [
@@ -51,6 +66,9 @@ export const ThemesMap = new Map([
     {
       name: 'forest-green',
       linearBackground: 'bg-gradient-forest-green',
+      backgroundColor: 'bg-theme-forest-green',
+      hexCode: '#027947',
+      color: 'text-theme-forest-green',
     },
   ],
   [
@@ -58,6 +76,9 @@ export const ThemesMap = new Map([
     {
       name: 'steel-blue',
       linearBackground: 'bg-gradient-steel-blue',
+      backgroundColor: 'bg-theme-steel-blue',
+      hexCode: '#353E70',
+      color: 'text-theme-steel-blue',
     },
   ],
   [
@@ -65,6 +86,9 @@ export const ThemesMap = new Map([
     {
       name: 'magenta-pink',
       linearBackground: 'bg-gradient-magenta-pink',
+      backgroundColor: 'bg-theme-magenta-pink',
+      hexCode: '#BF1573',
+      color: 'text-theme-magenta-pink',
     },
   ],
   [
@@ -72,6 +96,9 @@ export const ThemesMap = new Map([
     {
       name: 'ruby-red',
       linearBackground: 'bg-gradient-ruby-red',
+      backgroundColor: 'hex-theme-ruby-red',
+      hexCode: '#BE1048',
+      color: 'text-theme-ruby-red',
     },
   ],
 ]);

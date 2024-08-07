@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SearchNormal1 } from 'iconsax-react';
-import { Input } from 'antd';
+import { Input, Tooltip } from 'antd';
 import CreateContentPanel from './components/CreateContentPanel';
 import ListContentItemsPanel from './components/ListContentItemsPanel';
 import './sidebar.css';
@@ -8,7 +8,20 @@ import { CollapseIcon } from '../icons';
 import { cn } from '@utils/cn';
 export default function SideBar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.ctrlKey && event.key === '\\') {
+      setIsCollapsed((prevState) => !prevState);
+    }
+  };
 
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
   return (
     <aside
       className={cn(
@@ -25,19 +38,24 @@ export default function SideBar() {
             className="h-9 flex gap-2 items-center sidebar__search"
           />
         </div>
-        <button
-          className={cn(
-            'flex border-none  items-center justify-center gap-1 text-white text-sm  bg-transparent cursor-pointer ',
-            isCollapsed
-              ? 'absolute top-0 right-1 size-9 boxShadowSecondary !rounded-l-none !rounded-r-xl'
-              : 'p-0',
-          )}
-          onClick={() => setIsCollapsed(!isCollapsed)}
+        <Tooltip
+          placement="right"
+          title={`${isCollapsed ? 'Show' : 'Close'} sidebar (Ctrl + \\)`}
         >
-          <CollapseIcon
-            className={cn(isCollapsed ? 'rotate-180' : 'rotate-0')}
-          />
-        </button>
+          <button
+            className={cn(
+              'flex border-none  items-center justify-center gap-1 text-white text-sm  bg-transparent cursor-pointer ',
+              isCollapsed
+                ? 'absolute top-0 right-1 size-9 boxShadowSecondary !rounded-l-none !rounded-r-xl'
+                : 'p-0',
+            )}
+            onClick={() => setIsCollapsed(!isCollapsed)}
+          >
+            <CollapseIcon
+              className={cn(isCollapsed ? 'rotate-180' : 'rotate-0')}
+            />
+          </button>
+        </Tooltip>
       </div>
 
       <div className="flex flex-col overflow-hidden">

@@ -44,7 +44,7 @@ const ProjectNameDropdown = ({ name }: ProjectNameDropdownProps) => {
       trigger={['click']}
       placement="bottomLeft"
       className=""
-      overlayClassName="ProjectNameDropdown boxShadowSecondary"
+      overlayClassName="project-name-dropdown boxShadowSecondary"
     >
       <div>
         <Text variant={'B2-Bold'} as={'span'}>
