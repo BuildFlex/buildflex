@@ -7,6 +7,9 @@ import {
 } from '@ant-design/icons';
 import { MoreVert } from '../../icons';
 import { cn } from '@utils/cn';
+import SectionMoreDropdown from './dropdown/SectionMoreDropdown';
+import SectionAddDropdown from './dropdown/SectionAddDropdown';
+import ViewMoreDropdown from './dropdown/ViewMoreDropdown';
 
 type ContentType = 'table' | 'dashboard' | 'form' | 'document';
 
@@ -50,14 +53,7 @@ const ContentItemComponent: React.FC<{ item: ContentItem }> = ({ item }) => {
         <Icon size={16} className="mr-2 " />
         <span className="text-sm font-normal font-lato">{item.title}</span>
       </div>
-      {isHovered && (
-        <MoreVert
-          className={cn(
-            !item.isActive &&
-              'text-neutral-dark-300 hover:text-black cursor-pointer',
-          )}
-        />
-      )}
+      {isHovered && <ViewMoreDropdown />}
     </div>
   );
 };
@@ -86,15 +82,8 @@ const SectionComponent: React.FC<{
         </div>
         {isHovered && (
           <div className="flex items-center gap-2">
-            <Add
-              size={16}
-              onClick={(e) => {
-                e.stopPropagation();
-                console.log('Add new item');
-              }}
-              className=" text-neutral-dark-300 hover:text-gray-500 cursor-pointer"
-            />
-            <MoreVert className="text-neutral-dark-300 hover:text-gray-500 cursor-pointer" />
+            <SectionAddDropdown />
+            <SectionMoreDropdown />
           </div>
         )}
       </div>

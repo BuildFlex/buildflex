@@ -11,6 +11,8 @@ import {
 } from 'iconsax-react';
 import { useTheme } from '@provider/theme-provider';
 import { cn } from '@utils/cn';
+import Text from '@/components/typography/Text';
+import { PlusIcon } from '@/components/icons';
 
 interface MenuItemProps {
   icon: IconType;
@@ -28,15 +30,12 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon: Icon, label }) => {
     >
       <div className="flex items-center">
         <Icon size={16} variant="Outline" className="mr-3" />
-        <span>{label}</span>
+        <Text as="span" variant="B2-Regular">
+          {label}
+        </Text>
       </div>
-      {isHovered && (
-        <Add
-          size={16}
-          className="text-neutral-200 hover:text-white"
-          variant="Outline"
-        />
-      )}
+      {isHovered && <PlusIcon className="text-neutral-200 hover:text-white" />}
+      {/* {isHovered && <CreateTableDropdown />} */}
     </div>
   );
 };
@@ -56,7 +55,9 @@ const CreateContentPanel: React.FC = () => {
           className="flex justify-between  bg-gray-500/20 items-center px-4 h-9 cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span className="font-medium ">Create New</span>
+          <Text as="span" variant="B2-Medium" className="h-[18px]">
+            Create New
+          </Text>
           <ArrowRight2
             size={16}
             className={`transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}

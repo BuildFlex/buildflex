@@ -50,3 +50,18 @@
 .stroke-medium path {
   stroke-width: 1.5px !important;
 }
+
+/* Dropdown item hover */
+
+.ant-dropdown-menu{
+  box-shadow: none !important;
+}
+.ant-dropdown-menu-item-active:not(.ant-dropdown-menu-item-disabled) .ant-dropdown-menu-title-content:hover{
+  background-color: #F9FAFB !important;
+  border-radius: 4px !important;
+}
+
+/* antd Input placeholder */
+.ant-input::placeholder {
+  color: #6A758B !important;
+}

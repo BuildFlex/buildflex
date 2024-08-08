@@ -3,5 +3,34 @@
 }
 .sidebar__search .ant-input-prefix{
     margin: 0;
-    margin-inline-end:0 !important
+    margin-inline-end:0 !important;
+    border-radius: 4px !important;
+}
+
+
+/* Searh Dropdown  */
+.create-dropdown .ant-dropdown-menu, .sidebar__search-dropdown .ant-dropdown-menu,.ant-dropdown-menu-sub {
+    padding: 0 !important;
+    display: flex ;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sectionAddDropdown .ant-dropdown-menu{
+    display: flex ;
+    flex-direction: column;
+    gap: 4px;
+}
+.ant-dropdown-menu>li,.ant-dropdown-menu>li>div{
+    padding: 0px !important;
+    border-radius: 4px !important;
+}
+
+.ant-dropdown-menu.ant-dropdown-menu-submenu-popup{
+    padding: 0 !important;
+    @apply shadow-[0px_6px_16px_0px_rgba(0,0,0,0.04),0px_3px_6px_-4px_rgba(0,0,0,0.06),0px_9px_28px_8px_rgba(0,0,0,0.02)] rounded-[1.6rem] !important;
+
+}
+.ant-dropdown-menu-submenu-expand-icon{
+    display: none !important;
 }

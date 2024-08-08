@@ -13,7 +13,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        border: '#EDEDED',
+        borderColor: '#EDEDED',
         brand: {
           PRIMARY: '#15A0A3',
           'bf-gradient-start': '#21D4A7',
