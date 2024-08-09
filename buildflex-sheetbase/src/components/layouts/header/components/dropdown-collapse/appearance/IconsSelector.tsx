@@ -15,7 +15,7 @@ const IconsSelector = () => {
           />
         }
         style={{ padding: '0px' }}
-        className="h-9 flex gap-2 text-neutral-dark-500 items-center project_name_dropdown__search"
+        className="h-9 flex gap-2 !text-neutral-dark-500 items-center project_name_dropdown__search"
       />
       <div className="flex flex-wrap gap-2">
         {IconsList.map((icon, index) => (

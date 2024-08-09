@@ -31,7 +31,7 @@ const collapseItems: CollapseProps['items'] = [
     children: (
       <div className="mb-2">
         <ProjectThemeSelector />
-        <div className="h-[1px]  bg-border w-full my-2" />
+        <div className="h-[1px]  bg-borderColor w-full my-2" />
         <IconsSelector />
       </div>
     ),

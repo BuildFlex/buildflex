@@ -18,7 +18,7 @@ const SnapshotSubmenu = ({ handleBackClick }: SnapshotSubmenuProps) => {
         </Text>
       </div>
 
-      <div className="h-[1px] bg-border" />
+      <div className="h-[1px] bg-borderColor" />
       <div className="flex flex-col ">
         <div
           onClick={() => setIsSnapshot(true)}
@@ -45,7 +45,7 @@ const SnapshotSubmenu = ({ handleBackClick }: SnapshotSubmenuProps) => {
             </Text>
           </div>
         )}
-        <div className="h-[1px] bg-border" />
+        <div className="h-[1px] bg-borderColor" />
         <div className="flex mt-2 items-center rounded gap-2 px-2 py-[7px] bg-neutral-dark-100 text-neutral-dark-300">
           <InfoCircle className="min-w-[16px]" size={16} color="#6A758B" />
           <span>You have 1 year of snapshot history. Learn more</span>

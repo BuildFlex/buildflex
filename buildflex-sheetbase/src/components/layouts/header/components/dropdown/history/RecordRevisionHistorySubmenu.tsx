@@ -22,7 +22,7 @@ const RecordRevisionHistorySubmenu = ({
         </Text>
       </div>
 
-      <div className="h-[1px] bg-border" />
+      <div className="h-[1px] bg-borderColor" />
       <div className="flex flex-col  ">
         <div className=" gap-3 flex items-center  px-2 py-[7px] ">
           <Switch

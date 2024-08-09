@@ -48,7 +48,7 @@ const HistoryDropdown = () => {
     {
       key: 'division',
       type: 'divider',
-      className: '!bg-border !my-2',
+      className: '!bg-borderColor !my-2',
     },
     {
       key: 'undo',

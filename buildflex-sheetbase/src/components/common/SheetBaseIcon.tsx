@@ -1,6 +1,7 @@
-export default function SheetBaseIcon() {
+export default function SheetBaseIcon({ className }: { className?: string }) {
   return (
     <svg
+      className={className}
       width="32"
       height="32"
       viewBox="0 0 32 32"
