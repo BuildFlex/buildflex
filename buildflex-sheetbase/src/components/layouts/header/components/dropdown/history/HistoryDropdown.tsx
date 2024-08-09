@@ -20,6 +20,7 @@ import {
 import { useState } from 'react';
 import SnapshotSubmenu from './SnapshotSubmenu';
 import RecordRevisionHistorySubmenu from './RecordRevisionHistorySubmenu';
+import DropdownItem from '@/components/common/dropdown/DropdownItem';
 
 const HistoryDropdown = () => {
   const [activeItem, setActiveItem] = useState<string | null>(null);
@@ -39,7 +40,7 @@ const HistoryDropdown = () => {
       type: 'group',
       label: (
         <div className="items-center  font-lato px-2 py-[7px]   text-neutral-dark-500">
-          <Text as="span" variant="B2-Regular">
+          <Text as="span" variant="B2-Regular" className="h-[18px]">
             History
           </Text>
         </div>
@@ -55,7 +56,7 @@ const HistoryDropdown = () => {
       label: (
         <div className="flex gap-2  items-center text-neutral-dark-500">
           <UndoIcon />
-          <Text as="span" variant="B2-Regular">
+          <Text as="span" variant="B2-Regular" className="h-[18px]">
             Undo
           </Text>
           <Text
@@ -73,7 +74,7 @@ const HistoryDropdown = () => {
       label: (
         <div className="flex gap-2 items-center text-neutral-dark-500">
           <RedoIcon />
-          <Text as="span" variant="B2-Regular">
+          <Text as="span" variant="B2-Regular" className="h-[18px]">
             Redo
           </Text>
           <Text
@@ -88,32 +89,35 @@ const HistoryDropdown = () => {
     },
     {
       key: 'snapshots',
+      type: 'group',
+
       label: (
-        <div
+        <DropdownItem
           onClick={(e) => handleOpenSubMenu(e, 'snapshots')}
-          className="flex gap-2 items-center text-neutral-dark-500"
+          className="flex gap-2 hover:bg-gray-50 items-center cursor-pointer h-10  text-neutral-dark-500"
         >
           <Clock size={16} />
-          <Text as="span" variant="B2-Regular">
+          <Text as="span" variant="B2-Regular" className="h-[18px]">
             Snapshots
           </Text>
           <ArrowRight2 className="ml-auto" size={16} />
-        </div>
+        </DropdownItem>
       ),
     },
     {
       key: 'record-revision-history',
+      type: 'group',
       label: (
-        <div
+        <DropdownItem
           onClick={(e) => handleOpenSubMenu(e, 'record-revision-history')}
-          className="flex gap-2 items-center text-neutral-dark-500"
+          className="flex gap-2 hover:bg-gray-50 items-center cursor-pointer h-10  text-neutral-dark-500"
         >
           <UnorderedListIcon />
-          <Text as="span" variant="B2-Regular">
+          <Text as="span" variant="B2-Regular" className="h-[18px]">
             Record revision history{' '}
           </Text>
           <ArrowRight2 className="ml-auto" size={16} />
-        </div>
+        </DropdownItem>
       ),
     },
     {
@@ -121,7 +125,7 @@ const HistoryDropdown = () => {
       label: (
         <div className="flex gap-2 items-center text-neutral-dark-500">
           <Trash size={16} />
-          <Text as="span" variant="B2-Regular">
+          <Text as="span" variant="B2-Regular" className="h-[18px]">
             Trash{' '}
           </Text>
         </div>
@@ -146,18 +150,29 @@ const HistoryDropdown = () => {
         >
           {menu}
           {/*====== SUB MENU ======== */}
-          <div className={`submenu-content  text-neutral-dark-500 `}>
-            {activeItem === 'snapshots' && (
-              <SnapshotSubmenu handleBackClick={handleBackClick} />
-            )}
-            {activeItem === 'record-revision-history' && (
-              <RecordRevisionHistorySubmenu handleBackClick={handleBackClick} />
-            )}
+
+          <div className={`submenu-content relative   text-neutral-dark-500 `}>
+            <SnapshotSubmenu
+              className={
+                activeItem === 'snapshots'
+                  ? 'opacity-100'
+                  : 'opacity-0 pointer-events-none'
+              }
+              handleBackClick={handleBackClick}
+            />
+            <RecordRevisionHistorySubmenu
+              className={
+                activeItem === 'record-revision-history'
+                  ? 'opacity-100'
+                  : 'opacity-0 pointer-events-none'
+              }
+              handleBackClick={handleBackClick}
+            />
           </div>
         </div>
       )}
     >
-      <div className="clock flex justify-center items-center cursor-pointer ">
+      <div className="clock size-9 flex justify-center items-center cursor-pointer ">
         <Clock size={16} color={'#FFFFFF'} />
       </div>
     </Dropdown>

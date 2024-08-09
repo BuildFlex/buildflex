@@ -11,6 +11,7 @@ import './header.css';
 import Logo from './components/Logo';
 import ProjectStatus from './components/ProjectStatus';
 import HistoryDropdown from './components/dropdown/history/HistoryDropdown';
+import HelpButton from './components/help/HelpButton';
 
 const Header = () => {
   const { theme } = useTheme();
@@ -18,7 +19,7 @@ const Header = () => {
     <header
       id={'header'}
       className={cn(
-        `flex p-3 box-border  bg-red-200  text-white`,
+        `flex p-3 box-border h-[60px] bg-red-200  text-white`,
         theme.linearBackground,
       )}
     >
@@ -37,13 +38,7 @@ const Header = () => {
       {/*Base Right Nav*/}
       <div className="nav-right ml-auto flex items-center gap-3 ">
         <HistoryDropdown />
-
-        <div className="help flex gap-2 items-center cursor-pointer">
-          <MessageQuestion size={16} color={'#FFFFFF'} />
-          <Text variant={'B2-Medium'} as="span" className="text-white">
-            Help
-          </Text>
-        </div>
+        <HelpButton />
         <div className="share  box-border	 py-1.5 px-4 rounded-lg cursor-pointer  gap-2 bg-white max-h-9 h-9  flex items-center justify-center">
           <People color={theme.hexCode} size={16} />
           <Text variant={'B2-Medium'} as="span" className={`${theme.color}`}>
