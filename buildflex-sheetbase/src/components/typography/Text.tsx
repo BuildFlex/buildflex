@@ -5,6 +5,7 @@ export type TextVariant =
   | 'B1-Medium'
   | 'B1-Regular'
   | 'B2-Bold'
+  | 'B2-SemiBold'
   | 'B2-Medium'
   | 'B2-Regular'
   | 'sub-title'
@@ -39,6 +40,7 @@ const Text: React.FC<TextProps> = ({
     'B1-Medium': 'text-[16px] font-medium',
     'B1-Regular': 'text-[16px] font-normal',
     'B2-Bold': 'text-[14px] font-bold',
+    'B2-SemiBold': 'text-[14px] font-semibold',
     'B2-Medium': 'text-[14px] font-medium',
     'B2-Regular': 'text-[14px] font-normal',
     'sub-title': 'text-[12px] font-normal',
