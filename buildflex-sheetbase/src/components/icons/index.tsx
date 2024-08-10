@@ -4,6 +4,82 @@ interface IconProps {
   color?: string;
 }
 // below icons is not supported by iconsax-react
+
+
+export const ArrowRotate = ({ className }: IconProps) => {
+  return (
+    <svg
+      className={className}
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6.07355 3.38664C6.65355 3.21331 7.29355 3.09998 8.00021 3.09998C11.1935 3.09998 13.7802 5.68664 13.7802 8.87998C13.7802 12.0733 11.1935 14.66 8.00021 14.66C4.80688 14.66 2.22021 12.0733 2.22021 8.87998C2.22021 7.69331 2.58021 6.58664 3.19355 5.66664"
+        stroke="#087AAF"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M5.24658 3.54671L7.17325 1.33337"
+        stroke="#087AAF"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M5.24658 3.54663L7.49325 5.18663"
+        stroke="#087AAF"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+export const LaptopIcon = ({ className }: IconProps) => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_10942_21619)">
+        <path
+          d="M13.3337 9.66669V4.33335C13.3337 3.07627 13.3337 2.44774 12.9431 2.05721C12.5526 1.66669 11.9241 1.66669 10.667 1.66669H5.33366C4.07658 1.66669 3.44804 1.66669 3.05752 2.05721C2.66699 2.44774 2.66699 3.07628 2.66699 4.33335V9.66669"
+          stroke="white"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M8 3.66669H8.00599"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M2.33191 10.3436L2.67985 9.66669H13.3014L13.6684 10.3436C14.6303 12.118 14.8699 13.0052 14.5043 13.6693C14.1386 14.3334 13.1692 14.3334 11.2304 14.3334L4.76991 14.3334C2.83111 14.3334 1.8617 14.3334 1.49608 13.6693C1.13045 13.0052 1.36999 12.118 2.33191 10.3436Z"
+          stroke="white"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_10942_21619">
+          <rect width="16" height="16" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
 export const CollapseIcon = ({ className }: IconProps) => {
   return (
     <svg
@@ -57,9 +133,9 @@ export const CheckBoxIcon = ({ className, color }: IconProps) => {
       <path
         d="M4.16675 10.8333L7.10543 13.1842C7.79486 13.7357 8.79479 13.6539 9.38542 12.9977L15.8334 5.83325"
         stroke={color || '#ffffff'}
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -122,9 +198,10 @@ export const UnorderedListIcon = ({ className }: IconProps) => {
   );
 };
 
-export const CloseIcon = ({ className }: IconProps) => {
+export const CloseIcon = ({ className, color }: IconProps) => {
   return (
     <svg
+      className={className}
       width="16"
       height="16"
       viewBox="0 0 16 16"
@@ -133,10 +210,10 @@ export const CloseIcon = ({ className }: IconProps) => {
     >
       <path
         d="M12.6671 3.33325L3.33374 12.6666M3.33374 3.33325L12.6671 12.6666"
-        stroke="#101828"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        stroke={color || '#101828'}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

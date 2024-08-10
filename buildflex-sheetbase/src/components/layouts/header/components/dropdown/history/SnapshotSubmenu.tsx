@@ -1,14 +1,24 @@
 import Text from '@/components/typography/Text';
+import { cn } from '@/utils/cn';
 import { ArrowCircleLeft, InfoCircle } from 'iconsax-react';
 import React, { useState } from 'react';
 
 interface SnapshotSubmenuProps {
   handleBackClick: () => void;
+  className?: string;
 }
-const SnapshotSubmenu = ({ handleBackClick }: SnapshotSubmenuProps) => {
+const SnapshotSubmenu = ({
+  className,
+  handleBackClick,
+}: SnapshotSubmenuProps) => {
   const [isSnapshot, setIsSnapshot] = useState<boolean>(false);
   return (
-    <>
+    <div
+      className={cn(
+        'absolute top-3 transition-opacity max-w-[calc(100%-24px)] duration-300 flex flex-col gap-3',
+        className,
+      )}
+    >
       <div className="items-center flex gap-2  font-lato px-2 py-[7px]  ">
         <div className="size-4 cursor-pointer" onClick={handleBackClick}>
           <ArrowCircleLeft size={16} color="#0D7FAB" />
@@ -22,7 +32,7 @@ const SnapshotSubmenu = ({ handleBackClick }: SnapshotSubmenuProps) => {
       <div className="flex flex-col ">
         <div
           onClick={() => setIsSnapshot(true)}
-          className="px-2 py-[7px] mb-2 cursor-pointer"
+          className="px-2 py-[7px] w-fit  mb-2 cursor-pointer"
         >
           {isSnapshot ? (
             <Text
@@ -51,7 +61,7 @@ const SnapshotSubmenu = ({ handleBackClick }: SnapshotSubmenuProps) => {
           <span>You have 1 year of snapshot history. Learn more</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
