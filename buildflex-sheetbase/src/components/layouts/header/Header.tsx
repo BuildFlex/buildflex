@@ -12,6 +12,7 @@ import Logo from './components/Logo';
 import ProjectStatus from './components/ProjectStatus';
 import HistoryDropdown from './components/dropdown/history/HistoryDropdown';
 import HelpButton from './components/help/HelpButton';
+import NotiButton from './components/notification/NotiButton';
 
 const Header = () => {
   const { theme } = useTheme();
@@ -45,9 +46,10 @@ const Header = () => {
             Share
           </Text>
         </div>
-        <div className="notification rounded-full bg-white cursor-pointer size-9 flex items-center justify-center">
+        {/* <div className="notification rounded-full bg-white cursor-pointer size-9 flex items-center justify-center">
           <Notification size={16} color={theme.hexCode} />
-        </div>
+        </div> */}
+        <NotiButton />
         <Avatar
           size={36}
           icon={<UserOutlined />}

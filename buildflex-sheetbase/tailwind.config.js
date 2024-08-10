@@ -122,6 +122,7 @@ module.exports = {
           'Noto Color Emoji',
         ],
         lato: ['Lato', 'sans-serif'],
+        sourceCodePro: ['Source Code Pro', 'monospace'],
       },
       // fontSize: {
       //   xs: ['1.2rem', { lineHeight: '1.6rem' }],

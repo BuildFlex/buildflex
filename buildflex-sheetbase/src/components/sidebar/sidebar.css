@@ -6,7 +6,9 @@
     margin-inline-end:0 !important;
     border-radius: 4px !important;
 }
-
+.sidebar__search .ant-input::placeholder{
+    color: #6A758B !important;
+}
 
 /* Searh Dropdown  */
 .create-dropdown .ant-dropdown-menu, .sidebar__search-dropdown .ant-dropdown-menu,.ant-dropdown-menu-sub {

@@ -66,19 +66,6 @@ const SearchDropdown = ({ children }: { children: ReactNode }) => {
       )}
       overlayClassName=" boxShadowSecondary !rounded-lg"
     >
-      {/* <div className={cn('relative  ')}>
-        <Input
-          placeholder="Search"
-          prefix={<SearchNormal1 size={16} color={'#6A758B'} />}
-          style={{
-            padding: '0 8px',
-            boxShadow: 'none',
-            borderRadius: '4px',
-          }}
-          readOnly
-          className="h-9 flex !cursor-default gap-2 items-center sidebar__search"
-        />
-      </div> */}
       {children}
     </Dropdown>
   );
