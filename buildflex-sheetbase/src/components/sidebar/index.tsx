@@ -27,26 +27,25 @@ export default function SideBar() {
     <aside
       className={cn(
         'sidebar max-w-[260px]  flex flex-col box-border ',
-        isCollapsed ? 'w-10 p-0 relative top-0 left-0 pr-10' : 'p-3 w-[260px] ',
+        isCollapsed
+          ? 'w-10 p-0 relative top-0 left-0 pr-10'
+          : 'p-3 min-w-[260px] w-[260px] ',
       )}
       style={{ border: '1px solid #EDEDED' }}
     >
       <div className="flex items-center justify-between gap-2 mb-2">
-        <SearchDropdown>
-          <div className={cn('relative  ', isCollapsed ? 'hidden' : '')}>
-            <Input
-              placeholder="Search"
-              prefix={<SearchNormal1 size={16} color={'#6A758B'} />}
-              style={{
-                padding: '0 8px',
-                boxShadow: 'none',
-                borderRadius: '4px',
-              }}
-              readOnly
-              className="h-9 flex !text-neutral-dark-500 !cursor-default gap-2 items-center sidebar__search"
-            />
-          </div>
-        </SearchDropdown>
+        <div className={cn('relative  ', isCollapsed ? 'hidden' : '')}>
+          <Input
+            placeholder="Search"
+            prefix={<SearchNormal1 size={16} color={'#6A758B'} />}
+            style={{
+              padding: '0 8px',
+              boxShadow: 'none',
+              borderRadius: '4px',
+            }}
+            className="h-9 flex !text-neutral-dark-500 !cursor-default gap-2 items-center sidebar__search"
+          />
+        </div>
         <Tooltip
           placement="right"
           title={`${isCollapsed ? 'Show' : 'Close'} sidebar (Ctrl + \\)`}

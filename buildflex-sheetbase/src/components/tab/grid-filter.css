@@ -1,0 +1,25 @@
+.grid-dropdown .ant-dropdown-menu{
+    display: flex  !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+.grid-dropdown .ant-input{
+    box-shadow: none !important;
+
+}
+.grid-view-dropdown{
+  width: 320px !important;
+}
+.grid-filter-dropdown .ant-input::placeholder{
+    color: #101828 !important;
+}
+.grid-filter-dropdown .ant-select{
+    width: 120px !important;
+    height: 30px !important;
+
+}
+.grid-filter-dropdown .ant-select-selector{
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}

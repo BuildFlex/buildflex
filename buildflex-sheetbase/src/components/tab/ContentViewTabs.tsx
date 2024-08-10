@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Grid1, Calendar, Gallery, Add, More, Magicpen } from 'iconsax-react';
 import GridFilter from '../view-filter/grid-filter/GridFilter';
-import { MoreOutlined } from '@ant-design/icons';
 import AIChatDrawer from '../extensions/ai-chat';
 import Grid from '../grid/Grid';
-
+import { cn } from '@/utils/cn';
+import { MoreVert, SparklesIcon } from '../icons';
+import Text from '../typography/Text';
+import { useTheme } from '@/provider/theme-provider';
+import './grid-filter.css';
 interface Tab {
   id: string;
   icon: React.ElementType;
@@ -49,6 +52,7 @@ const tabs: Tab[] = [
 const TabComponent: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>(tabs[0].id);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const { theme } = useTheme();
   const truncateText = (text: string, maxLength: number) => {
     return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
   };
@@ -60,49 +64,57 @@ const TabComponent: React.FC = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex items-center bg-gray-50 overflow-x-auto">
+      <div className="flex items-center box-border bg-gray-50 overflow-x-auto">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
           const Icon = tab.icon;
           return (
             <button
               key={tab.id}
-              className={`flex items-center p-2 text-sm border-none cursor-pointer ${
+              className={cn(
+                `flex items-center h-8  gap-2 p-2 text-sm border-none cursor-pointer`,
                 isActive
                   ? 'bg-white text-blue-600'
-                  : 'text-gray-600 bg-gray-50 hover:bg-white'
-              }`}
+                  : 'text-gray-600 bg-gray-50 hover:bg-white',
+              )}
               onClick={() => setActiveTab(tab.id)}
             >
               <Icon size={16} className="mr-2" />
-              <span className="whitespace-nowrap">
+              <Text
+                as="span"
+                variant="B2-Regular"
+                className="whitespace-nowrap"
+              >
                 {truncateText(tab.title, 20)}
-              </span>
-              {isActive && (
-                <MoreOutlined
-                  style={{ fontSize: '16px', fontWeight: 600 }}
-                  className="ml-2 text-gray-400 cursor-pointer"
-                  rotate={180}
-                />
+              </Text>
+              {isActive ? (
+                <MoreVert className="ml-auto cursor-pointer" />
+              ) : (
+                <div className="h-[14px] bg-neutral-dark-300 w-[1px] mx-[7.5px] " />
               )}
             </button>
           );
         })}
         <button
-          className="flex items-center px-3 py-2 text-neutral-dark-300 hover:bg-gray-200 border-none cursor-pointer"
+          className="flex items-center px-2 h-8 bg-transparent text-neutral-dark-300 hover:bg-gray-100 border-none cursor-pointer"
           onClick={handleAddView}
         >
-          <Add size={20} className="mr-2" />
-          <span>Add view</span>
+          <Add size={16} className="mr-2" />
+          <Text as="span" variant="B2-Regular" className="whitespace-nowrap">
+            Add view
+          </Text>
         </button>
         <button
           onClick={() => setIsDrawerOpen(true)}
-          className={
-            'flex items-center font-semibold px-5 py-2 bg-gradient-to-br from-gradient-sheet-base-start to-gradient-sheet-base-end text-white border-none cursor-pointer ml-auto rounded-tl-sm'
-          }
+          className={cn(
+            'flex gap-2 items-center px-2 py-[7px] box-border  text-white border-none cursor-pointer ml-auto rounded-tl',
+            theme.linearBackground,
+          )}
         >
-          <Magicpen size={16} className={'mr-2'} />
-          Copilot
+          <SparklesIcon />
+          <Text as="span" variant="B2-Regular" className="h-[18px] w-[72px]">
+            AI chat tool
+          </Text>
         </button>
         <AIChatDrawer
           isOpen={isDrawerOpen}

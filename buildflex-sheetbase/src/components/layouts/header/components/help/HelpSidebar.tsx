@@ -98,7 +98,7 @@ const HelpSidebar = ({ onClose }: HelpSidebarProps) => {
   return (
     <div
       className={cn(
-        'fixed right-0 top-[60px] bottom-0 w-[380px] flex flex-col z-10 dropdown-container   p-4 box-border max-h-[calc(100svh-60px)] h-full overflow-y-auto overflow-x-hidden text-white',
+        'fixed z-20 right-0 top-[60px] customScrollBar  bottom-0 w-[380px] flex flex-col  dropdown-container   p-4 box-border max-h-[calc(100svh-60px)] h-full overflow-y-auto overflow-x-hidden text-white',
 
         theme.linearBackground,
         activeItem ? 'inside' : 'outside',
