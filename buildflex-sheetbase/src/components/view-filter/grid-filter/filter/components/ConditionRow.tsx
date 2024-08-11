@@ -4,23 +4,41 @@ import { Input, Select } from 'antd';
 import { Trash } from 'iconsax-react';
 import React from 'react';
 import FieldSelect from './FieldSelect';
-
-const ConditionRow = () => {
+interface ConditionRowProps {
+  isFirstRow?: boolean;
+}
+const ConditionRow = ({ isFirstRow = false }: ConditionRowProps) => {
   return (
     <div className=" h-8 flex gap-3">
-      <div className="h-full w-20  flex items-center">
-        <Text as="span" variant="B2-Regular">
-          Where
-        </Text>
-      </div>
-      <div className="flex border border-solid  rounded border-borderColor ">
+      {isFirstRow ? (
+        <div className="h-full w-20 px-2 py-[7px] box-border  flex items-center">
+          <Text as="span" variant="B2-Regular">
+            Where
+          </Text>
+        </div>
+      ) : (
+        <FieldSelect
+          style={{
+            border: '1px solid #EDEDED',
+            borderRadius: '4px',
+            width: '80px',
+            height: '32px',
+          }}
+          initialValue="and"
+          itemsList={['or', 'and']}
+          searchPlaceholder="Find a field"
+        />
+      )}
+      <div className="flex border border-solid bg-white  rounded border-borderColor ">
         <FieldSelect
           style={{ borderRight: '1px solid #EDEDED' }}
           initialValue="Name"
           itemsList={['Name', 'Phone', 'Email']}
+          searchPlaceholder="Find a field"
         />
         <FieldSelect
           style={{ borderRight: '1px solid #EDEDED' }}
+          searchPlaceholder="Find an operation"
           initialValue="contains"
           itemsList={[
             'contains',

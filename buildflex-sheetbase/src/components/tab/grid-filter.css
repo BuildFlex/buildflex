@@ -14,12 +14,51 @@
     color: #101828 !important;
 }
 .grid-filter-dropdown .ant-select{
-    width: 120px !important;
-    height: 30px !important;
+    width: 120px;
+    height: 30px ;
 
 }
 .grid-filter-dropdown .ant-select-selector{
     outline: none !important;
     border: none !important;
     box-shadow: none !important;
+}
+
+.ant-select-dropdown  .ant-input{
+    box-shadow: none !important;
+    border: none !important;
+    padding:  0 8px !important;
+    height: 36px !important;
+}
+.ant-select-dropdown  .ant-input::placeholder{
+    color: #6A758B !important;
+}
+.filter-select{
+    padding: 12px !important;
+    border-radius: 8px !important;
+}
+.filter-select .ant-select-item-option{
+    padding: 7px 8px !important;
+    border-radius: 4px !important;
+    height: 32px !important;
+}
+
+.filter-select .ant-select-item-option-content{
+    display: flex !important;
+    align-items: center !important;
+}
+.filter-select .rc-virtual-list-holder-inner{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+
+/* add-conditions-dropdown */
+
+.add-conditions-dropdown .ant-dropdown-menu{
+
+    display: flex  !important;
+    flex-direction: column !important;
+    gap: 4px !important;
 }
