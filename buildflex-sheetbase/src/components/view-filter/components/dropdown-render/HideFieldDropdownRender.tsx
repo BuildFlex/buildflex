@@ -40,7 +40,7 @@ interface Field {
   label: string;
 }
 
-const fields: Field[] = [
+export const fields: Field[] = [
   { id: 'single-line', icon: TextIcon, label: 'Single line text' },
   { id: 'long-text', icon: ChooseBoxIcon, label: 'Long text' },
   { id: 'attachment', icon: DocumentText, label: 'Attachment' },
@@ -78,7 +78,7 @@ const HideFieldDropdownRender = ({ menu }: { menu: ReactNode }) => {
     setShowFields([]);
   };
   return (
-    <div className="flex flex-col gap-2 box-border p-3 rounded-lg w-[320px] max-h-[300px] ">
+    <div className="flex flex-col gap-2 box-border p-3 rounde d-lg w-[320px] max-h-[300px] ">
       <Input
         placeholder="Find a field"
         prefix={<SearchNormal1 size={16} color={'#6A758B'} />}

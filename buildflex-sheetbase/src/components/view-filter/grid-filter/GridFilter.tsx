@@ -12,14 +12,19 @@ import {
   People,
 } from 'iconsax-react';
 import HideFieldsPopup from './hide-field';
-import FindAField from './filter/components/FindAField';
 import Text from '@/components/typography/Text';
 import { Dropdown, MenuProps } from 'antd';
-import { gridViewItems } from '../dropdown/gridview-dropdown-items';
-import HideFieldDropdownRender from './hide-field/HideFieldDropdownRender';
-import { fieldsItems } from '../dropdown/fields-dropdown-items';
+import { gridViewItems } from '../components/dropdown-items/gridview-dropdown-items';
+import { fieldsItems } from '../components/dropdown-items/fields-dropdown-items';
 import { cn } from '@/utils/cn';
-import FilterDropdownRender from './filter/FilterDropdownRender';
+import HideFieldDropdownRender from '../components/dropdown-render/HideFieldDropdownRender';
+import GroupDropdownRender from '../components/dropdown-render/GroupDropdownRender';
+import FilterDropdownRender from '../components/dropdown-render/FilterDropdownRender';
+import SortDropdownRender from '../components/dropdown-render/SortDropdownRender';
+import RowHeightItems from '../components/dropdown-items/row-height-items';
+import ShareAndSyncItems from '../components/dropdown-items/share-and-sync-items';
+import ShareAndSyncDropdownRender from '../components/dropdown-render/ShareAndSyncDropdownRender';
+import ColorDropdownRender from '../components/dropdown-render/ColorDropdownRender';
 
 interface FilterItem {
   id: string;
@@ -73,7 +78,6 @@ const filterItems: FilterItem[] = [
     popupType: 'panel',
     filterType: 'filter',
     className: 'grid-filter-dropdown',
-
   },
   {
     id: 'group',
@@ -102,6 +106,7 @@ const filterItems: FilterItem[] = [
     label: 'Row height',
     popupType: 'menu',
     filterType: 'rowHeight',
+    menuItems: RowHeightItems,
   },
   {
     id: 'share',
@@ -109,6 +114,7 @@ const filterItems: FilterItem[] = [
     label: 'Share and sync',
     popupType: 'panel',
     filterType: 'shareAndSync',
+    className: 'grid-share-dropdown',
   },
 ];
 
@@ -142,6 +148,14 @@ const GridFilter: React.FC = () => {
         return <HideFieldDropdownRender menu={menu} />;
       case 'filter':
         return <FilterDropdownRender />;
+      case 'group':
+        return <GroupDropdownRender />;
+      case 'sort':
+        return <SortDropdownRender />;
+      case 'share':
+        return <ShareAndSyncDropdownRender />;
+      case 'color':
+        return <ColorDropdownRender />;
       default:
         return menu;
     }
@@ -164,6 +178,7 @@ const GridFilter: React.FC = () => {
           <button
             className="flex items-center whitespace-nowrap h-[34px]  p-2 hover:bg-gray-50 rounded   text-sm text-neutral-dark-500 border-none bg-transparent cursor-pointer "
             onClick={() => handleFilterClick(item.id)}
+            id={item.id}
           >
             <item.icon size={16} className="mr-2 " />
             {typeof item.label === 'string' ? (
