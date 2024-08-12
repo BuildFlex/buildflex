@@ -18,6 +18,7 @@ const ConditionRow = ({ isFirstRow = false }: ConditionRowProps) => {
         </div>
       ) : (
         <FieldSelect
+          popupClassName="!w-[200px] filter-select"
           style={{
             border: '1px solid #EDEDED',
             borderRadius: '4px',
@@ -31,12 +32,14 @@ const ConditionRow = ({ isFirstRow = false }: ConditionRowProps) => {
       )}
       <div className="flex border border-solid bg-white  rounded border-borderColor ">
         <FieldSelect
+          popupClassName="!w-[200px] filter-select"
           style={{ borderRight: '1px solid #EDEDED' }}
           initialValue="Name"
           itemsList={['Name', 'Phone', 'Email']}
           searchPlaceholder="Find a field"
         />
         <FieldSelect
+          popupClassName="!w-[200px] filter-select"
           style={{ borderRight: '1px solid #EDEDED' }}
           searchPlaceholder="Find an operation"
           initialValue="contains"

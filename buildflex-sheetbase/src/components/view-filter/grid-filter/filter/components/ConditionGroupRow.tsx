@@ -5,9 +5,9 @@ import { Add, Trash } from 'iconsax-react';
 import React from 'react';
 import FieldSelect from './FieldSelect';
 import ConditionRow from './ConditionRow';
-import { FilterConditionProps } from '../FilterDropdownRender';
 import { cn } from '@/utils/cn';
 import AddConditionDropdown from './AddConditionDropdown';
+import { FilterConditionProps } from '@/components/view-filter/components/dropdown-render/FilterDropdownRender';
 interface ConditionGroupRowProps {
   isFirstRow?: boolean;
   condition: FilterConditionProps[];
@@ -27,6 +27,7 @@ const ConditionGroupRow = ({
           width: '80px',
           height: '32px',
         }}
+        popupClassName="!w-[200px] filter-select"
         initialValue="and"
         itemsList={['or', 'and']}
         searchPlaceholder="Find a field"

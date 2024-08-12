@@ -5,8 +5,8 @@ import { Input, Switch } from 'antd';
 import { Add, SearchNormal1 } from 'iconsax-react';
 import React, { ReactNode, useState } from 'react';
 import { Eye, More, Text as TextIcon } from 'iconsax-react';
-import ConditionRow from './components/ConditionRow';
-import ConditionGroupRow from './components/ConditionGroupRow';
+import ConditionRow from '../../grid-filter/filter/components/ConditionRow';
+import ConditionGroupRow from '../../grid-filter/filter/components/ConditionGroupRow';
 export interface FilterConditionProps {
   id: string;
   type: FilterConditionType;

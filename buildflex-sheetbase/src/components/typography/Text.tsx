@@ -16,7 +16,8 @@ export type TextVariant =
   | 'B4-Medium'
   | 'Link-Body'
   | 'Link-Subtitle-Large'
-  | 'Link-Subtitle-Small';
+  | 'Link-Subtitle-Small'
+  | 'sub-title-medium';
 
 type TextTag = 'p' | 'span';
 
@@ -44,6 +45,7 @@ const Text: React.FC<TextProps> = ({
     'B2-Medium': 'text-[14px] font-medium',
     'B2-Regular': 'text-[14px] font-normal',
     'sub-title': 'text-[12px] font-normal',
+    'sub-title-medium': 'text-[12px] font-medium',
     'B3-Bold': 'text-[10px] font-bold',
     'B3-Medium': 'text-[10px] font-medium',
     'B3-Regular': 'text-[10px] font-normal',

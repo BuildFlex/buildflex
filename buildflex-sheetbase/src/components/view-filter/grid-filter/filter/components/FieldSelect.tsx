@@ -7,12 +7,14 @@ interface SelectProps {
   initialValue?: string;
   itemsList: string[];
   searchPlaceholder?: string;
+  popupClassName?: string;
 }
 const FieldSelect = ({
   style,
   initialValue,
   itemsList,
   searchPlaceholder,
+  popupClassName,
 }: SelectProps) => {
   const [items, setItems] = useState(itemsList);
   const [value, setValue] = useState(initialValue);
@@ -31,7 +33,7 @@ const FieldSelect = ({
         </>
       )}
       suffixIcon={<ArrowDown2 size={16} />}
-      popupClassName="!w-[200px] filter-select"
+      popupClassName={popupClassName}
       options={items.map((item) => ({
         label: (
           <Text variant="B2-Regular" as="span">
