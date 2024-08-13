@@ -98,15 +98,15 @@
 
 
 /* Custom Switch */
-.ant-switch{
+.custom-switch {
   width: 32px;
   height: 16px;
 }
-.ant-switch-checked {
+.custom-switch.ant-switch-checked {
   background-color: #087AAF !important;
 
 }
-.ant-switch-handle{
+.custom-switch .ant-switch-handle{
   height: 10px !important ;
   width: 10px !important;
   top:2.67px !important;
@@ -114,6 +114,14 @@
   @apply shadow-[0px_6px_16px_0px_rgba(0,0,0,0.04),0px_3px_6px_-4px_rgba(0,0,0,0.06),0px_9px_28px_8px_rgba(0,0,0,0.02)] rounded-[1.6rem];
 
 }
-.ant-switch-checked .ant-switch-handle{
+.custom-switch.ant-switch-checked .ant-switch-handle{
   inset-inline-start: calc(100% - 13.44px) !important;
+}
+
+/* Modal  */
+.ant-modal-mask{
+  z-index: 9998 !important;
+} 
+.ant-modal-wrap{
+  z-index: 9999 !important;
 }

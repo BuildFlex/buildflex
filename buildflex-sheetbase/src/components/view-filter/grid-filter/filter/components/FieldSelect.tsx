@@ -2,12 +2,15 @@ import Text from '@/components/typography/Text';
 import { Divider, Input, Select, Space } from 'antd';
 import { Add, ArrowDown2 } from 'iconsax-react';
 import React, { useState } from 'react';
+import { SortByLabel } from '../../sort/SortConditionRow';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 interface SelectProps {
   style?: React.CSSProperties;
-  initialValue?: string;
-  itemsList: string[];
+  initialValue?: IField | string;
+  itemsList: IField[] | string[];
   searchPlaceholder?: string;
   popupClassName?: string;
+  isSearch?: boolean;
 }
 const FieldSelect = ({
   style,
@@ -15,8 +18,8 @@ const FieldSelect = ({
   itemsList,
   searchPlaceholder,
   popupClassName,
+  isSearch = false,
 }: SelectProps) => {
-  const [items, setItems] = useState(itemsList);
   const [value, setValue] = useState(initialValue);
 
   return (
@@ -24,23 +27,27 @@ const FieldSelect = ({
       style={style}
       defaultValue={value}
       dropdownRender={(menu) => (
-        <>
-          <Input
-            placeholder={searchPlaceholder}
-            onKeyDown={(e) => e.stopPropagation()}
-          />
+        <div className="flex flex-col gap-1">
+          {isSearch && (
+            <Input
+              className="h-9"
+              placeholder={searchPlaceholder}
+              onKeyDown={(e) => e.stopPropagation()}
+            />
+          )}
           {menu}
-        </>
+        </div>
       )}
       suffixIcon={<ArrowDown2 size={16} />}
       popupClassName={popupClassName}
-      options={items.map((item) => ({
+      options={itemsList.map((item) => ({
         label: (
           <Text variant="B2-Regular" as="span">
-            {item}
+            {typeof item === 'string' ? item : item.label}
           </Text>
         ),
-        value: item,
+
+        value: typeof item === 'string' ? item : item.label,
       }))}
     />
   );

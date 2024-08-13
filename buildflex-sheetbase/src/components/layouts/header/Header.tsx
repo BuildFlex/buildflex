@@ -13,6 +13,7 @@ import ProjectStatus from './components/ProjectStatus';
 import HistoryDropdown from './components/dropdown/history/HistoryDropdown';
 import HelpButton from './components/help/HelpButton';
 import NotiButton from './components/notification/NotiButton';
+import ShareButton from './components/share/share-button';
 
 const Header = () => {
   const { theme } = useTheme();
@@ -40,15 +41,7 @@ const Header = () => {
       <div className="nav-right ml-auto flex items-center gap-3 ">
         <HistoryDropdown />
         <HelpButton />
-        <div className="share  box-border	 py-1.5 px-4 rounded-lg cursor-pointer  gap-2 bg-white max-h-9 h-9  flex items-center justify-center">
-          <People color={theme.hexCode} size={16} />
-          <Text variant={'B2-Medium'} as="span" className={`${theme.color}`}>
-            Share
-          </Text>
-        </div>
-        {/* <div className="notification rounded-full bg-white cursor-pointer size-9 flex items-center justify-center">
-          <Notification size={16} color={theme.hexCode} />
-        </div> */}
+        <ShareButton theme={theme} />
         <NotiButton />
         <Avatar
           size={36}

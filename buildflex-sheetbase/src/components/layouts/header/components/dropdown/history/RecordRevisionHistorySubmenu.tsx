@@ -35,6 +35,7 @@ const RecordRevisionHistorySubmenu = ({
         <div className=" gap-3 flex items-center  px-2 py-[7px] ">
           <Switch
             size="small"
+            className="custom-switch"
             checked={isAllowLinking}
             onChange={setIsAllowLinking}
           />

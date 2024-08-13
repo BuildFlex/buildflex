@@ -170,3 +170,37 @@
   }
 
 
+/* Share tab */
+/* base */
+.share-base-tab .ant-tabs-nav{
+  margin-bottom: 24px !important;
+  box-sizing: border-box;
+}
+.share-base-tab .ant-tabs-tab-active .ant-tabs-tab-btn{
+  color: #101828 !important;
+}
+.share-base-tab .ant-tabs-tab:not(.ant-tabs-tab-active) .ant-tabs-tab-btn{
+  color: #6A758B !important;
+}
+.share-base-tab .ant-tabs-ink-bar {
+  height: 2px;
+  background: #101828 !important;
+}
+.share-base-tab .ant-tabs-tab {
+  height: 26px !important;
+  padding: 0 0 8px 0  !important;
+  margin: 0 !important;
+  
+}
+.share-base-tab .ant-tabs-tab-btn{
+  height: 18px !important;
+
+}
+.share-base-tab .ant-tabs-nav-list{
+  display: flex ;
+  gap: 16px;
+}
+
+.email-invited-select .ant-select-selector {
+ border-radius: 8px !important;
+}

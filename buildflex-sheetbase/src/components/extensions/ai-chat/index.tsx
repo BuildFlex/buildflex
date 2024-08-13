@@ -12,7 +12,6 @@ import {
   ArrowDown2,
 } from 'iconsax-react';
 import { CloseOutlined } from '@ant-design/icons';
-import { Input, theme } from 'antd';
 import { cn } from '@/utils/cn';
 import { useTheme } from '@/provider/theme-provider';
 import Text from '@/components/typography/Text';
@@ -101,23 +100,13 @@ const AIChatDrawer: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
                 className="w-full text-left px-2 text-neutral-dark-500 py-[7px] h-8 rounded bg-white  hover:bg-gray-50 flex items-center cursor-pointer border border-solid  border-borderColor"
               >
                 <option.icon size={20} className="mr-2 text-gray-500" />
-                <Text as='span' variant='B2-Regular' >{option.text}</Text>
+                <Text as="span" variant="B2-Regular">
+                  {option.text}
+                </Text>
               </button>
             ))}
           </div>
         </div>
-        {/* {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`mb-4 ${message.type === 'user' ? 'text-right' : 'text-left'}`}
-          >
-            <div
-              className={`inline-block p-2 rounded-lg ${message.type === 'user' ? 'bg-blue-100' : 'bg-gray-100'}`}
-            >
-              {message.content}
-            </div>
-          </div>
-        ))} */}
         <Message type="user">
           <Text as="span" variant="sub-title" className="text-neutral-dark-500">
             Add a columns showing the length in minutes

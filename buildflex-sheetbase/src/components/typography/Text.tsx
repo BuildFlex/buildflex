@@ -2,6 +2,7 @@ import React from 'react';
 
 export type TextVariant =
   | 'B1-Bold'
+  | 'B1-Semibold'
   | 'B1-Medium'
   | 'B1-Regular'
   | 'B2-Bold'
@@ -17,7 +18,8 @@ export type TextVariant =
   | 'Link-Body'
   | 'Link-Subtitle-Large'
   | 'Link-Subtitle-Small'
-  | 'sub-title-medium';
+  | 'sub-title-medium'
+  | 'modal-title';
 
 type TextTag = 'p' | 'span';
 
@@ -39,12 +41,14 @@ const Text: React.FC<TextProps> = ({
   const variantStyles: Record<TextVariant, string> = {
     'B1-Bold': 'text-[16px] font-bold',
     'B1-Medium': 'text-[16px] font-medium',
+    'B1-Semibold': 'text-[16px] font-semibold',
     'B1-Regular': 'text-[16px] font-normal',
     'B2-Bold': 'text-[14px] font-bold',
     'B2-SemiBold': 'text-[14px] font-semibold',
     'B2-Medium': 'text-[14px] font-medium',
     'B2-Regular': 'text-[14px] font-normal',
     'sub-title': 'text-[12px] font-normal',
+    'modal-title': 'text-[18px] font-semibold',
     'sub-title-medium': 'text-[12px] font-medium',
     'B3-Bold': 'text-[10px] font-bold',
     'B3-Medium': 'text-[10px] font-medium',

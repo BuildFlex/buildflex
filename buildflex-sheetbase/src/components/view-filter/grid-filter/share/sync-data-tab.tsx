@@ -33,7 +33,7 @@ const SyncDataTab = ({
   return (
     <div
       className={cn(
-        'share-sync-data-tab duration-500 transition-transform flex flex-col gap-3 min-w-[480px] p-3 box-border',
+        'share-sync-data-tab duration-500 transition-all flex flex-col gap-3 min-w-[480px] p-3 box-border',
         className,
       )}
     >
@@ -59,6 +59,7 @@ const SyncDataTab = ({
       <div className="flex flex-col gap-1 ">
         <DropdownItem className="text-neutral-dark-500 cursor-pointer">
           <Switch
+            className="custom-switch "
             id="allow-data-in-this-view-to-be-synced-to-other-bases"
             size="small"
           />
@@ -72,7 +73,11 @@ const SyncDataTab = ({
           </label>
         </DropdownItem>
         <DropdownItem className="text-neutral-dark-500 cursor-pointer">
-          <Switch id="allow-edits-from-other-bases" size="small" />
+          <Switch
+            className="custom-switch "
+            id="allow-edits-from-other-bases"
+            size="small"
+          />
           <label
             className="cursor-pointer"
             htmlFor="allow-edits-from-other-bases"
