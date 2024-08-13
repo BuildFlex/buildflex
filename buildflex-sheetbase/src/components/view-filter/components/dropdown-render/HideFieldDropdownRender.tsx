@@ -94,6 +94,7 @@ const HideFieldDropdownRender = ({ menu }: { menu: ReactNode }) => {
         {fields.map((field) => (
           <DropdownItem key={field.id} className="text-neutral-dark-500">
             <Switch
+              className="custom-switch "
               checked={showFields.includes(field.id)}
               onChange={(checked) => {
                 setShowFields((prev) =>

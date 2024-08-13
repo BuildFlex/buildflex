@@ -21,7 +21,7 @@ const MainTab = ({
   return (
     <div
       className={cn(
-        'share-main-tab duration-500 transition-transform flex flex-col gap-3 min-w-[480px] p-3 box-border',
+        'share-main-tab duration-500 transition-all flex flex-col gap-3 min-w-[480px] p-3 box-border',
         className,
       )}
     >

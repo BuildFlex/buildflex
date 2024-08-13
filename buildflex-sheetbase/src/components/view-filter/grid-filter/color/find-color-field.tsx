@@ -7,18 +7,18 @@ import { cn } from '@/utils/cn';
 import { IField } from '../../components/dropdown-render/GroupDropdownRender';
 import { fields } from '../../components/dropdown-render/HideFieldDropdownRender';
 
-interface ColorSelectFieldrops {
+interface FindColorFieldProps {
   searchPlaceholder: string;
   className?: string;
   onSelectField: (field: IField) => void;
   field: IField[];
 }
-const ColorSelectField = ({
+const FindColorField = ({
   searchPlaceholder,
   className,
   onSelectField,
   field,
-}: ColorSelectFieldrops) => {
+}: FindColorFieldProps) => {
   const [isShowAll, setIsShowAll] = React.useState(false);
   return (
     <div
@@ -69,4 +69,4 @@ const ColorSelectField = ({
   );
 };
 
-export default ColorSelectField;
+export default FindColorField;

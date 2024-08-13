@@ -1,18 +1,13 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { QuestionCircle } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { Input, Switch } from 'antd';
-import { Add, Category2, SearchNormal1 } from 'iconsax-react';
-import React, { ReactNode, useState } from 'react';
-import { Eye, More, Text as TextIcon } from 'iconsax-react';
-import ConditionRow from '../../grid-filter/filter/components/ConditionRow';
-import ConditionGroupRow from '../../grid-filter/filter/components/ConditionGroupRow';
+import { Category2 } from 'iconsax-react';
+import React, { useState } from 'react';
 import SortConditionRow from '../../grid-filter/sort/SortConditionRow';
 import AddSortRow from '../../grid-filter/sort/AddSortRow';
 import FindField from '../../grid-filter/sort/FindField';
 import { fields as initialFields } from './HideFieldDropdownRender';
 
-export type FilterConditionType = 'condition' | 'condition-group';
 
 export interface IField {
   id: string;

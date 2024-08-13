@@ -1,9 +1,10 @@
 import { MoveIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { Input, Select } from 'antd';
+import { Input, Select, Space } from 'antd';
 import { Trash } from 'iconsax-react';
 import React from 'react';
 import FieldSelect from './FieldSelect';
+import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
 interface ConditionRowProps {
   isFirstRow?: boolean;
 }
@@ -34,15 +35,17 @@ const ConditionRow = ({ isFirstRow = false }: ConditionRowProps) => {
         <FieldSelect
           popupClassName="!w-[200px] filter-select"
           style={{ borderRight: '1px solid #EDEDED' }}
-          initialValue="Name"
-          itemsList={['Name', 'Phone', 'Email']}
+          initialValue={fields[0]}
+          itemsList={fields}
           searchPlaceholder="Find a field"
+          isSearch
         />
         <FieldSelect
           popupClassName="!w-[200px] filter-select"
           style={{ borderRight: '1px solid #EDEDED' }}
           searchPlaceholder="Find an operation"
           initialValue="contains"
+          isSearch
           itemsList={[
             'contains',
             'does not contain',
@@ -54,7 +57,7 @@ const ConditionRow = ({ isFirstRow = false }: ConditionRowProps) => {
         />
 
         <Input
-          className="h-full !border-none !text-neutral-dark-500 !shadow-none !outline-none  !w-[129px] !px-3 "
+          className="!my-auto !h-[18px]  !border-none !text-neutral-dark-500 !shadow-none !outline-none  !w-[129px] !px-3 "
           placeholder="Enter a value"
         />
         <div

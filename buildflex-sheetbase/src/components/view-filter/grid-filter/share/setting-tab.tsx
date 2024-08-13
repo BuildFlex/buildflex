@@ -16,12 +16,15 @@ import { CloseIcon, QuestionCircle } from '@/components/icons';
 import { ReloadOutlined } from '@ant-design/icons';
 import { cn } from '@/utils/cn';
 import { ShareAndSyncTab } from '../../components/dropdown-render/ShareAndSyncDropdownRender';
+import SettingConfirmModal from './setting-confirm-modal';
 const SettingTab = ({
   className,
   setActiveTab,
+  setIsModalOpen,
 }: {
   className?: string;
   setActiveTab: React.Dispatch<React.SetStateAction<ShareAndSyncTab | null>>;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const [link, setLink] = useState<string>('');
 
@@ -31,7 +34,7 @@ const SettingTab = ({
   return (
     <div
       className={cn(
-        'share-setting-tab duration-500 transition-transform flex flex-col gap-3 min-w-[480px] p-3 box-border',
+        'share-setting-tab duration-500 transition-all flex flex-col gap-3 min-w-[480px] p-3 box-border',
         className,
       )}
     >
@@ -55,55 +58,29 @@ const SettingTab = ({
 
       {/* Switch action */}
       <div className="flex flex-col gap-1 ">
-        <DropdownItem className="text-neutral-dark-500 cursor-pointer">
-          <Switch
-            id="allow-viewer-to-copy-data-out-of-this-view"
-            size="small"
-          />
-          <label
-            className="cursor-pointer"
-            htmlFor="allow-viewer-to-copy-data-out-of-this-view"
-          >
-            <Text as="span" variant="B2-Regular">
-              Allow viewer to copy data out of this view
-            </Text>
-          </label>
-        </DropdownItem>
-        <DropdownItem className="text-neutral-dark-500 cursor-pointer">
-          <Switch id="show-all-fields-in-expanded-records" size="small" />
-          <label
-            className="cursor-pointer"
-            htmlFor="show-all-fields-in-expanded-records"
-          >
-            <Text as="span" variant="B2-Regular">
-              Show all fields in expanded records
-            </Text>
-          </label>
-        </DropdownItem>
-        <DropdownItem className="text-neutral-dark-500 cursor-pointer">
-          <Switch id="restrict-access-to-an-email-domain" size="small" />
-          <label
-            className="cursor-pointer"
-            htmlFor="restrict-access-to-an-email-domain"
-          >
-            <Text as="span" variant="B2-Regular">
-              Restrict access to an email domain
-            </Text>
-          </label>
+        <SettingConfirmModal
+          label="Allow viewer to copy data out of this view"
+          id="allow-viewer-to-copy-data-out-of-this-view"
+          setIsModalOpen={setIsModalOpen}
+        />
+        <SettingConfirmModal
+          label="Show all fields in expanded records"
+          id="show-all-fields-in-expanded-records"
+          setIsModalOpen={setIsModalOpen}
+        />
+
+        <SettingConfirmModal
+          label="Restrict access to an email domain"
+          id="restrict-access-to-an-email-domain"
+          setIsModalOpen={setIsModalOpen}
+        />
+        <SettingConfirmModal
+          label="Restrict access with a password"
+          id="restrict-access-with-a-password"
+          setIsModalOpen={setIsModalOpen}
+        >
           <QuestionCircle color="#6A758B" />
-        </DropdownItem>
-        <DropdownItem className="text-neutral-dark-500 cursor-pointer">
-          <Switch id="restrict-access-with-a-password" size="small" />
-          <label
-            className="cursor-pointer"
-            htmlFor="restrict-access-with-a-password"
-          >
-            <Text as="span" variant="B2-Regular">
-              Restrict access with a password
-            </Text>
-          </label>
-          <QuestionCircle color="#6A758B" />
-        </DropdownItem>
+        </SettingConfirmModal>
       </div>
 
       <Divider className="!m-0 bg-borderColor" />

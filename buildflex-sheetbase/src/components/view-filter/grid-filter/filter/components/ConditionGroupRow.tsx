@@ -51,7 +51,10 @@ const ConditionGroupRow = ({
             <div className=" flex ml-auto items-center gap-3 text-neutral-dark-500">
               {/* <Add size={16} className=" cursor-pointer" /> */}
               <AddConditionDropdown />
-              <Trash size={16} className=" cursor-pointer" />
+              <Trash
+                size={16}
+                className="text-neutral-dark-300 hover:text-neutral-dark-500 cursor-pointer"
+              />
               <MoveIcon className="cursor-move" />
             </div>
           </div>

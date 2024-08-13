@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import Text from '@/components/typography/Text';
-import { Divider, MenuProps } from 'antd';
-import {
-  ArrowCircleDown,
-  ArrowRight2,
-  Code,
-  Flash,
-  Keyboard,
-  Link,
-  Setting5,
-} from 'iconsax-react';
+import { ArrowCircleDown, Setting5 } from 'iconsax-react';
 import { cn } from '@/utils/cn';
-import { ShareAndSyncTab } from '../../components/dropdown-render/ShareAndSyncDropdownRender';
 import { ColorTab } from '../../components/dropdown-render/ColorDropdownRender';
 const MainTab = ({
   className,

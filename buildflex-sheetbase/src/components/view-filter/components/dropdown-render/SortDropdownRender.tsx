@@ -1,19 +1,12 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { QuestionCircle } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { Input, Switch } from 'antd';
-import { Add, Category2, SearchNormal1 } from 'iconsax-react';
-import React, { ReactNode, useState } from 'react';
-import { Eye, More, Text as TextIcon } from 'iconsax-react';
-import ConditionRow from '../../grid-filter/filter/components/ConditionRow';
-import ConditionGroupRow from '../../grid-filter/filter/components/ConditionGroupRow';
+import { Switch } from 'antd';
+import React, { useState } from 'react';
 import SortConditionRow from '../../grid-filter/sort/SortConditionRow';
 import AddSubGroup from '../../grid-filter/sort/AddSortRow';
 import FindField from '../../grid-filter/sort/FindField';
 import { fields as initialFields } from './HideFieldDropdownRender';
-import Button from '@/components/button/Button';
-
-export type FilterConditionType = 'condition' | 'condition-group';
 
 export interface IField {
   id: string;
@@ -22,6 +15,7 @@ export interface IField {
 }
 const SortDropdownRender = () => {
   const [fields, setFields] = useState<IField[]>([]);
+  const [isAuto, setIsAuto] = useState(false);
   const handleSelectField = (field: IField) => {
     setFields([...fields, field]);
   };
@@ -80,9 +74,15 @@ const SortDropdownRender = () => {
           {fields.length < 3 && (
             <AddSubGroup fields={fields} setFields={setFields} />
           )}
-          <div className="flex justify-between items-center ">
+          <div className="flex justify-between h-9 items-center ">
             <DropdownItem className=" w-fit px-0 text-neutral-dark-300 ">
-              <Switch id="automatically-sort-records" size="small" />
+              <Switch
+                className="custom-switch "
+                value={isAuto}
+                onChange={(check) => setIsAuto(check)}
+                id="automatically-sort-records"
+                size="small"
+              />
               <label
                 htmlFor="automatically-sort-records"
                 className="cursor-pointer"
@@ -92,24 +92,26 @@ const SortDropdownRender = () => {
                 </Text>
               </label>
             </DropdownItem>
-            <div className="flex gap-3 items-center">
-              <button
-                onClick={handleCancel}
-                className="px-4 py-[6px] h-9 box-border rounded-lg cursor-pointer text-neutral-dark-300 bg-transparent border-none outline-none"
-              >
-                <Text as="span" variant="B2-Regular">
-                  Cancel
-                </Text>
-              </button>
-              <button
-                onClick={handleCancel}
-                className="px-4 py-[6px] h-9 box-border rounded-lg text-white cursor-pointer bg-theme-ocean-blue border-none outline-none"
-              >
-                <Text as="span" variant="B2-Medium">
-                  Sort
-                </Text>
-              </button>
-            </div>
+            {!isAuto && (
+              <div className="flex gap-3 items-center">
+                <button
+                  onClick={handleCancel}
+                  className="px-4 py-[6px] h-9 box-border rounded-lg cursor-pointer text-neutral-dark-300 bg-transparent border-none outline-none"
+                >
+                  <Text as="span" variant="B2-Regular">
+                    Cancel
+                  </Text>
+                </button>
+                <button
+                  onClick={handleCancel}
+                  className="px-4 py-[6px] h-9 box-border rounded-lg text-white cursor-pointer bg-theme-ocean-blue border-none outline-none"
+                >
+                  <Text as="span" variant="B2-Medium">
+                    Sort
+                  </Text>
+                </button>
+              </div>
+            )}
           </div>
         </>
       )}

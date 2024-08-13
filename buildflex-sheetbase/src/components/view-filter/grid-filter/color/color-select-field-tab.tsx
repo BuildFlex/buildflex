@@ -1,26 +1,16 @@
 import React, { useState } from 'react';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import Text from '@/components/typography/Text';
-import { Divider, MenuProps } from 'antd';
-import {
-  ArrowCircleDown,
-  ArrowRight2,
-  Code,
-  Flash,
-  Keyboard,
-  Link,
-  Setting5,
-} from 'iconsax-react';
+import { ArrowCircleDown } from 'iconsax-react';
 import { cn } from '@/utils/cn';
-import { ShareAndSyncTab } from '../../components/dropdown-render/ShareAndSyncDropdownRender';
 import { ColorTab } from '../../components/dropdown-render/ColorDropdownRender';
 import { CloseIcon } from '@/components/icons';
-import FindField from '../sort/FindField';
 import { fields as initialFields } from '../../components/dropdown-render/HideFieldDropdownRender';
 import { IField } from '../../components/dropdown-render/GroupDropdownRender';
 import SortSelect from '../sort/SortSelect';
 import { SortByLabel } from '../sort/SortConditionRow';
-import ColorSelectField from './color-select-field';
+import FindColorField from './find-color-field';
+import ColorSelector from './color-selector';
 const ColorSelectFieldTab = ({
   className,
   setActiveTab,
@@ -30,7 +20,6 @@ const ColorSelectFieldTab = ({
 }) => {
   const [field, setField] = useState<IField>(initialFields[0]);
   const handleSelect = (f: IField) => {
-    console.log('f', f);
     setField(f);
   };
 
@@ -57,7 +46,7 @@ const ColorSelectFieldTab = ({
           </div>
           <SortSelect
             dropdownRender={(menu) => (
-              <ColorSelectField
+              <FindColorField
                 field={initialFields}
                 onSelectField={handleSelect}
                 className="max-h-[300px]"
@@ -83,19 +72,28 @@ const ColorSelectFieldTab = ({
       {/* Conditions */}
       <div className="flex flex-col gap-1">
         <DropdownItem className="text-neutral-dark-500 px-0 cursor-pointer">
-          <ArrowCircleDown variant="Bold" color="#FB8C00" size={16} />
+          <ColorSelector
+            initialValue={{ background: '#FB8C00', color: 'white' }}
+            name="Name"
+          />
           <Text as="span" variant="B2-Regular">
             Name
           </Text>
         </DropdownItem>
         <DropdownItem className="text-neutral-dark-500 px-0 cursor-pointer">
-          <ArrowCircleDown variant="Bold" color="#00897B" size={16} />
+          <ColorSelector
+            initialValue={{ background: '#00897B', color: 'white' }}
+            name="Name"
+          />
           <Text as="span" variant="B2-Regular">
             Name
           </Text>
         </DropdownItem>
         <DropdownItem className="text-neutral-dark-500 px-0 cursor-pointer">
-          <ArrowCircleDown variant="Bold" color="#8E24AA" size={16} />
+          <ColorSelector
+            initialValue={{ background: '#8E24AA', color: 'white' }}
+            name="Name"
+          />
           <Text as="span" variant="B2-Regular">
             Name
           </Text>

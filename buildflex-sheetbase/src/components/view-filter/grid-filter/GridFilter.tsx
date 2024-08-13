@@ -43,6 +43,7 @@ interface FilterItem {
     | 'shareAndSync';
   menuItems?: MenuProps['items'];
   className?: string;
+  placement?: 'bottomCenter' | 'bottomLeft';
 }
 
 const filterItems: FilterItem[] = [
@@ -99,6 +100,7 @@ const filterItems: FilterItem[] = [
     label: 'Color',
     popupType: 'panel',
     filterType: 'color',
+    placement: 'bottomLeft',
   },
   {
     id: 'rowHeight',
@@ -122,6 +124,7 @@ const GridFilter: React.FC = () => {
   const [activePopup, setActivePopup] = useState<string | null>(null);
 
   const [showHideFields, setShowHideFields] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleFilterClick = (id: string) => {
     // if (id === 'fields') {
@@ -142,7 +145,6 @@ const GridFilter: React.FC = () => {
     );
   };
   const dropdownRender = (menu: ReactNode) => {
-    console.log('activePopup', activePopup);
     switch (activePopup) {
       case 'fields':
         return <HideFieldDropdownRender menu={menu} />;
@@ -153,7 +155,7 @@ const GridFilter: React.FC = () => {
       case 'sort':
         return <SortDropdownRender />;
       case 'share':
-        return <ShareAndSyncDropdownRender />;
+        return <ShareAndSyncDropdownRender setIsModalOpen={setIsModalOpen} />;
       case 'color':
         return <ColorDropdownRender />;
       default:
@@ -164,9 +166,13 @@ const GridFilter: React.FC = () => {
     <div className="flex items-center max-w-full p-[10px] gap-2 box-border bg-white h-10">
       {filterItems.map((item) => (
         <Dropdown
+          open={activePopup === item.id}
           key={item.id}
+          onOpenChange={(open) => {
+            if (!open && !isModalOpen) setActivePopup(null);
+          }}
           trigger={['click']}
-          placement="bottomLeft"
+          placement={item.placement ?? 'bottomLeft'}
           className="flex items-center relative justify-center"
           overlayClassName={cn(
             ' boxShadowSecondary grid-dropdown !rounded-lg',
@@ -192,7 +198,6 @@ const GridFilter: React.FC = () => {
           </button>
         </Dropdown>
       ))}
-      {/* <FindAField />   */}
     </div>
   );
 };
