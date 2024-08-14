@@ -35,6 +35,7 @@ const AddSortRow = ({ setFields, fields, buttonName }: AddSortRowProps) => {
           onSelectField={handleAdd}
           className="max-h-[300px] p-3"
           searchPlaceholder="Find a field"
+          isCollapsed
         />
       )}
     >

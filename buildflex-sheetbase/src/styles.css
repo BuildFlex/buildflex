@@ -28,7 +28,7 @@
 }
 #main-content {
   /*Max height minus the height of header*!*/
-  height: calc(100vh - 64px);
+  height: calc(100vh - 60px);
 }
 
 .boxShadow {
@@ -82,6 +82,19 @@
     background: #667085;
   }
 
+  .customScrollBarMedium::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.customScrollBarMedium::-webkit-scrollbar-thumb {
+    background-color: #CACFD8;
+    border-radius: 8px;
+}
+.customScrollBarMedium::-webkit-scrollbar-thumb:hover {
+  background: #6A758B;
+}
+  
+  /* custom Scroll bar dark */
 .customScrollBar-dark::-webkit-scrollbar {
     width: 4px !important;
 }

@@ -7,11 +7,12 @@ import './sidebar.css';
 import { CollapseIcon } from '../icons';
 import { cn } from '@utils/cn';
 import SearchDropdown from './components/dropdown/SearchDropdown';
+import { useSidebar } from '@/provider/sidebar-provider';
 export default function SideBar() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const { isSidebarOpen, setIsSidebarOpen } = useSidebar();
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.ctrlKey && event.key === '\\') {
-      setIsCollapsed((prevState) => !prevState);
+      setIsSidebarOpen(!isSidebarOpen);
     }
   };
 
@@ -22,19 +23,19 @@ export default function SideBar() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [isSidebarOpen]);
   return (
     <aside
       className={cn(
         'sidebar max-w-[260px]  flex flex-col box-border ',
-        isCollapsed
-          ? 'w-10 p-0 relative top-0 left-0 pr-10'
-          : 'p-3 min-w-[260px] w-[260px] ',
+        isSidebarOpen
+          ? 'p-3 min-w-[260px] w-[260px] '
+          : 'w-10 p-0 relative top-0 left-0 pr-10',
       )}
       style={{ border: '1px solid #EDEDED' }}
     >
       <div className="flex items-center justify-between gap-2 mb-2">
-        <div className={cn('relative  ', isCollapsed ? 'hidden' : '')}>
+        <div className={cn('relative  ', isSidebarOpen ? '' : 'hidden')}>
           <Input
             placeholder="Search"
             prefix={<SearchNormal1 size={16} color={'#6A758B'} />}
@@ -48,19 +49,19 @@ export default function SideBar() {
         </div>
         <Tooltip
           placement="right"
-          title={`${isCollapsed ? 'Show' : 'Close'} sidebar (Ctrl + \\)`}
+          title={`${isSidebarOpen ? 'Close' : 'Show'} sidebar (Ctrl + \\)`}
         >
           <button
             className={cn(
               'flex border-none  items-center justify-center gap-1 text-white text-sm  bg-transparent cursor-pointer ',
-              isCollapsed
-                ? 'absolute top-0 right-1 size-9 boxShadowSecondary !rounded-l-none !rounded-r-xl'
-                : 'p-0',
+              isSidebarOpen
+                ? 'p-0'
+                : 'absolute top-0 right-1 size-9 boxShadowSecondary !rounded-l-none !rounded-r-xl',
             )}
-            onClick={() => setIsCollapsed(!isCollapsed)}
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
             <CollapseIcon
-              className={cn(isCollapsed ? 'rotate-180' : 'rotate-0')}
+              className={cn(isSidebarOpen ? 'rotate-0' : 'rotate-180')}
             />
           </button>
         </Tooltip>
@@ -69,7 +70,7 @@ export default function SideBar() {
       <div className="flex flex-col overflow-hidden">
         <ListContentItemsPanel />
 
-        {!isCollapsed && <CreateContentPanel />}
+        {isSidebarOpen && <CreateContentPanel />}
       </div>
     </aside>
   );
