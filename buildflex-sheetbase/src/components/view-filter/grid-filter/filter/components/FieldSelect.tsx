@@ -4,6 +4,7 @@ import { Add, ArrowDown2 } from 'iconsax-react';
 import React, { useState } from 'react';
 import { SortByLabel } from '../../sort/SortConditionRow';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import { CustomInput } from '@/components/input/Input';
 interface SelectProps {
   style?: React.CSSProperties;
   initialValue?: IField | string;
@@ -29,8 +30,8 @@ const FieldSelect = ({
       dropdownRender={(menu) => (
         <div className="flex flex-col gap-1">
           {isSearch && (
-            <Input
-              className="h-9"
+            <CustomInput
+              className="h-9 !border-none"
               placeholder={searchPlaceholder}
               onKeyDown={(e) => e.stopPropagation()}
             />

@@ -34,6 +34,7 @@ import {
 } from 'iconsax-react';
 import React, { ReactNode, useState } from 'react';
 import { Eye, More, Text as TextIcon } from 'iconsax-react';
+import { CustomInput } from '@/components/input/Input';
 interface Field {
   id: string;
   icon: React.ElementType;
@@ -79,16 +80,13 @@ const HideFieldDropdownRender = ({ menu }: { menu: ReactNode }) => {
   };
   return (
     <div className="flex flex-col gap-2 box-border p-3 rounde d-lg w-[320px] max-h-[300px] ">
-      <Input
+      <CustomInput
         placeholder="Find a field"
-        prefix={<SearchNormal1 size={16} color={'#6A758B'} />}
-        suffix={<QuestionCircle color="#6A758B" />}
-        style={{
-          padding: '0 8px',
-          boxShadow: 'none',
-          borderRadius: '4px',
-        }}
-        className="min-h-[36px] flex !text-neutral-dark-500 !h-9 !cursor-default gap-2 items-center sidebar__search"
+        prefixIcon={
+          <SearchNormal1 className="min-w-4" size={16} color={'#6A758B'} />
+        }
+        suffixIcon={<QuestionCircle className="min-w-4" color="#6A758B" />}
+        className="min-h-9 h-9"
       />
       <div className="flex flex-col gap-1 h-full flex-1 overflow-auto customScrollBar">
         {fields.map((field) => (

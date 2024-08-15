@@ -10,7 +10,6 @@ interface LinkToCellProps {
   }[];
 }
 const LinkToCell = ({ linkList }: LinkToCellProps) => {
-  console.log('linkList', linkList);
   return (
     <div className="max-w-[164px] overflow-hidden flex items-center gap-1 w-full  ">
       {linkList.map((link, index) => (

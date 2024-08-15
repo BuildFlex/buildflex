@@ -6,7 +6,12 @@ import { cn } from '@/utils/cn';
 const ContentWrapper = () => {
   const { isSidebarOpen } = useSidebar();
   return (
-    <section className={cn('content box-border  w-full   flex-1 ')}>
+    <section
+      className={cn(
+        'content box-border  flex-1 ',
+        isSidebarOpen ? 'w-[calc(100svw-260px)]' : 'w-[calc(100svw-42px)]',
+      )}
+    >
       <ContentViewTabs />
     </section>
   );

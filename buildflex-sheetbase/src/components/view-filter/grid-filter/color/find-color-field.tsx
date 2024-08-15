@@ -6,6 +6,7 @@ import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
 import { IField } from '../../components/dropdown-render/GroupDropdownRender';
 import { fields } from '../../components/dropdown-render/HideFieldDropdownRender';
+import { CustomInput } from '@/components/input/Input';
 
 interface FindColorFieldProps {
   searchPlaceholder: string;
@@ -27,14 +28,11 @@ const FindColorField = ({
         className,
       )}
     >
-      <Input
+      <CustomInput
         placeholder={searchPlaceholder}
-        prefix={<SearchNormal1 size={16} color={'#6A758B'} />}
-        style={{
-          padding: '0 8px',
-          boxShadow: 'none',
-          borderRadius: '4px',
-        }}
+        prefixIcon={
+          <SearchNormal1 className="min-w-4" size={16} color={'#6A758B'} />
+        }
         className="min-h-[36px] flex !text-neutral-dark-500 !h-9 !cursor-default gap-2 items-center sidebar__search"
       />
       <div className="flex flex-col gap-1 h-full flex-1 overflow-auto customScrollBar">

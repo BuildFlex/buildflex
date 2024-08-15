@@ -18,6 +18,7 @@ import {
   InfoCircle,
   Link,
   Lock,
+  SearchStatus,
   Slack,
   Trash,
 } from 'iconsax-react';
@@ -33,8 +34,8 @@ const HeaderFilterDropdown = () => {
   const handleCancel = () => setActiveModal(null);
   const handleMenuClick: MenuProps['onClick'] = (e) => {
     switch (e.key) {
-      case 'edit-field':
-        setActiveModal('edit-field');
+      case 'add-lookup-fields':
+        setActiveModal('add-lookup-fields');
         break;
 
       case 'edit-field-description':
@@ -63,8 +64,7 @@ const HeaderFilterDropdown = () => {
         return <EditFieldDescriptionModal handleCancel={handleCancel} />;
       case 'duplicate-field':
         return <DuplicateFieldModal handleCancel={handleCancel} />;
-      //   case 'add-lookup-fields':
-      case 'edit-field':
+      case 'add-lookup-fields':
         return <AddLookupFieldsModal handleCancel={handleCancel} />;
       case 'change-primary-field':
         return <ChangeThePrimaryFieldModal handleCancel={handleCancel} />;
@@ -108,6 +108,17 @@ const moreItems: MenuProps['items'] = [
         <Edit2 size={16} />
         <Text as="span" variant="B2-Regular">
           Edit field
+        </Text>
+      </div>
+    ),
+  },
+  {
+    key: 'add-lookup-fields',
+    label: (
+      <div className="flex gap-2 items-center  text-neutral-dark-500">
+        <SearchStatus size={16} />
+        <Text as="span" variant="B2-Regular">
+          Add lookup fields
         </Text>
       </div>
     ),

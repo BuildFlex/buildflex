@@ -8,6 +8,7 @@ import { CollapseIcon } from '../icons';
 import { cn } from '@utils/cn';
 import SearchDropdown from './components/dropdown/SearchDropdown';
 import { useSidebar } from '@/provider/sidebar-provider';
+import { CustomInput } from '../input/Input';
 export default function SideBar() {
   const { isSidebarOpen, setIsSidebarOpen } = useSidebar();
   const handleKeyDown = (event: KeyboardEvent) => {
@@ -36,15 +37,12 @@ export default function SideBar() {
     >
       <div className="flex items-center justify-between gap-2 mb-2">
         <div className={cn('relative  ', isSidebarOpen ? '' : 'hidden')}>
-          <Input
+          <CustomInput
             placeholder="Search"
-            prefix={<SearchNormal1 size={16} color={'#6A758B'} />}
-            style={{
-              padding: '0 8px',
-              boxShadow: 'none',
-              borderRadius: '4px',
-            }}
-            className="h-9 flex !text-neutral-dark-500 !cursor-default gap-2 items-center sidebar__search"
+            prefixIcon={
+              <SearchNormal1 className="min-w-4" size={16} color={'#6A758B'} />
+            }
+            className="h-9 flex "
           />
         </div>
         <Tooltip

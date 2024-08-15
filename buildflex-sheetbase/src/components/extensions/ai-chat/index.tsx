@@ -16,7 +16,6 @@ import { cn } from '@/utils/cn';
 import { useTheme } from '@/provider/theme-provider';
 import Text from '@/components/typography/Text';
 import { CloseIcon, SparklesIcon } from '@/components/icons';
-import './chat.css';
 import TextArea from 'antd/es/input/TextArea';
 import Message from './Message';
 interface ChatMessage {

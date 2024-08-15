@@ -5,7 +5,7 @@ const GridTableFooter = () => {
   return (
     <div
       style={{ borderTop: '1px solid #EDEDED' }}
-      className="w-full flex  h-9  mt-auto box-border text-neutral-dark-500"
+      className="w-full flex  h-9  mt-auto  text-neutral-dark-500"
     >
       <div
         style={{ borderRight: '1px solid #EDEDED' }}

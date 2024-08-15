@@ -1,4 +1,5 @@
 import { CloseIcon } from '@/components/icons';
+import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
 import { Input } from 'antd';
 import React from 'react';
@@ -11,10 +12,7 @@ const EditFieldDescriptionModal = ({
   return (
     <div className="w-[350px] flex flex-col gap-3 overflow-hidden !p-3 box-border bg-white rounded-lg ant-modal-content">
       {/* Content */}
-      <Input
-        placeholder="Describe this field"
-        className="h-9 flex gap-2 font-lato !text-neutral-dark-500 items-center "
-      />
+      <CustomInput placeholder="Describe this field" className="h-9  " />
       {/* Footer */}
       <div className="flex gap-3 items-center justify-end">
         <button

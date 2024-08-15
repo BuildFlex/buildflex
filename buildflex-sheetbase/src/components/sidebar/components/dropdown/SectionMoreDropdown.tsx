@@ -18,6 +18,7 @@ import {
 } from 'iconsax-react';
 import React from 'react';
 import SearchDropdown from './SearchDropdown';
+import { CustomInput } from '@/components/input/Input';
 const items: MenuProps['items'] = [
   {
     key: 'rename-table',
@@ -56,20 +57,21 @@ const items: MenuProps['items'] = [
 
     children: [
       {
-        key: 'search-sectipn',
+        key: 'search-section',
         type: 'group',
         label: (
           <div className=" border-b border-neutral-200">
-            <Input
+            <CustomInput
               placeholder="Search section"
               autoFocus={true}
-              prefix={<SearchNormal1 size={16} color={'#6A758B'} />}
-              style={{
-                padding: '0 8px',
-                boxShadow: 'none',
-                borderRadius: '4px',
-              }}
-              className="h-9 !text-neutral-dark-500 flex custom-input !cursor-default gap-2 items-center sidebar__search"
+              prefixIcon={
+                <SearchNormal1
+                  className="min-w-4"
+                  size={16}
+                  color={'#6A758B'}
+                />
+              }
+              className="h-9 "
             />
           </div>
         ),

@@ -11,6 +11,7 @@ import HelpTitle from './HelpTitle';
 import BuildWithSheetbase from './tab/BuildWithSheetbase';
 import ManagingYourWork from './tab/ManagingYourWork';
 import SharingYourBase from './tab/SharingYourBase';
+import { CustomInput } from '@/components/input/Input';
 interface HelpSidebarProps {
   onClose: () => void;
 }
@@ -108,12 +109,10 @@ const HelpSidebar = ({ onClose }: HelpSidebarProps) => {
         <div className="flex flex-col gap-6 ">
           <div className="flex flex-col gap-3">
             <HelpTitle title="Help" onClose={onClose} />
-            <Input
-              className="h-9 !border-none !px-4 !rounded"
+            <CustomInput
+              className="h-9 !border-none bg-white !px-4 !rounded"
               placeholder="Find guides and resources"
-              prefix={
-                <SearchNormal1 className="mr-1" size={16} color={'#6A758B'} />
-              }
+              prefixIcon={<SearchNormal1 size={16} color={'#6A758B'} />}
             />
           </div>
           <div className="flex gap-3 flex-col">

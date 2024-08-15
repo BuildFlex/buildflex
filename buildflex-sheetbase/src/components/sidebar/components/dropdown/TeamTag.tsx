@@ -10,7 +10,7 @@ const Tag = ({ name, className }: TagProps) => {
   return (
     <div
       className={cn(
-        'rounded-2xl h-6 box-border w-[57px] px-3 ml-auto bg-semantic-50 text-semantic-600',
+        'rounded-2xl h-6 flex items-center justify-center box-border w-[57px] px-3 ml-auto bg-semantic-50 text-semantic-600',
         className,
       )}
     >

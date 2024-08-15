@@ -5,6 +5,7 @@ import { Trash } from 'iconsax-react';
 import React from 'react';
 import FieldSelect from './FieldSelect';
 import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
+import { CustomInput } from '@/components/input/Input';
 interface ConditionRowProps {
   isFirstRow?: boolean;
 }
@@ -56,8 +57,8 @@ const ConditionRow = ({ isFirstRow = false }: ConditionRowProps) => {
           ]}
         />
 
-        <Input
-          className="!my-auto !h-[18px]  !border-none !text-neutral-dark-500 !shadow-none !outline-none  !w-[129px] !px-3 "
+        <CustomInput
+          className="h-[18px] my-auto !border-none box-border !text-neutral-dark-500   w-[129px] px-3 "
           placeholder="Enter a value"
         />
         <div

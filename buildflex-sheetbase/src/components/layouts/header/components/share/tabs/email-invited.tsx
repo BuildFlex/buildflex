@@ -1,3 +1,4 @@
+import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
 import { Checkbox, Input, Select } from 'antd';
 import { ArrowDown2 } from 'iconsax-react';
@@ -7,7 +8,7 @@ const EmailInvited = () => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex gap-2 items-center">
-        <Input className="h-9 !rounded-lg" placeholder="Invited Email" />
+        <CustomInput className="h-9 !rounded-lg" placeholder="Invited Email" />
         <Select
           defaultValue="Creater"
           popupClassName="!z-[10000] email-invited-select"
@@ -28,8 +29,8 @@ const EmailInvited = () => {
       </div>
       <div className="flex gap-2 items-center">
         {' '}
-        <Input
-          className="h-9 !rounded-lg"
+        <CustomInput
+          className="rounded-lg"
           placeholder="Add a message...(recommended)"
         />
         <button className="rounded-lg hover:text-neutral-dark-500 border-none  cursor-pointer px-4 py-[6px] h-9 min-w-[160px] w-[160px] box-border bg-gray-100 text-neutral-dark-300">
