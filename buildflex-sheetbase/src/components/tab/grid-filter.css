@@ -199,3 +199,28 @@
     border: none !important;
 
 }
+
+.header-filter-dropdown .ant-dropdown-menu{
+    max-height: 400px !important;
+    overflow-y: auto !important;
+    
+}
+.header-filter-dropdown .ant-dropdown-menu::-webkit-scrollbar {
+      width: 4px !important;
+      background-color: #F9FAFB;
+  }
+
+  .header-filter-dropdown .ant-dropdown-menu::-webkit-scrollbar-thumb {
+      background-color: #D0D5DD;
+      border-radius: 0px;
+  }
+  .header-filter-dropdown .ant-dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #667085;
+  }
+
+
+  .primary-field-select .rc-virtual-list-holder-inner{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}

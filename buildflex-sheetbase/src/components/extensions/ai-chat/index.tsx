@@ -55,7 +55,7 @@ const AIChatDrawer: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed right-0 box-border top-[60px] bottom-0 w-[280px] bg-gray-50 shadow-lg flex flex-col z-10">
+    <div className="fixed right-0 box-border top-[60px] bottom-0 w-[280px] bg-gray-50 shadow-lg flex flex-col z-[11]">
       {/* Header */}
       <div
         className={cn(

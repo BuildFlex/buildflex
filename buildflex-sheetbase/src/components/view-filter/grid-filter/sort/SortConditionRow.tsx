@@ -49,6 +49,7 @@ const SortConditionRow = ({
               onSelectField={handleSelectField}
               className="max-h-[300px]"
               searchPlaceholder="Find a field"
+              isCollapsed
             />
           )}
           itemsList={fields.map((item) => ({

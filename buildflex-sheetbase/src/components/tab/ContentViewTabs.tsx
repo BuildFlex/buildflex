@@ -8,6 +8,7 @@ import { MoreVert, SparklesIcon } from '../icons';
 import Text from '../typography/Text';
 import { useTheme } from '@/provider/theme-provider';
 import './grid-filter.css';
+import GridUI from '../grid/GridUI';
 interface Tab {
   id: string;
   icon: React.ElementType;
@@ -19,7 +20,8 @@ interface Tab {
 const AdminManagement: React.FC = () => (
   <>
     <GridFilter />
-    <Grid />
+    <GridUI />
+    {/* <Grid /> */}
   </>
 );
 const CalendarView: React.FC = () => (
@@ -63,8 +65,8 @@ const TabComponent: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="flex items-center box-border bg-gray-50 overflow-x-auto">
+    <div className="flex flex-col  flex-1 h-full ">
+      <div className=" flex items-center box-border bg-gray-50 overflow-x-auto min-h-[32px]">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
           const Icon = tab.icon;
@@ -121,7 +123,9 @@ const TabComponent: React.FC = () => {
           onClose={() => setIsDrawerOpen(false)}
         />
       </div>
-      <div>{tabs.find((tab) => tab.id === activeTab)?.content}</div>
+      <div className="flex-1 flex flex-col">
+        {tabs.find((tab) => tab.id === activeTab)?.content}
+      </div>
     </div>
   );
 };

@@ -132,7 +132,7 @@ const GridFilter: React.FC = () => {
     // } else {
     //   setActivePopup(activePopup === id ? null : id);
     // }
-    setActivePopup(id);
+    setActivePopup(activePopup === id ? null : id);
   };
 
   const renderPopup = (item: FilterItem) => {
@@ -163,7 +163,7 @@ const GridFilter: React.FC = () => {
     }
   };
   return (
-    <div className="flex items-center max-w-full p-[10px] gap-2 box-border bg-white h-10">
+    <div className="flex items-center max-w-full p-[10px] gap-8 box-border bg-white h-10">
       {filterItems.map((item) => (
         <Dropdown
           open={activePopup === item.id}
@@ -182,7 +182,7 @@ const GridFilter: React.FC = () => {
           dropdownRender={(menu) => dropdownRender(menu)}
         >
           <button
-            className="flex items-center whitespace-nowrap h-[34px]  p-2 hover:bg-gray-50 rounded   text-sm text-neutral-dark-500 border-none bg-transparent cursor-pointer "
+            className="flex items-center whitespace-nowrap h-[18px]  p-0 rounded   text-sm text-neutral-dark-500 border-none bg-transparent cursor-pointer "
             onClick={() => handleFilterClick(item.id)}
             id={item.id}
           >
