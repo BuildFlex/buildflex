@@ -58,17 +58,17 @@ const AIChatDrawer: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
       {/* Header */}
       <div
         className={cn(
-          ' text-white px-2 py-[7px] flex h-8  gap-2 items-center',
+          ' text-white px-2 py-[7px] flex h-8  box-border gap-2 items-center',
           theme.linearBackground,
         )}
       >
         <SparklesIcon />
-        <Text as="span" variant="B2-Regular" className="h-[18px]">
+        <Text as="span" variant="B2-Regular" className="h-[16px]">
           AI chat tool
         </Text>
         <button
           onClick={onClose}
-          className="text-white cursor-pointer ml-auto bg-transparent border-none"
+          className="text-white size-4 p-0 cursor-pointer ml-auto bg-transparent border-none"
         >
           <CloseIcon className="size-4" color="currentColor" />
         </button>
@@ -163,8 +163,8 @@ const AIChatDrawer: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
       {/* Input area */}
       <div className={cn('p-3 h-[148px]', theme.linearBackground)}>
         <div className="flex relative h-[124px] border border-solid border-[#EDEDED]/20 items-center p-3 bg-white/10 rounded-lg flex-col">
-          <TextArea
-            className=" p-0 !bg-transparent customScrollBar w-full !pb-6 rounded text-sm !text-wrap !border-none !text-white  !focus:outline-none"
+          <textarea
+            className=" p-0 !bg-transparent placeholder-white customScrollBar w-full !pb-6 rounded text-sm !text-wrap !border-none !text-white  !focus:outline-none"
             rows={4}
             style={{
               resize: 'none',
@@ -174,7 +174,6 @@ const AIChatDrawer: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
             }}
             placeholder="Ask a question or make a request about data in a table"
           />
-
           <div className="flex items-center w-full justify-between">
             <div className=" text-white">
               <Text as="span" variant="B2-Regular" className="h-[18px]">

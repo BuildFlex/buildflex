@@ -1,6 +1,7 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { gridTableFields } from '@/components/grid/GridUI';
 import { SparklesIcon } from '@/components/icons';
+import TagSelect from '@/components/select/tag-select';
 import Tag from '@/components/sidebar/components/dropdown/TeamTag';
 import Text from '@/components/typography/Text';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';

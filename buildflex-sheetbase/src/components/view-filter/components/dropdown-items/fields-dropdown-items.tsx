@@ -53,7 +53,7 @@ export const fieldsItems: MenuProps['items'] = fields.map((field) => ({
   key: field.id,
   label: (
     <DropdownItem>
-      <Switch size="small" className="custom-switch " />
+      <Switch size="small" className="w-8" />
       <field.icon size={16} />
       <Text as="span" variant="B2-Regular">
         {field.label}

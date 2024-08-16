@@ -61,8 +61,7 @@ const ColorSelectFieldTab = ({
               label: <SortByLabel label={field.label} Icon={field.icon} />,
               value: field.label,
             }}
-            popupClassName="color-field-select-dropdown"
-            className="color-field-select"
+            className="color-field-select h-8 w-auto"
           />
         </DropdownItem>
         <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">

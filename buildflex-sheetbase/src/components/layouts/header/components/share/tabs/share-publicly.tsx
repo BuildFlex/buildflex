@@ -39,11 +39,7 @@ const SharePublicly = () => {
       style={{ border: `1px solid #EDEDED` }}
     >
       <div className="h-[64px] px-4 py-3 items-center flex box-border rounded gap-6">
-        <Switch
-          onChange={setIsActive}
-          className="custom-switch "
-          size="small"
-        />
+        <Switch onChange={setIsActive} className="w-8" size="small" />
         <div className="flex flex-col gap-1">
           <Text
             as="span"
@@ -89,7 +85,7 @@ const SharePublicly = () => {
                 key={item.key}
                 className="flex gap-2 h-8 box-border w-[378px] items-center"
               >
-                <Switch id={item.key} className="custom-switch" size="small" />
+                <Switch id={item.key} className="w-8" size="small" />
                 <label
                   htmlFor={item.key}
                   className="cursor-pointer text-neutral-dark-500"

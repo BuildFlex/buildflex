@@ -49,7 +49,7 @@ const ShareViewTab = () => {
           className="rounded py-6 flex flex-col gap-6 w-[522px] h-[354px] box-border"
         >
           <div className="pl-6 flex items-center gap-6">
-            <Switch className="custom-switch" size="small" />
+            <Switch className="w-8" size="small" />
             <div className="flex gap-2 items-center cursor-pointer text-neutral-dark-500">
               <Grid8 size={16} color="#087AAF" />
               <Text
@@ -108,11 +108,7 @@ const ShareViewTab = () => {
                   }
                   className="flex gap-2 h-8 box-border w-[378px] items-center"
                 >
-                  <Switch
-                    id={item.key}
-                    className="custom-switch"
-                    size="small"
-                  />
+                  <Switch id={item.key} className="w-8" size="small" />
                   <label
                     htmlFor={item.key}
                     className="cursor-pointer text-neutral-dark-500"

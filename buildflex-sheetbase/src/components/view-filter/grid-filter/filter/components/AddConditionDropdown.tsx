@@ -28,15 +28,38 @@ const items: MenuProps['items'] = [
   },
 ];
 const AddConditionDropdown = ({ className }: { className?: string }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleClose = () => setIsOpen(false);
   return (
     <Dropdown
       menu={{ items }}
       placement="bottomRight"
+      open={isOpen}
       className={className}
       align={{ offset: [0, 0] }}
-      overlayClassName=" boxShadowSecondary add-conditions-dropdown !rounded-lg"
+      dropdownRender={() => (
+        <div className="flex gap-1 flex-col p-3 w-[240px] box-border">
+          <DropdownItem
+            onClick={handleClose}
+            className="cursor-pointer hover:bg-gray-50 rounded "
+          >
+            <Text as="span" variant="B2-Regular">
+              Add condition group
+            </Text>
+          </DropdownItem>
+          <DropdownItem
+            onClick={handleClose}
+            className="cursor-pointer hover:bg-gray-50 rounded "
+          >
+            <Text as="span" variant="B2-Regular">
+              Add condition group
+            </Text>
+          </DropdownItem>
+        </div>
+      )}
+      overlayClassName=" boxShadowSecondary !rounded-lg"
     >
-      <div className="size-4" onClick={(e) => e.stopPropagation()}>
+      <div className="size-4" onClick={(e) => setIsOpen(true)}>
         <Add
           size={16}
           className="  text-neutral-dark-300 hover:text-gray-500 cursor-pointer"

@@ -91,7 +91,7 @@ const CreateTableDropdown = ({ className }: { className?: string }) => {
       placement="topLeft"
       className={className}
       dropdownRender={(menu) => (
-        <div className="flex flex-col gap-3 rounded-lg p-3 create-dropdown">
+        <div className="flex flex-col gap-3 rounded-lg p-3">
           <div className="flex flex-col gap-1 ">
             <Text
               as="span"

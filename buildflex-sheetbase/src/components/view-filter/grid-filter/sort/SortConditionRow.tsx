@@ -61,8 +61,8 @@ const SortConditionRow = ({
             value: field.label,
           }}
           searchPlaceholder="Find a field"
-          popupClassName="sort-select-dropdown"
-          className="sort-by-select"
+          popupClassName="!p-3"
+          className="!h-9 min-w-[226px]"
         />
         <SortSelect
           itemsList={[
@@ -74,8 +74,8 @@ const SortConditionRow = ({
             value: 'FirstToLast',
           }}
           searchPlaceholder="Find a field"
-          popupClassName="sort-select-dropdown"
-          className="sort-select"
+          popupClassName="sort-select-dropdown !p-3"
+          className="!h-9 min-w-[146px]"
         />
       </div>
       {isGroup && <MoreButton />}
@@ -110,7 +110,7 @@ const SortLabel = ({ isFirstToLast = false }: { isFirstToLast?: boolean }) => {
   return (
     <div
       className={cn(
-        'flex gap-2 box-border items-center ',
+        'flex gap-2 box-border my-auto items-center ',
         isFirstToLast
           ? 'flex-row justify-start'
           : 'flex-row-reverse justify-end',

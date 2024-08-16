@@ -59,7 +59,7 @@ const SyncDataTab = ({
       <div className="flex flex-col gap-1 ">
         <DropdownItem className="text-neutral-dark-500 cursor-pointer">
           <Switch
-            className="custom-switch "
+            className="w-8"
             id="allow-data-in-this-view-to-be-synced-to-other-bases"
             size="small"
           />
@@ -74,7 +74,7 @@ const SyncDataTab = ({
         </DropdownItem>
         <DropdownItem className="text-neutral-dark-500 cursor-pointer">
           <Switch
-            className="custom-switch "
+            className="w-8"
             id="allow-edits-from-other-bases"
             size="small"
           />
