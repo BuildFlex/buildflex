@@ -12,16 +12,16 @@ const ProjectThemeSelector: React.FC = () => {
   return (
     <div className="flex">
       {themeList.map((i: IThemmes) => (
-        <div
+        <button
           key={i}
           className={cn(
-            'size-6 flex items-center justify-center rounded mx-2',
+            'size-6 border-none p-0 cursor-pointer flex items-center justify-center rounded mx-2',
             themeLinearBackground[i],
           )}
           onClick={() => setTheme(ThemesMap.get(i) || defaultTheme)}
         >
           {theme.name === i && <CheckBoxIcon />}
-        </div>
+        </button>
       ))}
     </div>
   );

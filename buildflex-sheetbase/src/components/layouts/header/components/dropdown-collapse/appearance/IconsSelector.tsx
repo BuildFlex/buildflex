@@ -1,21 +1,21 @@
 import { Input } from 'antd';
 import { SearchNormal1 } from 'iconsax-react';
 import { IconsList } from './IconsList';
+import { CustomInput } from '@/components/input/Input';
 
 const IconsSelector = () => {
   return (
     <div className="flex flex-col gap-2">
-      <Input
+      <CustomInput
         placeholder="Search icon"
-        prefix={
+        prefixIcon={
           <SearchNormal1
             className="stroke-medium"
             size={16}
             color={'#6A758B'}
           />
         }
-        style={{ padding: '0px' }}
-        className="h-9 flex gap-2 !text-neutral-dark-500 items-center project_name_dropdown__search"
+        className="h-9 flex !border-none"
       />
       <div className="flex flex-wrap gap-2">
         {IconsList.map((icon, index) => (

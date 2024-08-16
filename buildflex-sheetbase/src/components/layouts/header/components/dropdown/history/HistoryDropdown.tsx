@@ -7,7 +7,7 @@ import {
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
 import { UnorderedListOutlined } from '@ant-design/icons';
-import { Dropdown, MenuProps } from 'antd';
+import { Divider, Dropdown, MenuProps } from 'antd';
 import {
   ArrowCircleLeft,
   ArrowRight2,
@@ -34,124 +34,88 @@ const HistoryDropdown = () => {
   };
   const handleBackClick = () => setActiveItem(null);
 
-  const historyItems: MenuProps['items'] = [
-    {
-      key: 'History',
-      type: 'group',
-      label: (
-        <div className="items-center  font-lato px-2 py-[7px]   text-neutral-dark-500">
-          <Text as="span" variant="B2-Regular" className="h-[18px]">
-            History
-          </Text>
-        </div>
-      ),
-    },
-    {
-      key: 'division',
-      type: 'divider',
-      className: '!bg-borderColor !my-2',
-    },
-    {
-      key: 'undo',
-      label: (
-        <div className="flex gap-2  items-center text-neutral-dark-500">
-          <UndoIcon />
-          <Text as="span" variant="B2-Regular" className="h-[18px]">
-            Undo
-          </Text>
-          <Text
-            className="ml-auto text-neutral-dark-300"
-            as="span"
-            variant="sub-title"
-          >
-            CTRL + Z
-          </Text>
-        </div>
-      ),
-    },
-    {
-      key: 'redo',
-      label: (
-        <div className="flex gap-2 items-center text-neutral-dark-500">
-          <RedoIcon />
-          <Text as="span" variant="B2-Regular" className="h-[18px]">
-            Redo
-          </Text>
-          <Text
-            className="ml-auto text-neutral-dark-300"
-            as="span"
-            variant="sub-title"
-          >
-            CTRL + SHIFT + Z{' '}
-          </Text>
-        </div>
-      ),
-    },
-    {
-      key: 'snapshots',
-      type: 'group',
-
-      label: (
-        <DropdownItem
-          onClick={(e) => handleOpenSubMenu(e, 'snapshots')}
-          className="flex gap-2 hover:bg-gray-50 items-center cursor-pointer h-10  text-neutral-dark-500"
-        >
-          <Clock size={16} />
-          <Text as="span" variant="B2-Regular" className="h-[18px]">
-            Snapshots
-          </Text>
-          <ArrowRight2 className="ml-auto" size={16} />
-        </DropdownItem>
-      ),
-    },
-    {
-      key: 'record-revision-history',
-      type: 'group',
-      label: (
-        <DropdownItem
-          onClick={(e) => handleOpenSubMenu(e, 'record-revision-history')}
-          className="flex gap-2 hover:bg-gray-50 items-center cursor-pointer h-10  text-neutral-dark-500"
-        >
-          <UnorderedListIcon />
-          <Text as="span" variant="B2-Regular" className="h-[18px]">
-            Record revision history{' '}
-          </Text>
-          <ArrowRight2 className="ml-auto" size={16} />
-        </DropdownItem>
-      ),
-    },
-    {
-      key: 'trash',
-      label: (
-        <div className="flex gap-2 items-center text-neutral-dark-500">
-          <Trash size={16} />
-          <Text as="span" variant="B2-Regular" className="h-[18px]">
-            Trash{' '}
-          </Text>
-        </div>
-      ),
-    },
-  ];
-
   return (
     <Dropdown
-      menu={{ items: historyItems }}
       trigger={['click']}
       placement="bottomRight"
       className="flex items-center relative justify-center"
-      overlayClassName=" boxShadowSecondary history-dropdown "
+      overlayClassName=" boxShadowSecondary rounded-lg "
       align={{ offset: [0, 10] }}
       dropdownRender={(menu) => (
         <div
           className={cn(
-            'dropdown-container flex',
+            'history-dropdown-container overflow-hidden max-w-[289px] w-[289px] box-border flex  p-3',
             activeItem ? 'inside' : 'outside',
           )}
         >
-          {menu}
+          <div className="flex-col min-w-[265px] box-border main-menu-content gap-3 flex">
+            <DropdownItem className="items-center h-8 rounded  px-2 py-[7px]   text-neutral-dark-500">
+              <Text as="span" variant="B2-Regular" className="h-[18px]">
+                History
+              </Text>
+            </DropdownItem>
+            <Divider className="bg-borderColor !my-0" />
+            <div className="flex flex-col gap-1">
+              <DropdownItem className="h-10 rounded cursor-pointer hover:bg-gray-50">
+                <UndoIcon />
+                <Text as="span" variant="B2-Regular" className="h-[18px]">
+                  Undo
+                </Text>
+                <Text
+                  className="ml-auto text-neutral-dark-300"
+                  as="span"
+                  variant="sub-title"
+                >
+                  CTRL + Z
+                </Text>
+              </DropdownItem>
+              <DropdownItem className="h-10 cursor-pointer rounded hover:bg-gray-50">
+                <RedoIcon />
+                <Text as="span" variant="B2-Regular" className="h-[18px]">
+                  Redo
+                </Text>
+                <Text
+                  className="ml-auto text-neutral-dark-300"
+                  as="span"
+                  variant="sub-title"
+                >
+                  CTRL + SHIFT + Z{' '}
+                </Text>
+              </DropdownItem>
+              <DropdownItem
+                onClick={(e) => handleOpenSubMenu(e, 'snapshots')}
+                className="h-10 rounded cursor-pointer hover:bg-gray-50"
+              >
+                <Clock size={16} />
+                <Text as="span" variant="B2-Regular" className="h-[18px]">
+                  Snapshots
+                </Text>
+                <ArrowRight2 className="ml-auto" size={16} />
+              </DropdownItem>
+
+              <DropdownItem
+                onClick={(e) => handleOpenSubMenu(e, 'record-revision-history')}
+                className="h-10 cursor-pointer rounded hover:bg-gray-50"
+              >
+                <UnorderedListIcon />
+                <Text as="span" variant="B2-Regular" className="h-[18px]">
+                  Record revision history{' '}
+                </Text>
+                <ArrowRight2 className="ml-auto" size={16} />
+              </DropdownItem>
+              <DropdownItem className="h-10 cursor-pointer rounded hover:bg-gray-50">
+                <Trash size={16} />
+                <Text as="span" variant="B2-Regular" className="h-[18px]">
+                  Trash{' '}
+                </Text>
+              </DropdownItem>
+            </div>
+          </div>
           {/*====== SUB MENU ======== */}
 
-          <div className={`submenu-content relative   text-neutral-dark-500 `}>
+          <div
+            className={`submenu-content  relative   min-w-[265px] w-full box-border text-neutral-dark-500 `}
+          >
             <SnapshotSubmenu
               className={
                 activeItem === 'snapshots'

@@ -5,6 +5,7 @@ import { Add, ArrowDown2 } from 'iconsax-react';
 import React from 'react';
 import { gridTableFields } from '../../GridUI';
 import HeaderFilterDropdown from './header-filter-dropdown';
+import AddFields from '../add-fields';
 
 const GridTableHeader = () => {
   return (
@@ -39,9 +40,10 @@ const GridTableHeader = () => {
           className="z-[10] min-w-[100px]  box-border  "
           style={{ borderRight: '1px solid #EDEDED' }}
         >
-          <div className="w-full h-full flex items-center justify-center cursor-pointer">
+          {/* <div className="w-full h-full flex items-center justify-center cursor-pointer">
             <Add size={16} />
-          </div>
+          </div> */}
+          <AddFields />
         </th>
       </tr>
     </thead>

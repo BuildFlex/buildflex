@@ -15,7 +15,7 @@ const SnapshotSubmenu = ({
   return (
     <div
       className={cn(
-        'absolute top-3 transition-opacity max-w-[calc(100%-24px)] duration-300 flex flex-col gap-3',
+        'absolute top-0 transition-opacity  duration-300 flex flex-col gap-3',
         className,
       )}
     >

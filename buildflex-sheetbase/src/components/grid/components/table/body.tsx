@@ -296,7 +296,7 @@ const GridTabBody = () => {
             borderRight: '1px solid #EDEDED',
             borderBottom: '1px solid #EDEDED',
           }}
-          className="h-9  text-center align-middle bg-white"
+          className="h-9 before:absolute before:w-full before:content-[''] before:h-[1px] before:bg-[#EDEDED] before:-bottom-[1px] before:left-0   after:absolute after:h-full after:bg-[#EDEDED] after:content-[''] after:-right-[1px] after:top-0 after:w-[1px] sticky left-0 text-start bg-white"
         >
           <div
             onClick={() => setRows((prev) => prev + 1)}

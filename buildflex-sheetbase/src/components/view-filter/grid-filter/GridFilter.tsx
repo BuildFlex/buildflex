@@ -163,7 +163,7 @@ const GridFilter: React.FC = () => {
     }
   };
   return (
-    <div className="flex items-center max-w-full p-[10px] gap-8 box-border bg-white h-10">
+    <div className="flex items-center overflow-auto max-w-full p-[10px] gap-8 box-border bg-white h-10">
       {filterItems.map((item) => (
         <Dropdown
           open={activePopup === item.id}

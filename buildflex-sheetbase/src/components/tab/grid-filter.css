@@ -3,16 +3,11 @@
     flex-direction: column !important;
     gap: 4px !important;
 }
-.grid-dropdown .ant-input{
-    box-shadow: none !important;
 
-}
 .grid-view-dropdown{
   width: 320px !important;
 }
-.grid-filter-dropdown .ant-input::placeholder{
-    color: #101828 !important;
-}
+
 .grid-filter-dropdown .ant-select{
     width: 120px;
     height: 30px ;
@@ -22,16 +17,6 @@
     outline: none !important;
     border: none !important;
     box-shadow: none !important;
-}
-
-.ant-select-dropdown  .ant-input{
-    box-shadow: none !important;
-    border: none !important;
-    padding:  0 8px !important;
-    height: 36px !important;
-}
-.ant-select-dropdown  .ant-input::placeholder{
-    color: #6A758B !important;
 }
 
 .filter-select{

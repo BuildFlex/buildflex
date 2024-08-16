@@ -17,7 +17,7 @@ const RecordRevisionHistorySubmenu = ({
   return (
     <div
       className={cn(
-        'absolute top-3 transition-opacity duration-300 flex flex-col gap-3',
+        'absolute top-0 w-full transition-opacity duration-300 flex flex-col gap-3',
         className,
       )}
     >

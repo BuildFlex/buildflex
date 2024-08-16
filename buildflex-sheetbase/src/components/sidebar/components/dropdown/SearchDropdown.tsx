@@ -1,4 +1,5 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
 import { Dropdown, Input, MenuProps } from 'antd';
@@ -49,16 +50,17 @@ const SearchDropdown = ({ children }: { children: ReactNode }) => {
       dropdownRender={(menu) => (
         <div className="flex flex-col gap-1 p-3 sidebar__search-dropdown">
           <div className=" border-b border-neutral-200">
-            <Input
+            <CustomInput
               placeholder="Search"
               autoFocus={true}
-              prefix={<SearchNormal1 size={16} color={'#6A758B'} />}
-              style={{
-                padding: '0 8px',
-                boxShadow: 'none',
-                borderRadius: '4px',
-              }}
-              className="h-9 flex custom-input !text-neutral-dark-500 !cursor-default gap-2 items-center sidebar__search"
+              prefix={
+                <SearchNormal1
+                  className="min-w-4"
+                  size={16}
+                  color={'#6A758B'}
+                />
+              }
+              className="h-9  custom-input"
             />
           </div>
           {menu}
