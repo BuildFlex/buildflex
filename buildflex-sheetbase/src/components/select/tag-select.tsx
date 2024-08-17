@@ -22,6 +22,11 @@ const TagList = [
     name: 'SheetBase 3',
     color: 'bg-[#FFD4E0]',
   },
+  {
+    id: 'sheetBase-4',
+    name: 'SheetBase 4',
+    color: 'bg-[#FFD4E0]',
+  },
 ];
 interface ITag {
   id: string;
@@ -44,7 +49,7 @@ const TagSelect = () => {
   };
   return (
     <div
-      className="h-9 px-2 relative w-full box-border rounded flex items-center gap-2"
+      className="min-h-9 px-2 py-[7px] flex-wrap relative w-full box-border rounded flex items-center gap-2"
       style={{ border: '1px solid #EDEDED' }}
       ref={ref}
     >
@@ -52,7 +57,10 @@ const TagSelect = () => {
         <Tag
           key={tag.id}
           name={tag.name}
-          className={cn('w-auto ml-0  text-neutral-dark-500 ', tag.color)}
+          className={cn(
+            'w-auto ml-0 whitespace-nowrap text-neutral-dark-500 ',
+            tag.color,
+          )}
         />
       ))}
       <button
@@ -68,7 +76,7 @@ const TagSelect = () => {
         <div className="absolute top-1/2 z-[0] left-1/2 -translate-x-1/2 -translate-y-1/2 transform size-3 bg-[#6A758B] " />
       </button>
       {isShow && (
-        <div className="w-full p-3 absolute flex flex-col gap-3 rounded-lg bottom-[120%] left-0 bg-white boxShadowSecondary">
+        <div className="w-full p-3 box-border absolute flex flex-col gap-3 rounded-lg bottom-[120%] left-0 bg-white boxShadowSecondary">
           <DropdownItem className="text-neutral-dark-300">
             <Text as="span" variant="B2-Regular">
               Find an option
@@ -81,7 +89,7 @@ const TagSelect = () => {
                 <DropdownItem
                   key={tag.id}
                   onClick={() => handleSelect(tag)}
-                  className={cn(' hover:bg-gray-50 cursor-pointer', {
+                  className={cn(' hover:bg-gray-50  cursor-pointer', {
                     'bg-gray-100 hover:bg-gray-100': isSelected,
                   })}
                 >

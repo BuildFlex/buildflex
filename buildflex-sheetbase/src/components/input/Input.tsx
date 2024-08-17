@@ -32,7 +32,7 @@ export const CustomInput = ({
     >
       {prefixIcon}
       <input
-        placeholder={placeholder}
+        placeholder={placeholder ?? ''}
         id={label}
         value={value}
         style={{ boxShadow: 'none' }}

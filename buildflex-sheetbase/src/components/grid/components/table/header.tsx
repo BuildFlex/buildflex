@@ -3,10 +3,17 @@ import { fields } from '@/components/view-filter/components/dropdown-render/Hide
 import { Checkbox } from 'antd';
 import { Add, ArrowDown2 } from 'iconsax-react';
 import React from 'react';
-import { gridTableFields } from '../../GridUI';
 import HeaderFilterDropdown from './header-filter-dropdown';
 import AddFields from '../add-fields';
-
+import { MoveToIcon } from '@/components/icons';
+const gridTableFields = [
+  ...fields,
+  {
+    id: 'link-to-another-record',
+    label: 'Link to another record',
+    icon: MoveToIcon,
+  },
+];
 const GridTableHeader = () => {
   return (
     <thead className="sticky top-0 z-10">
