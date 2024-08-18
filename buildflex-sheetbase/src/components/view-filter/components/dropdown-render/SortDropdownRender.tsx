@@ -29,7 +29,11 @@ const SortDropdownRender = () => {
         style={{ borderBottom: '1px solid #EDEDED' }}
         className="text-neutral-dark-300 h-10 rounded-none"
       >
-        <Text as="span" variant="B2-Regular" className="text-neutral-dark-500">
+        <Text
+          as="span"
+          variant="B2-Regular"
+          className="text-neutral-dark-500 h-[18px]"
+        >
           Sort by
         </Text>
         <QuestionCircle className="cursor-pointer" color="currentColor" />
@@ -78,7 +82,7 @@ const SortDropdownRender = () => {
           <div className="flex justify-between h-9 items-center ">
             <DropdownItem className=" w-fit px-0 text-neutral-dark-300 ">
               <Switch
-                className="custom-switch "
+                className="w-8"
                 value={isAuto}
                 onChange={(check) => setIsAuto(check)}
                 id="automatically-sort-records"

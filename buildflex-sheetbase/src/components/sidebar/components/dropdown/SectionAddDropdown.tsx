@@ -1,104 +1,77 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import { MoreVert, QuestionCircle } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { cn } from '@/utils/cn';
 import { Dropdown, Input, MenuProps } from 'antd';
 import {
   Add,
-  ArrowRight,
-  ArrowRight2,
   Calendar,
-  Copy,
-  DocumentForward,
-  Edit2,
-  Element3,
   ElementEqual,
-  Folder2,
   Grid1,
   Grid2,
-  Home2,
   Kanban,
-  SearchNormal1,
-  Share,
-  Trash,
 } from 'iconsax-react';
-import React from 'react';
-import SearchDropdown from './SearchDropdown';
-const items: MenuProps['items'] = [
-  {
-    key: 'grid',
-    label: (
-      <DropdownItem>
-        <Grid1 color="#087AAF" size={16} />
-        <Text as="span" variant="B2-Regular">
-          Grid
-        </Text>
-        <Add size={16} className="ml-auto" />
-      </DropdownItem>
-    ),
-  },
+import { useState } from 'react';
+
+const itemsList = [
+  { key: 'grid', label: 'Grid', icon: <Grid1 size={16} color="#087AAF" /> },
   {
     key: 'form',
-    label: (
-      <DropdownItem>
-        <ElementEqual color="#8E24AA" size={16} />
-        <Text as="span" variant="B2-Regular">
-          Form
-        </Text>
-        <Add size={16} className="ml-auto" />
-      </DropdownItem>
-    ),
+    label: 'Form',
+    icon: <ElementEqual size={16} color="#8E24AA" />,
   },
   {
     key: 'gallery',
-    label: (
-      <DropdownItem>
-        <Grid2 color="#FB8C00" size={16} />
-        <Text as="span" variant="B2-Regular">
-          Gallery
-        </Text>
-        <Add size={16} className="ml-auto" />
-      </DropdownItem>
-    ),
+    label: 'Gallery',
+    icon: <Grid2 size={16} color="#FB8C00" />,
   },
   {
     key: 'kanban',
-    label: (
-      <DropdownItem>
-        <Kanban color="#FB8C00" size={16} />
-        <Text as="span" variant="B2-Regular">
-          Kanban
-        </Text>
-        <Add size={16} className="ml-auto" />
-      </DropdownItem>
-    ),
+    label: 'Kanban',
+    icon: <Kanban size={16} color="#12B981" />,
   },
   {
     key: 'calender',
-    label: (
-      <DropdownItem>
-        <Calendar color="#15A0A3" size={16} />
-        <Text as="span" variant="B2-Regular">
-          Calender
-        </Text>
-        <Add size={16} className="ml-auto" />
-      </DropdownItem>
-    ),
+    label: 'Calender',
+    icon: <Calendar size={16} color="#15A0A3" />,
   },
 ];
 const SectionAddDropdown = ({ className }: { className?: string }) => {
+  const [open, setOpen] = useState(false);
   return (
     <Dropdown
-      menu={{ items }}
       trigger={['click']}
       placement="bottomLeft"
+      open={open}
+      onOpenChange={(status) => setOpen(status)}
       className={className}
+      dropdownRender={(menu) => (
+        <div className="flex w-[160px] box-border flex-col gap-1 p-3 rounded-lg">
+          {itemsList.map((item) => (
+            <DropdownItem
+              key={item.key}
+              onClick={(e) => {
+                e.stopPropagation();
+                setOpen(false);
+              }}
+              className="cursor-pointer hover:bg-gray-50"
+            >
+              {item.icon}
+              <Text as="span" variant="B2-Regular">
+                {item.label}
+              </Text>
+              <Add size={16} className="ml-auto" />
+            </DropdownItem>
+          ))}
+        </div>
+      )}
       align={{ offset: [0, 0] }}
-      overlayClassName=" boxShadowSecondary w-[160px] sectionAddDropdown !rounded-lg"
+      overlayClassName=" boxShadowSecondary rounded-lg"
     >
       <Add
         size={16}
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.stopPropagation();
+          setOpen(true);
+        }}
         className=" text-neutral-dark-300 hover:text-gray-500 cursor-pointer"
       />
     </Dropdown>

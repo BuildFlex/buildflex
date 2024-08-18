@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Grid1, Calendar, Gallery, Add, More, Magicpen } from 'iconsax-react';
 import GridFilter from '../view-filter/grid-filter/GridFilter';
 import AIChatDrawer from '../extensions/ai-chat';
-import Grid from '../grid/Grid';
 import { cn } from '@/utils/cn';
 import { MoreVert, SparklesIcon } from '../icons';
 import Text from '../typography/Text';

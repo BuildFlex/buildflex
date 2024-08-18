@@ -11,6 +11,17 @@ import SingleLineTextDropdown from './dropdown/single-line-text';
 import LongTextDropdown from './dropdown/long-text';
 import AttachmentDropdown from './dropdown/attachment';
 import { CustomInput } from '@/components/input/Input';
+import CheckboxDropdown from './dropdown/checkbox';
+import MultipleSelectDropdown from './dropdown/multiple-select';
+import SingleSelectDropdown from './dropdown/single-select';
+import URLDropdown from './dropdown/url';
+import EmailDropdown from './dropdown/email';
+import PhoneDropdown from './dropdown/phone';
+import DateDropdown from './dropdown/date';
+import UserDropdown from './dropdown/user';
+import NumberDropdown from './dropdown/number';
+import CurrencyDropdown from './dropdown/currency';
+import DurationDropdown from './dropdown/duration';
 
 const AddFields = () => {
   const [currentDropdown, setCurrentDropdown] = React.useState<null | IField>(
@@ -45,6 +56,32 @@ const AddFields = () => {
         return (
           <AttachmentDropdown onChangeDropdown={handleSetCurrentDropdown} />
         );
+      case 'checkbox':
+        return <CheckboxDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'multiple-select':
+        return (
+          <MultipleSelectDropdown onChangeDropdown={handleSetCurrentDropdown} />
+        );
+      case 'single-select':
+        return (
+          <SingleSelectDropdown onChangeDropdown={handleSetCurrentDropdown} />
+        );
+      case 'url':
+        return <URLDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'email':
+        return <EmailDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'phone':
+        return <PhoneDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'date':
+        return <DateDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'user':
+        return <UserDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'number':
+        return <NumberDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'currency':
+        return <CurrencyDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'duration':
+        return <DurationDropdown onChangeDropdown={handleSetCurrentDropdown} />;
       default:
         return <MainDropdown onChangeDropdown={handleSetCurrentDropdown} />;
     }
@@ -59,11 +96,17 @@ const AddFields = () => {
       align={{ offset: [-20, 10] }}
       menu={[] as any}
       dropdownRender={(menu) => (
-        <div className="p-3 flex flex-col gap-2">
+        <div
+          className={cn(
+            'p-3 flex flex-col gap-2',
+            currentDropdown?.id !== 'checkbox' &&
+              'customScrollBar max-h-[370px] overflow-auto',
+          )}
+        >
           <CustomInput
             label="Field name"
             placeholder="Field name (optional)"
-            className=" flex gap-2 !rounded !border-borderColor font-lato !text-neutral-dark-500 items-center "
+            className=" flex gap-2  h-9 min-h-9 !rounded !border-borderColor font-lato !text-neutral-dark-500 items-center "
           />
           {renderDropdown()}
           {isAddDescription && (

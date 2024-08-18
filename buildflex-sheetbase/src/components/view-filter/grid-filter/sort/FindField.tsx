@@ -6,6 +6,7 @@ import { cn } from '@/utils/cn';
 import { IField } from '../../components/dropdown-render/GroupDropdownRender';
 import { QuestionCircle } from '@/components/icons';
 import { CustomInput } from '@/components/input/Input';
+import { Switch } from 'antd';
 
 interface FindFieldrops {
   searchPlaceholder: string;
@@ -16,6 +17,7 @@ interface FindFieldrops {
   fields: IField[];
   isCollapsed?: boolean;
   isShowQuestion?: boolean;
+  isSwitch?: boolean;
 }
 const FindField = ({
   searchPlaceholder,
@@ -26,6 +28,7 @@ const FindField = ({
   fields,
   isCollapsed,
   isShowQuestion,
+  isSwitch = false,
 }: FindFieldrops) => {
   const [isShowAll, setIsShowAll] = React.useState(!isCollapsed);
   const [search, setSearch] = React.useState('');
@@ -76,6 +79,7 @@ const FindField = ({
           fieldClassName,
         )}
       >
+        {isSwitch && <Switch className="w-8 " size="small" />}
         <f.icon size={16} />
         <Text as="span" variant="B2-Regular">
           {f.label}

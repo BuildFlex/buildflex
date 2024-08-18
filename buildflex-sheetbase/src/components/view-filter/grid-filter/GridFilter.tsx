@@ -25,6 +25,8 @@ import RowHeightItems from '../components/dropdown-items/row-height-items';
 import ShareAndSyncItems from '../components/dropdown-items/share-and-sync-items';
 import ShareAndSyncDropdownRender from '../components/dropdown-render/ShareAndSyncDropdownRender';
 import ColorDropdownRender from '../components/dropdown-render/ColorDropdownRender';
+import ViewDropdownRender from '../components/dropdown-render/ViewDropdownRender';
+import RowHeightRender from '../components/dropdown-render/RowHeightRender';
 
 interface FilterItem {
   id: string;
@@ -62,7 +64,6 @@ const filterItems: FilterItem[] = [
     hasDropdown: true,
     popupType: 'menu',
     filterType: 'grid',
-    menuItems: gridViewItems,
     className: 'grid-view-dropdown',
   },
   {
@@ -78,6 +79,7 @@ const filterItems: FilterItem[] = [
     label: 'Filter',
     popupType: 'panel',
     filterType: 'filter',
+    placement: 'bottomCenter',
     className: 'grid-filter-dropdown',
   },
   {
@@ -108,7 +110,6 @@ const filterItems: FilterItem[] = [
     label: 'Row height',
     popupType: 'menu',
     filterType: 'rowHeight',
-    menuItems: RowHeightItems,
   },
   {
     id: 'share',
@@ -146,6 +147,8 @@ const GridFilter: React.FC = () => {
   };
   const dropdownRender = (menu: ReactNode) => {
     switch (activePopup) {
+      case 'view':
+        return <ViewDropdownRender setActivePopup={setActivePopup} />;
       case 'fields':
         return <HideFieldDropdownRender menu={menu} />;
       case 'filter':
@@ -158,6 +161,9 @@ const GridFilter: React.FC = () => {
         return <ShareAndSyncDropdownRender setIsModalOpen={setIsModalOpen} />;
       case 'color':
         return <ColorDropdownRender />;
+      case 'rowHeight':
+        return <RowHeightRender setActivePopup={setActivePopup} />;
+
       default:
         return menu;
     }

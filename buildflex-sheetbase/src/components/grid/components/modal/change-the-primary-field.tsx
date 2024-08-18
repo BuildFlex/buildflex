@@ -1,8 +1,6 @@
 import { CloseIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
-import FindField from '@/components/view-filter/grid-filter/sort/FindField';
-import { Input, Select } from 'antd';
+import { Select } from 'antd';
 import { ArrowDown2 } from 'iconsax-react';
 import React from 'react';
 

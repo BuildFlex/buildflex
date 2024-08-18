@@ -6,7 +6,6 @@ import ListContentItemsPanel from './components/ListContentItemsPanel';
 import './sidebar.css';
 import { CollapseIcon } from '../icons';
 import { cn } from '@utils/cn';
-import SearchDropdown from './components/dropdown/SearchDropdown';
 import { useSidebar } from '@/provider/sidebar-provider';
 import { CustomInput } from '../input/Input';
 export default function SideBar() {

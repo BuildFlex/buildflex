@@ -96,7 +96,7 @@ const ColorSelector = ({
       // align={{ offset: [50, -20] }}
     >
       <div
-        className=" relative rounded-full"
+        className=" relative rounded-full cursor-pointer"
         style={{ height: iconSize, width: iconSize }}
       >
         <div

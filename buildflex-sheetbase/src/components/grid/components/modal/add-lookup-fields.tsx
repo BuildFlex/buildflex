@@ -33,6 +33,7 @@ const AddLookupFieldsModal = ({
       </div>
       {/* Content */}
       <FindField
+        isSwitch
         fields={fields}
         searchPlaceholder="Find a field"
         onSelectField={() => {

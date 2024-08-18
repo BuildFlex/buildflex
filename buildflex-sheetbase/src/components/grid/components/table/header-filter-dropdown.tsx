@@ -6,7 +6,7 @@ import {
   SortDownIcon,
 } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { Dropdown, DropdownProps, MenuProps, Modal } from 'antd';
+import { Divider, Dropdown, DropdownProps, MenuProps, Modal } from 'antd';
 import {
   ArrowDown2,
   ArrowLeft,
@@ -27,13 +27,15 @@ import DuplicateFieldModal from '../modal/duplicate-field';
 import EditFieldDescriptionModal from '../modal/edit-field';
 import AddLookupFieldsModal from '../modal/add-lookup-fields';
 import ChangeThePrimaryFieldModal from '../modal/change-the-primary-field';
+import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { cn } from '@/utils/cn';
 
 const HeaderFilterDropdown = () => {
   const [activeModal, setActiveModal] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
   const handleCancel = () => setActiveModal(null);
-  const handleMenuClick: MenuProps['onClick'] = (e) => {
-    switch (e.key) {
+  const handleMenuClick = (key: string) => {
+    switch (key) {
       case 'add-lookup-fields':
         setActiveModal('add-lookup-fields');
         break;
@@ -78,16 +80,39 @@ const HeaderFilterDropdown = () => {
         trigger={['click']}
         placement="bottomRight"
         className="flex items-center relative justify-center"
-        overlayClassName=" boxShadowSecondary customScrollBar header-filter-dropdown  project-more-dropdown "
-        menu={{
-          items: moreItems,
-          onClick: handleMenuClick,
-        }}
+        overlayClassName="   "
+        // menu={{
+        //   items: moreItems,
+        //   onClick: handleMenuClick,
+        // }}
+        dropdownRender={() => (
+          <div className="p-3 rounded-lg w-[350px] box-border max-h-[300px] customScrollBar overflow-auto boxShadowSecondary flex flex-col gap-1 bg-white ">
+            {moreItemList.map((i) => {
+              return i.key === 'divider' ? (
+                <Divider className="!my-2 bg-borderColor" />
+              ) : (
+                <DropdownItem
+                  onClick={() => handleMenuClick(i.key)}
+                  className={cn(
+                    'flex gap-2 cursor-pointer items-center hover:bg-gray-50 text-neutral-dark-500',
+                    i.className,
+                  )}
+                >
+                  {i.icon && <i.icon size={16} />}
+                  <Text as="span" variant="B2-Regular">
+                    {i.text}
+                  </Text>
+                </DropdownItem>
+              );
+            })}
+          </div>
+        )}
         onOpenChange={handleOpenChange}
         open={open}
       >
         <ArrowDown2 className="ml-auto cursor-pointer" size={16} />
       </Dropdown>
+
       <Modal
         modalRender={(modal) => renderModal()}
         open={activeModal !== null}
@@ -100,213 +125,49 @@ const HeaderFilterDropdown = () => {
 
 export default HeaderFilterDropdown;
 
-const moreItems: MenuProps['items'] = [
-  {
-    key: 'edit-field',
-    label: (
-      <div className="flex gap-2 items-center  text-neutral-dark-500">
-        <Edit2 size={16} />
-        <Text as="span" variant="B2-Regular">
-          Edit field
-        </Text>
-      </div>
-    ),
-  },
-  {
-    key: 'add-lookup-fields',
-    label: (
-      <div className="flex gap-2 items-center  text-neutral-dark-500">
-        <SearchStatus size={16} />
-        <Text as="span" variant="B2-Regular">
-          Add lookup fields
-        </Text>
-      </div>
-    ),
-  },
-  {
-    key: 'divider',
-    type: 'divider',
-    className: '!bg-borderColor !my-2',
-  },
-  {
-    key: 'duplicate-field',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <Copy size={16} />
-        <Text as="span" variant="B2-Regular">
-          Duplicate field
-        </Text>
-      </div>
-    ),
-  },
-
-  {
-    key: 'insert-left',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <ArrowLeft size={16} />
-        <Text as="span" variant="B2-Regular">
-          Insert left
-        </Text>
-      </div>
-    ),
-  },
-  {
-    key: 'insert-right',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <ArrowRight size={16} />
-        <Text as="span" variant="B2-Regular">
-          Insert right
-        </Text>
-      </div>
-    ),
-  },
-  {
-    key: 'change-primary-field',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <Code size={16} />
-        <Text as="span" variant="B2-Regular">
-          Change primary field
-        </Text>
-      </div>
-    ),
-  },
-  {
-    key: 'divider',
-    type: 'divider',
-    className: '!bg-borderColor !my-2',
-  },
+const moreItemList = [
+  { key: 'edit-field', text: 'Edit field', icon: Edit2 },
+  { key: 'add-lookup-fields', text: 'Add lookup fields', icon: SearchStatus },
+  { key: 'divider', type: 'divider' },
+  { key: 'duplicate-field', text: 'Duplicate field', icon: Copy },
+  { key: 'insert-left', text: 'Insert left', icon: ArrowLeft },
+  { key: 'insert-right', text: 'Insert right', icon: ArrowRight },
+  { key: 'change-primary-field', text: 'Change primary field', icon: Code },
+  { key: 'divider', type: 'divider' },
   {
     key: 'configure-date-dependencies',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <ConfigureIcon />
-        <Text as="span" variant="B2-Regular">
-          Configure date dependencies
-        </Text>
-      </div>
-    ),
+    text: 'Configure date dependencies',
+    icon: ConfigureIcon,
   },
-
-  {
-    key: 'divider',
-    type: 'divider',
-    className: '!bg-borderColor !my-2',
-  },
-  {
-    key: 'copy-field-url',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <Link size={16} />
-        <Text as="span" variant="B2-Regular">
-          Copy field URL
-        </Text>
-      </div>
-    ),
-  },
+  { key: 'divider', type: 'divider' },
+  { key: 'copy-field-url', text: 'Copy field URL', icon: Link },
   {
     key: 'edit-field-description',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <InfoCircle size={16} />
-        <Text as="span" variant="B2-Regular">
-          Edit field description
-        </Text>
-      </div>
-    ),
+    text: 'Edit field description',
+    icon: InfoCircle,
   },
   {
     key: 'edit-field-permisstions',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <Lock size={16} />
-        <Text as="span" variant="B2-Regular">
-          Edit field permisstions
-        </Text>
-      </div>
-    ),
+    text: 'Edit field permissions',
+    icon: Lock,
   },
-  {
-    key: 'divider',
-    type: 'divider',
-    className: '!bg-borderColor !my-2',
-  },
-  {
-    key: 'sort-a-to-z',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <SortDownIcon />
-        <Text as="span" variant="B2-Regular">
-          Sort A → Z
-        </Text>
-      </div>
-    ),
-  },
-  {
-    key: 'sort-z-to-a',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <SortDownIcon />
-        <Text as="span" variant="B2-Regular">
-          Sort Z → A
-        </Text>
-      </div>
-    ),
-  },
-  {
-    key: 'divider',
-    type: 'divider',
-    className: '!bg-borderColor !my-2',
-  },
+  { key: 'divider', type: 'divider' },
+  { key: 'sort-a-to-z', text: 'Sort A → Z', icon: SortDownIcon },
+  { key: 'sort-z-to-a', text: 'Sort Z → A', icon: SortDownIcon },
+  { key: 'divider', type: 'divider' },
   {
     key: 'filter-by-this-field',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <SortDownIcon />
-        <Text as="span" variant="B2-Regular">
-          Filter by this field
-        </Text>
-      </div>
-    ),
+    text: 'Filter by this field',
+    icon: SortDownIcon,
   },
-  {
-    key: 'group-by-this-field',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <GroupIcon />
-        <Text as="span" variant="B2-Regular">
-          Group by this field
-        </Text>
-      </div>
-    ),
-  },
-  {
-    key: 'divider',
-    type: 'divider',
-    className: '!bg-borderColor !my-2',
-  },
-  {
-    key: 'hide-filed',
-    label: (
-      <div className="flex gap-2 items-center text-neutral-dark-500">
-        <EyeSlash size={16} />
-        <Text as="span" variant="B2-Regular">
-          Hide Filed
-        </Text>
-      </div>
-    ),
-  },
+  { key: 'group-by-this-field', text: 'Group by this field', icon: GroupIcon },
+  { key: 'divider', type: 'divider' },
+  { key: 'hide-filed', text: 'Hide Field', icon: EyeSlash },
   {
     key: 'delete-filed',
-    label: (
-      <div className="flex gap-2 items-center text-danger">
-        <Trash size={16} />
-        <Text as="span" variant="B2-Regular">
-          Delete Filed
-        </Text>
-      </div>
-    ),
+    text: 'Delete Field',
+    icon: Trash,
+    className: 'text-danger',
   },
 ];
+
