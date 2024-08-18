@@ -1,5 +1,5 @@
 import { AddSquare, ArrowDown2 } from 'iconsax-react';
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import DropdownItem from '../common/dropdown/DropdownItem';
 import Text from '../typography/Text';
 import Tag from '../sidebar/components/dropdown/TeamTag';
@@ -7,43 +7,40 @@ import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
 import { SortByLabel } from '../view-filter/grid-filter/sort/SortConditionRow';
 
+interface ISelectItem {
+  value: string;
+  label: string;
+  suffix?: React.ElementType;
+  prefix?: React.ElementType;
+}
 interface SelectProps {
-  labelRender?: React.ReactNode;
-  dropdownRender?: React.ReactNode;
-  dropdownItemRender?: (item: string) => React.ReactNode;
   className?: string;
   dropdownClassName?: string;
-  dropdownItemClassName?: string;
-  itemsList: string[];
+  itemsList: ISelectItem[];
   position?: 'top' | 'bottom';
-  initialValue?: string;
-  placeholder?: string;
-  onChange?: (value: string) => void;
+  initialValue?: ISelectItem;
+  onChange?: (value: ISelectItem) => void;
 }
 
-const Select = ({
-  labelRender,
+const CustomSelect = ({
+  onChange,
   itemsList,
-  dropdownRender,
   dropdownClassName,
-  dropdownItemClassName,
   className,
   initialValue,
   position = 'bottom',
-  placeholder,
-  onChange,
-  dropdownItemRender,
 }: SelectProps) => {
   const [isShow, setIsShow] = React.useState(false);
-  const [selected, setSelected] = useState<string | null>(initialValue ?? null);
+  const [selected, setSelected] = useState<ISelectItem | null>(
+    initialValue ?? null,
+  );
   const onOpen = () => setIsShow(true);
   const onClose = () => setIsShow(false);
   const ref = useOutsideClick(onClose, true);
-  const handleChange = (value: string) => {
-    onChange && onChange(value);
+  const handleSelect = (value: ISelectItem) => {
     setSelected(value);
+    onChange && onChange(value);
   };
-  const handleSelect = (value: string) => setSelected(value);
   return (
     <div
       className={cn(
@@ -54,12 +51,16 @@ const Select = ({
       ref={ref}
       onClick={() => setIsShow((prev) => !prev)}
     >
-      {labelRender ?? (
-        <Text as="span" variant="B2-Regular">
-          {selected ?? placeholder}
-        </Text>
+      {selected?.prefix && <selected.prefix size={16} />}
+      <Text as="span" variant="B2-Regular" className="h-[18px]">
+        {selected?.label}
+      </Text>
+      {selected?.suffix ? (
+        <selected.suffix size={16} className="ml-auto" />
+      ) : (
+        <ArrowDown2 className="ml-auto" size={16} />
       )}
-      <ArrowDown2 className="ml-auto" size={16} />
+
       {isShow && (
         <div
           className={cn(
@@ -69,24 +70,32 @@ const Select = ({
             dropdownClassName,
           )}
         >
-          {dropdownRender}
+          <DropdownItem onClick={(e) => e.stopPropagation()}>
+            <Text
+              as="span"
+              variant="B2-Regular"
+              className="text-neutral-dark-300"
+            >
+              Find...
+            </Text>
+          </DropdownItem>
           <div className="flex w-full flex-col gap-1">
             {itemsList.map((item, index) => {
               return (
                 <DropdownItem
                   key={index}
-                  onClick={() => handleChange(item)}
+                  onClick={() => handleSelect(item)}
                   className={cn(' hover:bg-gray-50 cursor-pointer', {
-                    'bg-gray-100 hover:bg-gray-100': selected === item,
-                    dropdownItemClassName,
+                    'bg-gray-100 hover:bg-gray-100':
+                      selected?.value === item.value,
                   })}
                 >
-                  {dropdownItemRender ? (
-                    dropdownItemRender(item)
-                  ) : (
-                    <Text as="span" variant="B2-Regular">
-                      {item}
-                    </Text>
+                  {item?.prefix && <item.prefix size={16} />}
+                  <Text as="span" variant="B2-Regular">
+                    {item.label}
+                  </Text>
+                  {item?.suffix && (
+                    <item.suffix size={16} className="ml-auto" />
                   )}
                 </DropdownItem>
               );
@@ -98,4 +107,4 @@ const Select = ({
   );
 };
 
-export default Select;
+export default CustomSelect;

@@ -1,32 +1,35 @@
 import React from 'react';
-import { ArrowDown2, Call, Link } from 'iconsax-react';
+import { ArrowDown2, Link, UserTick } from 'iconsax-react';
 import Text from '@/components/typography/Text';
 
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import { AutoNumberIcon } from '@/components/icons';
 
-interface PhoneDropdownProps {
+interface AutoNumberDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
 }
 
-const PhoneDropdown: React.FC<PhoneDropdownProps> = ({ onChangeDropdown }) => {
+const AutoNumberDropdown: React.FC<AutoNumberDropdownProps> = ({
+  onChangeDropdown,
+}) => {
   return (
     <>
       <button
         onClick={() => onChangeDropdown(null)}
         style={{ border: '1px solid #EDEDED ' }}
-        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer "
+        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
       >
-        <Call size={16} />
+        <AutoNumberIcon />
         <Text as="span" variant="B2-Regular">
-          Phone
+          AutoNumber
         </Text>
         <ArrowDown2 className="ml-auto" size={16} />
       </button>
       <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-        {`Enter a telephone number (e.g. (415) 555-9876).`}
-      </Text>
+        Automatically generate unique incremental numbers for each record.
+      </Text>{' '}
     </>
   );
 };
 
-export default PhoneDropdown;
+export default AutoNumberDropdown;
