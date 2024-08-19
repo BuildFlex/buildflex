@@ -13,7 +13,7 @@ interface MainDropdownProps {
 }
 const MainDropdown = ({ onChangeDropdown }: MainDropdownProps) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 ">
       <FindField
         fields={gridTableFields}
         searchPlaceholder="Find a field type"

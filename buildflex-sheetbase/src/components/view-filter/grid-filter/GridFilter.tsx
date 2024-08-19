@@ -80,7 +80,7 @@ const filterItems: FilterItem[] = [
     popupType: 'panel',
     filterType: 'filter',
     placement: 'bottomCenter',
-    className: 'grid-filter-dropdown',
+    className: 'no-border-select',
   },
   {
     id: 'group',

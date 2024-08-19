@@ -13,21 +13,25 @@ interface SelectProps {
   searchPlaceholder?: string;
   popupClassName?: string;
   isSearch?: boolean;
+  dropdownItemRender?: (item: IField | string) => React.ReactNode;
 }
 const FieldSelect = ({
   style,
   initialValue,
   itemsList,
+  dropdownItemRender,
   searchPlaceholder,
   popupClassName,
   isSearch = false,
 }: SelectProps) => {
   const [value, setValue] = useState(initialValue);
-
+  const [isShow, setIsShow] = React.useState(false);
   return (
     <Select
-      style={{ ...style, height: '30px', width: '120px' }}
-      defaultValue={value}
+      style={{ height: '30px', ...style }}
+      value={value}
+      open={isShow}
+      onDropdownVisibleChange={(open) => setIsShow(open)}
       dropdownRender={(menu) => (
         <div className="flex flex-col gap-1 overflow-auto customScrollBar max-h-[260px] p-3 rounded-lg">
           {isSearch && (
@@ -38,11 +42,23 @@ const FieldSelect = ({
             />
           )}
           {itemsList.map((item) => (
-            <DropdownItem className="cursor-pointer hover:bg-gray-50">
-              {typeof item !== 'string' && <item.icon size={16} />}
-              <Text variant="B2-Regular" as="span">
-                {typeof item === 'string' ? item : item.label}
-              </Text>
+            <DropdownItem
+              onClick={() => {
+                setValue(item);
+                setIsShow(false);
+              }}
+              className="cursor-pointer hover:bg-gray-50"
+            >
+              {dropdownItemRender ? (
+                dropdownItemRender(item)
+              ) : (
+                <>
+                  {typeof item !== 'string' && <item.icon size={16} />}
+                  <Text variant="B2-Regular" as="span">
+                    {typeof item === 'string' ? item : item.label}
+                  </Text>
+                </>
+              )}
             </DropdownItem>
           ))}
         </div>

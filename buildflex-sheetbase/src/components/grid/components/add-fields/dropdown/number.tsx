@@ -306,7 +306,7 @@ const NumberAbbreviationSelect: React.FC<{
     <div className="flex items-center gap-2 h-8 ">
       <Switch className="w-8" size="small" />
       <Text as="span" variant="B2-Regular" className="text-neutral-dark-500">
-        Show thousands separator
+        Allow negative numbers
       </Text>
     </div>
   </div>

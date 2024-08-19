@@ -1,5 +1,5 @@
 
-.grid-filter-dropdown .ant-select-selector{
+.no-border-select .ant-select-selector{
     outline: none !important;
     border: none !important;
     box-shadow: none !important;

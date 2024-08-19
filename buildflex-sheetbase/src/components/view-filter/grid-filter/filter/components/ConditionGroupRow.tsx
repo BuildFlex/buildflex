@@ -27,7 +27,7 @@ const ConditionGroupRow = ({
           width: '80px',
           height: '32px',
         }}
-        popupClassName="!w-[200px] !px-0"
+        popupClassName="!w-[80px] !px-0"
         initialValue="and"
         itemsList={['or', 'and']}
         searchPlaceholder="Find a field"

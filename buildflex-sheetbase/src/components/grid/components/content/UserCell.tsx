@@ -14,7 +14,7 @@ const UserCell = ({ user }: UserCellProps) => {
         <img
           src={user.avatar}
           alt={user.name}
-          className="w-6 h-6 rounded-full"
+          className="w-6 h-6 rounded-full object-cover"
         />
         <Text as="span" variant="sub-title-medium">
           {user.name}
