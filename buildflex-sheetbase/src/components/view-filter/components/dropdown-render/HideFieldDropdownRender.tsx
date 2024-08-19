@@ -6,6 +6,7 @@ import {
   FormulaIcon,
   MoveIcon,
   QuestionCircle,
+  RateStarOutlineIcon,
 } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { Input, Switch } from 'antd';
@@ -57,7 +58,7 @@ export const fields: Field[] = [
   { id: 'currency', icon: DollarCircle, label: 'Currency' },
   { id: 'percent', icon: PercentageCircle, label: 'Percent' },
   { id: 'duration', icon: Clock, label: 'Duration' },
-  { id: 'rating', icon: Star, label: 'Rating' },
+  { id: 'rating', icon: RateStarOutlineIcon, label: 'Rating' },
   { id: 'formula', icon: FormulaIcon, label: 'Formula' },
   { id: 'rollup', icon: Chart, label: 'Rollup' },
   { id: 'count', icon: Math, label: 'Count' },

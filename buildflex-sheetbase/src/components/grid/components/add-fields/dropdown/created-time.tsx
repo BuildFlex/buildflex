@@ -8,17 +8,11 @@ import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { Switch } from 'antd';
 import TimeZoneSelect from '@/components/select/timezone-select';
 
-interface DateDropdownProps {
+interface CreatedTimeDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
 }
 
-const DateList = [
-  'Local (4/10/2024)',
-  'Friendly (April 10, 2024)',
-  'US (4/10/2024)',
-  'European (10/4/2024)',
-  'ISO (2024-04-10)',
-];
+const DateList = ['12h (3:53pm)', '24h (15:53pm)'];
 const suggestedTimezones = [
   { label: 'GMT/UTC', gmt: 'GMT / UTC' },
   { label: 'Asia/Bangkok', gmt: '+07 / UTC+7' },
@@ -30,7 +24,9 @@ const AllTimeZones = [
   { label: 'Africa/Algiers', gmt: 'CET / UTC+1' },
 ];
 
-const DateDropdown: React.FC<DateDropdownProps> = ({ onChangeDropdown }) => {
+const CreatedTimeDropdown: React.FC<CreatedTimeDropdownProps> = ({
+  onChangeDropdown,
+}) => {
   const [isDisplayTime, setIsDisplayTime] = React.useState<boolean>(false);
   const [isIncludeTime, setIsIncludeTime] = React.useState<boolean>(false);
   return (
@@ -42,16 +38,16 @@ const DateDropdown: React.FC<DateDropdownProps> = ({ onChangeDropdown }) => {
       >
         <Calendar size={16} />
         <Text as="span" variant="B2-Regular">
-          Date
+          Created time
         </Text>
         <ArrowDown2 className="ml-auto" size={16} />
       </button>
       <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-        {`Enter a date (e.g. 11/12/2023) or choose one from a calendar.`}
+        See the date and time each record was created.
       </Text>
       <div className="flex flex-col gap-2 mt-1">
         <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-          {`Date format.`}
+          Date format.
         </Text>
         <Select
           position="bottom"
@@ -101,7 +97,7 @@ const DateDropdown: React.FC<DateDropdownProps> = ({ onChangeDropdown }) => {
             </Text>
             <Select
               position="bottom"
-              initialValue="Local (4/10/2024)"
+              initialValue="12h (3:53pm)"
               dropdownClassName="max-h-[150px] overflow-auto customScrollBar"
               dropdownRender={
                 <DropdownItem onClick={(e) => e.stopPropagation()}>
@@ -131,7 +127,7 @@ const DateDropdown: React.FC<DateDropdownProps> = ({ onChangeDropdown }) => {
             variant="B2-Regular"
             className="text-neutral-dark-300"
           >
-            Display time zone
+            Use the same time zone for all collaborators
           </Text>
         </DropdownItem>
         {isDisplayTime && (
@@ -151,13 +147,6 @@ const DateDropdown: React.FC<DateDropdownProps> = ({ onChangeDropdown }) => {
             />
           </div>
         )}
-      </div>
-
-      {/* Default Fortmat */}
-      <div className="flex flex-col gap-2 mt-1">
-        <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-          Default option
-        </Text>
         <DropdownItem className="px-0">
           <Switch className="w-8" size="small" />
           <Text
@@ -165,27 +154,12 @@ const DateDropdown: React.FC<DateDropdownProps> = ({ onChangeDropdown }) => {
             variant="B2-Regular"
             className="text-neutral-dark-300"
           >
-            Default to
+            Display time znoe
           </Text>
-          <div
-            className="relative text-theme-ocean-blue ml-2 pl-6 pr-2 rounded-[100px] bg-[#E0F2FE]"
-            style={{ border: '0.5px solid #087AAF ' }}
-          >
-            <div
-              className="absolute text-theme-ocean-blue bg-white  box-border flex items-center justify-center size-7 rounded-full top-1/2 -left-[6px] -translate-y-1/2 transform "
-              style={{ border: '1px solid #087AAF ' }}
-            >
-              {' '}
-              <Calendar size={16} />
-            </div>
-            <Text as="span" variant="B2-Regular">
-              Curent date
-            </Text>
-          </div>
         </DropdownItem>
       </div>
     </>
   );
 };
 
-export default DateDropdown;
+export default CreatedTimeDropdown;

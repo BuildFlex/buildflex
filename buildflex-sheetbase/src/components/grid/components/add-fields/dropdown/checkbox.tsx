@@ -51,7 +51,7 @@ const CheckboxDropdown: React.FC<CheckboxDropdownProps> = ({
       <button
         onClick={() => onChangeDropdown(null)}
         style={{ border: '1px solid #EDEDED ' }}
-        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer mr-1"
+        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
       >
         <TickSquare size={16} />
         <Text as="span" variant="B2-Regular">

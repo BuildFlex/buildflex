@@ -22,20 +22,36 @@ import UserDropdown from './dropdown/user';
 import NumberDropdown from './dropdown/number';
 import CurrencyDropdown from './dropdown/currency';
 import DurationDropdown from './dropdown/duration';
+import RatingDropdown from './dropdown/rating';
+import CreatedTimeDropdown from './dropdown/created-time';
+import CreatedByDropdown from './dropdown/created-by';
+import AutoNumberDropdown from './dropdown/autonumber';
+import BarCodeDropdown from './dropdown/barcode';
+import ButtonDropdown from './dropdown/button';
+import { LastModiFiedByDropdown } from './dropdown/last-modified-by';
+import { LastModiFiedTimeDropdown } from './dropdown/last-modified-time';
+import { FormulaDropdown } from './dropdown/formula';
 
 const AddFields = () => {
   const [currentDropdown, setCurrentDropdown] = React.useState<null | IField>(
     null,
   );
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
+
   const [isAddDescription, setIsAddDescription] = useState<boolean>(false);
-  const handleSetCurrentDropdown = (value: IField | null) =>
+  const handleSetCurrentDropdown = (value: IField | null) => {
     setCurrentDropdown(value);
+  };
+  const handleModalOpen = (isOpen: boolean) => setIsModalOpen(isOpen);
   const handleOpenChange = (open: boolean) => {
-    if (!open) {
+    if (!open && !isModalOpen) {
       setIsAddDescription(false);
       setCurrentDropdown(null);
+      setDropdownOpen(false);
     }
   };
+  const notSrcollDropdown = ['checkbox', 'rating', 'button'];
   const renderDropdown = () => {
     if (!currentDropdown)
       return <MainDropdown onChangeDropdown={handleSetCurrentDropdown} />;
@@ -82,6 +98,40 @@ const AddFields = () => {
         return <CurrencyDropdown onChangeDropdown={handleSetCurrentDropdown} />;
       case 'duration':
         return <DurationDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'rating':
+        return <RatingDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'created-time':
+        return (
+          <CreatedTimeDropdown onChangeDropdown={handleSetCurrentDropdown} />
+        );
+      case 'created-by':
+        return (
+          <CreatedByDropdown onChangeDropdown={handleSetCurrentDropdown} />
+        );
+      case 'autonumber':
+        return (
+          <AutoNumberDropdown onChangeDropdown={handleSetCurrentDropdown} />
+        );
+      case 'barcode':
+        return <BarCodeDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'button':
+        return <ButtonDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'modified-by':
+        return (
+          <LastModiFiedByDropdown
+            handleModalOpen={handleModalOpen}
+            onChangeDropdown={handleSetCurrentDropdown}
+          />
+        );
+      case 'modified-time':
+        return (
+          <LastModiFiedTimeDropdown
+            handleModalOpen={handleModalOpen}
+            onChangeDropdown={handleSetCurrentDropdown}
+          />
+        );
+      case 'formula':
+        return <FormulaDropdown onChangeDropdown={handleSetCurrentDropdown} />;
       default:
         return <MainDropdown onChangeDropdown={handleSetCurrentDropdown} />;
     }
@@ -90,6 +140,7 @@ const AddFields = () => {
     <Dropdown
       trigger={['click']}
       placement="bottomRight"
+      open={isDropdownOpen}
       onOpenChange={handleOpenChange}
       className="flex items-center relative justify-center"
       overlayClassName={cn(' boxShadowSecondary w-[484px] !rounded-lg')}
@@ -99,7 +150,7 @@ const AddFields = () => {
         <div
           className={cn(
             'p-3 flex flex-col gap-2',
-            currentDropdown?.id !== 'checkbox' &&
+            !notSrcollDropdown.includes(currentDropdown?.id ?? '') &&
               'customScrollBar max-h-[370px] overflow-auto',
           )}
         >
@@ -141,7 +192,10 @@ const AddFields = () => {
         </div>
       )}
     >
-      <button className="w-full h-full border-none outline-none bg-transparent flex items-center justify-center cursor-pointer">
+      <button
+        onClick={() => setDropdownOpen(true)}
+        className="w-full h-full border-none outline-none bg-transparent flex items-center justify-center cursor-pointer"
+      >
         <Add size={16} />
       </button>
     </Dropdown>

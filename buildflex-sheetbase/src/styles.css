@@ -17,6 +17,11 @@
     font-size: 16px;
     margin: 0;
   }
+  input[type="radio"] {
+    appearance: radio;
+    -webkit-appearance: radio;
+    -moz-appearance: radio;
+  }
 }
 
 @layer utilities {
@@ -107,4 +112,9 @@
   z-index: 9999 !important;
 }
 
-/* Select */
+/* radio button */
+/* .defaultRadio.input[type="radio"] {
+  appearance: radio !important;
+  -webkit-appearance: radio !important;
+  -moz-appearance: radio !important;
+} */

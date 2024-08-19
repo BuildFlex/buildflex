@@ -1,32 +1,35 @@
 import React from 'react';
-import { ArrowDown2, Call, Link } from 'iconsax-react';
+import { ArrowDown2, Barcode, Link, UserTick } from 'iconsax-react';
 import Text from '@/components/typography/Text';
 
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import { AutoNumberIcon } from '@/components/icons';
 
-interface PhoneDropdownProps {
+interface BarCodeDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
 }
 
-const PhoneDropdown: React.FC<PhoneDropdownProps> = ({ onChangeDropdown }) => {
+const BarCodeDropdown: React.FC<BarCodeDropdownProps> = ({
+  onChangeDropdown,
+}) => {
   return (
     <>
       <button
         onClick={() => onChangeDropdown(null)}
         style={{ border: '1px solid #EDEDED ' }}
-        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer "
+        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
       >
-        <Call size={16} />
+        <Barcode size={16} />
         <Text as="span" variant="B2-Regular">
-          Phone
+          Barcode
         </Text>
         <ArrowDown2 className="ml-auto" size={16} />
       </button>
       <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-        {`Enter a telephone number (e.g. (415) 555-9876).`}
-      </Text>
+        See barcodes scanned from the Sheetbase
+      </Text>{' '}
     </>
   );
 };
 
-export default PhoneDropdown;
+export default BarCodeDropdown;
