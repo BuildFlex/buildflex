@@ -72,7 +72,11 @@ const HighlightTextarea = ({
   };
 
   return (
-    <div ref={ref} style={{ height: '140px', position: 'relative' }}>
+    <div
+      id="highlight-textarea"
+      ref={ref}
+      style={{ height: '140px', position: 'relative' }}
+    >
       <textarea
         placeholder="Enter HTML Source Code"
         id="editing"

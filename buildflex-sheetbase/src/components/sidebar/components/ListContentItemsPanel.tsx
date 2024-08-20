@@ -10,6 +10,7 @@ import { cn } from '@utils/cn';
 import SectionMoreDropdown from './dropdown/SectionMoreDropdown';
 import SectionAddDropdown from './dropdown/SectionAddDropdown';
 import ViewMoreDropdown from './dropdown/ViewMoreDropdown';
+import Text from '@/components/typography/Text';
 
 type ContentType = 'table' | 'dashboard' | 'form' | 'document';
 
@@ -78,7 +79,9 @@ const SectionComponent: React.FC<{
           ) : (
             <CaretRightFilled size={16} className="mr-2" />
           )}
-          <span className="font-medium text-gray-500">{section.title}</span>
+          <Text as="span" variant="B2-Medium">
+            {section.title}
+          </Text>
         </div>
         {isHovered && (
           <div className="flex items-center gap-2">

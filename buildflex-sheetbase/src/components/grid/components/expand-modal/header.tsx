@@ -13,14 +13,14 @@ const ExpandHeader = ({
 }: ExpandHeaderProps) => {
   return (
     <div
-      style={{ border: '1px solid #EDEDED' }}
+      style={{ borderBottom: '1px solid #EDEDED' }}
       className="px-4  h-[43px] box-border flex gap-2 items-center "
     >
       <div className="flex items-center gap-4">
         <ArrowDown2 size={16} />
         <ArrowDown2 size={16} className="rotate-180 text-neutral-dark-300" />
         <Text as="span" variant="B1-Regular">
-          Isabella Chen
+          Unnamed record
         </Text>
       </div>
 

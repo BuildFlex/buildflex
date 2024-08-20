@@ -7,10 +7,10 @@ import { SidebarProvider } from '@/provider/sidebar-provider';
 
 export function SheetBase() {
   return (
-    <div className={'sheetbase-wrapper !box-border'}>
+    <div className={'sheetbase-wrapper !box-border '}>
       <ThemeProvider>
         <Header />
-        <main id={'main-content'} className={'flex flex-row'}>
+        <main id={'main-content'} className={'flex flex-row  '}>
           <SidebarProvider>
             <SideBar />
             <ContentWrapper />

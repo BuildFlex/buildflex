@@ -58,7 +58,9 @@ const SnapshotSubmenu = ({
         <div className="h-[1px] bg-borderColor" />
         <div className="flex mt-2 items-center rounded gap-2 px-2 py-[7px] bg-neutral-dark-100 text-neutral-dark-300">
           <InfoCircle className="min-w-[16px]" size={16} color="#6A758B" />
-          <span>You have 1 year of snapshot history. Learn more</span>
+          <Text as="span" variant="B2-Regular">
+            You have 1 year of snapshot history. Learn more
+          </Text>
         </div>
       </div>
     </div>
