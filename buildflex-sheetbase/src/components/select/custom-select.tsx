@@ -7,7 +7,7 @@ import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
 import { SortByLabel } from '../view-filter/grid-filter/sort/SortConditionRow';
 
-interface ISelectItem {
+export interface ICutomSelectItem {
   value: string;
   label: string;
   suffix?: React.ElementType;
@@ -16,10 +16,11 @@ interface ISelectItem {
 interface SelectProps {
   className?: string;
   dropdownClassName?: string;
-  itemsList: ISelectItem[];
+  itemsList: ICutomSelectItem[];
   position?: 'top' | 'bottom';
-  initialValue?: ISelectItem;
-  onChange?: (value: ISelectItem) => void;
+  initialValue?: ICutomSelectItem;
+  onChange?: (value: ICutomSelectItem) => void;
+  placeholder?: string;
 }
 
 const CustomSelect = ({
@@ -29,36 +30,48 @@ const CustomSelect = ({
   className,
   initialValue,
   position = 'bottom',
+  placeholder,
 }: SelectProps) => {
   const [isShow, setIsShow] = React.useState(false);
-  const [selected, setSelected] = useState<ISelectItem | null>(
+  const [selected, setSelected] = useState<ICutomSelectItem | null>(
     initialValue ?? null,
   );
   const onOpen = () => setIsShow(true);
   const onClose = () => setIsShow(false);
   const ref = useOutsideClick(onClose, true);
-  const handleSelect = (value: ISelectItem) => {
+  const handleSelect = (value: ICutomSelectItem) => {
     setSelected(value);
     onChange && onChange(value);
   };
   return (
     <div
       className={cn(
-        'h-9 px-2 relative w-full box-border rounded flex items-center gap-2',
+        'h-9 px-2 relative cursor-pointer w-full box-border rounded flex items-center gap-2',
         className,
       )}
       style={{ border: '1px solid #EDEDED' }}
       ref={ref}
       onClick={() => setIsShow((prev) => !prev)}
     >
-      {selected?.prefix && <selected.prefix size={16} />}
-      <Text as="span" variant="B2-Regular" className="h-[18px]">
-        {selected?.label}
-      </Text>
-      {selected?.suffix ? (
-        <selected.suffix size={16} className="ml-auto" />
+      {selected ? (
+        <>
+          {selected?.prefix && <selected.prefix size={16} />}
+          <Text as="span" variant="B2-Regular" className="h-[18px]">
+            {selected.label}
+          </Text>
+          {selected?.suffix ? (
+            <selected.suffix size={16} className="ml-auto" />
+          ) : (
+            <ArrowDown2 className="ml-auto" size={16} />
+          )}
+        </>
       ) : (
-        <ArrowDown2 className="ml-auto" size={16} />
+        <>
+          <Text as="span" variant="B2-Regular" className="h-[18px]">
+            {placeholder || 'Select an option'}
+          </Text>
+          <ArrowDown2 className="ml-auto" size={16} />
+        </>
       )}
 
       {isShow && (

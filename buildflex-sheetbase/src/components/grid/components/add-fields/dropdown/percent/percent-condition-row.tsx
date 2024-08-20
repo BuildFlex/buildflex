@@ -1,17 +1,28 @@
-import { MoveIcon } from '@/components/icons';
+import {
+  EqualSignIcon,
+  GreaterThanIcon,
+  GreaterThanOrEqualIcon,
+  LessThanIcon,
+  LessThanOrEqualIcon,
+  MoveIcon,
+  NotEqualSignIcon,
+} from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { Input, Select, Space } from 'antd';
 import { Trash } from 'iconsax-react';
 import React from 'react';
-import FieldSelect from './FieldSelect';
 import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
 import { CustomInput } from '@/components/input/Input';
 import { cn } from '@/utils/cn';
-interface ConditionRowProps {
+import FieldSelect from '@/components/view-filter/grid-filter/filter/components/FieldSelect';
+interface PercentConditionRowProps {
   isFirstRow?: boolean;
   className?: string;
 }
-const ConditionRow = ({ isFirstRow = false, className }: ConditionRowProps) => {
+const PercentConditionRow = ({
+  isFirstRow = false,
+  className,
+}: PercentConditionRowProps) => {
   return (
     <div className={cn(' h-8 flex gap-3', className)}>
       {isFirstRow ? (
@@ -35,28 +46,21 @@ const ConditionRow = ({ isFirstRow = false, className }: ConditionRowProps) => {
         />
       )}
       <div className="flex border border-solid bg-white  rounded border-borderColor ">
-        <FieldSelect
-          popupClassName="!w-[200px] !p-0"
-          style={{ borderRight: '1px solid #EDEDED', width: '120px' }}
-          initialValue={fields[0]}
-          itemsList={fields}
-          searchPlaceholder="Find a field"
-          isSearch
+        <div
+          className="w-[120px] h-9  "
+          style={{ borderRight: '1px solid #EDEDED' }}
         />
         <FieldSelect
           popupClassName="!w-[200px] !p-0"
           style={{ borderRight: '1px solid #EDEDED', width: '120px' }}
           searchPlaceholder="Find an operation"
-          initialValue="contains"
+          initialValue={operatorList[0]}
+          dropdownItemRender={(item) => {
+            if (typeof item === 'string') return item;
+            return <item.icon size={12} />;
+          }}
           isSearch
-          itemsList={[
-            'contains',
-            'does not contain',
-            'is',
-            'is not',
-            'is empty',
-            'is not empty',
-          ]}
+          itemsList={operatorList}
         />
 
         <CustomInput
@@ -80,4 +84,12 @@ const ConditionRow = ({ isFirstRow = false, className }: ConditionRowProps) => {
   );
 };
 
-export default ConditionRow;
+export default PercentConditionRow;
+const operatorList = [
+  { id: 'equal', icon: EqualSignIcon, label: '=' },
+  { id: 'notEqual', icon: NotEqualSignIcon, label: '≠' },
+  { id: 'lessThan', icon: LessThanIcon, label: '<' },
+  { id: 'greaterThan', icon: GreaterThanIcon, label: '>' },
+  { id: 'lessThanOrEqual', icon: LessThanOrEqualIcon, label: '≤' },
+  { id: 'greaterThanOrEqual', icon: GreaterThanOrEqualIcon, label: '≥' },
+];

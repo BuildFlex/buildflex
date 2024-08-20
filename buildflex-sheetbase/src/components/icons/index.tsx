@@ -4,6 +4,151 @@ interface IconProps {
   color?: string;
   size?: number;
 }
+
+export const EqualSignIcon = ({ className, color, size }: IconProps) => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.6665 5.33301L13.3332 5.33301"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M2.6665 10.666L13.3332 10.666"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+};
+export const NotEqualSignIcon = ({ className, color, size }: IconProps) => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.6665 5.33398L13.3332 5.33398"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M2.6665 10.667L13.3332 10.667"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M4 13.3337L12 2.66699"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+};
+export const LessThanIcon = ({ className, color, size }: IconProps) => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.3332 2.66699L5.77945 6.69401C4.29552 7.77001 4.29552 8.23064 5.77946 9.30664L11.3332 13.3337"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+export const LessThanOrEqualIcon = ({ className, color, size }: IconProps) => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2 13.334L14 13.334"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M14 10.667L4.55855 10.667C2.97142 10.667 2.17786 10.667 2.02322 10.2488C1.86859 9.83068 2.49144 9.36905 3.73715 8.44581L11.5343 2.66699"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+};
+export const GreaterThanIcon = ({ className, color, size }: IconProps) => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2 13.334L14 13.334"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M14 10.667L4.55855 10.667C2.97142 10.667 2.17786 10.667 2.02322 10.2488C1.86859 9.83068 2.49144 9.36905 3.73715 8.44581L11.5343 2.66699"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+};
+export const GreaterThanOrEqualIcon = ({
+  className,
+  color,
+  size,
+}: IconProps) => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.6665 2.66699L10.2202 6.69401C11.7042 7.77001 11.7042 8.23064 10.2202 9.30664L4.6665 13.3337"
+        stroke="#141B34"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
 // below icons is not supported by iconsax-react
 export const FlagIcon = ({ className, color, size }: IconProps) => {
   return (

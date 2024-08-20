@@ -24,7 +24,10 @@ const GridUI = () => {
       )}
     >
       <div className=" h-full bg-[red] flex-1 overflow-auto">
-        <table className=" border-collapse h-full w-fit border  bg-[#FAFAFA]  border-slate-400 ...">
+        <table
+          style={{ border: 'none' }}
+          className=" border-collapse h-full w-fit border  bg-[#FAFAFA]  "
+        >
           <GridTableHeader />
           <GridTabBody />
         </table>

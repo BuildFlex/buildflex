@@ -16,7 +16,7 @@ const ColorConditionCollapse = ({ items }: { items: any[] | undefined }) => {
       expandIconPosition="end"
       items={items?.map((item, index) => ({
         children: (
-          <div className="grid-filter-dropdown flex flex-col gap-3 pl-6">
+          <div className="no-border-select flex flex-col gap-3 pl-6">
             {item?.conditions.map((i, index) => {
               if (i.type === 'condition') {
                 return <ConditionRow isFirstRow={index === 0} key={i.id} />;

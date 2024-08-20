@@ -31,6 +31,10 @@ import ButtonDropdown from './dropdown/button';
 import { LastModiFiedByDropdown } from './dropdown/last-modified-by';
 import { LastModiFiedTimeDropdown } from './dropdown/last-modified-time';
 import { FormulaDropdown } from './dropdown/formula';
+import { RollUpDropdown } from './dropdown/roll-up';
+import { CountDropdown } from './dropdown/count';
+import { LookUpDropdown } from './dropdown/look-up';
+import PercentDropdown from './dropdown/percent/percent';
 
 const AddFields = () => {
   const [currentDropdown, setCurrentDropdown] = React.useState<null | IField>(
@@ -51,7 +55,7 @@ const AddFields = () => {
       setDropdownOpen(false);
     }
   };
-  const notSrcollDropdown = ['checkbox', 'rating', 'button'];
+  const notScrollDropdown = ['checkbox', 'rating', 'button'];
   const renderDropdown = () => {
     if (!currentDropdown)
       return <MainDropdown onChangeDropdown={handleSetCurrentDropdown} />;
@@ -132,6 +136,14 @@ const AddFields = () => {
         );
       case 'formula':
         return <FormulaDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'rollup':
+        return <RollUpDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'count':
+        return <CountDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'lookup':
+        return <LookUpDropdown onChangeDropdown={handleSetCurrentDropdown} />;
+      case 'percent':
+        return <PercentDropdown onChangeDropdown={handleSetCurrentDropdown} />;
       default:
         return <MainDropdown onChangeDropdown={handleSetCurrentDropdown} />;
     }
@@ -143,15 +155,17 @@ const AddFields = () => {
       open={isDropdownOpen}
       onOpenChange={handleOpenChange}
       className="flex items-center relative justify-center"
-      overlayClassName={cn(' boxShadowSecondary w-[484px] !rounded-lg')}
+      overlayClassName={cn(
+        ' boxShadowSecondary w-auto  !min-w-[484px] !rounded-lg',
+      )}
       align={{ offset: [-20, 10] }}
       menu={[] as any}
       dropdownRender={(menu) => (
         <div
           className={cn(
             'p-3 flex flex-col gap-2',
-            !notSrcollDropdown.includes(currentDropdown?.id ?? '') &&
-              'customScrollBar max-h-[370px] overflow-auto',
+            !notScrollDropdown.includes(currentDropdown?.id ?? '') &&
+              'customScrollBar max-h-[370px] overflow-y-auto',
           )}
         >
           <CustomInput
@@ -183,11 +197,24 @@ const AddFields = () => {
                 </Text>
               </button>
             )}
-            <button className="outline-none bg-transparent hover:bg-gray-50 border-none cursor-pointer px-5 py-2 box-border h-9 rounded-lg ml-auto">
+            <button
+              onClick={() => setDropdownOpen(false)}
+              className="outline-none bg-transparent hover:bg-gray-50 border-none cursor-pointer px-5 py-2 box-border h-9 rounded-lg ml-auto"
+            >
               <Text as="span" variant="B2-Regular" className="h-[18px]">
                 Cancel
               </Text>
             </button>
+            {currentDropdown && (
+              <button
+                onClick={() => setDropdownOpen(false)}
+                className="h-9 px-4 py-[6px] text-white bg-theme-ocean-blue w-fit outline-none  cursor-pointer border-none shadow-none box-border rounded-lg"
+              >
+                <Text as="span" variant="B2-Medium">
+                  Create field
+                </Text>
+              </button>
+            )}
           </DropdownItem>
         </div>
       )}

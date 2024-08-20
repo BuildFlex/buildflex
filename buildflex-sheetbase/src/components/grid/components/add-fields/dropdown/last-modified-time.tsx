@@ -393,7 +393,7 @@ const SelectFieldModal: React.FC<{
                 setIsAllField(false);
                 handleCancel();
               }}
-              className="h-9 px-4 py-[6px] text-white bg-theme-ocean-blue w-fit outline-none  cursor-pointer border-none shadow-none text-neutral-dark-500 box-border rounded-lg"
+              className="h-9 px-4 py-[6px] text-white bg-theme-ocean-blue w-fit outline-none  cursor-pointer border-none shadow-none box-border rounded-lg"
             >
               <Text as="span" variant="B2-Medium">
                 Use selected field
