@@ -1,7 +1,7 @@
 import { MoveToIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
-import { Add } from 'iconsax-react';
+import { Add, Maximize4 } from 'iconsax-react';
 import { text } from 'node:stream/consumers';
 import React from 'react';
 import { gridTableFields } from '../../GridUI';
@@ -9,7 +9,7 @@ import { IField } from '@/components/view-filter/components/dropdown-render/Grou
 import TextCell from '../content/TextCell';
 import AttachmentCell from '../content/AttachmentCell';
 import CheckBoxCell from '../content/CheckBoxCell';
-import SelectCell from '../content/SelectCell';
+import MutilpleSelectCell from '../content/MutilpleSelectCell';
 import UserCell from '../content/UserCell';
 import DateCell from '../content/DateCell';
 import LinkCell from '../content/LinkCell';
@@ -17,6 +17,15 @@ import LinkToCell from '../content/LinkToCell';
 import ButtonCell from '../content/ButtonCell';
 import RatingCell from '../content/RatingCell';
 import ExpandModal from '../expand-modal/expand-modal';
+import { Checkbox } from 'antd';
+import SingleLineCell from '../content/SingleTextCell';
+import LongTextCell from '../content/LongTextCell';
+import { cn } from '@/utils/cn';
+import SingleSelectCell from '../content/SingleSelectCell';
+import NumberCell from '../content/NumberCell';
+import ResultCell from '../content/ResultCell';
+import TimeCell from '../content/TimeCell';
+import ByUserCell from '../content/ByUserCell';
 
 const fakeContent = [
   {
@@ -39,6 +48,9 @@ const fakeContent = [
         'https://internetviettel.vn/wp-content/uploads/2017/05/1-2.jpg',
         'https://internetviettel.vn/wp-content/uploads/2017/05/1-2.jpg',
         'https://internetviettel.vn/wp-content/uploads/2017/05/1-2.jpg',
+        'https://internetviettel.vn/wp-content/uploads/2017/05/1-2.jpg',
+        'https://internetviettel.vn/wp-content/uploads/2017/05/1-2.jpg',
+        'https://internetviettel.vn/wp-content/uploads/2017/05/1-2.jpg',
       ],
     },
   },
@@ -49,13 +61,18 @@ const fakeContent = [
       selectValues: [
         { name: 'Option 1', color: '#D1E2FF' },
         { name: 'Option 2', color: '#FFEAB6' },
+        { name: 'Option 3', color: '#D1E2FF' },
       ],
     },
   },
   {
     id: 'single-select',
     data: {
-      selectValue: { name: 'Option 1', color: '#D1E2FF' },
+      selectValues: [
+        { name: 'Option 1', color: '#D1E2FF' },
+        { name: 'Option 2', color: '#FFEAB6' },
+        { name: 'Option 3', color: '#D1E2FF' },
+      ],
     },
   },
   {
@@ -64,12 +81,13 @@ const fakeContent = [
       user: {
         name: 'John Doe',
         avatar: 'https://internetviettel.vn/wp-content/uploads/2017/05/1-2.jpg',
+        email: 'Username1@gmail.com',
       },
     },
   },
   {
     id: 'date',
-    data: { date: '4/19/2024', time: '12:00am', gmt: 'GMT+7' },
+    data: { date: '4/19/2024', time: '5:24am', gmt: 'GMT' },
   },
   {
     id: 'phone',
@@ -77,22 +95,58 @@ const fakeContent = [
   },
   { id: 'email', data: { text: 'BuildFlex123@work.com' } },
   { id: 'url', data: { text: 'https://Linksample.com/' } },
-  { id: 'number', data: { text: '0,145M' } },
+  { id: 'number', data: { number: '450000,000', shortNumber: '0,145M' } },
   { id: 'currency', data: { text: '$145.00' } },
   { id: 'percent', data: { text: '50%' } },
   { id: 'duration', data: { text: '20:00' } },
   { id: 'rating', data: { rating: 3 } },
-  { id: 'formula', data: { text: 'Result' } },
-  { id: 'rollup', data: { text: 'Result' } },
-  { id: 'count', data: { text: 'Result' } },
-  { id: 'lookup', data: { text: 'Result' } },
+  {
+    id: 'formula',
+    data: {
+      text: 'Result',
+      subText:
+        'Formula fields should be configured in the field menu dropdown.',
+    },
+  },
+  {
+    id: 'rollup',
+    data: {
+      text: 'Result',
+      subText: 'Rollup fields should be configured in the field menu dropdown.',
+    },
+  },
+  {
+    id: 'count',
+    data: {
+      text: 'Result',
+      subText: 'Count fields should be configured in the field menu dropdown.',
+    },
+  },
+  {
+    id: 'lookup',
+    data: {
+      text: 'Result',
+      subText: 'Lookup fields should be configured in the field menu dropdown.',
+    },
+  },
   {
     id: 'created-time',
-    data: { date: '4/19/2024', time: '12:00am', gmt: 'GMT+7' },
+    data: {
+      date: '4/19/2024',
+      time: '5:24am',
+      gmt: 'GMT',
+      subText:
+        'Created time fields should be configured in the field menu dropdown.',
+    },
   },
   {
     id: 'modified-time',
-    data: { date: '4/19/2024', time: '12:00am', gmt: 'GMT+7' },
+    data: {
+      date: '4/19/2024',
+      time: '5:24am',
+      subText:
+        'Last modified time fields should be configured in the field menu dropdown.',
+    },
   },
   {
     id: 'created-by',
@@ -100,7 +154,10 @@ const fakeContent = [
       user: {
         name: 'John Doe',
         avatar: 'https://internetviettel.vn/wp-content/uploads/2017/05/1-2.jpg',
+        email: 'Username1@gmail.com',
       },
+      subText:
+        'Created by fields should be configured in the field menu dropdown.',
     },
   },
   {
@@ -109,20 +166,32 @@ const fakeContent = [
       user: {
         name: 'John Doe',
         avatar: 'https://internetviettel.vn/wp-content/uploads/2017/05/1-2.jpg',
+        email: 'Username1@gmail.com',
       },
+      subText:
+        'Last modified by fields should be configured in the field menu dropdown.',
     },
   },
-  { id: 'autonumber', data: { number: 1 } },
+  {
+    id: 'autonumber',
+    data: {
+      text: '1',
+      subText:
+        'Autonumber field value are automatically assigned cannot be edited.',
+    },
+  },
   { id: 'barcode', data: { text: 'ABC-CDE-123' } },
   { id: 'button', data: { text: 'Button' } },
   {
     id: 'link-to-another-record',
     data: {
       links: [
-        {
-          name: 'Link 1',
-          color: '#D1E2FF',
-        },
+        { name: 'Link 1', color: '#D1E2FF' },
+        { name: 'Link 2', color: '#D1E2FF' },
+        { name: 'Link 3', color: '#D1E2FF' },
+        { name: 'Link 4', color: '#D1E2FF' },
+        { name: 'Link 5', color: '#D1E2FF' },
+        { name: 'Link 6', color: '#D1E2FF' },
       ],
     },
   },
@@ -140,22 +209,37 @@ const GridTabBody = () => {
       <tbody className="h-full w-full  text-neutral-dark-500">
         {Array.from({ length: rows }).map((_, rowIndex) => (
           <tr key={rowIndex} className="h-9 max-h-9 bg-white">
+            {/* Number Col */}
             <td
               style={{
                 borderRight: '1px solid #EDEDED',
                 borderBottom: '1px solid #EDEDED',
               }}
-              className="h-9 w-20  after:absolute after:h-full after:bg-[#EDEDED] after:content-[''] after:-right-[1px] after:top-0 after:w-[1px] sticky left-0 text-start bg-white"
+              className={cn(
+                'h-9 w-20 z-[20] group sticky left-0 text-start bg-white',
+                "after:absolute after:h-full after:bg-[#EDEDED] after:content-[''] after:-right-[1px] after:top-0 after:w-[1px] ",
+                "before:absolute before:h-[1px] before:w-full before:bg-[#EDEDED] before:content-[''] before:-bottom-[1px] before:left-0  ",
+              )}
             >
-              <div
-                onClick={() => setIsExpandOpen(true)}
-                className="flex cursor-pointer items-center justify-center size-9"
-              >
-                <Text as="span" variant="B2-Regular" className="h-[18px]">
+              <div className="flex group-hover:hidden items-center justify-center size-9">
+                <Text as="span" variant="B2-Regular" className="h-[18px] ">
                   {rowIndex + 1}
                 </Text>
               </div>
+              <div className="h-9 group-hover:flex items-center hidden">
+                <div className="flex items-center justify-center size-9">
+                  <Checkbox />
+                </div>
+                <button
+                  onClick={() => setIsExpandOpen(true)}
+                  className="flex outline-none border-none bg-transparent cursor-pointer items-center justify-center size-9"
+                >
+                  <Maximize4 color="#087AAF" size={16} />
+                </button>
+              </div>
             </td>
+            {/* Number Col */}
+
             {fakeContent.map((field, columnIndex) => {
               return (
                 <td
@@ -164,7 +248,7 @@ const GridTabBody = () => {
                     borderRight: '1px solid #EDEDED',
                     borderBottom: '1px solid #EDEDED',
                   }}
-                  className="h-9 px-2"
+                  className="h-9 px-2 relative"
                 >
                   {renderCell(field)}
                 </td>
@@ -213,17 +297,22 @@ export default GridTabBody;
 const renderCell = (field: FakeContentItem) => {
   switch (field.id) {
     case 'single-line':
-      return <TextCell text={field.data.text} />;
+      return <SingleLineCell text={field.data.text} />;
     case 'long-text':
-      return <TextCell text={field.data.text} />;
+      return <LongTextCell text={field.data.text} />;
     case 'attachment':
       return <AttachmentCell images={field.data.images} />;
     case 'checkbox':
       return <CheckBoxCell isCheck={field.data.checked} />;
     case 'multiple-select':
-      return <SelectCell selects={field.data.selectValues} />;
+      return <MutilpleSelectCell selects={field.data.selectValues} />;
     case 'single-select':
-      return <SelectCell selects={[field.data.selectValue]} />;
+      return (
+        <SingleSelectCell
+          select={field.data.selectValues[0]}
+          selects={field.data.selectValues}
+        />
+      );
     case 'user':
       return <UserCell user={field.data.user} />;
     case 'date':
@@ -244,9 +333,10 @@ const renderCell = (field: FakeContentItem) => {
       return <LinkCell text={field.data.text} />;
     case 'number':
       return (
-        <TextCell
+        <NumberCell
           className="w-full flex items-center justify-end"
-          text={field.data.text}
+          number={field.data.number}
+          shortNumber={field.data.shortNumber}
         />
       );
     case 'currency':
@@ -273,21 +363,23 @@ const renderCell = (field: FakeContentItem) => {
     case 'rating':
       return <RatingCell rating={field.data.rating} />;
     case 'formula':
-      return <TextCell text={field.data.text} />;
+      return <ResultCell subText={field.data.subText} text={field.data.text} />;
     case 'rollup':
-      return <TextCell text={field.data.text} />;
+      return <ResultCell subText={field.data.subText} text={field.data.text} />;
     case 'count':
       return (
-        <TextCell
-          className="w-full flex items-center justify-end"
+        <ResultCell
+          isTextRight={true}
+          subText={field.data.subText}
           text={field.data.text}
         />
       );
     case 'lookup':
-      return <TextCell text={field.data.text} />;
+      return <ResultCell subText={field.data.subText} text={field.data.text} />;
     case 'created-time':
       return (
-        <DateCell
+        <TimeCell
+          subText={field.data.subText}
           date={field.data.date}
           time={field.data.time}
           gmt={field.data.gmt}
@@ -295,21 +387,22 @@ const renderCell = (field: FakeContentItem) => {
       );
     case 'modified-time':
       return (
-        <DateCell
+        <TimeCell
+          subText={field.data.subText}
           date={field.data.date}
           time={field.data.time}
-          gmt={field.data.gmt}
         />
       );
     case 'created-by':
-      return <UserCell user={field.data.user} />;
+      return <ByUserCell user={field.data.user} subText={field.data.subText} />;
     case 'modified-by':
-      return <UserCell user={field.data.user} />;
+      return <ByUserCell user={field.data.user} subText={field.data.subText} />;
     case 'autonumber':
       return (
-        <TextCell
-          className="w-full flex items-center justify-end"
-          text={field.data.number}
+        <ResultCell
+          isTextRight={true}
+          subText={field.data.subText}
+          text={field.data.text}
         />
       );
     case 'barcode':

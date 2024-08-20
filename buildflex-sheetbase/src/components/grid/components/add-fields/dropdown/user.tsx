@@ -1,6 +1,6 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import Select from '@/components/select/select';
-import TagSelect from '@/components/select/tag-select';
+import UserMultipleSelect from '@/components/select/user-multiple-select';
 import UserSelect from '@/components/select/user-select';
 import Text from '@/components/typography/Text';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
@@ -78,7 +78,21 @@ const UserDropdown: React.FC<UserDropdownProps> = ({ onChangeDropdown }) => {
           Default options
         </Text>
         {isMulti ? (
-          <TagSelect />
+          <UserMultipleSelect
+            dropdownRender={
+              <DropdownItem onClick={(e) => e.stopPropagation()}>
+                <Text
+                  as="span"
+                  variant="B2-Regular"
+                  className="text-neutral-dark-300"
+                >
+                  Find...
+                </Text>
+              </DropdownItem>
+            }
+            users={optionList}
+            position="top"
+          />
         ) : (
           <UserSelect
             position="top"

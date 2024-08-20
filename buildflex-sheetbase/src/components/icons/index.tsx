@@ -332,6 +332,7 @@ export const RateStarOutlineIcon = ({ className, color, size }: IconProps) => {
 export const RateStarIcon = ({ className, color }: IconProps) => {
   return (
     <svg
+      className={className}
       width="16"
       height="17"
       viewBox="0 0 16 17"
@@ -349,6 +350,7 @@ export const RateStarIcon = ({ className, color }: IconProps) => {
 export const RateStarFilledIcon = ({ className, color }: IconProps) => {
   return (
     <svg
+      className={className}
       width="16"
       height="17"
       viewBox="0 0 16 17"
@@ -366,6 +368,7 @@ export const RateStarFilledIcon = ({ className, color }: IconProps) => {
 export const MoveToIcon = ({ className, color }: IconProps) => {
   return (
     <svg
+      className={className}
       width="16"
       height="16"
       viewBox="0 0 16 16"
@@ -374,46 +377,46 @@ export const MoveToIcon = ({ className, color }: IconProps) => {
     >
       <path
         d="M6 3.33337L12.6667 3.33337"
-        stroke="#101828"
+        stroke={color ?? '#101828'}
         strokeWidth="1.2"
         strokeLinecap="round"
       />
       <path
         d="M3.33325 3.33337H3.33924"
-        stroke="#101828"
+        stroke={color ?? '#101828'}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M3.33325 7.33337H3.33924"
-        stroke="#101828"
+        stroke={color ?? '#101828'}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M3.33325 11.3334H3.33924"
-        stroke="#101828"
+        stroke={color ?? '#101828'}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M6 7.33337L12.6667 7.33337"
-        stroke="#101828"
+        stroke={color ?? '#101828'}
         strokeWidth="1.2"
         strokeLinecap="round"
       />
       <path
         d="M6 11.3334L12.6667 11.3334"
-        stroke="#101828"
+        stroke={color ?? '#101828'}
         strokeWidth="1.2"
         strokeLinecap="round"
       />
       <path
         d="M12.1143 12L12.5038 12.4564L12.5038 12.4564L12.1143 12ZM10.9437 12.2103C10.6917 12.4254 10.6618 12.8042 10.8769 13.0562C11.092 13.3082 11.4707 13.3382 11.7228 13.123L10.9437 12.2103ZM11.7228 9.54364C11.4707 9.32851 11.092 9.35843 10.8769 9.61047C10.6618 9.86251 10.6917 10.2412 10.9437 10.4564L11.7228 9.54364ZM12.1143 10.6667L12.5038 10.2103L12.5038 10.2103L12.1143 10.6667ZM11.7248 11.5436L10.9437 12.2103L11.7228 13.123L12.5038 12.4564L11.7248 11.5436ZM10.9437 10.4564L11.7248 11.123L12.5038 10.2103L11.7228 9.54364L10.9437 10.4564ZM12.5038 12.4564C12.6745 12.3107 12.8503 12.1624 12.9759 12.0219C13.109 11.8729 13.2666 11.6462 13.2666 11.3333H12.0666C12.0666 11.2157 12.1321 11.1652 12.0812 11.2222C12.0566 11.2496 12.0178 11.2879 11.9551 11.3442C11.8928 11.4002 11.8185 11.4636 11.7248 11.5436L12.5038 12.4564ZM11.7248 11.123C11.8185 11.203 11.8928 11.2665 11.9551 11.3224C12.0178 11.3787 12.0566 11.417 12.0812 11.4445C12.1321 11.5014 12.0666 11.4509 12.0666 11.3333H13.2666C13.2666 11.0205 13.109 10.7938 12.9758 10.6448C12.8503 10.5043 12.6745 10.356 12.5038 10.2103L11.7248 11.123Z"
-        fill="#101828"
+        fill={color ?? '#101828'}
       />
     </svg>
   );

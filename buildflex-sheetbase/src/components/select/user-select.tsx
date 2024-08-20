@@ -45,16 +45,16 @@ const UserSelect = ({
     >
       <div
         className={cn(
-          'flex gap-1 relative bg-gray-100 rounded-full  items-center  min-w-[90px] h-[22px]',
+          'flex gap-1 relative bg-gray-100 rounded-full  items-center  min-w-[90px] box-border h-[24px]',
           'bg-[#E0F2FE] text-theme-ocean-blue',
         )}
         style={{ border: '0.5px solid #087AAF' }}
       >
         <img
-          style={{ border: '0.5px solid #087AAF', left: -2 }}
+          style={{ border: '0.5px solid #087AAF', left: -1 }}
           src={selected.avatar}
           alt={selected.name}
-          className=" relative h-full w-auto aspect-square object-cover rounded-full"
+          className=" relative h-[24px] w-auto aspect-square object-cover rounded-full"
         />
         <Text as="span" variant="sub-title-medium">
           {selected.name}
@@ -84,25 +84,25 @@ const UserSelect = ({
                 >
                   <div
                     className={cn(
-                      'flex gap-1 relative bg-gray-100 rounded-full  items-center  min-w-[90px] ',
+                      'flex gap-1 relative bg-gray-100 box-border rounded-full h-[24px]  items-center  min-w-[90px] ',
                       selected.id === item.id &&
                         'bg-[#E0F2FE] text-theme-ocean-blue',
                     )}
                     style={
                       selected.id === item.id
-                        ? { border: '0.5px solid #087AAF', height: '22px' }
-                        : { height: '24px' }
+                        ? { border: '0.5px solid #087AAF' }
+                        : {}
                     }
                   >
                     <img
                       style={
                         selected.id === item.id
-                          ? { border: '0.5px solid #087AAF', left: -2 }
+                          ? { border: '0.5px solid #087AAF', left: -1 }
                           : {}
                       }
                       src={item.avatar}
                       alt={item.name}
-                      className=" relative h-full w-auto max-h-[24px] max-w-[24px] aspect-square object-cover rounded-full"
+                      className=" relative h-[24px] w-auto max-h-[24px] max-w-[24px] aspect-square object-cover rounded-full"
                     />
                     <Text as="span" variant="sub-title-medium">
                       {item.name}

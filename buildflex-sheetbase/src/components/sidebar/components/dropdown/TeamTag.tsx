@@ -5,8 +5,9 @@ import React from 'react';
 interface TagProps {
   name: string;
   className?: string;
+  textVariant?: 'B2-Medium' | 'sub-title-medium';
 }
-const Tag = ({ name, className }: TagProps) => {
+const Tag = ({ name, className, textVariant = 'B2-Medium' }: TagProps) => {
   return (
     <div
       className={cn(
@@ -14,7 +15,11 @@ const Tag = ({ name, className }: TagProps) => {
         className,
       )}
     >
-      <Text as="span" variant="B2-Medium">
+      <Text
+        as="span"
+        variant={textVariant}
+        className={textVariant === 'B2-Medium' ? 'h-[18px]' : 'h-[16px]'}
+      >
         {name}
       </Text>
     </div>

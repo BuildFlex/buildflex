@@ -46,7 +46,7 @@
   }
   
   /* Paragraphs; First Image */
-  * {
+  #highlight-textarea {
     font-family: 'Source Code Pro', monospace;
   }
   p code {
@@ -55,15 +55,6 @@
     color: #111;
   }
   
-  /* Syntax Highlighting from prism.js starts below, partly modified: */
-  
-  /* PrismJS 1.23.0
-  https://prismjs.com/download.html#themes=prism-funky&languages=markup */
-  /**
-   * prism.js Funky theme
-   * Based on “Polyfilling the gaps” talk slides http://lea.verou.me/polyfilling-the-gaps/
-   * @author Lea Verou
-   */
   
   code[class*="language-"],
   pre[class*="language-"] {

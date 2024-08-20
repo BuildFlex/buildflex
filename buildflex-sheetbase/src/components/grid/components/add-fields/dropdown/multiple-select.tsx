@@ -1,7 +1,7 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { CloseIcon, MoveIcon, MoveToIcon } from '@/components/icons';
 import { CustomInput } from '@/components/input/Input';
-import TagSelect from '@/components/select/tag-select';
+import TagMultipleSelect from '@/components/select/tag-multiple-select';
 import Text from '@/components/typography/Text';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 import ColorSelector from '@/components/view-filter/grid-filter/color/color-selector';
@@ -143,10 +143,33 @@ const MultipleSelectDropdown: React.FC<MultipleSelectDropdownProps> = ({
         <Text as="span" variant="B2-Regular" className="h-[18px]">
           Default options
         </Text>
-        <TagSelect />
+        <TagMultipleSelect tags={TagList} />
       </div>
     </>
   );
 };
 
 export default MultipleSelectDropdown;
+
+const TagList = [
+  {
+    id: 'sheetBase-1',
+    name: 'SheetBase 1',
+    className: 'bg-[#F2F4F7]',
+  },
+  {
+    id: 'sheetBase-2',
+    name: 'SheetBase 2',
+    className: 'bg-[#CFF5D1]',
+  },
+  {
+    id: 'sheetBase-3',
+    name: 'SheetBase 3',
+    className: 'bg-[#FFD4E0]',
+  },
+  {
+    id: 'sheetBase-4',
+    name: 'SheetBase 4',
+    className: 'bg-[#FFD4E0]',
+  },
+];

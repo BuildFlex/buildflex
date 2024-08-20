@@ -16,13 +16,13 @@ const gridTableFields = [
 ];
 const GridTableHeader = () => {
   return (
-    <thead className="sticky top-0 z-10">
+    <thead className="sticky top-0 z-[21]">
       <tr
         style={{ borderBottom: '1px solid #EDEDED' }}
         className="w-full bg-gray-100 h-9 box-border"
       >
         <th
-          className="px-2 z-[10] box-border text-start min-w-[72px] sticky border-r left-0 bg-gray-100 after:absolute after:h-full after:bg-[#EDEDED] after:content-[''] after:-right-[1px] after:top-0 after:w-[1px]"
+          className="px-2 z-[21] box-border text-start min-w-20 sticky border-r left-0 bg-gray-100 after:absolute after:h-full after:bg-[#EDEDED] after:content-[''] after:-right-[1px] after:top-0 after:w-[1px]"
           style={{ borderRight: '1px solid #EDEDED' }}
         >
           <Checkbox />

@@ -34,7 +34,7 @@ const ExpandModal = ({ isModalShow, handleCancel }: ExpandModalProps) => {
           onClick={(e) => {
             e.stopPropagation();
           }}
-          className="w-fit mx-auto h-[90svh] overflow-hidden flex flex-col !p-0 box-border bg-white rounded-lg ant-modal-content"
+          className="w-fit mx-auto h-[90svh]  flex flex-col !p-0 box-border bg-white rounded-lg ant-modal-content"
         >
           <ExpandHeader
             handleShowSidebar={setIsSideBarOpen}

@@ -23,7 +23,7 @@ const GridUI = () => {
         isSidebarOpen ? 'w-[calc(100svw-260px)]' : 'w-[calc(100svw-42px)]',
       )}
     >
-      <div className=" h-full bg-[red] flex-1 overflow-auto">
+      <div className=" h-full flex-1 overflow-auto">
         <table
           style={{ border: 'none' }}
           className=" border-collapse h-full w-fit border  bg-[#FAFAFA]  "

@@ -11,11 +11,16 @@
   html {
     font-size: 100%;
     font-family: 'Lato', sans-serif;
+    height: 100svh;
+    width: 100svw;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   body {
     font-size: 16px;
     margin: 0;
+    
   }
   input[type="radio"] {
     appearance: radio;
@@ -56,6 +61,7 @@
 
   .customScrollBar::-webkit-scrollbar {
       width: 4px !important;
+      height: 4px !important;
       background-color: #F9FAFB;
   }
 
@@ -93,7 +99,19 @@
 .customScrollBar-dark::-webkit-scrollbar-thumb:hover {
   background: #667085;
 }
+/* Input Number Arrow */
 
+/* Chrome, Safari, Edge, Opera */
+.no-input-number-arrow  input::-webkit-outer-spin-button,
+.no-input-number-arrow  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.no-input-number-arrow  input[type=number] {
+  -moz-appearance: textfield;
+}
 
 /* ============================== OVERRIDE ANT CSS========================  */
 
