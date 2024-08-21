@@ -7,6 +7,7 @@ import { cn } from '@/utils/cn';
 import { Checkbox, Dropdown } from 'antd';
 import { Add, Maximize4 } from 'iconsax-react';
 import React from 'react';
+import LinkToCellModal from './modal/link-to-cell-modal';
 interface LinkToCellProps {
   linkList: {
     name: string;
@@ -68,11 +69,7 @@ const LinkToCell = ({ linkList }: LinkToCellProps) => {
             />
           </div>
 
-          <Maximize4
-            className="absolute top-2 right-2 z-[11]"
-            size={20}
-            color="#087AAF"
-          />
+          <LinkToCellModal />
         </>
       ) : (
         linkList.map((select, index) => (

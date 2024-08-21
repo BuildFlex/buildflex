@@ -4,6 +4,7 @@ import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
 import { Maximize4 } from 'iconsax-react';
 import React from 'react';
+import LongTextCellModal from './modal/long-text-cell-modal';
 interface LongTextCellProps {
   text: string;
   className?: string;
@@ -46,13 +47,7 @@ const LongTextCell = ({ text, className }: LongTextCellProps) => {
                 : ' h-[18px] w-full overflow-y-hidden  p-0 leading-[18.2px]',
             )}
           />
-          {isActive && (
-            <Maximize4
-              className="absolute top-2 right-2 z-[11]"
-              size={20}
-              color="#087AAF"
-            />
-          )}
+          {isActive && <LongTextCellModal />}
           <div
             className={cn(
               'absolute  bg-white z-[11] size-[10px] rounded-sm',

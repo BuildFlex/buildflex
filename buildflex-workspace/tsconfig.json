@@ -2,10 +2,24 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "allowJs": false,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@app/*": ["src/app/*"],
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@styles/*": ["src/styles/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@components": ["src/components/*"],
+      "@assets/*": ["src/assets/*"],
+      "@services/*": ["src/services/*"],
+      "@redux/*": ["src/redux/*"],
+      "@provider/*": ["src/provider/*"],
+    }
   },
   "files": [],
   "include": [],

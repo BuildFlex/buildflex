@@ -136,14 +136,14 @@ const TimeDropdown = ({
       onOpenChange={setOpen}
       placement="bottomLeft"
       dropdownRender={(menu) => (
-        <div className="flex flex-col w-[112px] max-h-[200px] overflow-y-auto customScrollBar py-2 boxShadowSecondary box-border rounded-lg w-fit">
+        <div className="flex flex-col w-[112px] max-h-[200px] overflow-y-auto customScrollBar py-2 boxShadowSecondary box-border rounded-lg ">
           {times.map((time, index) => (
             <DropdownItem
               onClick={() => {
                 onSelect(time.label);
                 setOpen(false);
               }}
-              className=" cursor-pointer text-neutral-dark-300 hover:bg-gray-100"
+              className=" cursor-pointer justify-center text-neutral-dark-300 hover:bg-gray-100"
             >
               <Text
                 variant="B2-Regular"

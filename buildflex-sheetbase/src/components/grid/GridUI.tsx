@@ -5,6 +5,8 @@ import { useSidebar } from '@/provider/sidebar-provider';
 import { cn } from '@/utils/cn';
 import GridTabBody from './components/table/body';
 import { MoveToIcon } from '../icons';
+import AddMoreModal from './add-more/add-more-modal';
+import AddMoreButton from './add-more/add-more-button';
 export const gridTableFields = [
   {
     id: 'link-to-another-record',
@@ -19,11 +21,11 @@ const GridUI = () => {
   return (
     <div
       className={cn(
-        'box-border  flex flex-col flex-1 w-full max-h-[calc(100svh-60px-32px-40px)]  ',
+        'box-border relative  flex flex-col flex-1 w-full max-h-[calc(100svh-60px-32px-40px)]  ',
         isSidebarOpen ? 'w-[calc(100svw-260px)]' : 'w-[calc(100svw-42px)]',
       )}
     >
-      <div className=" h-full flex-1 overflow-auto">
+      <div className=" h-full flex-1 overflow-auto ">
         <table
           style={{ border: 'none' }}
           className=" border-collapse h-full w-fit border  bg-[#FAFAFA]  "
@@ -32,6 +34,7 @@ const GridUI = () => {
           <GridTabBody />
         </table>
       </div>
+      <AddMoreModal />
       <GridTableFooter />
     </div>
   );
