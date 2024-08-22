@@ -9,6 +9,7 @@ import {
   Maximize4,
 } from 'iconsax-react';
 import React from 'react';
+import AttachmentCellModal from './modal/attachment-cell-modal';
 interface AttachmentCellProps {
   images: string[];
 }
@@ -84,16 +85,12 @@ const AttachmentCell = ({ images }: AttachmentCellProps) => {
             </>
           )}
 
-          <Maximize4
-            className="absolute top-2 right-2 z-[11]"
-            size={20}
-            color="#087AAF"
-          />
+          <AttachmentCellModal />
           <div
             className={cn(
               'absolute  bg-white z-[11] size-[10px] rounded-sm',
               isActive
-                ? ' -bottom-[28px] -right-[5px] '
+                ? ' -bottom-[39px] -right-[5px] '
                 : ' -bottom-[4px] -right-[4px] ',
             )}
             style={{ border: '1px solid #087AAF' }}

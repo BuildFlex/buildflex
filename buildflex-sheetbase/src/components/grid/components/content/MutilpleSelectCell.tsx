@@ -6,6 +6,7 @@ import { cn } from '@/utils/cn';
 import { Checkbox, Dropdown } from 'antd';
 import { Add, Maximize4 } from 'iconsax-react';
 import React from 'react';
+import MultipleSelectCellModal from './modal/multiple-select-cell-modal';
 interface MutilpleSelectCellProps {
   selects: {
     name: string;
@@ -59,15 +60,11 @@ const MutilpleSelectCell = ({ selects }: MutilpleSelectCellProps) => {
             />
           </div>
 
-          <Maximize4
-            className="absolute top-2 right-2 z-[11]"
-            size={20}
-            color="#087AAF"
-          />
+          <MultipleSelectCellModal />
           <div
             className={cn(
               'absolute  bg-white z-[11] size-[10px] rounded-sm',
-              ' -bottom-[4px] -right-[4px] ',
+              ' -bottom-[39px] -right-[5px] ',
             )}
             style={{ border: '1px solid #087AAF' }}
           />
