@@ -4,7 +4,87 @@ interface IconProps {
   color?: string;
   size?: number;
 }
-
+export const CloseIcon = ({ className, color, size }: IconProps) => {
+  return (
+    <svg
+      className={className}
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.6668 3.33301L3.3335 12.6663M3.3335 3.33301L12.6668 12.6663"
+        stroke={color || '#101828'}
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+export const CheckBoxIcon = ({ className, color, size }: IconProps) => {
+  return (
+    <svg
+      className={className}
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.16675 10.8333L7.10543 13.1842C7.79486 13.7357 8.79479 13.6539 9.38542 12.9977L15.8334 5.83325"
+        stroke={color || '#ffffff'}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+export const StarIcon = ({ className }: IconProps) => {
+  return (
+    <svg
+      className={className}
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9.15327 2.33977L10.3266 4.68643C10.4866 5.0131 10.9133 5.32643 11.2733 5.38643L13.3999 5.73977C14.7599 5.96643 15.0799 6.9531 14.0999 7.92643L12.4466 9.57977C12.1666 9.85977 12.0133 10.3998 12.0999 10.7864L12.5733 12.8331C12.9466 14.4531 12.0866 15.0798 10.6533 14.2331L8.65994 13.0531C8.29994 12.8398 7.70661 12.8398 7.33994 13.0531L5.34661 14.2331C3.91994 15.0798 3.05327 14.4464 3.42661 12.8331L3.89994 10.7864C3.98661 10.3998 3.83327 9.85977 3.55327 9.57977L1.89994 7.92643C0.926606 6.9531 1.23994 5.96643 2.59994 5.73977L4.72661 5.38643C5.07994 5.32643 5.50661 5.0131 5.66661 4.68643L6.83994 2.33977C7.47994 1.06643 8.51994 1.06643 9.15327 2.33977Z"
+        fill="#FCBF25"
+      />
+    </svg>
+  );
+};
+export const MoreIcon = ({ className }: IconProps) => {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.33333 6.6665C2.6 6.6665 2 7.2665 2 7.99984C2 8.73317 2.6 9.33317 3.33333 9.33317C4.06667 9.33317 4.66667 8.73317 4.66667 7.99984C4.66667 7.2665 4.06667 6.6665 3.33333 6.6665Z"
+        fill="#3E4D65"
+      />
+      <path
+        d="M12.6668 6.6665C11.9335 6.6665 11.3335 7.2665 11.3335 7.99984C11.3335 8.73317 11.9335 9.33317 12.6668 9.33317C13.4002 9.33317 14.0002 8.73317 14.0002 7.99984C14.0002 7.2665 13.4002 6.6665 12.6668 6.6665Z"
+        fill="#3E4D65"
+      />
+      <path
+        d="M7.99984 6.6665C7.2665 6.6665 6.6665 7.2665 6.6665 7.99984C6.6665 8.73317 7.2665 9.33317 7.99984 9.33317C8.73317 9.33317 9.33317 8.73317 9.33317 7.99984C9.33317 7.2665 8.73317 6.6665 7.99984 6.6665Z"
+        fill="#3E4D65"
+      />
+    </svg>
+  );
+};
 export const GroupIcon = ({ className }: IconProps) => {
   return (
     <svg

@@ -2,3 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 /* You can add global styles to this file, and also import other style files */
+
+
+.boxShadow {
+    @apply shadow-[0px_-1px_4px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.03),0px_1px_6px_-1px_rgba(0,0,0,0.02),0px_2px_4px_0px_rgba(0,0,0,0.02)] ;
+    background: #fff;
+  }
+  
+  .boxShadowSecondary {
+    @apply shadow-[0px_6px_16px_0px_rgba(0,0,0,0.04),0px_3px_6px_-4px_rgba(0,0,0,0.06),0px_9px_28px_8px_rgba(0,0,0,0.02)] ;
+    background: #fff;
+  }
+  .boxShadowTertiary {
+    @apply shadow-[0px_1px_2px_0px_rgba(0,0,0,0.03),0px_1px_6px_-1px_rgba(0,0,0,0.02),0px_2px_4px_0px_rgba(0,0,0,0.02)] ;
+    background: #fff;
+  }
+  
