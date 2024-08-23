@@ -115,6 +115,26 @@ module.exports = {
         lato: ['Lato', 'sans-serif'],
         sourceCodePro: ['Source Code Pro', 'monospace'],
       },
+      backgroundImage: (theme) => ({
+        'gradient-ocean-blue':
+          'linear-gradient(94.88deg, #076D9C 0%, #014F7A 100%)',
+        'gradient-midnight-gray':
+          'linear-gradient(94.88deg, #344054 0%, #1D2939 100%)',
+        'gradient-royal-purple':
+          'linear-gradient(94.88deg, #6941C6 0%, #53389E 100%)',
+        'gradient-crimson-red':
+          'linear-gradient(94.88deg, #B42318 0%, #912018 100%)',
+        'gradient-burnt-orange':
+          'linear-gradient(94.88deg, #B54708 0%, #93370D 100%)',
+        'gradient-forest-green':
+          'linear-gradient(94.88deg, #027A48 0%, #05603A 100%)',
+        'gradient-steel-blue':
+          'linear-gradient(94.88deg, #363F72 0%, #293056 100%)',
+        'gradient-magenta-pink':
+          'linear-gradient(94.88deg, #C11574 0%, #9E165F 100%)',
+        'gradient-ruby-red':
+          'linear-gradient(94.88deg, #C01048 0%, #A11043 100%)',
+      }),
     },
   },
   plugins: [],
