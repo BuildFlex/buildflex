@@ -1,7 +1,7 @@
 import { cn } from '@/utils/cn';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
+  id?: string;
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -12,7 +12,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const CustomInput = ({
-  label,
+  id,
   placeholder,
   value,
   onChange,
@@ -33,7 +33,7 @@ export const CustomInput = ({
       {prefixIcon}
       <input
         placeholder={placeholder ?? ''}
-        id={label}
+        id={id}
         value={value}
         style={{ boxShadow: 'none' }}
         onChange={onChange}

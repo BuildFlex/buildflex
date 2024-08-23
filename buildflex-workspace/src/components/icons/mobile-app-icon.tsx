@@ -1,8 +1,9 @@
 import React from 'react';
 
-const MobileAppIcon = () => {
+const MobileAppIcon = ({ className }: { className?: string }) => {
   return (
     <svg
+      className={className}
       width="36"
       height="36"
       viewBox="0 0 36 36"

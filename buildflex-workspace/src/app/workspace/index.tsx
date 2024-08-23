@@ -4,9 +4,13 @@ import Header from '../../components/layouts/header/Header';
 
 export function Workspace() {
   return (
-    <div className={'workspace-wrapper !box-border bg-[#FAFAFA] h-[100svh] '}>
+    <div
+      className={
+        'workspace-wrapper flex flex-col !box-border bg-[#FAFAFA] min-h-[100svh] '
+      }
+    >
       <Header />
-      <main id={'main-content'} className={'flex flex-row  '}>
+      <main id={'main-content'} className={'flex flex-col  h-full flex-1'}>
         <ContentWrapper />
       </main>
     </div>
