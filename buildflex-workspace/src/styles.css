@@ -18,3 +18,18 @@
     background: #fff;
   }
   
+
+  /* Custom Scroll Bar */
+  .customScrollBar::-webkit-scrollbar {
+    width: 4px !important;
+    height: 4px !important;
+    background-color: #F9FAFB;
+}
+
+.customScrollBar::-webkit-scrollbar-thumb {
+    background-color: #D0D5DD;
+    border-radius: 0px;
+}
+.customScrollBar::-webkit-scrollbar-thumb:hover {
+  background: #667085;
+}

@@ -23,6 +23,7 @@ import CategoryBody from './table/body';
 import CategoryFooter from './table/footer';
 import NoContent from './table/no-content';
 import CreateCategory from './modal/create-category';
+import AddSheetBaseModal from './modal/add-sheet-base/add-sheetbase-modal';
 
 const AddCategoryList = [
   {
@@ -47,6 +48,9 @@ const AddCategoryList = [
 const tabs = ['All', 'Recent', 'Category', 'Starred', 'Trash'];
 const ContentWrapper = () => {
   const [activeTab, setActiveTab] = React.useState(tabs[0]);
+  const [isShowModal, setIsShowModal] = React.useState(false);
+  const handleShowModal = () => setIsShowModal(true);
+  const handleCancel = () => setIsShowModal(false);
   return (
     <section className="mx-auto flex-1 p-6 w-full max-w-[1320px]  h-full flex flex-col gap-6 ">
       <h1 className="font-lato leading-[26px] text-xl font-bold">
@@ -55,7 +59,11 @@ const ContentWrapper = () => {
       {/* Add Category Button */}
       <div className="flex items-center gap-6">
         {AddCategoryList.map((item, index) => (
-          <AddCategoryButton key={index} {...item} />
+          <AddCategoryButton
+            onClick={item.title === 'Sheetbase' ? handleShowModal : undefined}
+            key={index}
+            {...item}
+          />
         ))}
       </div>
       <div className="flex flex-col flex-1 h-full  gap-4">
@@ -96,6 +104,7 @@ const ContentWrapper = () => {
           )}
         </div>
       </div>
+      <AddSheetBaseModal handleCancel={handleCancel} isOpen={isShowModal} />
     </section>
   );
 };
