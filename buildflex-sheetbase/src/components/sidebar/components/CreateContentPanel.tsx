@@ -13,6 +13,7 @@ import { useTheme } from '@provider/theme-provider';
 import { cn } from '@utils/cn';
 import Text from '@/components/typography/Text';
 import { PlusIcon } from '@/components/icons';
+import CreateTableDropdown from './dropdown/CreateTableDropdown';
 
 interface MenuItemProps {
   icon: IconType;
@@ -21,12 +22,11 @@ interface MenuItemProps {
 
 const MenuItem: React.FC<MenuItemProps> = ({ icon: Icon, label }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
-
   return (
     <div
-      className="flex items-center justify-between px-3  h-9 rounded hover:bg-white/20 transition-colors duration-500 cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      className="flex items-center justify-between px-3  h-9 rounded hover:bg-white/20 transition-colors duration-500 cursor-pointer"
     >
       <div className="flex items-center">
         <Icon size={16} variant="Outline" className="mr-3" />
@@ -35,7 +35,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon: Icon, label }) => {
         </Text>
       </div>
       {isHovered && <PlusIcon className="text-neutral-200 hover:text-white" />}
-      {/* {isHovered && <CreateTableDropdown />} */}
     </div>
   );
 };
@@ -65,7 +64,9 @@ const CreateContentPanel: React.FC = () => {
         </div>
         {isOpen && (
           <div className="transition-all duration-500 ease-in-out p-2">
-            <MenuItem icon={Grid1} label="Table" />
+            <CreateTableDropdown>
+              <MenuItem icon={Grid1} label="Table" />
+            </CreateTableDropdown>
             <MenuItem icon={ElementEqual} label="Form" />
             <MenuItem icon={Clock} label="Dashboard" />
             <MenuItem icon={DocumentText} label="Document" />
