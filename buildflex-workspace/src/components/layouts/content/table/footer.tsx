@@ -38,7 +38,7 @@ const CategoryFooter = () => {
       if (typeof page === 'number') {
         return (
           <button
-            key={index}
+            key={`${page}-${index}`}
             className={cn(
               'size-8 rounded-md flex items-center justify-center',
               page === currentPage
@@ -47,21 +47,18 @@ const CategoryFooter = () => {
             )}
             onClick={() => handlePageClick(page)}
           >
-            <Text
-              key={index}
-              as="span"
-              variant="B2-Regular"
-              className="h-[18px]"
-            >
+            <Text as="span" variant="B2-Regular" className="h-[18px]">
               {page}
             </Text>
           </button>
         );
       } else {
         return (
-          <div className="size-8 flex items-center justify-center">
+          <div
+            key={`${page}-${index}`}
+            className="size-8 flex items-center justify-center"
+          >
             <Text
-              key={index}
               as="span"
               variant="B2-Regular"
               className="h-[18px] text-gray-500"

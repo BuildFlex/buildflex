@@ -95,7 +95,7 @@ const AIChatDrawer: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
               { icon: PresentionChart, text: 'Analyze' },
             ].map((option, index) => (
               <button
-                key={index}
+                key={`option-${option.text}-${index}`}
                 className="w-full text-left px-2 text-neutral-dark-500 py-[7px] h-8 rounded bg-white  hover:bg-gray-50 flex items-center cursor-pointer border border-solid  border-borderColor"
               >
                 <option.icon size={20} className="mr-2 text-gray-500" />

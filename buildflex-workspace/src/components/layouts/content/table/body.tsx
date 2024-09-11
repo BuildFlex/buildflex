@@ -15,7 +15,7 @@ const CategoryBody = () => {
   return (
     <div className="h-full flex flex-col gap-4 w-full  text-neutral-dark-500 px-1">
       {data.map((item, index) => (
-        <CategoryRow key={index} {...item} />
+        <CategoryRow key={`${item.name}-${index}`} {...item} />
       ))}
     </div>
   );

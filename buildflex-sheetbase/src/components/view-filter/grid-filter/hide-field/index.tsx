@@ -95,8 +95,12 @@ const HideFieldsPopup: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               className="flex items-center justify-between py-2"
             >
               <div className="flex items-center">
-                <label className="inline-flex items-center cursor-pointer">
+                <label
+                  className="inline-flex items-center cursor-pointer"
+                  htmlFor={`${field.id}-checkbox`}
+                >
                   <input
+                    id={`${field.id}-checkbox`}
                     type="checkbox"
                     className="hidden"
                     checked={visibleFields.has(field.id)}

@@ -72,7 +72,7 @@ const ButtonStyleSelect = ({
             {itemsList.map((item, index) => {
               return (
                 <DropdownItem
-                  key={index}
+                  key={`${item.id}-${index}`}
                   onClick={() => onSelect(item)}
                   className={cn(
                     ' hover:bg-gray-50  size-12 p-0 basis-12 flex items-center justify-center cursor-pointer',

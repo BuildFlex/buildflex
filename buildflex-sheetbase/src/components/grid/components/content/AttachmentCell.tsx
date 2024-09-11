@@ -49,7 +49,7 @@ const AttachmentCell = ({ images }: AttachmentCellProps) => {
               <div className="flex gap-1 items-center pb-1 max-w-[140px] overflow-x-auto customScrollBar">
                 {images.map((image, index) => (
                   <img
-                    key={index}
+                    key={`${image}-${index}`}
                     src={image}
                     alt="attachment"
                     className="object-cover rounded w-12 h-12"
@@ -99,7 +99,7 @@ const AttachmentCell = ({ images }: AttachmentCellProps) => {
       ) : (
         images.map((image, index) => (
           <img
-            key={index}
+            key={`${image}-${index}`}
             src={image}
             alt="attachment"
             className="object-cover rounded w-6 h-6"

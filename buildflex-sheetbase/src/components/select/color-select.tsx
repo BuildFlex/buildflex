@@ -77,10 +77,10 @@ const ColorSelect = ({
                 itemsList.map((item, index) => {
                   return (
                     <DropdownItem
-                      key={index}
+                      key={`${color}-${item.id}-${index}`}
                       onClick={() => onSelect({ ...item, color })}
                       className={cn(
-                        ' hover:bg-gray-50  cursor-pointer size-9 p-0 basis-9 flex items-center justify-center cursor-pointer',
+                        ' hover:bg-gray-50  size-9 p-0 basis-9 flex items-center justify-center cursor-pointer',
                         {
                           'bg-gray-100  hover:bg-gray-100':
                             selected.id === item.id && selected.color === color,

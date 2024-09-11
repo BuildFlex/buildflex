@@ -4,9 +4,11 @@ import {
   RateStarOutlineIcon,
 } from '@/components/icons';
 import Text from '@/components/typography/Text';
+import { useId } from 'react';
 
 const ExpandRating = () => {
   const rating = 3;
+  const id = useId();
   return (
     <div className="flex justify-between items-start">
       {/* Rating  Select Title */}
@@ -26,9 +28,9 @@ const ExpandRating = () => {
         >
           {Array.from({ length: 5 }).map((_, index) =>
             index < rating ? (
-              <RateStarFilledIcon className="size-4" key={index} />
+              <RateStarFilledIcon className="size-4" key={`${id}-${index}`} />
             ) : (
-              <RateStarIcon className="size-4" key={index} />
+              <RateStarIcon className="size-4" key={`${id}-${index}`} />
             ),
           )}
         </div>

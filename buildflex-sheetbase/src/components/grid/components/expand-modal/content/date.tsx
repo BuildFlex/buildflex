@@ -17,7 +17,7 @@ const ExpandDate = () => {
           Date
         </Text>
       </div>
-      <div
+      <button
         className="max-w-[430px] relative h-9 w-full flex items-center rounded-lg px-2"
         style={{ border: '1px solid #EDEDED' }}
         onClick={() => setIsOpen(!isOpen)}
@@ -35,7 +35,7 @@ const ExpandDate = () => {
           style={{
             visibility: 'hidden',
             position: 'absolute',
-            top: 10,
+            top: 0,
             left: 0,
             pointerEvents: 'none',
           }}
@@ -43,7 +43,7 @@ const ExpandDate = () => {
           className="hidden"
           format="M/D/YYYY"
         />
-      </div>
+      </button>
     </div>
   );
 };

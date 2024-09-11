@@ -40,9 +40,9 @@ const ContentItemComponent: React.FC<{ item: ContentItem }> = ({ item }) => {
   const Icon = iconMap[item.type];
 
   return (
-    <div
+    <button
       className={cn(
-        'flex items-center justify-between pl-6 pr-2 py-2 cursor-pointer relative rounded-sm my-1 ',
+        'flex items-center w-full justify-between pl-6 pr-2 py-2 cursor-pointer relative rounded-sm my-1 ',
         item.isActive
           ? 'bg-primary-100 text-primary-600'
           : 'hover:bg-gray-100 hover:text-black text-neutral-dark-300',
@@ -55,7 +55,7 @@ const ContentItemComponent: React.FC<{ item: ContentItem }> = ({ item }) => {
         <span className="text-sm font-normal font-lato">{item.title}</span>
       </div>
       {isHovered && <ViewMoreDropdown />}
-    </div>
+    </button>
   );
 };
 
@@ -67,8 +67,8 @@ const SectionComponent: React.FC<{
 
   return (
     <div className="mt-2">
-      <div
-        className="flex items-center justify-between p-2 rounded-sm hover:bg-gray-100 cursor-pointer"
+      <button
+        className="flex w-full items-center justify-between p-2 rounded-sm hover:bg-gray-100 cursor-pointer"
         onClick={onToggle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -89,7 +89,7 @@ const SectionComponent: React.FC<{
             <SectionMoreDropdown />
           </div>
         )}
-      </div>
+      </button>
       {section.isOpen && (
         <div>
           {section.items.map((item) => (

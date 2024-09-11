@@ -74,7 +74,7 @@ const Select = ({
             {itemsList.map((item, index) => {
               return (
                 <DropdownItem
-                  key={index}
+                  key={`${item}-${index}`}
                   onClick={() => handleChange(item)}
                   className={cn(' hover:bg-gray-50 cursor-pointer', {
                     'bg-gray-100 hover:bg-gray-100': selected === item,

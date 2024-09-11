@@ -96,7 +96,7 @@ const CustomSelect = ({
             {itemsList.map((item, index) => {
               return (
                 <DropdownItem
-                  key={index}
+                  key={`${item.value}-${index}`}
                   onClick={() => handleSelect(item)}
                   className={cn(' hover:bg-gray-50 cursor-pointer', {
                     'bg-gray-100 hover:bg-gray-100':

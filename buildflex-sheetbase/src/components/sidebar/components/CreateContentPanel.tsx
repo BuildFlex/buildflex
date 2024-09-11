@@ -23,10 +23,10 @@ interface MenuItemProps {
 const MenuItem: React.FC<MenuItemProps> = ({ icon: Icon, label }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   return (
-    <div
+    <button
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="flex items-center justify-between px-3  h-9 rounded hover:bg-white/20 transition-colors duration-500 cursor-pointer"
+      className="flex w-full items-center justify-between px-3  h-9 rounded hover:bg-white/20 transition-colors duration-500 cursor-pointer"
     >
       <div className="flex items-center">
         <Icon size={16} variant="Outline" className="mr-3" />
@@ -35,7 +35,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon: Icon, label }) => {
         </Text>
       </div>
       {isHovered && <PlusIcon className="text-neutral-200 hover:text-white" />}
-    </div>
+    </button>
   );
 };
 
@@ -50,8 +50,8 @@ const CreateContentPanel: React.FC = () => {
       )}
     >
       <div className={cn(' text-white')}>
-        <div
-          className="flex justify-between  bg-gray-500/20 items-center px-4 h-9 cursor-pointer"
+        <button
+          className="flex w-full justify-between  bg-gray-500/20 items-center px-4 h-9 cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           <Text as="span" variant="B2-Medium" className="h-[18px]">
@@ -61,7 +61,7 @@ const CreateContentPanel: React.FC = () => {
             size={16}
             className={`transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
           />
-        </div>
+        </button>
         {isOpen && (
           <div className="transition-all duration-500 ease-in-out p-2">
             <CreateTableDropdown>

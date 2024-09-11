@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import Text, { TextVariant } from '../../../typography/Text';
 import { ArrowRight2 } from 'iconsax-react';
 import { cn } from '@utils/cn';
@@ -16,11 +16,12 @@ interface BreadcrumbProps {
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
+  const id = useId();
   return (
     <nav className="flex items-center gap-2 text-sm ">
       {items.map((item, index) => (
         <div
-          key={index}
+          key={`${id}-${index}`}
           className={cn(
             'workspace__nav-item flex items-center gap-2 cursor-pointer',
             item.isLast && 'truncate w-max',

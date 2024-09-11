@@ -61,7 +61,7 @@ const ContentWrapper = () => {
         {AddCategoryList.map((item, index) => (
           <AddCategoryButton
             onClick={item.title === 'Sheetbase' ? handleShowModal : undefined}
-            key={index}
+            key={`${item.title}-${index}`}
             {...item}
           />
         ))}
