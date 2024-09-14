@@ -1,9 +1,7 @@
-import SheetBase from "./sheetbase";
+import SheetBase from './sheetbase';
 
 export function App() {
-  return (
-      <SheetBase />
-  );
+  return <SheetBase />;
 }
 
 export default App;

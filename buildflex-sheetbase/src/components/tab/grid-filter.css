@@ -1,0 +1,100 @@
+
+.no-border-select .ant-select-selector{
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+/* sort-select-dropdown */
+.sort-select-dropdown .rc-virtual-list-holder-inner{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+.sort-select-dropdown .ant-select-item-option-content{
+    display: flex;
+    align-items: center;
+}
+.sort-select .ant-select-selector , .sort-by-select .ant-select-selector{
+    border: 1px solid #EDEDED!important;
+    box-shadow: none !important;
+}
+
+
+/* Color Dropdown */
+
+.color-field-select .ant-select-selector{
+    border: none !important;
+    background: #E0F2FE !important;
+    color:#026AA2 !important
+}
+.color-field-select .ant-select-selection-item{
+    padding-right: 26px !important;
+}
+.color-field-select .ant-select-arrow{
+    color: #026AA2 !important;
+    margin-left: 8px !important;
+}
+
+/*  */
+.color-selector-dropdown-with-name .ant-dropdown-menu-item  {
+    width: 69px;
+    height: 40px;
+    border-radius: 4px !important;
+    padding: 8px !important;
+    box-sizing: border-box;
+    flex-basis: 69px;
+}
+.color-selector-dropdown-with-name .ant-dropdown-menu{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: fit-content !important;
+    max-width: 750px !important;
+    box-sizing: border-box;
+}
+
+.color-selector-dropdown .ant-dropdown-menu-item  {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px !important;
+    padding: 8px !important;
+    box-sizing: border-box;
+    flex-basis: 40px;
+}
+.color-selector-dropdown .ant-dropdown-menu{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: fit-content !important;
+    max-width: 460px !important;
+    box-sizing: border-box;
+}
+
+
+/* color collapse */
+.color-condition-collapse{
+    max-height: 300px !important;
+}
+.color-condition-collapse .ant-collapse-header, .color-condition-collapse .ant-collapse-content{
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+}
+.color-condition-collapse .ant-collapse-content-box{
+    padding: 0 !important;
+}
+.color-condition-collapse .ant-collapse-item{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: none !important;
+
+}
+
+  .primary-field-select .rc-virtual-list-holder-inner{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}

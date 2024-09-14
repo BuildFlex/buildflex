@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { Add, Grid1, DocumentText, Clock, Document } from 'iconsax-react';
-import {
-  CaretDownFilled,
-  CaretRightFilled,
-  MoreOutlined,
-} from '@ant-design/icons';
+import Text from '@/components/typography/Text';
+import { CaretDownFilled, CaretRightFilled } from '@ant-design/icons';
+import { cn } from '@utils/cn';
+import { Clock, Document, DocumentText, Grid1 } from 'iconsax-react';
+import React, { useCallback, useState } from 'react';
+import SectionAddDropdown from './dropdown/SectionAddDropdown';
+import SectionMoreDropdown from './dropdown/SectionMoreDropdown';
+import ViewMoreDropdown from './dropdown/ViewMoreDropdown';
 
 type ContentType = 'table' | 'dashboard' | 'form' | 'document';
 
@@ -12,6 +13,7 @@ interface ContentItem {
   id: string;
   type: ContentType;
   title: string;
+  isActive?: boolean;
 }
 
 interface Section {
@@ -31,27 +33,30 @@ const iconMap: Record<ContentType, React.ElementType> = {
 const ContentItemComponent: React.FC<{ item: ContentItem }> = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
   const Icon = iconMap[item.type];
+  const handleHoverEnter = useCallback(() => {
+    setIsHovered(true);
+  }, []);
+  const handleHoverLeave = useCallback(() => {
+    setIsHovered(false);
+  }, []);
 
   return (
-    <div
-      className="flex items-center justify-between px-6 py-2 hover:bg-primary-100 cursor-pointer relative rounded-sm my-1 text-neutral-dark-300"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <button
+      className={cn(
+        'flex items-center w-full justify-between pl-6 pr-2 py-2 cursor-pointer relative rounded-sm my-1 ',
+        item.isActive
+          ? 'bg-primary-100 text-primary-600'
+          : 'hover:bg-gray-100 hover:text-black text-neutral-dark-300',
+      )}
+      onMouseEnter={handleHoverEnter}
+      onMouseLeave={handleHoverLeave}
     >
       <div className="flex items-center">
-        <Icon size={16} className="mr-2 text-gray-500" />
+        <Icon size={16} className="mr-2 " />
         <span className="text-sm font-normal font-lato">{item.title}</span>
       </div>
-      {isHovered && (
-        <span className="text-gray-500 cursor-pointer absolute right-2">
-          {' '}
-          <MoreOutlined
-            style={{ fontSize: '1.6rem', fontWeight: 600 }}
-            rotate={180}
-          />
-        </span>
-      )}
-    </div>
+      {isHovered && <ViewMoreDropdown />}
+    </button>
   );
 };
 
@@ -61,13 +66,19 @@ const SectionComponent: React.FC<{
 }> = ({ section, onToggle }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const handleHoverEnter = useCallback(() => {
+    setIsHovered(true);
+  }, []);
+  const handleHoverLeave = useCallback(() => {
+    setIsHovered(false);
+  }, []);
   return (
-    <div className="mt-[0.4rem]">
-      <div
-        className="flex items-center justify-between p-2 bg-gray-50 rounded-sm hover:bg-gray-100 cursor-pointer"
+    <div className="mt-2">
+      <button
+        className="flex w-full items-center justify-between p-2 rounded-sm hover:bg-gray-100 cursor-pointer"
         onClick={onToggle}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={handleHoverEnter}
+        onMouseLeave={handleHoverLeave}
       >
         <div className="flex items-center">
           {section.isOpen ? (
@@ -75,21 +86,17 @@ const SectionComponent: React.FC<{
           ) : (
             <CaretRightFilled size={16} className="mr-2" />
           )}
-          <span className="font-medium">{section.title}</span>
+          <Text as="span" variant="B2-Medium">
+            {section.title}
+          </Text>
         </div>
         {isHovered && (
-          <div className="flex items-center">
-            <Add size={16} className="mr-2 text-gray-500 cursor-pointer" />
-            <span className="text-gray-500 cursor-pointer">
-              {' '}
-              <MoreOutlined
-                style={{ fontSize: '1.6rem', fontWeight: 600 }}
-                rotate={180}
-              />
-            </span>
+          <div className="flex items-center gap-2">
+            <SectionAddDropdown />
+            <SectionMoreDropdown />
           </div>
         )}
-      </div>
+      </button>
       {section.isOpen && (
         <div>
           {section.items.map((item) => (
@@ -108,7 +115,7 @@ const ListContentItemsPanel: React.FC = () => {
       title: 'Project management',
       isOpen: true,
       items: [
-        { id: '1-1', type: 'table', title: 'Admin management' },
+        { id: '1-1', type: 'table', title: 'Admin management', isActive: true },
         { id: '1-2', type: 'table', title: 'Client management' },
         { id: '1-3', type: 'table', title: 'Product tracking' },
       ],
@@ -131,14 +138,16 @@ const ListContentItemsPanel: React.FC = () => {
     },
   ]);
 
-  const toggleSection = (id: string) => {
-    setSections(
-      sections.map((section) =>
-        section.id === id ? { ...section, isOpen: !section.isOpen } : section,
-      ),
-    );
-  };
-
+  const toggleSection = useCallback(
+    (id: string) => {
+      setSections(
+        sections.map((section) =>
+          section.id === id ? { ...section, isOpen: !section.isOpen } : section,
+        ),
+      );
+    },
+    [sections],
+  );
   return (
     <div className="bg-white">
       {sections.map((section) => (

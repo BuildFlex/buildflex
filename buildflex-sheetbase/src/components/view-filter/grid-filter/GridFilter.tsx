@@ -1,22 +1,33 @@
-import React, { useState } from 'react';
+import Text from '@/components/typography/Text';
+import { cn } from '@/utils/cn';
+import { Dropdown, MenuProps } from 'antd';
 import {
-  Grid1,
+  ArrowDown2,
+  Bucket,
   EyeSlash,
   Filter,
+  Grid1,
   Hashtag,
-  Sort,
-  Bucket,
+  People,
   Pharagraphspacing,
   Share,
-  ArrowDown2,
+  Sort,
 } from 'iconsax-react';
+import React, { ReactNode, useCallback, useState } from 'react';
+import ColorDropdownRender from '../components/dropdown-render/ColorDropdownRender';
+import FilterDropdownRender from '../components/dropdown-render/FilterDropdownRender';
+import GroupDropdownRender from '../components/dropdown-render/GroupDropdownRender';
+import HideFieldDropdownRender from '../components/dropdown-render/HideFieldDropdownRender';
+import RowHeightRender from '../components/dropdown-render/RowHeightRender';
+import ShareAndSyncDropdownRender from '../components/dropdown-render/ShareAndSyncDropdownRender';
+import SortDropdownRender from '../components/dropdown-render/SortDropdownRender';
+import ViewDropdownRender from '../components/dropdown-render/ViewDropdownRender';
 import HideFieldsPopup from './hide-field';
-import FindAField from './filter/components/FindAField';
 
 interface FilterItem {
   id: string;
   icon: React.ElementType;
-  label: string;
+  label: string | React.ReactNode;
   hasDropdown?: boolean;
   popupType: 'panel' | 'menu';
   filterType:
@@ -28,16 +39,28 @@ interface FilterItem {
     | 'color'
     | 'rowHeight'
     | 'shareAndSync';
+  menuItems?: MenuProps['items'];
+  className?: string;
+  placement?: 'bottomCenter' | 'bottomLeft';
 }
 
 const filterItems: FilterItem[] = [
   {
     id: 'view',
     icon: Grid1,
-    label: 'Grid view',
+    label: (
+      <div className="flex items-center gap-2">
+        {' '}
+        <Text as="span" variant="B2-Regular">
+          Grid view
+        </Text>
+        <People size={16} />
+      </div>
+    ),
     hasDropdown: true,
     popupType: 'menu',
     filterType: 'grid',
+    className: 'grid-view-dropdown',
   },
   {
     id: 'fields',
@@ -52,6 +75,8 @@ const filterItems: FilterItem[] = [
     label: 'Filter',
     popupType: 'panel',
     filterType: 'filter',
+    placement: 'bottomCenter',
+    className: 'no-border-select',
   },
   {
     id: 'group',
@@ -73,6 +98,7 @@ const filterItems: FilterItem[] = [
     label: 'Color',
     popupType: 'panel',
     filterType: 'color',
+    placement: 'bottomLeft',
   },
   {
     id: 'rowHeight',
@@ -87,48 +113,78 @@ const filterItems: FilterItem[] = [
     label: 'Share and sync',
     popupType: 'panel',
     filterType: 'shareAndSync',
+    className: 'grid-share-dropdown',
   },
 ];
 
 const GridFilter: React.FC = () => {
   const [activePopup, setActivePopup] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [showHideFields, setShowHideFields] = useState(false);
+  const handleFilterClick = useCallback(
+    (id: string) => () => setActivePopup(activePopup === id ? null : id),
+    [activePopup],
+  );
 
-  const handleFilterClick = (id: string) => {
-    if (id === 'fields') {
-      setShowHideFields(!showHideFields);
-    } else {
-      setActivePopup(activePopup === id ? null : id);
+  const dropdownRender = (menu: ReactNode) => {
+    switch (activePopup) {
+      case 'view':
+        return <ViewDropdownRender setActivePopup={setActivePopup} />;
+      case 'fields':
+        return <HideFieldDropdownRender menu={menu} />;
+      case 'filter':
+        return <FilterDropdownRender />;
+      case 'group':
+        return <GroupDropdownRender />;
+      case 'sort':
+        return <SortDropdownRender />;
+      case 'share':
+        return <ShareAndSyncDropdownRender setIsModalOpen={setIsModalOpen} />;
+      case 'color':
+        return <ColorDropdownRender />;
+      case 'rowHeight':
+        return <RowHeightRender setActivePopup={setActivePopup} />;
+
+      default:
+        return menu;
     }
   };
-
-  const renderPopup = (item: FilterItem) => {
-    if (activePopup !== item.id) return null;
-
-    return (
-      <div className="absolute mt-2 p-4 bg-white shadow-lg rounded-md z-10">
-        <HideFieldsPopup onClose={() => setShowHideFields(false)} />
-      </div>
-    );
-  };
-
   return (
-    <div className="flex items-center bg-white shrink-0 flex-wrap min-h-10">
+    <div className="flex items-center overflow-auto max-w-full p-[10px] gap-8 box-border bg-white h-10">
       {filterItems.map((item) => (
-        <div key={item.id} className="relative">
+        <Dropdown
+          open={activePopup === item.id}
+          key={item.id}
+          onOpenChange={(open) => {
+            if (!open && !isModalOpen) setActivePopup(null);
+          }}
+          trigger={['click']}
+          placement={item.placement ?? 'bottomLeft'}
+          className="flex items-center relative justify-center"
+          overlayClassName={cn(
+            ' boxShadowSecondary grid-dropdown !rounded-lg',
+            item?.className,
+          )}
+          menu={{ items: item.menuItems ?? [] }}
+          dropdownRender={(menu) => dropdownRender(menu)}
+        >
           <button
-            className="flex items-center px-2 py-2 rounded-md text-sm text-neutral-dark-500 border-none bg-transparent cursor-pointer hover:bg-gray-100"
-            onClick={() => handleFilterClick(item.id)}
+            className="flex items-center whitespace-nowrap h-[18px]  p-0 rounded   text-sm text-neutral-dark-500 border-none bg-transparent cursor-pointer "
+            onClick={handleFilterClick(item.id)}
+            id={item.id}
           >
-            <item.icon size={16} className="mr-2" />
-            <span>{item.label}</span>
+            <item.icon size={16} className="mr-2 " />
+            {typeof item.label === 'string' ? (
+              <Text as="span" variant="B2-Regular">
+                {item.label}
+              </Text>
+            ) : (
+              item.label
+            )}
             {item.hasDropdown && <ArrowDown2 size={16} className="ml-1" />}
           </button>
-          {renderPopup(item)}
-        </div>
+        </Dropdown>
       ))}
-      <FindAField />
     </div>
   );
 };

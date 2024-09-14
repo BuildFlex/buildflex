@@ -1,0 +1,73 @@
+   
+  .main-menu-content,  .submenu-content ,.help-sidebar{
+    transition: transform 0.3s ease-in-out ;
+  }
+  
+  /* help-sideba  Dropdown transition */
+  .help-sidebar-contaier.inside .submenu-content  {
+    transform: translateX(0);
+  }
+  .help-sidebar-contaier.outside .submenu-content  {
+    transform: translateX(120%);
+  }
+
+  .inside .help-sidebar {
+    transform: translateX(-120%);
+  }
+  .outside .help-sidebar{
+    transform: translateX(0);
+  }
+
+
+
+/* History transition dropdown tab */
+  .history-dropdown-container.inside .submenu-content  {
+    transform: translateX(-100%);
+  }
+  
+  .history-dropdown-container.outside .submenu-content  {
+    transform: translateX(0);
+  }
+  .history-dropdown-container.outside  .main-menu-content{
+    transform: translateX(0);
+  }
+  .history-dropdown-container.inside .main-menu-content {
+    transform: translateX(-120%);
+  }
+
+
+/* Share tab */
+/* base */
+.share-base-tab .ant-tabs-nav{
+  margin-bottom: 24px !important;
+  box-sizing: border-box;
+}
+.share-base-tab .ant-tabs-tab-active .ant-tabs-tab-btn{
+  color: #101828 !important;
+}
+.share-base-tab .ant-tabs-tab:not(.ant-tabs-tab-active) .ant-tabs-tab-btn{
+  color: #6A758B !important;
+}
+
+.share-base-tab .ant-tabs-ink-bar {
+  height: 2px;
+  background: #101828 !important;
+}
+.share-base-tab .ant-tabs-tab {
+  height: 26px !important;
+  padding: 0 0 8px 0  !important;
+  margin: 0 !important;
+  
+}
+.share-base-tab .ant-tabs-tab-btn{
+  height: 18px !important;
+
+}
+.share-base-tab .ant-tabs-nav-list{
+  display: flex ;
+  gap: 16px;
+}
+
+.email-invited-select .ant-select-selector {
+ border-radius: 8px !important;
+}
