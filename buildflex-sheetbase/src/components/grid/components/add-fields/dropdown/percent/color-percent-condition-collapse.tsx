@@ -1,17 +1,15 @@
-import { Collapse, CollapseProps } from 'antd';
-import { Add, Copy, Trash } from 'iconsax-react';
-import React from 'react';
 import Text from '@/components/typography/Text';
-import { MoveIcon } from '@/components/icons';
-import { ItemType } from 'antd/es/menu/interface';
-import PercentConditionRow from './percent-condition-row';
 import ColorSelector from '@/components/view-filter/grid-filter/color/color-selector';
 import { cn } from '@/utils/cn';
+import { Collapse } from 'antd';
+import { Add, Trash } from 'iconsax-react';
+import { IColorCondition } from './color-dropdown';
+import PercentConditionRow from './percent-condition-row';
 
 const ColorPercentConditionCollapse = ({
   items,
 }: {
-  items: any[] | undefined;
+  items: IColorCondition[] | undefined;
 }) => {
   return (
     <Collapse
@@ -20,7 +18,7 @@ const ColorPercentConditionCollapse = ({
       items={items?.map((item, index) => ({
         children: (
           <div className="no-border-select flex flex-col gap-3 pl-6">
-            {item?.conditions.map((i: any, index: number) => {
+            {item?.conditions.map((i, index) => {
               return (
                 <PercentConditionRow isFirstRow={index === 0} key={i.id} />
               );

@@ -6,7 +6,7 @@ import {
   RowHeightTallIcon,
 } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import React, { useState } from 'react';
+import React from 'react';
 
 export interface IField {
   id: string;

@@ -12,7 +12,6 @@ import {
   Sms,
   Video,
 } from 'iconsax-react';
-import React from 'react';
 
 const items = [
   { icon: <Document size={16} />, text: 'Templates' },

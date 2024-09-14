@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Eye, More } from 'iconsax-react';
 
 interface Field {
@@ -42,6 +42,26 @@ const HideFieldsPopup: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     new Set(fields.map((f) => f.id)),
   );
   const popupRef = useRef<HTMLDivElement>(null);
+  const hideAll = useCallback(() => setVisibleFields(new Set()), []);
+
+  const showAll = useCallback(() => {
+    setVisibleFields(new Set(fields.map((f) => f.id)));
+  }, []);
+
+  const handleFilterClickWrapper = useCallback(
+    (fieldId: string) => () => {
+      setVisibleFields((prev) => {
+        const newSet = new Set(prev);
+        if (newSet.has(fieldId)) {
+          newSet.delete(fieldId);
+        } else {
+          newSet.add(fieldId);
+        }
+        return newSet;
+      });
+    },
+    [],
+  );
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -58,21 +78,6 @@ const HideFieldsPopup: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [onClose]);
-
-  const toggleField = (id: string) => {
-    setVisibleFields((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(id)) {
-        newSet.delete(id);
-      } else {
-        newSet.add(id);
-      }
-      return newSet;
-    });
-  };
-
-  const hideAll = () => setVisibleFields(new Set());
-  const showAll = () => setVisibleFields(new Set(fields.map((f) => f.id)));
 
   return (
     <div
@@ -104,14 +109,14 @@ const HideFieldsPopup: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                     type="checkbox"
                     className="hidden"
                     checked={visibleFields.has(field.id)}
-                    onChange={() => toggleField(field.id)}
+                    onChange={handleFilterClickWrapper(field.id)}
                   />
                   <div
                     className={`w-10 h-6 rounded-full p-1 transition-colors duration-200 ease-in-out ${visibleFields.has(field.id) ? 'bg-blue-500' : 'bg-gray-300'}`}
                   >
                     <div
                       className={`bg-white w-4 h-4 rounded-full shadow-md transform transition-transform duration-200 ease-in-out ${visibleFields.has(field.id) ? 'translate-x-4' : 'translate-x-0'}`}
-                    ></div>
+                    />
                   </div>
                 </label>
                 <field.icon size={20} className="ml-3 mr-2 text-gray-500" />

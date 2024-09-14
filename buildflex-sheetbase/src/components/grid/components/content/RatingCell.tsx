@@ -1,9 +1,8 @@
 import { RateStarFilledIcon, RateStarIcon } from '@/components/icons';
-import Text from '@/components/typography/Text';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
 import { Dropdown } from 'antd';
-import { ArrowDown2, Star } from 'iconsax-react';
+import { ArrowDown2 } from 'iconsax-react';
 import React, { useId } from 'react';
 interface RatingCellProps {
   rating: number;

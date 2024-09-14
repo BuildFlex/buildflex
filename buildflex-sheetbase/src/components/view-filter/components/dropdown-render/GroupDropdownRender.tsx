@@ -3,11 +3,10 @@ import { QuestionCircle } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { Category2 } from 'iconsax-react';
 import React, { useState } from 'react';
-import SortConditionRow from '../../grid-filter/sort/SortConditionRow';
 import AddSortRow from '../../grid-filter/sort/AddSortRow';
 import FindField from '../../grid-filter/sort/FindField';
+import SortConditionRow from '../../grid-filter/sort/SortConditionRow';
 import { fields as initialFields } from './HideFieldDropdownRender';
-
 
 export interface IField {
   id: string;

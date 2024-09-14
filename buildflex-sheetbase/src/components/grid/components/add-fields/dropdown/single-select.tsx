@@ -1,6 +1,5 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import { CloseIcon, MoveIcon, MoveToIcon } from '@/components/icons';
-import { CustomInput } from '@/components/input/Input';
+import { CloseIcon, MoveIcon } from '@/components/icons';
 import TagMultipleSelect from '@/components/select/tag-multiple-select';
 import Text from '@/components/typography/Text';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
@@ -12,9 +11,8 @@ import {
   ArrangeVertical,
   ArrowCircleDown,
   ArrowDown2,
-  Task,
 } from 'iconsax-react';
-import React, { useId, useState } from 'react';
+import React, { useState } from 'react';
 
 interface SingleSelectDropdownProps {
   onChangeDropdown: (value: IField | null) => void;

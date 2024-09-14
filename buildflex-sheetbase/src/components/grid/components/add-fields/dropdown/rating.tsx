@@ -1,8 +1,8 @@
-import React from 'react';
-import { ArrowDown2, Heart, Link } from 'iconsax-react';
 import Text from '@/components/typography/Text';
+import { ArrowDown2, Heart } from 'iconsax-react';
+import React from 'react';
 
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import {
   CheckBoxIcon,
   CloseIcon,
@@ -10,13 +10,11 @@ import {
   FlagIcon,
   LikeIcon,
   RateStarFilledIcon,
-  RateStarIcon,
-  RateStarOutlineIcon,
+  RateStarOutlineIcon
 } from '@/components/icons';
-import ColorSelector from '@/components/view-filter/grid-filter/color/color-selector';
 import ColorSelect from '@/components/select/color-select';
 import Select from '@/components/select/select';
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 
 interface RatingDropdownProps {
   onChangeDropdown: (value: IField | null) => void;

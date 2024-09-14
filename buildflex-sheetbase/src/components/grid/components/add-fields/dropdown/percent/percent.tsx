@@ -1,23 +1,12 @@
-import React, { useState } from 'react';
-import {
-  Add,
-  ArrowDown2,
-  ArrowRight,
-  ArrowRight2,
-  DollarCircle,
-  Hashtag,
-  PercentageCircle,
-} from 'iconsax-react';
+import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { CustomInput } from '@/components/input/Input';
+import Select from '@/components/select/select';
 import Text from '@/components/typography/Text';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
-import { cn } from '@/utils/cn';
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import Select from '@/components/select/select';
-import { Dropdown, Switch } from 'antd';
-import { CustomInput } from '@/components/input/Input';
+import { Switch } from 'antd';
+import { ArrowDown2, PercentageCircle } from 'iconsax-react';
+import React, { useState } from 'react';
 import DropdownTab from '../../components/dropdown-tab';
-import { QuestionCircle } from '@/components/icons';
-import ColorConditionCollapse from '@/components/view-filter/grid-filter/color/color-condition-collapse';
 import ColorDropdown from './color-dropdown';
 
 interface PercentDropdownProps {
@@ -30,9 +19,6 @@ const PercentDropdown: React.FC<PercentDropdownProps> = ({
   const [activeTab, setActiveTab] = useState('formatting');
   const [decimalPlaces, setDecimalPlaces] = useState<string>('0');
   const [separators, setSeparators] = useState<string>('Local');
-
-  const [progress, setProgress] = useState<string>('bar');
-  const [isShowPercentage, setIsShowPercentage] = useState<boolean>(true);
 
   return (
     <>
@@ -118,7 +104,7 @@ const FormattingTab: React.FC<{
     <ColorDropdown />
   </>
 );
-const ProgressBarSelect: React.FC<{}> = ({}) => (
+const ProgressBarSelect: React.FC = () => (
   <div className="flex flex-col gap-2">
     <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
       Progress bar shape

@@ -1,7 +1,7 @@
+import { cn } from '@utils/cn';
+import { ArrowRight2 } from 'iconsax-react';
 import React, { useId } from 'react';
 import Text, { TextVariant } from '../../../typography/Text';
-import { ArrowRight2 } from 'iconsax-react';
-import { cn } from '@utils/cn';
 
 interface BreadcrumbItem {
   text?: string;

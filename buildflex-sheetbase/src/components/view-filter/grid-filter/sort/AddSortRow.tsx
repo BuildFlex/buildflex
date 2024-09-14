@@ -4,9 +4,9 @@ import { cn } from '@/utils/cn';
 import { Dropdown } from 'antd';
 import { Add } from 'iconsax-react';
 import React from 'react';
-import FindField from './FindField';
 import { IField } from '../../components/dropdown-render/GroupDropdownRender';
 import { fields as initialFields } from '../../components/dropdown-render/HideFieldDropdownRender';
+import FindField from './FindField';
 
 interface AddSortRowProps {
   setFields: React.Dispatch<React.SetStateAction<IField[]>>;
@@ -28,7 +28,7 @@ const AddSortRow = ({ setFields, fields, buttonName }: AddSortRowProps) => {
       placement="bottomLeft"
       className="flex items-center relative justify-center"
       overlayClassName={cn(' boxShadowSecondary grid-dropdown !rounded-lg')}
-      menu={[] as any}
+      // menu={[]}
       dropdownRender={(menu) => (
         <FindField
           fields={filterFields}

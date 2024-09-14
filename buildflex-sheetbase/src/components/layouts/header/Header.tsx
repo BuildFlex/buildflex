@@ -1,19 +1,17 @@
-import React from 'react';
-import { Avatar } from 'antd';
-import { Clock, MessageQuestion, Notification, People } from 'iconsax-react';
-import { UserOutlined } from '@ant-design/icons';
-import Breadcrumb from './components/Breadcrumb';
-import { cn } from '@utils/cn';
-import Text, { TextVariant } from '@/components/typography/Text';
+import { TextVariant } from '@/components/typography/Text';
 import { useTheme } from '@/provider/theme-provider';
-import ProjectNameDropdown from './components/dropdown/ProjectNameDropdown';
-import './header.css';
+import { UserOutlined } from '@ant-design/icons';
+import { cn } from '@utils/cn';
+import { Avatar } from 'antd';
+import Breadcrumb from './components/Breadcrumb';
 import Logo from './components/Logo';
 import ProjectStatus from './components/ProjectStatus';
+import ProjectNameDropdown from './components/dropdown/ProjectNameDropdown';
 import HistoryDropdown from './components/dropdown/history/HistoryDropdown';
 import HelpButton from './components/help/HelpButton';
 import NotiButton from './components/notification/NotiButton';
 import ShareButton from './components/share/share-button';
+import './header.css';
 
 const Header = () => {
   const { theme } = useTheme();

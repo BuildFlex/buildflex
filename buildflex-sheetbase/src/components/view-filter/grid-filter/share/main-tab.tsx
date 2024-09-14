@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import LinkContent from './link-content';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import Text from '@/components/typography/Text';
-import { Divider, MenuProps } from 'antd';
-import { ArrowRight2, Code, Flash, Keyboard, Link } from 'iconsax-react';
 import { cn } from '@/utils/cn';
+import { Divider } from 'antd';
+import { ArrowRight2, Code, Flash, Keyboard, Link } from 'iconsax-react';
+import React, { useState } from 'react';
 import { ShareAndSyncTab } from '../../components/dropdown-render/ShareAndSyncDropdownRender';
+import LinkContent from './link-content';
 const MainTab = ({
   className,
   setActiveTab,

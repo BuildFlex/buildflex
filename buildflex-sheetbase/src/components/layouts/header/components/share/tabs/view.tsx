@@ -8,11 +8,9 @@ import {
   ArrowRight2,
   ArrowRotateLeft,
   CodeCircle,
-  ExportCircle,
   ExportSquare,
   Grid8,
 } from 'iconsax-react';
-import React from 'react';
 const allowList = [
   {
     title: 'Allow viewers to copy data out of this base',

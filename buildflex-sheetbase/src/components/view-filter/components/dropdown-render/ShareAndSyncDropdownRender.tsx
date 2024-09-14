@@ -1,8 +1,8 @@
-import React, { ReactNode, useState } from 'react';
+import { cn } from '@/utils/cn';
+import React, { useState } from 'react';
 import MainTab from '../../grid-filter/share/main-tab';
 import SettingTab from '../../grid-filter/share/setting-tab';
 import SyncDataTab from '../../grid-filter/share/sync-data-tab';
-import { cn } from '@/utils/cn';
 export type ShareAndSyncTab =
   | 'share-main-tab'
   | 'share-setting-tab'

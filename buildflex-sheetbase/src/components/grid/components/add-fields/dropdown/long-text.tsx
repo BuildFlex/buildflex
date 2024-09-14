@@ -1,11 +1,10 @@
-import React from 'react';
-import { Input, Switch } from 'antd';
-import { ArrowDown2 } from 'iconsax-react';
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import Text from '@/components/typography/Text';
 import { MoveToIcon, QuestionCircle } from '@/components/icons';
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 import Tag from '@/components/sidebar/components/dropdown/TeamTag';
+import Text from '@/components/typography/Text';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import { Switch } from 'antd';
+import { ArrowDown2 } from 'iconsax-react';
+import React from 'react';
 
 interface LongTextDropdownProps {
   onChangeDropdown: (value: IField | null) => void;

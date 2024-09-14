@@ -1,7 +1,6 @@
-import { Input } from 'antd';
+import { CustomInput } from '@/components/input/Input';
 import { SearchNormal1 } from 'iconsax-react';
 import { IconsList } from './IconsList';
-import { CustomInput } from '@/components/input/Input';
 
 const IconsSelector = () => {
   return (

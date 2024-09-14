@@ -2,7 +2,6 @@ import { CloseIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
 import { ArrowLeft } from 'iconsax-react';
-import React from 'react';
 interface HelpTitleProps {
   title: string;
   onClose: () => void;

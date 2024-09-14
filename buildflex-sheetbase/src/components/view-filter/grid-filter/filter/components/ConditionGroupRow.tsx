@@ -1,13 +1,11 @@
 import { MoveIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { Input, Select } from 'antd';
-import { Add, Trash } from 'iconsax-react';
-import React from 'react';
-import FieldSelect from './FieldSelect';
-import ConditionRow from './ConditionRow';
-import { cn } from '@/utils/cn';
-import AddConditionDropdown from './AddConditionDropdown';
 import { FilterConditionProps } from '@/components/view-filter/components/dropdown-render/FilterDropdownRender';
+import { cn } from '@/utils/cn';
+import { Trash } from 'iconsax-react';
+import AddConditionDropdown from './AddConditionDropdown';
+import ConditionRow from './ConditionRow';
+import FieldSelect from './FieldSelect';
 interface ConditionGroupRowProps {
   isFirstRow?: boolean;
   condition: FilterConditionProps[];

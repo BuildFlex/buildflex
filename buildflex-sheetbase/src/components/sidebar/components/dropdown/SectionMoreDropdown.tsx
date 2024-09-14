@@ -1,7 +1,8 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { MoreVert, QuestionCircle } from '@/components/icons';
+import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
-import { Divider, Dropdown, MenuProps } from 'antd';
+import { Divider, Dropdown } from 'antd';
 import {
   ArrowRight2,
   Copy,
@@ -12,7 +13,6 @@ import {
   Trash,
 } from 'iconsax-react';
 import React from 'react';
-import { CustomInput } from '@/components/input/Input';
 
 const SectionMoreDropdown = ({ className }: { className?: string }) => {
   const [isOpen, setIsOpen] = React.useState(false);

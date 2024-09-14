@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import { useSidebar } from '@/provider/sidebar-provider';
+import { cn } from '@utils/cn';
+import { Tooltip } from 'antd';
 import { SearchNormal1 } from 'iconsax-react';
-import { Input, Tooltip } from 'antd';
+import { useEffect } from 'react';
+import { CollapseIcon } from '../icons';
+import { CustomInput } from '../input/Input';
 import CreateContentPanel from './components/CreateContentPanel';
 import ListContentItemsPanel from './components/ListContentItemsPanel';
 import './sidebar.css';
-import { CollapseIcon } from '../icons';
-import { cn } from '@utils/cn';
-import { useSidebar } from '@/provider/sidebar-provider';
-import { CustomInput } from '../input/Input';
 export default function SideBar() {
   const { isSidebarOpen, setIsSidebarOpen } = useSidebar();
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.ctrlKey && event.key === '\\') {
-      setIsSidebarOpen(!isSidebarOpen);
-    }
-  };
 
   useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key === '\\') {
+        setIsSidebarOpen(!isSidebarOpen);
+      }
+    };
     window.addEventListener('keydown', handleKeyDown);
 
     // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isSidebarOpen]);
+  }, [isSidebarOpen, setIsSidebarOpen]);
   return (
     <aside
       className={cn(

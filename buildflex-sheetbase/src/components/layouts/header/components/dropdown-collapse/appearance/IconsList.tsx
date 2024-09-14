@@ -1,6 +1,7 @@
 import {
   Cake,
   Cd,
+  Chart,
   Chrome,
   Coffee,
   Crown,
@@ -12,13 +13,11 @@ import {
   Home,
   I3Dcube,
   Ranking,
-  Chart,
   Share,
   Speedometer,
   Story,
   Triangle,
 } from 'iconsax-react';
-import React from 'react';
 export interface IIConList {
   name: string;
   icon: JSX.Element;

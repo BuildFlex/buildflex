@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './highlight-textarea.css';
-import { Example } from './expample';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
+import React, { useEffect, useRef, useState } from 'react';
+import { Example } from './expample';
+import './highlight-textarea.css';
 
 interface HighlightTextareaProps {
   keywords: string[];

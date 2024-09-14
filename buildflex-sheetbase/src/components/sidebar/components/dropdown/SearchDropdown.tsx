@@ -1,10 +1,9 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
-import { cn } from '@/utils/cn';
-import { Dropdown, Input, MenuProps } from 'antd';
+import { Dropdown, MenuProps } from 'antd';
 import { Element3, Home2, SearchNormal1, Share } from 'iconsax-react';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 const items: MenuProps['items'] = [
   {
     key: 'section-1',

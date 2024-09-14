@@ -1,7 +1,6 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { CloseIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { cn } from '@/utils/cn';
 import { Modal, Switch } from 'antd';
 import React, { useState } from 'react';
 

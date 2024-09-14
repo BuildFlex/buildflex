@@ -1,7 +1,6 @@
 import Text from '@/components/typography/Text';
 import { useTheme } from '@/provider/theme-provider';
 import { cn } from '@/utils/cn';
-import React from 'react';
 
 const CreateLink = () => {
   const { theme } = useTheme();

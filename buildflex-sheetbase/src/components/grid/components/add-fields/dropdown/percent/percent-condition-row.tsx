@@ -7,14 +7,11 @@ import {
   MoveIcon,
   NotEqualSignIcon,
 } from '@/components/icons';
-import Text from '@/components/typography/Text';
-import { Input, Select, Space } from 'antd';
-import { Trash } from 'iconsax-react';
-import React from 'react';
-import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
 import { CustomInput } from '@/components/input/Input';
-import { cn } from '@/utils/cn';
+import Text from '@/components/typography/Text';
 import FieldSelect from '@/components/view-filter/grid-filter/filter/components/FieldSelect';
+import { cn } from '@/utils/cn';
+import { Trash } from 'iconsax-react';
 interface PercentConditionRowProps {
   isFirstRow?: boolean;
   className?: string;

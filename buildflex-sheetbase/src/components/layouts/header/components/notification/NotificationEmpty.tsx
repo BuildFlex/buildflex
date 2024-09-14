@@ -1,6 +1,5 @@
 import NotiEmptyIcon from '@/components/common/NotiEmptyIcon';
 import Text from '@/components/typography/Text';
-import React from 'react';
 
 const NotificationEmpty = () => {
   return (

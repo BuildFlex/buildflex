@@ -1,37 +1,9 @@
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import {
-  ArrowRotate,
-  CloseIcon,
-  LaptopIcon,
-  MoreVert,
-  QuestionCircle,
-} from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { useTheme } from '@/provider/theme-provider';
-import { cn } from '@/utils/cn';
-import { Dropdown, Input, MenuProps } from 'antd';
-import {
-  ArrowRight2,
-  CodeCircle,
-  Document,
-  Edit2,
-  Element3,
-  Folder2,
-  Gift,
-  Global,
-  Home2,
-  Message,
-  MessageQuestion,
-  SearchNormal1,
-  Share,
-  Sms,
-  Trash,
-  Video,
-} from 'iconsax-react';
-import React, { useState } from 'react';
+import { MessageQuestion } from 'iconsax-react';
+import { useState } from 'react';
 import HelpSidebar from './HelpSidebar';
 
-const HelpButton = ({ className }: { className?: string }) => {
+const HelpButton = () => {
   const [isHelpOpen, setIsHelpOpen] = useState(false);
 
   const handleClose = () => setIsHelpOpen(false);

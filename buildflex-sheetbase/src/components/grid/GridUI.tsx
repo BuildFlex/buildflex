@@ -1,12 +1,11 @@
-import GridTableFooter from './components/table/footer';
-import GridTableHeader from './components/table/header';
-import { fields } from '../view-filter/components/dropdown-render/HideFieldDropdownRender';
 import { useSidebar } from '@/provider/sidebar-provider';
 import { cn } from '@/utils/cn';
-import GridTabBody from './components/table/body';
 import { MoveToIcon } from '../icons';
+import { fields } from '../view-filter/components/dropdown-render/HideFieldDropdownRender';
 import AddMoreModal from './add-more/add-more-modal';
-import AddMoreButton from './add-more/add-more-button';
+import GridTabBody from './components/table/body';
+import GridTableFooter from './components/table/footer';
+import GridTableHeader from './components/table/header';
 export const gridTableFields = [
   {
     id: 'link-to-another-record',

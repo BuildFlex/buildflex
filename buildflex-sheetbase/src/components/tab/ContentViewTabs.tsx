@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Grid1, Calendar, Gallery, Add, More, Magicpen } from 'iconsax-react';
-import GridFilter from '../view-filter/grid-filter/GridFilter';
-import AIChatDrawer from '../extensions/ai-chat';
+import { useTheme } from '@/provider/theme-provider';
 import { cn } from '@/utils/cn';
+import { Add, Calendar, Gallery, Grid1 } from 'iconsax-react';
+import React, { useCallback, useState } from 'react';
+import AIChatDrawer from '../extensions/ai-chat';
+import GridUI from '../grid/GridUI';
 import { MoreVert, SparklesIcon } from '../icons';
 import Text from '../typography/Text';
-import { useTheme } from '@/provider/theme-provider';
+import GridFilter from '../view-filter/grid-filter/GridFilter';
 import './grid-filter.css';
-import GridUI from '../grid/GridUI';
 interface Tab {
   id: string;
   icon: React.ElementType;
@@ -58,11 +58,9 @@ const TabComponent: React.FC = () => {
     return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
   };
 
-  const handleAddView = () => {
-    console.log('Add new view');
-    // Implement logic to add a new view
-  };
-
+  const handleDrawerClose = useCallback(() => setIsDrawerOpen(false), []);
+  const handleDrawerOpen = useCallback(() => setIsDrawerOpen(true), []);
+  const handleSetTab = useCallback((tabId: string) => setActiveTab(tabId), []);
   return (
     <div className="flex flex-col  flex-1 h-full ">
       <div className=" flex items-center box-border bg-gray-50 overflow-x-auto min-h-[32px]">
@@ -78,7 +76,7 @@ const TabComponent: React.FC = () => {
                   ? 'bg-white text-blue-600'
                   : 'text-gray-600 bg-gray-50 hover:bg-white',
               )}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => handleSetTab(tab.id)}
             >
               <Icon size={16} className="mr-2" />
               <Text
@@ -96,17 +94,14 @@ const TabComponent: React.FC = () => {
             </button>
           );
         })}
-        <button
-          className="flex items-center px-2 h-8 bg-transparent text-neutral-dark-300 hover:bg-gray-100 border-none cursor-pointer"
-          onClick={handleAddView}
-        >
+        <button className="flex items-center px-2 h-8 bg-transparent text-neutral-dark-300 hover:bg-gray-100 border-none cursor-pointer">
           <Add size={16} className="mr-2" />
           <Text as="span" variant="B2-Regular" className="whitespace-nowrap">
             Add view
           </Text>
         </button>
         <button
-          onClick={() => setIsDrawerOpen(true)}
+          onClick={handleDrawerOpen}
           className={cn(
             'flex gap-2 items-center px-2 py-[7px] box-border  text-white border-none cursor-pointer ml-auto rounded-tl',
             theme.linearBackground,
@@ -117,10 +112,7 @@ const TabComponent: React.FC = () => {
             AI chat tool
           </Text>
         </button>
-        <AIChatDrawer
-          isOpen={isDrawerOpen}
-          onClose={() => setIsDrawerOpen(false)}
-        />
+        <AIChatDrawer isOpen={isDrawerOpen} onClose={handleDrawerClose} />
       </div>
       <div className="flex-1 flex flex-col">
         {tabs.find((tab) => tab.id === activeTab)?.content}

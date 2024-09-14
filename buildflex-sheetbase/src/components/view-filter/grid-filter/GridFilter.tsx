@@ -1,32 +1,28 @@
-import React, { ReactNode, useState } from 'react';
+import Text from '@/components/typography/Text';
+import { cn } from '@/utils/cn';
+import { Dropdown, MenuProps } from 'antd';
 import {
-  Grid1,
+  ArrowDown2,
+  Bucket,
   EyeSlash,
   Filter,
+  Grid1,
   Hashtag,
-  Sort,
-  Bucket,
+  People,
   Pharagraphspacing,
   Share,
-  ArrowDown2,
-  People,
+  Sort,
 } from 'iconsax-react';
-import HideFieldsPopup from './hide-field';
-import Text from '@/components/typography/Text';
-import { Dropdown, MenuProps } from 'antd';
-import { gridViewItems } from '../components/dropdown-items/gridview-dropdown-items';
-import { fieldsItems } from '../components/dropdown-items/fields-dropdown-items';
-import { cn } from '@/utils/cn';
-import HideFieldDropdownRender from '../components/dropdown-render/HideFieldDropdownRender';
-import GroupDropdownRender from '../components/dropdown-render/GroupDropdownRender';
-import FilterDropdownRender from '../components/dropdown-render/FilterDropdownRender';
-import SortDropdownRender from '../components/dropdown-render/SortDropdownRender';
-import RowHeightItems from '../components/dropdown-items/row-height-items';
-import ShareAndSyncItems from '../components/dropdown-items/share-and-sync-items';
-import ShareAndSyncDropdownRender from '../components/dropdown-render/ShareAndSyncDropdownRender';
+import React, { ReactNode, useCallback, useState } from 'react';
 import ColorDropdownRender from '../components/dropdown-render/ColorDropdownRender';
-import ViewDropdownRender from '../components/dropdown-render/ViewDropdownRender';
+import FilterDropdownRender from '../components/dropdown-render/FilterDropdownRender';
+import GroupDropdownRender from '../components/dropdown-render/GroupDropdownRender';
+import HideFieldDropdownRender from '../components/dropdown-render/HideFieldDropdownRender';
 import RowHeightRender from '../components/dropdown-render/RowHeightRender';
+import ShareAndSyncDropdownRender from '../components/dropdown-render/ShareAndSyncDropdownRender';
+import SortDropdownRender from '../components/dropdown-render/SortDropdownRender';
+import ViewDropdownRender from '../components/dropdown-render/ViewDropdownRender';
+import HideFieldsPopup from './hide-field';
 
 interface FilterItem {
   id: string;
@@ -123,28 +119,13 @@ const filterItems: FilterItem[] = [
 
 const GridFilter: React.FC = () => {
   const [activePopup, setActivePopup] = useState<string | null>(null);
-
-  const [showHideFields, setShowHideFields] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleFilterClick = (id: string) => {
-    // if (id === 'fields') {
-    //   setShowHideFields(!showHideFields);
-    // } else {
-    //   setActivePopup(activePopup === id ? null : id);
-    // }
-    setActivePopup(activePopup === id ? null : id);
-  };
+  const handleFilterClick = useCallback(
+    (id: string) => () => setActivePopup(activePopup === id ? null : id),
+    [activePopup],
+  );
 
-  const renderPopup = (item: FilterItem) => {
-    if (activePopup !== item.id) return null;
-
-    return (
-      <div className="absolute mt-2 p-4 bg-white shadow-lg rounded-md z-10">
-        <HideFieldsPopup onClose={() => setShowHideFields(false)} />
-      </div>
-    );
-  };
   const dropdownRender = (menu: ReactNode) => {
     switch (activePopup) {
       case 'view':
@@ -189,7 +170,7 @@ const GridFilter: React.FC = () => {
         >
           <button
             className="flex items-center whitespace-nowrap h-[18px]  p-0 rounded   text-sm text-neutral-dark-500 border-none bg-transparent cursor-pointer "
-            onClick={() => handleFilterClick(item.id)}
+            onClick={handleFilterClick(item.id)}
             id={item.id}
           >
             <item.icon size={16} className="mr-2 " />

@@ -1,20 +1,10 @@
-import React, { useState } from 'react';
-import LinkContent from './link-content';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import Text from '@/components/typography/Text';
-import { Divider, MenuProps, Switch } from 'antd';
-import {
-  ArrowCircleLeft2,
-  ArrowRight2,
-  ArrowRotateLeft,
-  Code,
-  Flash,
-  Keyboard,
-  Link,
-} from 'iconsax-react';
 import { CloseIcon, QuestionCircle } from '@/components/icons';
-import { ReloadOutlined } from '@ant-design/icons';
+import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
+import { Divider } from 'antd';
+import { ArrowCircleLeft2, ArrowRotateLeft } from 'iconsax-react';
+import React from 'react';
 import { ShareAndSyncTab } from '../../components/dropdown-render/ShareAndSyncDropdownRender';
 import SettingConfirmModal from './setting-confirm-modal';
 const SettingTab = ({
@@ -26,11 +16,6 @@ const SettingTab = ({
   setActiveTab: React.Dispatch<React.SetStateAction<ShareAndSyncTab | null>>;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const [link, setLink] = useState<string>('');
-
-  const handelCreateNewLink = () => {
-    setLink('https://Sheetbase.com/appiwzBBI7kDUZrQn/shr68UnHOGkKQirEH');
-  };
   return (
     <div
       className={cn(
@@ -39,10 +24,7 @@ const SettingTab = ({
       )}
     >
       {/* Headeer */}
-      <DropdownItem
-        onClick={handelCreateNewLink}
-        className="text-neutral-dark-500 "
-      >
+      <DropdownItem className="text-neutral-dark-500 ">
         <ArrowCircleLeft2
           onClick={() => setActiveTab(null)}
           color="#0D7FAB"

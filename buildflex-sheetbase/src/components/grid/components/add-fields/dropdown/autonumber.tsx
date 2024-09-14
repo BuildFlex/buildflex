@@ -1,9 +1,9 @@
-import React from 'react';
-import { ArrowDown2, Link, UserTick } from 'iconsax-react';
 import Text from '@/components/typography/Text';
+import { ArrowDown2 } from 'iconsax-react';
+import React from 'react';
 
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 import { AutoNumberIcon } from '@/components/icons';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 
 interface AutoNumberDropdownProps {
   onChangeDropdown: (value: IField | null) => void;

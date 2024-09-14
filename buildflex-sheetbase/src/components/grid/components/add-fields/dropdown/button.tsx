@@ -1,16 +1,15 @@
-import React, { ElementType, useState } from 'react';
-import { ArrowDown2, Call, Element4, Link } from 'iconsax-react';
 import Text from '@/components/typography/Text';
+import { ArrowDown2, Element4, Link } from 'iconsax-react';
+import React, { useState } from 'react';
 
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
-import { CursorDefaultIcon } from '@/components/icons';
-import Select from '@/components/select/select';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { CursorDefaultIcon } from '@/components/icons';
 import { CustomInput } from '@/components/input/Input';
 import ButtonStyleSelect, {
   IButtonStyle,
 } from '@/components/select/button-style-select';
 import CustomSelect from '@/components/select/custom-select';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 
 interface ButtonDropdownProps {
   onChangeDropdown: (value: IField | null) => void;

@@ -1,7 +1,7 @@
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
 import { ArrowRight2 } from 'iconsax-react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const CategoryFooter = () => {
   const [currentPage, setCurrentPage] = useState(1);

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Add, ArrowDown2, Danger, Math } from 'iconsax-react';
-import Text from '@/components/typography/Text';
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { MoveToIcon, QuestionCircle } from '@/components/icons';
 import CustomSelect from '@/components/select/custom-select';
-import { Switch } from 'antd';
+import Text from '@/components/typography/Text';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 import ConditionRow from '@/components/view-filter/grid-filter/filter/components/ConditionRow';
 import { cn } from '@/utils/cn';
+import { Switch } from 'antd';
+import { Add, ArrowDown2, Danger, Math } from 'iconsax-react';
+import React, { useState } from 'react';
 
 interface CountDropdownProps {
   onChangeDropdown: (value: IField | null) => void;

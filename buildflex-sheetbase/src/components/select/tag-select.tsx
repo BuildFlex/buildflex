@@ -1,10 +1,10 @@
-import { AddSquare, ArrowDown2 } from 'iconsax-react';
-import React, { useState } from 'react';
-import DropdownItem from '../common/dropdown/DropdownItem';
-import Text from '../typography/Text';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
+import { ArrowDown2 } from 'iconsax-react';
+import React, { useState } from 'react';
+import DropdownItem from '../common/dropdown/DropdownItem';
 import Tag from '../sidebar/components/dropdown/TeamTag';
+import Text from '../typography/Text';
 interface ITag {
   id: string;
   name: string;

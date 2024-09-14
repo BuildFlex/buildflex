@@ -1,13 +1,7 @@
 import Text from '@/components/typography/Text';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
-import {
-  Add,
-  ArrowCircleDown,
-  ArrowCircleDown2,
-  ArrowDown,
-  Maximize4,
-} from 'iconsax-react';
+import { Add, ArrowCircleDown2 } from 'iconsax-react';
 import React from 'react';
 import AttachmentCellModal from './modal/attachment-cell-modal';
 interface AttachmentCellProps {

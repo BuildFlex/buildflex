@@ -1,11 +1,10 @@
-import Text from '@/components/typography/Text';
-import { Divider, Input, Select, Space } from 'antd';
-import { Add, ArrowDown2 } from 'iconsax-react';
-import React, { useState } from 'react';
-import { SortByLabel } from '../../sort/SortConditionRow';
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
-import { CustomInput } from '@/components/input/Input';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { CustomInput } from '@/components/input/Input';
+import Text from '@/components/typography/Text';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import { Select } from 'antd';
+import { ArrowDown2 } from 'iconsax-react';
+import React, { useState } from 'react';
 interface SelectProps {
   style?: React.CSSProperties;
   initialValue?: IField | string;

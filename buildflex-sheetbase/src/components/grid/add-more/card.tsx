@@ -1,6 +1,5 @@
-import React from 'react';
-import Text from '@/components/typography/Text';
 import CustomChartIcon from '@/components/icons/custom-chart-icon';
+import Text from '@/components/typography/Text';
 
 const Card = ({
   title,

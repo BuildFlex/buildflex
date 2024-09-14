@@ -1,11 +1,8 @@
-import { AddSquare, ArrowDown2 } from 'iconsax-react';
-import React, { useState } from 'react';
-import DropdownItem from '../common/dropdown/DropdownItem';
-import Text from '../typography/Text';
-import Tag from '../sidebar/components/dropdown/TeamTag';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
-import { SortByLabel } from '../view-filter/grid-filter/sort/SortConditionRow';
+import { ArrowDown2 } from 'iconsax-react';
+import React from 'react';
+import DropdownItem from '../common/dropdown/DropdownItem';
 interface IColorItems {
   id: string;
   label: React.ElementType;

@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { ArrowDown2, Hashtag } from 'iconsax-react';
+import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { CustomInput } from '@/components/input/Input';
+import Select from '@/components/select/select';
 import Text from '@/components/typography/Text';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 import { cn } from '@/utils/cn';
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import Select from '@/components/select/select';
 import { Switch } from 'antd';
-import { CustomInput } from '@/components/input/Input';
+import { ArrowDown2, Hashtag } from 'iconsax-react';
+import React, { useState } from 'react';
 import DropdownTab from '../components/dropdown-tab';
 
 interface NumberDropdownProps {

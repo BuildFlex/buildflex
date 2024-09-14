@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { Add, ArrowDown2, Danger, Math, SearchStatus } from 'iconsax-react';
-import Text from '@/components/typography/Text';
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { CheckBoxIcon, MoveToIcon, QuestionCircle } from '@/components/icons';
 import CustomSelect from '@/components/select/custom-select';
-import { Switch } from 'antd';
+import Select from '@/components/select/select';
+import Text from '@/components/typography/Text';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
 import ConditionRow from '@/components/view-filter/grid-filter/filter/components/ConditionRow';
 import { cn } from '@/utils/cn';
+import { Switch } from 'antd';
+import { Add, ArrowDown2, Danger, SearchStatus } from 'iconsax-react';
+import React, { useState } from 'react';
 import DropdownTab from '../components/dropdown-tab';
-import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
-import Select from '@/components/select/select';
 
 interface LookUpDropdownProps {
   onChangeDropdown: (value: IField | null) => void;

@@ -1,28 +1,28 @@
-import React, { useState, useRef, useEffect } from 'react';
 import {
+  ArrowCircleDown,
+  Barcode,
+  Calendar,
+  CalendarTick,
+  Call,
+  Chart,
+  Clock,
+  DocumentText,
+  DollarCircle,
+  Hashtag,
+  Link,
+  Math,
+  PercentageCircle,
+  SearchStatus,
+  Sms,
+  Star,
+  Task,
   Text,
   TextalignJustifycenter,
-  DocumentText,
   TickSquare,
-  Task,
-  ArrowCircleDown,
   User,
-  Calendar,
-  Call,
-  Sms,
-  Link,
-  Hashtag,
-  DollarCircle,
-  PercentageCircle,
-  Clock,
-  Star,
-  Chart,
-  Math,
-  SearchStatus,
-  CalendarTick,
   UserTick,
-  Barcode,
 } from 'iconsax-react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 interface Field {
   icon: JSX.Element;
@@ -161,7 +161,12 @@ const FindAField: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [fields, setFields] = useState<Field[]>(initFields);
   const popupRef = useRef<HTMLDivElement>(null);
-
+  const handleSearch = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchTerm(event.target.value);
+    },
+    [],
+  );
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (
@@ -183,17 +188,22 @@ const FindAField: React.FC = () => {
     field.label.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
-  const handleToggle = (index: number) => {
-    const updatedFields = [...fields];
-    updatedFields[index].isChecked = !updatedFields[index].isChecked;
-    setFields(updatedFields);
-  };
-
+  const handleToggle = useCallback(
+    (index: number) => () => {
+      const updatedFields = [...fields];
+      updatedFields[index].isChecked = !updatedFields[index].isChecked;
+      setFields(updatedFields);
+    },
+    [fields],
+  );
+  const handleOpen = useCallback(() => {
+    setIsOpen(!isOpen);
+  }, [isOpen]);
   return (
     <div className={'relative'}>
       <button
         className="px-4 py-2 bg-blue-500 text-white rounded"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleOpen}
       >
         Open Popup
       </button>
@@ -207,7 +217,7 @@ const FindAField: React.FC = () => {
               type="text"
               placeholder="Find a field"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={handleSearch}
               className="w-full px-3 py-2 box-border border-none text-gray-700 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-100"
             />
             <ul className="p-0">
@@ -223,7 +233,7 @@ const FindAField: React.FC = () => {
                       type="checkbox"
                       className="hidden"
                       checked={field.isChecked}
-                      onChange={() => handleToggle(index)}
+                      onChange={handleToggle(index)}
                     />
                     <span
                       className={`relative w-10 h-5 rounded-full transition-colors duration-300 ${
@@ -234,7 +244,7 @@ const FindAField: React.FC = () => {
                         className={`absolute left-0 top-0 w-5 h-5 bg-white rounded-full shadow transform transition-transform duration-300 ${
                           field.isChecked ? 'translate-x-5' : ''
                         }`}
-                      ></span>
+                      />
                     </span>
                   </label>
                 </li>

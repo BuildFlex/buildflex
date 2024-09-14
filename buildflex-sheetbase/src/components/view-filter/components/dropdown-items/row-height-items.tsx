@@ -7,7 +7,6 @@ import {
 } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { MenuProps } from 'antd';
-import React from 'react';
 
 export const RowHeightItems: MenuProps['items'] = [
   {

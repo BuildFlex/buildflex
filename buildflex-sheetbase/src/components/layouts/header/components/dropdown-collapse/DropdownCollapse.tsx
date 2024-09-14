@@ -1,12 +1,12 @@
-import { Collapse, CollapseProps, Divider } from 'antd';
-import { ArrowDown2, ArrowRight2 } from 'iconsax-react';
-import ProjectThemeSelector from './appearance/ProjectThemesSelector';
-import IconsSelector from './appearance/IconsSelector';
-import BaseGuideContent from './base-guide/BaseGuideContent';
-import { useState } from 'react';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
+import { Divider } from 'antd';
+import { ArrowRight2 } from 'iconsax-react';
+import { useState } from 'react';
+import IconsSelector from './appearance/IconsSelector';
+import ProjectThemeSelector from './appearance/ProjectThemesSelector';
+import BaseGuideContent from './base-guide/BaseGuideContent';
 
 const DropdownCollapse = () => {
   const [activeTab, setActiveTab] = useState<string>('');

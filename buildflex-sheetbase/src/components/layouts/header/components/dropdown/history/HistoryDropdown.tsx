@@ -1,26 +1,12 @@
-import {
-  MoreVert,
-  RedoIcon,
-  UndoIcon,
-  UnorderedListIcon,
-} from '@/components/icons';
+import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { RedoIcon, UndoIcon, UnorderedListIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
-import { UnorderedListOutlined } from '@ant-design/icons';
-import { Divider, Dropdown, MenuProps } from 'antd';
-import {
-  ArrowCircleLeft,
-  ArrowRight2,
-  Clock,
-  Copy,
-  InfoCircle,
-  Slack,
-  Trash,
-} from 'iconsax-react';
+import { Divider, Dropdown } from 'antd';
+import { ArrowRight2, Clock, Trash } from 'iconsax-react';
 import { useState } from 'react';
-import SnapshotSubmenu from './SnapshotSubmenu';
 import RecordRevisionHistorySubmenu from './RecordRevisionHistorySubmenu';
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import SnapshotSubmenu from './SnapshotSubmenu';
 
 const HistoryDropdown = () => {
   const [activeItem, setActiveItem] = useState<string | null>(null);

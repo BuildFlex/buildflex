@@ -1,17 +1,16 @@
-import { ArrowRotate, CloseIcon } from '@/components/icons';
+import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { ArrowRotate } from '@/components/icons';
+import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
 import { useTheme } from '@/provider/theme-provider';
 import { cn } from '@/utils/cn';
-import React, { useState } from 'react';
-import { Input } from 'antd';
 import { ArrowRight2, SearchNormal1 } from 'iconsax-react';
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { useState } from 'react';
 import AdditionalResources from './AdditionalResources';
 import HelpTitle from './HelpTitle';
 import BuildWithSheetbase from './tab/BuildWithSheetbase';
 import ManagingYourWork from './tab/ManagingYourWork';
 import SharingYourBase from './tab/SharingYourBase';
-import { CustomInput } from '@/components/input/Input';
 interface HelpSidebarProps {
   onClose: () => void;
 }

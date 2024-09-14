@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import { ArrowDown2, Hashtag, SearchNormal1, UserTick } from 'iconsax-react';
+import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { gridTableFields } from '@/components/grid/GridUI';
+import { CloseIcon } from '@/components/icons';
+import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
-import { cn } from '@/utils/cn';
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import { Modal, Switch } from 'antd';
-import { CustomInput } from '@/components/input/Input';
-import { CloseIcon, MoveIcon, QuestionCircle } from '@/components/icons';
-import { gridTableFields } from '@/components/grid/GridUI';
 import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
+import { Modal, Switch } from 'antd';
+import { ArrowDown2, SearchNormal1, UserTick } from 'iconsax-react';
+import React, { useState } from 'react';
 import DropdownTab from '../components/dropdown-tab';
 
 interface LastModiFiedByDropdownProps {

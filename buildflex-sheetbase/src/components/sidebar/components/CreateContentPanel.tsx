@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import {
-  Add,
-  Grid1,
-  DocumentText,
-  Clock,
-  Icon as IconType,
-  ElementEqual,
-  Folder2,
-  ArrowRight2,
-} from 'iconsax-react';
+import { PlusIcon } from '@/components/icons';
+import Text from '@/components/typography/Text';
 import { useTheme } from '@provider/theme-provider';
 import { cn } from '@utils/cn';
-import Text from '@/components/typography/Text';
-import { PlusIcon } from '@/components/icons';
+import {
+  ArrowRight2,
+  Clock,
+  DocumentText,
+  ElementEqual,
+  Folder2,
+  Grid1,
+  Icon as IconType,
+} from 'iconsax-react';
+import React, { useCallback, useState } from 'react';
 import CreateTableDropdown from './dropdown/CreateTableDropdown';
 
 interface MenuItemProps {
@@ -41,7 +40,10 @@ const MenuItem: React.FC<MenuItemProps> = ({ icon: Icon, label }) => {
 
 const CreateContentPanel: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
+  const handleOpen = useCallback(() => {
+    setIsOpen(!isOpen);
+  }, [isOpen]);
   return (
     <div
       className={cn(
@@ -52,7 +54,7 @@ const CreateContentPanel: React.FC = () => {
       <div className={cn(' text-white')}>
         <button
           className="flex w-full justify-between  bg-gray-500/20 items-center px-4 h-9 cursor-pointer"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleOpen}
         >
           <Text as="span" variant="B2-Medium" className="h-[18px]">
             Create New

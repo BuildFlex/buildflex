@@ -1,6 +1,6 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import Text from '@/components/typography/Text';
-import { ArrowRight2, Code, Setting2 } from 'iconsax-react';
+import { ArrowRight2, Setting2 } from 'iconsax-react';
 import React from 'react';
 import { ShareAndSyncTab } from '../../components/dropdown-render/ShareAndSyncDropdownRender';
 

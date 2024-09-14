@@ -1,12 +1,11 @@
-import { Input } from 'antd';
-import React from 'react';
-import { ArrowDown, ArrowDown2, SearchNormal1 } from 'iconsax-react';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
+import { ArrowDown2, SearchNormal1 } from 'iconsax-react';
+import React from 'react';
 import { IField } from '../../components/dropdown-render/GroupDropdownRender';
 import { fields } from '../../components/dropdown-render/HideFieldDropdownRender';
-import { CustomInput } from '@/components/input/Input';
 
 interface FindColorFieldProps {
   searchPlaceholder: string;

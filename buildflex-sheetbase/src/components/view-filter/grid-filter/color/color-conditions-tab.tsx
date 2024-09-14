@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { QuestionCircle } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
-import { ColorTab } from '../../components/dropdown-render/ColorDropdownRender';
-import { CloseIcon, QuestionCircle } from '@/components/icons';
-import { fields as initialFields } from '../../components/dropdown-render/HideFieldDropdownRender';
-import { IField } from '../../components/dropdown-render/GroupDropdownRender';
-import { FilterConditionType } from '../../components/dropdown-render/FilterDropdownRender';
-import ConditionRow from '../filter/components/ConditionRow';
-import ConditionGroupRow from '../filter/components/ConditionGroupRow';
 import { Add } from 'iconsax-react';
+import React from 'react';
+import { ColorTab } from '../../components/dropdown-render/ColorDropdownRender';
+import { FilterConditionType } from '../../components/dropdown-render/FilterDropdownRender';
 import ColorConditionCollapse from './color-condition-collapse';
 const filterConditions = [
   {
@@ -72,7 +68,7 @@ const ColorConditionsTab = ({
   className?: string;
   setActiveTab: React.Dispatch<React.SetStateAction<ColorTab | null>>;
 }) => {
-  const [colorConditions, setColorConditions] = useState<any[]>([
+  const colorConditions = [
     {
       key: '1',
       label: 'Define a condition',
@@ -97,7 +93,7 @@ const ColorConditionsTab = ({
       color: 'white',
       isLast: true,
     },
-  ]);
+  ];
 
   return (
     <div

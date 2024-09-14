@@ -1,8 +1,7 @@
-import React from 'react';
-import { ArrowDown2, Link, Sms } from 'iconsax-react';
 import Text from '@/components/typography/Text';
-
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import { ArrowDown2, Sms } from 'iconsax-react';
+import React from 'react';
 
 interface EmailDropdownProps {
   onChangeDropdown: (value: IField | null) => void;

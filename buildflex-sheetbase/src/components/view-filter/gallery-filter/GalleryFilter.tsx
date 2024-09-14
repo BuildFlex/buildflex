@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
 import {
-  Grid1,
+  ArrowDown2,
+  Bucket,
   EyeSlash,
   Filter,
+  Grid1,
   Hashtag,
-  Sort,
-  Bucket,
   Pharagraphspacing,
   Share,
-  ArrowDown2,
+  Sort,
 } from 'iconsax-react';
+import React, { useCallback, useState } from 'react';
 import HideFieldsPopup from './hide-field';
 
 interface FilterItem {
@@ -91,23 +91,25 @@ const filterItems: FilterItem[] = [
 
 const GalleryFilter: React.FC = () => {
   const [activePopup, setActivePopup] = useState<string | null>(null);
-
   const [showHideFields, setShowHideFields] = useState(false);
 
-  const handleFilterClick = (id: string) => {
-    if (id === 'fields') {
-      setShowHideFields(!showHideFields);
-    } else {
-      setActivePopup(activePopup === id ? null : id);
-    }
-  };
-
+  const handleFilterClick = useCallback(
+    (id: string) => () => {
+      if (id === 'fields') {
+        setShowHideFields(!showHideFields);
+      } else {
+        setActivePopup(activePopup === id ? null : id);
+      }
+    },
+    [activePopup, showHideFields],
+  );
+  const handleClose = useCallback(() => setShowHideFields(false), []);
   const renderPopup = (item: FilterItem) => {
     if (activePopup !== item.id) return null;
 
     return (
       <div className="absolute mt-2 p-4 bg-white shadow-lg rounded-md z-10">
-        <HideFieldsPopup onClose={() => setShowHideFields(false)} />
+        <HideFieldsPopup onClose={handleClose} />
       </div>
     );
   };
@@ -118,7 +120,7 @@ const GalleryFilter: React.FC = () => {
         <div key={item.id} className="relative">
           <button
             className="flex items-center px-2 py-2 rounded-md text-sm text-neutral-dark-500 border-none bg-transparent cursor-pointer hover:bg-gray-100"
-            onClick={() => handleFilterClick(item.id)}
+            onClick={handleFilterClick(item.id)}
           >
             <item.icon size={16} className="mr-2" />
             <span>{item.label}</span>

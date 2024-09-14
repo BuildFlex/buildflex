@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import Text from '@/components/typography/Text';
-import { ArrowCircleDown, Setting5 } from 'iconsax-react';
 import { cn } from '@/utils/cn';
+import { ArrowCircleDown, Setting5 } from 'iconsax-react';
+import React from 'react';
 import { ColorTab } from '../../components/dropdown-render/ColorDropdownRender';
 const MainTab = ({
   className,

@@ -1,7 +1,6 @@
 import { useTheme } from '@/provider/theme-provider';
 import { Dropdown } from 'antd';
 import { Notification } from 'iconsax-react';
-import React from 'react';
 import NotiModal from './NotiModal';
 
 const NotiButton = () => {
