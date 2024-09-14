@@ -1,9 +1,10 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import { CheckBoxIcon, QuestionCircle } from '@/components/icons';
+import { CheckBoxIcon } from '@/components/icons';
+import Tag from '@/components/sidebar/components/dropdown/TeamTag';
 import Text from '@/components/typography/Text';
+import { Divider } from 'antd';
 import {
   ArrowRight2,
-  Category2,
   Copy,
   DocumentDownload,
   Edit2,
@@ -13,12 +14,6 @@ import {
   User,
 } from 'iconsax-react';
 import React, { useState } from 'react';
-import SortConditionRow from '../../grid-filter/sort/SortConditionRow';
-import AddSortRow from '../../grid-filter/sort/AddSortRow';
-import FindField from '../../grid-filter/sort/FindField';
-import { fields as initialFields } from './HideFieldDropdownRender';
-import Tag from '@/components/sidebar/components/dropdown/TeamTag';
-import { Divider } from 'antd';
 
 export interface IField {
   id: string;

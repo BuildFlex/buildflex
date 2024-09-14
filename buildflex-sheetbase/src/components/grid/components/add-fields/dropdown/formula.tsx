@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { ArrowDown2 } from 'iconsax-react';
-import Text from '@/components/typography/Text';
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { FormulaIcon, SparklesIcon } from '@/components/icons';
+import Text from '@/components/typography/Text';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import { ArrowDown2 } from 'iconsax-react';
+import React, { useState } from 'react';
 import DropdownTab from '../components/dropdown-tab';
 import HighlightedTextarea from '../components/highlight-textarea';
 

@@ -1,22 +1,10 @@
-import React, { useState } from 'react';
-import LinkContent from './link-content';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import Text from '@/components/typography/Text';
-import { Divider, MenuProps, Switch } from 'antd';
-import {
-  ArrowCircleLeft2,
-  ArrowRight2,
-  ArrowRotateLeft,
-  Code,
-  Flash,
-  Flashy,
-  Keyboard,
-  Link,
-} from 'iconsax-react';
-import { CloseIcon, QuestionCircle } from '@/components/icons';
-import { ReloadOutlined } from '@ant-design/icons';
 import Tag from '@/components/sidebar/components/dropdown/TeamTag';
+import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
+import { Divider, Switch } from 'antd';
+import { ArrowCircleLeft2, Flash, Flashy, Link } from 'iconsax-react';
+import React, { useState } from 'react';
 import { ShareAndSyncTab } from '../../components/dropdown-render/ShareAndSyncDropdownRender';
 const SyncDataTab = ({
   className,
@@ -29,6 +17,7 @@ const SyncDataTab = ({
 
   const handelCreateNewLink = () => {
     setLink('https://Sheetbase.com/appiwzBBI7kDUZrQn/shr68UnHOGkKQirEH');
+    console.log('link', link);
   };
   return (
     <div

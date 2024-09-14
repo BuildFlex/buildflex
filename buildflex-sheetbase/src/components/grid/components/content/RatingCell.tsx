@@ -1,10 +1,9 @@
 import { RateStarFilledIcon, RateStarIcon } from '@/components/icons';
-import Text from '@/components/typography/Text';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
 import { Dropdown } from 'antd';
-import { ArrowDown2, Star } from 'iconsax-react';
-import React from 'react';
+import { ArrowDown2 } from 'iconsax-react';
+import React, { useId } from 'react';
 interface RatingCellProps {
   rating: number;
   className?: string;
@@ -15,6 +14,7 @@ const RatingCell = ({ rating, className }: RatingCellProps) => {
   const ref = useOutsideClick(() => {
     !isDropdownOpen && setIsFocus(false);
   });
+  const id = useId();
   const handleDropdownVisible = (isOpen: boolean) => setIsDropdownOpen(isOpen);
   return (
     <div
@@ -28,9 +28,9 @@ const RatingCell = ({ rating, className }: RatingCellProps) => {
     >
       {Array.from({ length: 5 }).map((_, index) =>
         index < rating ? (
-          <RateStarFilledIcon className="size-5" key={index} />
+          <RateStarFilledIcon className="size-5" key={`${id}-${index}`} />
         ) : (
-          <RateStarIcon className="size-5" key={index} />
+          <RateStarIcon className="size-5" key={`${id}-${index}`} />
         ),
       )}
       {isFocus && (
@@ -64,6 +64,7 @@ const RattingDropdown = ({
   children?: React.ReactNode;
 }) => {
   const [value, setValue] = React.useState(-1);
+  const id = useId();
   return (
     <Dropdown
       trigger={['click']}
@@ -74,7 +75,7 @@ const RattingDropdown = ({
         <div className="flex gap-2 h-9 box-border p-2 rounded-lg w-[180px]">
           {Array.from({ length: 5 }).map((_, index) => (
             <div
-              key={index}
+              key={`${id}-${index}`}
               className="size-5 "
               onMouseEnter={() => setValue(index)}
             >

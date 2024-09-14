@@ -1,13 +1,11 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { gridTableFields } from '@/components/grid/GridUI';
 import { SparklesIcon } from '@/components/icons';
-import TagSelect from '@/components/select/tag-multiple-select';
 import Tag from '@/components/sidebar/components/dropdown/TeamTag';
 import Text from '@/components/typography/Text';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 import FindField from '@/components/view-filter/grid-filter/sort/FindField';
 import { ArrowRight2 } from 'iconsax-react';
-import React from 'react';
 interface MainDropdownProps {
   onChangeDropdown: (value: IField) => void;
 }

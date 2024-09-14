@@ -1,7 +1,6 @@
-import React from 'react';
-import ContentViewTabs from '@components/tab/ContentViewTabs';
 import { useSidebar } from '@/provider/sidebar-provider';
 import { cn } from '@/utils/cn';
+import ContentViewTabs from '@components/tab/ContentViewTabs';
 
 const ContentWrapper = () => {
   const { isSidebarOpen } = useSidebar();

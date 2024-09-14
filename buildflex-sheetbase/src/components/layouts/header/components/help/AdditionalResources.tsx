@@ -12,7 +12,6 @@ import {
   Sms,
   Video,
 } from 'iconsax-react';
-import React from 'react';
 
 const items = [
   { icon: <Document size={16} />, text: 'Templates' },
@@ -37,7 +36,7 @@ const AdditionalResources = () => {
       <div className="flex flex-col gap-2">
         {items.map((item, index) => (
           <DropdownItem
-            key={index}
+            key={item.text}
             className={cn('text-white px-0 cursor-pointer')}
           >
             {item.icon}

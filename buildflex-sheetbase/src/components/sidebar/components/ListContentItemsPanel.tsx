@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
-import { Add, Grid1, DocumentText, Clock, Document, More } from 'iconsax-react';
-import {
-  CaretDownFilled,
-  CaretRightFilled,
-  MoreOutlined,
-} from '@ant-design/icons';
-import { MoreVert } from '../../icons';
-import { cn } from '@utils/cn';
-import SectionMoreDropdown from './dropdown/SectionMoreDropdown';
-import SectionAddDropdown from './dropdown/SectionAddDropdown';
-import ViewMoreDropdown from './dropdown/ViewMoreDropdown';
 import Text from '@/components/typography/Text';
+import { CaretDownFilled, CaretRightFilled } from '@ant-design/icons';
+import { cn } from '@utils/cn';
+import { Clock, Document, DocumentText, Grid1 } from 'iconsax-react';
+import React, { useCallback, useState } from 'react';
+import SectionAddDropdown from './dropdown/SectionAddDropdown';
+import SectionMoreDropdown from './dropdown/SectionMoreDropdown';
+import ViewMoreDropdown from './dropdown/ViewMoreDropdown';
 
 type ContentType = 'table' | 'dashboard' | 'form' | 'document';
 
@@ -38,24 +33,30 @@ const iconMap: Record<ContentType, React.ElementType> = {
 const ContentItemComponent: React.FC<{ item: ContentItem }> = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
   const Icon = iconMap[item.type];
+  const handleHoverEnter = useCallback(() => {
+    setIsHovered(true);
+  }, []);
+  const handleHoverLeave = useCallback(() => {
+    setIsHovered(false);
+  }, []);
 
   return (
-    <div
+    <button
       className={cn(
-        'flex items-center justify-between pl-6 pr-2 py-2 cursor-pointer relative rounded-sm my-1 ',
+        'flex items-center w-full justify-between pl-6 pr-2 py-2 cursor-pointer relative rounded-sm my-1 ',
         item.isActive
           ? 'bg-primary-100 text-primary-600'
           : 'hover:bg-gray-100 hover:text-black text-neutral-dark-300',
       )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleHoverEnter}
+      onMouseLeave={handleHoverLeave}
     >
       <div className="flex items-center">
         <Icon size={16} className="mr-2 " />
         <span className="text-sm font-normal font-lato">{item.title}</span>
       </div>
       {isHovered && <ViewMoreDropdown />}
-    </div>
+    </button>
   );
 };
 
@@ -65,13 +66,19 @@ const SectionComponent: React.FC<{
 }> = ({ section, onToggle }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const handleHoverEnter = useCallback(() => {
+    setIsHovered(true);
+  }, []);
+  const handleHoverLeave = useCallback(() => {
+    setIsHovered(false);
+  }, []);
   return (
     <div className="mt-2">
-      <div
-        className="flex items-center justify-between p-2 rounded-sm hover:bg-gray-100 cursor-pointer"
+      <button
+        className="flex w-full items-center justify-between p-2 rounded-sm hover:bg-gray-100 cursor-pointer"
         onClick={onToggle}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={handleHoverEnter}
+        onMouseLeave={handleHoverLeave}
       >
         <div className="flex items-center">
           {section.isOpen ? (
@@ -89,7 +96,7 @@ const SectionComponent: React.FC<{
             <SectionMoreDropdown />
           </div>
         )}
-      </div>
+      </button>
       {section.isOpen && (
         <div>
           {section.items.map((item) => (
@@ -131,14 +138,16 @@ const ListContentItemsPanel: React.FC = () => {
     },
   ]);
 
-  const toggleSection = (id: string) => {
-    setSections(
-      sections.map((section) =>
-        section.id === id ? { ...section, isOpen: !section.isOpen } : section,
-      ),
-    );
-  };
-
+  const toggleSection = useCallback(
+    (id: string) => {
+      setSections(
+        sections.map((section) =>
+          section.id === id ? { ...section, isOpen: !section.isOpen } : section,
+        ),
+      );
+    },
+    [sections],
+  );
   return (
     <div className="bg-white">
       {sections.map((section) => (

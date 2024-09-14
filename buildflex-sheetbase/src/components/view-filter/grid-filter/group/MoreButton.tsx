@@ -1,7 +1,6 @@
 import { CheckBoxIcon, MoreVert } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { Dropdown, MenuProps } from 'antd';
-import { Copy, Slack, Trash } from 'iconsax-react';
 
 const MoreButton = () => {
   return (

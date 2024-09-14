@@ -1,9 +1,8 @@
 import Text from '@/components/typography/Text';
-import { Button } from 'antd';
+import { cn } from '@/utils/cn';
 import { TickCircle } from 'iconsax-react';
 import React from 'react';
 import NotificationEmpty from './NotificationEmpty';
-import { cn } from '@/utils/cn';
 
 const NotiModal = () => {
   const [isReadTab, setIsReadTab] = React.useState(false);

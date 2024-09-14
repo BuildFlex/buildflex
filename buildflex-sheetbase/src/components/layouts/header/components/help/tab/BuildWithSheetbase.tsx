@@ -1,9 +1,8 @@
-import React from 'react';
-import HelpTitle from '../HelpTitle';
-import { Collapse, CollapseProps } from 'antd';
-import { ArrowDown2, ArrowRight2 } from 'iconsax-react';
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
+import { ArrowDown2 } from 'iconsax-react';
+import React from 'react';
+import HelpTitle from '../HelpTitle';
 
 interface BuildWithSheetbaseProps {
   onClose: () => void;
@@ -132,4 +131,3 @@ const QuickTipsList = [
     imagePath: '/help/quick-tip-default-2.png',
   },
 ];
-

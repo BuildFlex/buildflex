@@ -3,7 +3,7 @@ import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
 import { Switch } from 'antd';
 import { ArrowCircleLeft } from 'iconsax-react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 interface RecordRevisionHistorySubmenu {
   handleBackClick: () => void;

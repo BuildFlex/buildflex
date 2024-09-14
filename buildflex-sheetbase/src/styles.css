@@ -20,9 +20,8 @@
   body {
     font-size: 16px;
     margin: 0;
-    
   }
-  input[type="radio"] {
+  input[type='radio'] {
     appearance: radio;
     -webkit-appearance: radio;
     -moz-appearance: radio;
@@ -42,59 +41,56 @@
 }
 
 .boxShadow {
-  @apply shadow-[0px_-1px_4px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.03),0px_1px_6px_-1px_rgba(0,0,0,0.02),0px_2px_4px_0px_rgba(0,0,0,0.02)] ;
+  @apply shadow-[0px_-1px_4px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.03),0px_1px_6px_-1px_rgba(0,0,0,0.02),0px_2px_4px_0px_rgba(0,0,0,0.02)];
   background: #fff;
 }
 
 .boxShadowSecondary {
-  @apply shadow-[0px_6px_16px_0px_rgba(0,0,0,0.04),0px_3px_6px_-4px_rgba(0,0,0,0.06),0px_9px_28px_8px_rgba(0,0,0,0.02)] ;
+  @apply shadow-[0px_6px_16px_0px_rgba(0,0,0,0.04),0px_3px_6px_-4px_rgba(0,0,0,0.06),0px_9px_28px_8px_rgba(0,0,0,0.02)];
   background: #fff;
 }
 .boxShadowTertiary {
-  @apply shadow-[0px_1px_2px_0px_rgba(0,0,0,0.03),0px_1px_6px_-1px_rgba(0,0,0,0.02),0px_2px_4px_0px_rgba(0,0,0,0.02)] ;
+  @apply shadow-[0px_1px_2px_0px_rgba(0,0,0,0.03),0px_1px_6px_-1px_rgba(0,0,0,0.02),0px_2px_4px_0px_rgba(0,0,0,0.02)];
   background: #fff;
 }
 
+/* Movie Detail scroll bar */
+/* custom Scroll bar */
 
-  /* Movie Detail scroll bar */
-    /* custom Scroll bar */
+.customScrollBar::-webkit-scrollbar {
+  width: 4px !important;
+  height: 4px !important;
+  background-color: #f9fafb;
+}
 
-  .customScrollBar::-webkit-scrollbar {
-      width: 4px !important;
-      height: 4px !important;
-      background-color: #F9FAFB;
-  }
+.customScrollBar::-webkit-scrollbar-thumb {
+  background-color: #d0d5dd;
+  border-radius: 0px;
+}
+.customScrollBar::-webkit-scrollbar-thumb:hover {
+  background: #667085;
+}
 
-  .customScrollBar::-webkit-scrollbar-thumb {
-      background-color: #D0D5DD;
-      border-radius: 0px;
-  }
-  .customScrollBar::-webkit-scrollbar-thumb:hover {
-    background: #667085;
-  }
-
-  .customScrollBarMedium::-webkit-scrollbar {
-    width: 6px !important;
+.customScrollBarMedium::-webkit-scrollbar {
+  width: 6px !important;
 }
 
 .customScrollBarMedium::-webkit-scrollbar-thumb {
-    background-color: #CACFD8;
-    border-radius: 8px;
-
+  background-color: #cacfd8;
+  border-radius: 8px;
 }
 .customScrollBarMedium::-webkit-scrollbar-thumb:hover {
-  background: #6A758B;
+  background: #6a758b;
 }
-  
-  /* custom Scroll bar dark */
+
+/* custom Scroll bar dark */
 .customScrollBar-dark::-webkit-scrollbar {
-    width: 4px !important;
+  width: 4px !important;
 }
 
 .customScrollBar-dark::-webkit-scrollbar-thumb {
-    background-color:  #D0D5DD;
-    border-radius: 0px;
-
+  background-color: #d0d5dd;
+  border-radius: 0px;
 }
 .customScrollBar-dark::-webkit-scrollbar-thumb:hover {
   background: #667085;
@@ -102,31 +98,30 @@
 /* Input Number Arrow */
 
 /* Chrome, Safari, Edge, Opera */
-.no-input-number-arrow  input::-webkit-outer-spin-button,
-.no-input-number-arrow  input::-webkit-inner-spin-button {
+.no-input-number-arrow input::-webkit-outer-spin-button,
+.no-input-number-arrow input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
 /* Firefox */
-.no-input-number-arrow  input[type=number] {
+.no-input-number-arrow input[type='number'] {
   -moz-appearance: textfield;
 }
 
 /* ============================== OVERRIDE ANT CSS========================  */
 
-
 /* Dropdown*/
 
-.ant-dropdown-menu{
+.ant-dropdown-menu {
   box-shadow: none !important;
 }
 
 /* Modal  */
-.ant-modal-mask{
+.ant-modal-mask {
   z-index: 9998 !important;
-} 
-.ant-modal-wrap{
+}
+.ant-modal-wrap {
   z-index: 9999 !important;
 }
 

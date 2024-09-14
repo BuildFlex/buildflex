@@ -1,22 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { CloseIcon, SparklesIcon } from '@/components/icons';
+import Text from '@/components/typography/Text';
+import { useTheme } from '@/provider/theme-provider';
+import { cn } from '@/utils/cn';
 import {
   Add,
-  Magicpen,
-  Sort,
-  Chart,
-  PresentionChart,
-  Book,
-  Microphone2,
-  Send,
-  Copy,
   ArrowDown2,
+  Book,
+  Copy,
+  Magicpen,
+  Microphone2,
+  PresentionChart,
+  Send,
+  Sort,
 } from 'iconsax-react';
-import { CloseOutlined } from '@ant-design/icons';
-import { cn } from '@/utils/cn';
-import { useTheme } from '@/provider/theme-provider';
-import Text from '@/components/typography/Text';
-import { CloseIcon, SparklesIcon } from '@/components/icons';
-import TextArea from 'antd/es/input/TextArea';
+import React, { useEffect, useRef, useState } from 'react';
 import Message from './Message';
 interface ChatMessage {
   type: 'user' | 'ai';
@@ -36,20 +33,6 @@ const AIChatDrawer: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
-
-  const handleSendMessage = () => {
-    if (inputMessage.trim()) {
-      setMessages([...messages, { type: 'user', content: inputMessage }]);
-      setInputMessage('');
-      // Simulate AI response
-      setTimeout(() => {
-        setMessages((prev) => [
-          ...prev,
-          { type: 'ai', content: `Echo: ${inputMessage}` },
-        ]);
-      }, 1000);
-    }
-  };
 
   if (!isOpen) return null;
 
@@ -95,7 +78,7 @@ const AIChatDrawer: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
               { icon: PresentionChart, text: 'Analyze' },
             ].map((option, index) => (
               <button
-                key={index}
+                key={`option-${option.text}-${index}`}
                 className="w-full text-left px-2 text-neutral-dark-500 py-[7px] h-8 rounded bg-white  hover:bg-gray-50 flex items-center cursor-pointer border border-solid  border-borderColor"
               >
                 <option.icon size={20} className="mr-2 text-gray-500" />
@@ -187,22 +170,6 @@ const AIChatDrawer: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
               <Send variant="Bold" className="cursor-pointer" size={16} />
             </div>
           </div>
-          {/* <button onClick={handleSendMessage} className="p-2 border-none">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              />
-            </svg>
-          </button> */}
         </div>
       </div>
     </div>

@@ -1,20 +1,7 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import { CheckBoxIcon } from '@/components/icons';
-import Tag from '@/components/sidebar/components/dropdown/TeamTag';
 import Text from '@/components/typography/Text';
 import { MenuProps, Switch } from 'antd';
-import {
-  ArrowRight2,
-  Copy,
-  DocumentDownload,
-  Edit2,
-  People,
-  Printer,
-  Setting2,
-  Trash,
-  User,
-} from 'iconsax-react';
-import { Eye, More } from 'iconsax-react';
+import { Eye } from 'iconsax-react';
 interface Field {
   id: string;
   icon: React.ElementType;

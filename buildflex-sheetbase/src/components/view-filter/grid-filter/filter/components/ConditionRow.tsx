@@ -1,12 +1,10 @@
 import { MoveIcon } from '@/components/icons';
-import Text from '@/components/typography/Text';
-import { Input, Select, Space } from 'antd';
-import { Trash } from 'iconsax-react';
-import React from 'react';
-import FieldSelect from './FieldSelect';
-import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
 import { CustomInput } from '@/components/input/Input';
+import Text from '@/components/typography/Text';
+import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
 import { cn } from '@/utils/cn';
+import { Trash } from 'iconsax-react';
+import FieldSelect from './FieldSelect';
 interface ConditionRowProps {
   isFirstRow?: boolean;
   className?: string;

@@ -8,15 +8,15 @@ import {
   QuestionCircle,
   RateStarOutlineIcon,
 } from '@/components/icons';
+import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
-import { Input, Switch } from 'antd';
+import { Switch } from 'antd';
 import {
   ArrowCircleDown,
   Barcode,
   Calendar,
   CalendarTick,
   Call,
-  Chart,
   ChartCircle,
   Clock,
   DocumentText,
@@ -28,15 +28,13 @@ import {
   SearchNormal1,
   SearchStatus,
   Sms,
-  Star,
   Task,
+  Text as TextIcon,
   TickSquare,
   User,
   UserTick,
 } from 'iconsax-react';
 import React, { ReactNode, useState } from 'react';
-import { Eye, More, Text as TextIcon } from 'iconsax-react';
-import { CustomInput } from '@/components/input/Input';
 interface Field {
   id: string;
   icon: React.ElementType;

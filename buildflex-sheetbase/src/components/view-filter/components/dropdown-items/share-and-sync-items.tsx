@@ -3,7 +3,6 @@ import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import Text from '@/components/typography/Text';
 import { MenuProps } from 'antd';
 import { Code, Keyboard, Link } from 'iconsax-react';
-import React from 'react';
 
 export const ShareAndSyncItems: MenuProps['items'] = [
   {

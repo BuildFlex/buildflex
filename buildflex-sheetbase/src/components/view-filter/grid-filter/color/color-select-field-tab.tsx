@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import Text from '@/components/typography/Text';
-import { ArrowCircleDown } from 'iconsax-react';
-import { cn } from '@/utils/cn';
-import { ColorTab } from '../../components/dropdown-render/ColorDropdownRender';
 import { CloseIcon } from '@/components/icons';
-import { fields as initialFields } from '../../components/dropdown-render/HideFieldDropdownRender';
+import Text from '@/components/typography/Text';
+import { cn } from '@/utils/cn';
+import React, { useState } from 'react';
+import { ColorTab } from '../../components/dropdown-render/ColorDropdownRender';
 import { IField } from '../../components/dropdown-render/GroupDropdownRender';
-import SortSelect from '../sort/SortSelect';
+import { fields as initialFields } from '../../components/dropdown-render/HideFieldDropdownRender';
 import { SortByLabel } from '../sort/SortConditionRow';
-import FindColorField from './find-color-field';
+import SortSelect from '../sort/SortSelect';
 import ColorSelector from './color-selector';
+import FindColorField from './find-color-field';
 const ColorSelectFieldTab = ({
   className,
   setActiveTab,

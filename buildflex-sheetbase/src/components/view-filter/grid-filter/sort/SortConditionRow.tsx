@@ -1,16 +1,14 @@
-import React, { ComponentType, ReactNode } from 'react';
-import FieldSelect from '../filter/components/FieldSelect';
-import SortSelect from './SortSelect';
+import { CloseIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { ArrowRight, Hashtag } from 'iconsax-react';
 import { cn } from '@/utils/cn';
-import { CloseIcon, MoreVert } from '@/components/icons';
-import MoreButton from '../group/MoreButton';
-import { fields as initialFields } from '../../components/dropdown-render/HideFieldDropdownRender';
+import { ArrowRight, Hashtag } from 'iconsax-react';
+import React from 'react';
 import { IField } from '../../components/dropdown-render/GroupDropdownRender';
+import { fields as initialFields } from '../../components/dropdown-render/HideFieldDropdownRender';
+import MoreButton from '../group/MoreButton';
 import FindField from './FindField';
+import SortSelect from './SortSelect';
 
-const SortByList = ['Name', 'Phone', 'Email'];
 interface SortConditionRowProps {
   setFields: React.Dispatch<React.SetStateAction<IField[]>>;
   field: IField;

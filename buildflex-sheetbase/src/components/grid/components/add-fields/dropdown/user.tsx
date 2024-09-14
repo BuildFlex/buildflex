@@ -1,20 +1,16 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import Select from '@/components/select/select';
 import UserMultipleSelect from '@/components/select/user-multiple-select';
 import UserSelect from '@/components/select/user-select';
 import Text from '@/components/typography/Text';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 import { Switch } from 'antd';
 import { ArrowDown2, People } from 'iconsax-react';
-import React, { useId, useState } from 'react';
+import React, { useState } from 'react';
 
 interface UserDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
 }
-interface IOption {
-  id: string;
-  label: string;
-}
+
 const optionList = [
   {
     id: 'user-1',

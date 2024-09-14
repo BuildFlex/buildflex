@@ -1,6 +1,6 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import Text from '@/components/typography/Text';
-import { Dropdown, Input, MenuProps } from 'antd';
+import { Dropdown } from 'antd';
 import {
   Add,
   Calendar,

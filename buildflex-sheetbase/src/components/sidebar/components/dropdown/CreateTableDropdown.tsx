@@ -3,24 +3,13 @@ import {
   CSVIcon,
   GoogleCalendarIcon,
   GoogleSheetIcon,
-  PlusIcon,
   SaleForceIcon,
 } from '@/components/icons';
-import Text from '@/components/typography/Text';
-import { cn } from '@/utils/cn';
-import { Dropdown, MenuProps } from 'antd';
-import {
-  ArrowRight2,
-  Book,
-  Book1,
-  Copy,
-  Edit2,
-  Setting2,
-  Trash,
-} from 'iconsax-react';
-import SheetBaseIcon from '@/components/common/SheetBaseIcon';
-import Tag from './TeamTag';
 import SheetbaseGradientIcon from '@/components/icons/sheetbase-gradient-icon';
+import Text from '@/components/typography/Text';
+import { Dropdown } from 'antd';
+import { ArrowRight2, Book1 } from 'iconsax-react';
+import Tag from './TeamTag';
 const items = [
   {
     key: 'rename-view',

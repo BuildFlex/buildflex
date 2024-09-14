@@ -1,13 +1,13 @@
-import React from 'react';
-import { Input, Switch } from 'antd';
-import { Add, ArrowDown2, ArrowLeft2, ArrowRight2 } from 'iconsax-react';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import Text from '@/components/typography/Text';
 import { MoveToIcon, QuestionCircle, SparklesIcon } from '@/components/icons';
-import Tag from '@/components/sidebar/components/dropdown/TeamTag';
-import { cn } from '@/utils/cn';
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 import { CustomInput } from '@/components/input/Input';
+import Tag from '@/components/sidebar/components/dropdown/TeamTag';
+import Text from '@/components/typography/Text';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import { cn } from '@/utils/cn';
+import { Switch } from 'antd';
+import { Add, ArrowDown2, ArrowLeft2 } from 'iconsax-react';
+import React from 'react';
 
 const tableList = ['table-1', 'table-2', 'table-3', 'table-4', 'table-5'];
 

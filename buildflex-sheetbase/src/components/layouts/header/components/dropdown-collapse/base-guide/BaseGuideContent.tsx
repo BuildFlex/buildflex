@@ -1,6 +1,5 @@
 import TextArea from 'antd/es/input/TextArea';
 import { DocumentDownload, InfoCircle } from 'iconsax-react';
-import React from 'react';
 
 const BaseGuideContent = () => {
   return (

@@ -1,8 +1,7 @@
 import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
-import { Checkbox, Input, Select } from 'antd';
+import { Checkbox, Select } from 'antd';
 import { ArrowDown2 } from 'iconsax-react';
-import React from 'react';
 
 const EmailInvited = () => {
   return (

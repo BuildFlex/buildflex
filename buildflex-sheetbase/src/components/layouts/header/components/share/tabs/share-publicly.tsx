@@ -2,15 +2,8 @@ import { QuestionCircle } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { useTheme } from '@/provider/theme-provider';
 import { cn } from '@/utils/cn';
-import { Input, Switch } from 'antd';
-import {
-  ArrowRotateLeft,
-  Code,
-  CodeCircle,
-  Export,
-  ExportSquare,
-  RotateLeft,
-} from 'iconsax-react';
+import { Switch } from 'antd';
+import { ArrowRotateLeft, CodeCircle, ExportSquare } from 'iconsax-react';
 import React from 'react';
 const allowList = [
   {
@@ -31,7 +24,6 @@ const allowList = [
   },
 ];
 const SharePublicly = () => {
-  const { theme } = useTheme();
   const [isActive, setIsActive] = React.useState(false);
   return (
     <div

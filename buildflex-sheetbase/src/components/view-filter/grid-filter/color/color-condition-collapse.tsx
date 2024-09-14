@@ -1,13 +1,10 @@
-import { Collapse, CollapseProps } from 'antd';
-import { Add, Copy, Trash } from 'iconsax-react';
-import React from 'react';
-import ColorSelector from './color-selector';
-import Text from '@/components/typography/Text';
-import { FilterConditionType } from '../../components/dropdown-render/FilterDropdownRender';
-import ConditionRow from '../filter/components/ConditionRow';
-import ConditionGroupRow from '../filter/components/ConditionGroupRow';
 import { MoveIcon } from '@/components/icons';
-import { ItemType } from 'antd/es/menu/interface';
+import Text from '@/components/typography/Text';
+import { Collapse } from 'antd';
+import { Add, Copy, Trash } from 'iconsax-react';
+import ConditionGroupRow from '../filter/components/ConditionGroupRow';
+import ConditionRow from '../filter/components/ConditionRow';
+import ColorSelector from './color-selector';
 
 const ColorConditionCollapse = ({ items }: { items: any[] | undefined }) => {
   return (
@@ -17,7 +14,7 @@ const ColorConditionCollapse = ({ items }: { items: any[] | undefined }) => {
       items={items?.map((item, index) => ({
         children: (
           <div className="no-border-select flex flex-col gap-3 pl-6">
-            {item?.conditions.map((i, index) => {
+            {item?.conditions.map((i: any, index: number) => {
               if (i.type === 'condition') {
                 return <ConditionRow isFirstRow={index === 0} key={i.id} />;
               }

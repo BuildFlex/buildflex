@@ -65,14 +65,14 @@ import {
   MouseSensor,
   TouchSensor,
   closestCenter,
-  type DragEndEvent,
   useSensor,
   useSensors,
+  type DragEndEvent,
 } from '@dnd-kit/core';
 import { restrictToHorizontalAxis } from '@dnd-kit/modifiers';
 import {
-  arrayMove,
   SortableContext,
+  arrayMove,
   horizontalListSortingStrategy,
 } from '@dnd-kit/sortable';
 

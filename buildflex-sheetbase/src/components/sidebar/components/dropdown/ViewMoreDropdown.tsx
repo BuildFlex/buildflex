@@ -1,8 +1,7 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import { CheckBoxIcon, MoreVert, QuestionCircle } from '@/components/icons';
+import { CheckBoxIcon, MoreVert } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { cn } from '@/utils/cn';
-import { Divider, Dropdown, Input, MenuProps } from 'antd';
+import { Divider, Dropdown } from 'antd';
 import {
   ArrowRight2,
   Copy,
@@ -12,8 +11,8 @@ import {
   Trash,
   User,
 } from 'iconsax-react';
-import Tag from './TeamTag';
 import { useState } from 'react';
+import Tag from './TeamTag';
 
 const ViewMoreDropdown = ({ className }: { className?: string }) => {
   const [isShowSubMenu, setIsShowSubMenu] = useState(false);

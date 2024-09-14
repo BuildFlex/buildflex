@@ -1,11 +1,9 @@
-import { AddSquare, ArrowDown2 } from 'iconsax-react';
+import { useOutsideClick } from '@/hooks/useOutsideClick';
+import { cn } from '@/utils/cn';
+import { ArrowDown2 } from 'iconsax-react';
 import React, { useState } from 'react';
 import DropdownItem from '../common/dropdown/DropdownItem';
 import Text from '../typography/Text';
-import Tag from '../sidebar/components/dropdown/TeamTag';
-import { useOutsideClick } from '@/hooks/useOutsideClick';
-import { cn } from '@/utils/cn';
-import { SortByLabel } from '../view-filter/grid-filter/sort/SortConditionRow';
 
 interface SelectProps {
   labelRender?: React.ReactNode;
@@ -74,7 +72,7 @@ const Select = ({
             {itemsList.map((item, index) => {
               return (
                 <DropdownItem
-                  key={index}
+                  key={`${item}-${index}`}
                   onClick={() => handleChange(item)}
                   className={cn(' hover:bg-gray-50 cursor-pointer', {
                     'bg-gray-100 hover:bg-gray-100': selected === item,

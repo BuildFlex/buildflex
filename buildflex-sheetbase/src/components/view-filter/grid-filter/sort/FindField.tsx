@@ -1,12 +1,12 @@
-import React from 'react';
-import { ArrowDown, ArrowDown2, SearchNormal1 } from 'iconsax-react';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import Text from '@/components/typography/Text';
-import { cn } from '@/utils/cn';
-import { IField } from '../../components/dropdown-render/GroupDropdownRender';
 import { QuestionCircle } from '@/components/icons';
 import { CustomInput } from '@/components/input/Input';
+import Text from '@/components/typography/Text';
+import { cn } from '@/utils/cn';
 import { Switch } from 'antd';
+import { ArrowDown2, SearchNormal1 } from 'iconsax-react';
+import React from 'react';
+import { IField } from '../../components/dropdown-render/GroupDropdownRender';
 
 interface FindFieldrops {
   searchPlaceholder: string;

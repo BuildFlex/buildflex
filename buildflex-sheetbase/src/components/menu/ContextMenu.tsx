@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react';
+import React, {
+  ReactElement,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 interface MenuItem {
   label: string;
@@ -33,12 +39,16 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ items, children }) => {
     };
   }, []);
 
-  const handleContextMenu = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleContextMenu = useCallback((event: React.MouseEvent) => {
     event.preventDefault();
     setIsVisible(true);
     setPosition({ x: event.clientX, y: event.clientY });
-  };
+  }, []);
 
+  const handleContextMenuClick = useCallback((item: MenuItem) => {
+    item.onClick();
+    setIsVisible(false);
+  }, []);
   return (
     <div onContextMenu={handleContextMenu}>
       {children}
@@ -50,21 +60,18 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ items, children }) => {
         >
           {items.map((item, index) =>
             item.type === 'separator' ? (
-              <hr key={index} className="my-1 border-gray-200" />
+              <hr key={`separator-${index}`} className="my-1 border-gray-200" />
             ) : (
-              <div
-                key={index}
+              <button
+                key={`${item.label}-${index}`}
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center"
-                onClick={() => {
-                  item.onClick();
-                  setIsVisible(false);
-                }}
+                onClick={() => handleContextMenuClick(item)}
               >
                 {item.icon && (
                   <span className="mr-2 text-gray-600">{item.icon}</span>
                 )}
                 {item.label}
-              </div>
+              </button>
             ),
           )}
         </div>

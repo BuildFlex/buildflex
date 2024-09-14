@@ -1,7 +1,7 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { MoreVert } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { Dropdown, MenuProps } from 'antd';
+import { Dropdown } from 'antd';
 import { Copy, Slack, Trash } from 'iconsax-react';
 import { useState } from 'react';
 

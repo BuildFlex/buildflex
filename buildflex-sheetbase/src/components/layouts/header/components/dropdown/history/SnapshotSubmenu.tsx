@@ -1,7 +1,7 @@
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
 import { ArrowCircleLeft, InfoCircle } from 'iconsax-react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 interface SnapshotSubmenuProps {
   handleBackClick: () => void;

@@ -1,11 +1,11 @@
-import React from 'react';
-import { ArrowDown2, Clock, Link } from 'iconsax-react';
 import Text from '@/components/typography/Text';
+import { ArrowDown2, Clock } from 'iconsax-react';
+import React from 'react';
 
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
-import Select from '@/components/select/select';
-import { QuestionCircle } from '@/components/icons';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { QuestionCircle } from '@/components/icons';
+import Select from '@/components/select/select';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 
 interface DurationDropdownProps {
   onChangeDropdown: (value: IField | null) => void;

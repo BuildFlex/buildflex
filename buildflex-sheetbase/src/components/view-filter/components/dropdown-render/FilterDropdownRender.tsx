@@ -1,12 +1,10 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { QuestionCircle } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { Input, Switch } from 'antd';
-import { Add, SearchNormal1 } from 'iconsax-react';
-import React, { ReactNode, useState } from 'react';
-import { Eye, More, Text as TextIcon } from 'iconsax-react';
-import ConditionRow from '../../grid-filter/filter/components/ConditionRow';
+import { Add } from 'iconsax-react';
+import { useState } from 'react';
 import ConditionGroupRow from '../../grid-filter/filter/components/ConditionGroupRow';
+import ConditionRow from '../../grid-filter/filter/components/ConditionRow';
 export interface FilterConditionProps {
   id: string;
   type: FilterConditionType;

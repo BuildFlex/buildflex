@@ -1,23 +1,16 @@
-import React, { useState } from 'react';
-import { Add, ArrowDown2, Chart, ChartCircle, Danger } from 'iconsax-react';
+import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { MoveToIcon, QuestionCircle, SparklesIcon } from '@/components/icons';
+import CustomSelect from '@/components/select/custom-select';
 import Text from '@/components/typography/Text';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import {
-  FormulaIcon,
-  MoveToIcon,
-  QuestionCircle,
-  SparklesIcon,
-} from '@/components/icons';
-import DropdownTab from '../components/dropdown-tab';
-import HighlightedTextarea from '../components/highlight-textarea';
-import CustomSelect, {
-  ICutomSelectItem,
-} from '@/components/select/custom-select';
 import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
-import { Switch } from 'antd';
 import ConditionRow from '@/components/view-filter/grid-filter/filter/components/ConditionRow';
 import { cn } from '@/utils/cn';
+import { Switch } from 'antd';
+import { Add, ArrowDown2, ChartCircle, Danger } from 'iconsax-react';
+import React, { useState } from 'react';
+import DropdownTab from '../components/dropdown-tab';
+import HighlightedTextarea from '../components/highlight-textarea';
 
 interface RollUpDropdownProps {
   onChangeDropdown: (value: IField | null) => void;

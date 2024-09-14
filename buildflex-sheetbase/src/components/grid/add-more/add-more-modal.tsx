@@ -1,6 +1,4 @@
 import { CloseIcon } from '@/components/icons';
-import CustomChartIcon from '@/components/icons/custom-chart-icon';
-import Tag from '@/components/sidebar/components/dropdown/TeamTag';
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
 import { Modal } from 'antd';

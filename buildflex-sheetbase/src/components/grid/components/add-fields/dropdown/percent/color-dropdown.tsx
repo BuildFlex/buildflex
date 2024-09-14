@@ -1,15 +1,23 @@
 import { QuestionCircle } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { FilterConditionType } from '@/components/view-filter/components/dropdown-render/FilterDropdownRender';
-import ColorConditionCollapse from '@/components/view-filter/grid-filter/color/color-condition-collapse';
 import { cn } from '@/utils/cn';
 import { Dropdown } from 'antd';
 import { Add, ArrowDown2 } from 'iconsax-react';
-import { useState } from 'react';
 import ColorPercentConditionCollapse from './color-percent-condition-collapse';
-
+export interface IColorCondition {
+  key: string;
+  label?: string;
+  conditions: {
+    id: string;
+    type: FilterConditionType;
+  }[];
+  backgroudColor: string;
+  color: string;
+  isLast: boolean;
+}
 const ColorDropdown = () => {
-  const [colorConditions, setColorConditions] = useState<any[]>([
+  const colorConditions = [
     {
       key: '1',
       label: 'Where = 123%',
@@ -32,7 +40,7 @@ const ColorDropdown = () => {
       color: 'white',
       isLast: true,
     },
-  ]);
+  ];
   return (
     <div className="flex flex-col gap-2">
       <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">

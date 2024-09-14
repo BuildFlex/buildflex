@@ -1,29 +1,18 @@
+import { CustomInput } from '@/components/common/input/Input';
 import MobileAppIcon from '@/components/icons/mobile-app-icon';
 import SheetbaseIcon from '@/components/icons/sheetbase-icon';
 import WebAppIcon from '@/components/icons/web-app-icon';
 import WorkflowIcon from '@/components/icons/workflow-icon';
-import Title from '@/components/typography/Title';
+import { SearchNormal1 } from 'iconsax-react';
 import React from 'react';
 import AddCategoryButton from './add-category-button';
+import AddSheetBaseModal from './modal/add-sheet-base/add-sheetbase-modal';
+import CreateCategory from './modal/create-category';
 import CategoryTab from './tab/category-tab';
-import { CustomInput } from '@/components/common/input/Input';
-import {
-  Add,
-  ArrowDown,
-  ArrowDown2,
-  More2,
-  SearchNormal1,
-} from 'iconsax-react';
-import Text from '@/components/typography/Text';
-import { Checkbox } from 'antd';
-import { cn } from '@/utils/cn';
-import { MoreIcon } from '@/components/icons';
-import CategoryHeader from './table/header';
 import CategoryBody from './table/body';
 import CategoryFooter from './table/footer';
+import CategoryHeader from './table/header';
 import NoContent from './table/no-content';
-import CreateCategory from './modal/create-category';
-import AddSheetBaseModal from './modal/add-sheet-base/add-sheetbase-modal';
 
 const AddCategoryList = [
   {
@@ -61,7 +50,7 @@ const ContentWrapper = () => {
         {AddCategoryList.map((item, index) => (
           <AddCategoryButton
             onClick={item.title === 'Sheetbase' ? handleShowModal : undefined}
-            key={index}
+            key={`${item.title}-${index}`}
             {...item}
           />
         ))}

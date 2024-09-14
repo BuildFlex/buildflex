@@ -1,6 +1,5 @@
-import Text from '@/components/typography/Text';
-import { Divider, Input, Select, Space } from 'antd';
-import { Add, ArrowDown2, ArrowRight } from 'iconsax-react';
+import { Select } from 'antd';
+import { ArrowDown2 } from 'iconsax-react';
 import React, {
   JSXElementConstructor,
   ReactElement,

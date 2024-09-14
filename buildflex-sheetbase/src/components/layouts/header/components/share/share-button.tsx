@@ -1,16 +1,14 @@
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import SheetBaseIcon from '@/components/common/SheetBaseIcon';
 import { CloseIcon, LeftBullet } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { useTheme } from '@/provider/theme-provider';
 import { ITheme } from '@/themes/defaultTheme';
 import { cn } from '@/utils/cn';
 import { Modal, Tabs } from 'antd';
 import { People } from 'iconsax-react';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import CreateLink from './tabs/create-link';
 import EmailInvited from './tabs/email-invited';
 import SharePublicly from './tabs/share-publicly';
-import CreateLink from './tabs/create-link';
 import ShareViewTab from './tabs/view';
 
 const sidebarTabs = [

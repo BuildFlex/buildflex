@@ -1,21 +1,15 @@
-import { MoreIcon, StarIcon } from '@/components/icons';
-import SheetbaseIcon from '@/components/icons/sheetbase-icon';
-import Text from '@/components/typography/Text';
-import { cn } from '@/utils/cn';
-import { Checkbox } from 'antd';
-import { Add, Star, Star1 } from 'iconsax-react';
-import React from 'react';
-import CategoryRow from './row';
 import CategoryIcon from '@/components/icons/category-icon';
 import MobileAppIcon from '@/components/icons/mobile-app-icon';
-import WorkflowIcon from '@/components/icons/workflow-icon';
+import SheetbaseIcon from '@/components/icons/sheetbase-icon';
 import WebAppIcon from '@/components/icons/web-app-icon';
+import WorkflowIcon from '@/components/icons/workflow-icon';
+import CategoryRow from './row';
 
 const CategoryBody = () => {
   return (
     <div className="h-full flex flex-col gap-4 w-full  text-neutral-dark-500 px-1">
       {data.map((item, index) => (
-        <CategoryRow key={index} {...item} />
+        <CategoryRow key={`${item.name}-${index}`} {...item} />
       ))}
     </div>
   );

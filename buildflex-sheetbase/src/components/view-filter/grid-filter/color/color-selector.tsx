@@ -1,7 +1,7 @@
 import { cn } from '@/utils/cn';
-import { Dropdown, MenuProps, Select } from 'antd';
+import { Dropdown, MenuProps } from 'antd';
 import { ArrowCircleDown } from 'iconsax-react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 export const colorList = [
   { background: '#D1E2FF', color: '#000000' },
   { background: '#C4ECFF', color: '#000000' },

@@ -1,6 +1,5 @@
-import React from 'react';
-import HelpTitle from '../HelpTitle';
 import { cn } from '@/utils/cn';
+import HelpTitle from '../HelpTitle';
 
 interface ManagingYourWorkProps {
   onClose: () => void;

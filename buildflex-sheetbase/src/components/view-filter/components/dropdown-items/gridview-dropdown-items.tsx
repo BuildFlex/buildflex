@@ -10,7 +10,6 @@ import {
   Edit2,
   People,
   Printer,
-  Setting2,
   Trash,
   User,
 } from 'iconsax-react';

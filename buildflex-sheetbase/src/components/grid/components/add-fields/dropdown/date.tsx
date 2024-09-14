@@ -1,12 +1,12 @@
-import React from 'react';
-import { ArrowDown2, Calendar, Call, Link } from 'iconsax-react';
 import Text from '@/components/typography/Text';
+import { ArrowDown2, Calendar } from 'iconsax-react';
+import React from 'react';
 
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
-import Select from '@/components/select/select';
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import { Switch } from 'antd';
+import Select from '@/components/select/select';
 import TimeZoneSelect from '@/components/select/timezone-select';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import { Switch } from 'antd';
 
 interface DateDropdownProps {
   onChangeDropdown: (value: IField | null) => void;

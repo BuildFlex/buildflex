@@ -1,13 +1,12 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  OneToMany,
-  ManyToMany,
-} from 'typeorm';
-import { Workspace } from '@app/workspace/entities/workspace.entity';
 import { Organization } from '@app/organization/entities/organization.entity';
 import { UserOrganization } from '@app/organization/entities/user-organization.entity';
+import { Workspace } from '@app/workspace/entities/workspace.entity';
+import {
+  Column,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn
+} from 'typeorm';
 
 @Entity()
 export class User {

@@ -1,7 +1,5 @@
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
-import React from 'react';
-
 interface TagProps {
   name: string;
   className?: string;

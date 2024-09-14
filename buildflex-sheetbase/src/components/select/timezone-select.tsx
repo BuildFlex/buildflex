@@ -1,11 +1,9 @@
-import { AddSquare, ArrowDown2 } from 'iconsax-react';
+import { useOutsideClick } from '@/hooks/useOutsideClick';
+import { cn } from '@/utils/cn';
+import { ArrowDown2 } from 'iconsax-react';
 import React, { useState } from 'react';
 import DropdownItem from '../common/dropdown/DropdownItem';
 import Text from '../typography/Text';
-import Tag from '../sidebar/components/dropdown/TeamTag';
-import { useOutsideClick } from '@/hooks/useOutsideClick';
-import { cn } from '@/utils/cn';
-import { SortByLabel } from '../view-filter/grid-filter/sort/SortConditionRow';
 
 interface ITime {
   label: string;
@@ -78,7 +76,7 @@ const TimeZoneSelect = ({
               {suggestedTimezone.map((item, index) => {
                 return (
                   <DropdownItem
-                    key={index}
+                    key={`${item.label}-${index}`}
                     onClick={() => handleSelect(item)}
                     className={cn(' hover:bg-gray-50 cursor-pointer', {
                       'bg-gray-100 hover:bg-gray-100': selected === item,
@@ -107,7 +105,7 @@ const TimeZoneSelect = ({
               {allTimezone.map((item, index) => {
                 return (
                   <DropdownItem
-                    key={index}
+                    key={`${item.label}-${index}`}
                     onClick={() => handleSelect(item)}
                     className={cn(' hover:bg-gray-50 cursor-pointer', {
                       'bg-gray-100 hover:bg-gray-100': selected === item,

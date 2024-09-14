@@ -1,8 +1,7 @@
-import React, { ReactNode, useState } from 'react';
-import { cn } from '@/utils/cn';
-import MainTab from '../../grid-filter/color/main-tab';
-import ColorSelectFieldTab from '../../grid-filter/color/color-select-field-tab';
+import { useState } from 'react';
 import ColorConditionsTab from '../../grid-filter/color/color-conditions-tab';
+import ColorSelectFieldTab from '../../grid-filter/color/color-select-field-tab';
+import MainTab from '../../grid-filter/color/main-tab';
 export type ColorTab = 'color-select-field-tab' | 'color-conditions-tab';
 const ColorDropdownRender = () => {
   const [activeTab, setActiveTab] = useState<ColorTab | null>(null);

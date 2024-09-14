@@ -1,30 +1,16 @@
-import React from 'react';
-import { Input, Switch } from 'antd';
-import {
-  ArrowDown2,
-  Flag,
-  Heart,
-  Like,
-  Like1,
-  Star,
-  TickSquare,
-} from 'iconsax-react';
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import Text from '@/components/typography/Text';
 import {
   CheckBoxIcon,
   CloseIcon,
   DotIcon,
   FlagIcon,
   LikeIcon,
-  MoveToIcon,
-  QuestionCircle,
   RateStarFilledIcon,
 } from '@/components/icons';
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
-import Tag from '@/components/sidebar/components/dropdown/TeamTag';
-import Select from '@/components/select/select';
 import ColorSelect from '@/components/select/color-select';
+import Text from '@/components/typography/Text';
+import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import { ArrowDown2, Heart, TickSquare } from 'iconsax-react';
+import React from 'react';
 
 interface CheckboxDropdownProps {
   onChangeDropdown: (value: IField | null) => void;

@@ -1,13 +1,7 @@
 import Text from '@/components/typography/Text';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
-import {
-  Add,
-  ArrowCircleDown,
-  ArrowCircleDown2,
-  ArrowDown,
-  Maximize4,
-} from 'iconsax-react';
+import { Add, ArrowCircleDown2 } from 'iconsax-react';
 import React from 'react';
 import AttachmentCellModal from './modal/attachment-cell-modal';
 interface AttachmentCellProps {
@@ -49,7 +43,7 @@ const AttachmentCell = ({ images }: AttachmentCellProps) => {
               <div className="flex gap-1 items-center pb-1 max-w-[140px] overflow-x-auto customScrollBar">
                 {images.map((image, index) => (
                   <img
-                    key={index}
+                    key={`${image}-${index}`}
                     src={image}
                     alt="attachment"
                     className="object-cover rounded w-12 h-12"
@@ -99,7 +93,7 @@ const AttachmentCell = ({ images }: AttachmentCellProps) => {
       ) : (
         images.map((image, index) => (
           <img
-            key={index}
+            key={`${image}-${index}`}
             src={image}
             alt="attachment"
             className="object-cover rounded w-6 h-6"

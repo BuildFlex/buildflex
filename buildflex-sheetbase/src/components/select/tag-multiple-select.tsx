@@ -1,10 +1,10 @@
+import { useOutsideClick } from '@/hooks/useOutsideClick';
+import { cn } from '@/utils/cn';
 import { AddSquare } from 'iconsax-react';
 import React, { useState } from 'react';
 import DropdownItem from '../common/dropdown/DropdownItem';
-import Text from '../typography/Text';
 import Tag from '../sidebar/components/dropdown/TeamTag';
-import { useOutsideClick } from '@/hooks/useOutsideClick';
-import { cn } from '@/utils/cn';
+import Text from '../typography/Text';
 
 interface ITag {
   id: string;

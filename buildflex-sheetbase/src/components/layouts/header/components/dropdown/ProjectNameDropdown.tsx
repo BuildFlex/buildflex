@@ -1,5 +1,5 @@
 import Text from '@/components/typography/Text';
-import { Divider, Dropdown, MenuProps } from 'antd';
+import { Divider, Dropdown } from 'antd';
 import { Share, Star1 } from 'iconsax-react';
 
 import DropdownCollapse from '../dropdown-collapse/DropdownCollapse';
