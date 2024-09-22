@@ -1,8 +1,6 @@
-import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
-import { Maximize4 } from 'iconsax-react';
 import React from 'react';
 interface ResultCellProps {
   text: string;
@@ -42,7 +40,6 @@ const ResultCell = ({
         <>
           <div
             style={{ boxShadow: 'none' }}
-            autoFocus
             className={cn(
               '  m-0    border-none',
               isActive

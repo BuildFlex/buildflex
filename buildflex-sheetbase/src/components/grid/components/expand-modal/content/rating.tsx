@@ -26,11 +26,11 @@ const ExpandRating = () => {
             'max-w-[164px] w-fit flex items-center gap-2 rounded-lg h-9 box-border p-2 '
           }
         >
-          {Array.from({ length: 5 }).map((_, index) =>
+          {Array.from({ length: 5 }).map((number, index) =>
             index < rating ? (
-              <RateStarFilledIcon className="size-4" key={`${id}-${index}`} />
+              <RateStarFilledIcon className="size-4" key={`${id}-${number}`} />
             ) : (
-              <RateStarIcon className="size-4" key={`${id}-${index}`} />
+              <RateStarIcon className="size-4" key={`${id}-${number}`} />
             ),
           )}
         </div>

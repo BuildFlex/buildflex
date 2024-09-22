@@ -3,7 +3,7 @@ import { MoreVert } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { Dropdown } from 'antd';
 import { Copy, Slack, Trash } from 'iconsax-react';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 const MoreItems = [
   { key: 'duplicate-base', icon: Copy, text: 'Duplicate base' },
@@ -12,7 +12,9 @@ const MoreItems = [
 ];
 const MoreDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleClose = () => setIsOpen(false);
+  const handleClose = useCallback(() => {
+    setIsOpen(false);
+  }, []);
   return (
     <Dropdown
       trigger={['click']}
@@ -21,7 +23,7 @@ const MoreDropdown = () => {
       placement="bottomRight"
       className="flex items-center relative justify-center"
       overlayClassName=" boxShadowSecondary rounded-lg "
-      dropdownRender={(menu) => (
+      dropdownRender={() => (
         <div className="flex gap-1 flex-col p-3 overflow-hidden box-border rounded-lg w-[299px]">
           {MoreItems.map((item) => (
             <DropdownItem

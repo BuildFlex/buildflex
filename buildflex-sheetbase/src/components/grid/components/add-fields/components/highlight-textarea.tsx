@@ -64,7 +64,7 @@ const HighlightTextarea = ({
       const beforeTab = code.slice(0, textarea.selectionStart);
       const afterTab = code.slice(textarea.selectionEnd);
       const cursorPos = textarea.selectionStart + 1;
-      textarea.value = beforeTab + '\t' + afterTab;
+      textarea.value = `${beforeTab}\t${afterTab}`;
       textarea.selectionStart = cursorPos;
       textarea.selectionEnd = cursorPos;
       update(textarea.value);

@@ -1,4 +1,4 @@
-import { CursorDefaultIcon, MoveToIcon } from '@/components/icons';
+import { MoveToIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { Add } from 'iconsax-react';
 import { useState } from 'react';
@@ -27,8 +27,9 @@ const ExpandLinkToAnotherRecord = () => {
             </Text>
           </button>
         ) : (
-          Array.from({ length: links }).map((_, index) => (
+          Array.from({ length: links }).map((number) => (
             <div
+              key={`record-${number as number}`}
               className="w-full flex  rounded-lg overflow-hidden"
               style={{ border: '1px solid #EDEDED' }}
             >

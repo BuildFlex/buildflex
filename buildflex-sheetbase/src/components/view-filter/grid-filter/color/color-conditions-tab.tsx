@@ -63,7 +63,6 @@ const filterConditions3 = [
 ];
 const ColorConditionsTab = ({
   className,
-  setActiveTab,
 }: {
   className?: string;
   setActiveTab: React.Dispatch<React.SetStateAction<ColorTab | null>>;

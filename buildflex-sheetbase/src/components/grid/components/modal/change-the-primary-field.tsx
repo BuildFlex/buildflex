@@ -2,7 +2,6 @@ import { CloseIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { Select } from 'antd';
 import { ArrowDown2 } from 'iconsax-react';
-import React from 'react';
 
 const ChangeThePrimaryFieldModal = ({
   handleCancel,
@@ -49,7 +48,7 @@ const ChangeThePrimaryFieldModal = ({
         />
       </div>
       <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-        Single select" is currently the primary field.
+        {'Single select" is currently the primary field.'}
       </Text>
       {/* Footer */}
       <div className="flex gap-3 items-center justify-end">

@@ -13,6 +13,28 @@ import {
   ArrowDown2,
 } from 'iconsax-react';
 import React, { useState } from 'react';
+const TagList = [
+  {
+    id: 'sheetBase-1',
+    name: 'SheetBase 1',
+    className: 'bg-[#F2F4F7]',
+  },
+  {
+    id: 'sheetBase-2',
+    name: 'SheetBase 2',
+    className: 'bg-[#CFF5D1]',
+  },
+  {
+    id: 'sheetBase-3',
+    name: 'SheetBase 3',
+    className: 'bg-[#FFD4E0]',
+  },
+  {
+    id: 'sheetBase-4',
+    name: 'SheetBase 4',
+    className: 'bg-[#FFD4E0]',
+  },
+];
 
 interface SingleSelectDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
@@ -82,7 +104,7 @@ const SingleSelectDropdown: React.FC<SingleSelectDropdownProps> = ({
         </div>
         <div className="h-[1px] w-full bg-borderColor " />
         <div className="flex gap-1 overflow-auto max-h-[80px] customScrollBar flex-col w-full">
-          {options.map((option, index) => (
+          {options.map((option) => (
             <DropdownItem
               key={option.id}
               className=" py-0 h-8  text-neutral-dark-500"
@@ -144,25 +166,3 @@ const SingleSelectDropdown: React.FC<SingleSelectDropdownProps> = ({
 };
 
 export default SingleSelectDropdown;
-const TagList = [
-  {
-    id: 'sheetBase-1',
-    name: 'SheetBase 1',
-    className: 'bg-[#F2F4F7]',
-  },
-  {
-    id: 'sheetBase-2',
-    name: 'SheetBase 2',
-    className: 'bg-[#CFF5D1]',
-  },
-  {
-    id: 'sheetBase-3',
-    name: 'SheetBase 3',
-    className: 'bg-[#FFD4E0]',
-  },
-  {
-    id: 'sheetBase-4',
-    name: 'SheetBase 4',
-    className: 'bg-[#FFD4E0]',
-  },
-];

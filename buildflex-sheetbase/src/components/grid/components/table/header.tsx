@@ -1,11 +1,9 @@
+import { MoveToIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
 import { Checkbox } from 'antd';
-import { Add, ArrowDown2 } from 'iconsax-react';
-import React from 'react';
-import HeaderFilterDropdown from './header-filter-dropdown';
 import AddFields from '../add-fields';
-import { MoveToIcon } from '@/components/icons';
+import HeaderFilterDropdown from './header-filter-dropdown';
 const gridTableFields = [
   ...fields,
   {
@@ -27,9 +25,9 @@ const GridTableHeader = () => {
         >
           <Checkbox />
         </th>
-        {gridTableFields.map((field, index) => (
+        {gridTableFields.map((field) => (
           <th
-            key={field.id + index}
+            key={field.id}
             style={{ borderRight: '1px solid #EDEDED' }}
             className="px-2 min-w-[180px] whitespace-nowrap box-border text-left"
           >

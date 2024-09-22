@@ -9,7 +9,7 @@ const NotiButton = () => {
     <Dropdown
       placement="bottomRight"
       className="flex items-center relative justify-center"
-      dropdownRender={(menu) => <NotiModal />}
+      dropdownRender={() => <NotiModal />}
       overlayClassName=" boxShadowSecondary noti-dropdown !rounded-lg"
     >
       <div className="notification rounded-full bg-white cursor-pointer size-9 flex items-center justify-center">

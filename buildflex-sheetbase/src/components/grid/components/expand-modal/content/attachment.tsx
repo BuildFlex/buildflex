@@ -100,8 +100,9 @@ const ExpandAttachment = () => {
           </label>
           {/* Attachment Image */}
           <div className="flex flex-wrap gap-2">
-            {attachment.map((file, index) => (
+            {attachment.map((file) => (
               <div
+                key={file.name}
                 className="flex basis-[200px] flex-col rounded-lg w-fit overflow-hidden"
                 style={{ border: '1px solid #EDEDED' }}
               >

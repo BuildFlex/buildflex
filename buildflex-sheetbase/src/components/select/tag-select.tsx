@@ -28,7 +28,6 @@ const TagSelect = ({
 }: TagSelectProps) => {
   const [isShow, setIsShow] = React.useState(false);
   const [selected, setSelected] = useState<ITag | null>(initialValue ?? null);
-  const onOpen = () => setIsShow(true);
   const onClose = () => setIsShow(false);
   const ref = useOutsideClick(onClose, true);
   const handleSelect = (value: ITag) => setSelected(value);
@@ -73,7 +72,7 @@ const TagSelect = ({
             </Text>
           </DropdownItem>
           <div className="flex w-full flex-col gap-1">
-            {tags.map((item, index) => {
+            {tags.map((item) => {
               return (
                 <DropdownItem
                   key={item.id}

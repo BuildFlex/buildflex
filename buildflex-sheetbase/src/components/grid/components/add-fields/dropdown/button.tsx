@@ -14,111 +14,6 @@ import { IField } from '@/components/view-filter/components/dropdown-render/Grou
 interface ButtonDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
 }
-
-const ButtonDropdown: React.FC<ButtonDropdownProps> = ({
-  onChangeDropdown,
-}) => {
-  const [action, setAction] = useState<string>('open-url');
-  const [buttonStyle, setButtonStyle] = useState<IButtonStyle>(
-    ButtonStyleList[0],
-  );
-  const renderAction = () => {
-    switch (action) {
-      case 'open-url':
-        return (
-          <div className="flex flex-col w-full gap-2 mt-1">
-            <Text
-              as="span"
-              variant="B2-Regular"
-              className="text-neutral-dark-300"
-            >
-              URL formula
-            </Text>
-            <CustomInput defaultValue={''} />
-          </div>
-        );
-      case 'open-in-page-designer':
-        return (
-          <DropdownItem className="justify-center">
-            <Text as="span" variant="B2-Regular">
-              To use this action,{' '}
-              <Text
-                as="span"
-                className="text-theme-ocean-blue cursor-pointer"
-                variant="B2-Regular"
-              >
-                install a page designer extension.
-              </Text>
-            </Text>
-          </DropdownItem>
-        );
-
-      default:
-        return null;
-    }
-  };
-  return (
-    <>
-      <button
-        onClick={() => onChangeDropdown(null)}
-        style={{ border: '1px solid #EDEDED ' }}
-        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
-      >
-        <CursorDefaultIcon size={16} />
-        <Text as="span" variant="B2-Regular">
-          Button
-        </Text>
-        <ArrowDown2 className="ml-auto" size={16} />
-      </button>
-      <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-        Trigger a customized action.
-      </Text>
-
-      <div className="flex  gap-3 mt-1">
-        <div className="flex flex-col  w-full gap-2">
-          <Text
-            as="span"
-            variant="B2-Regular"
-            className="text-neutral-dark-300"
-          >
-            Label
-          </Text>
-          <CustomInput defaultValue={'Button'} />
-        </div>
-        <div className="flex flex-col w-full gap-2">
-          <Text
-            as="span"
-            variant="B2-Regular"
-            className="text-neutral-dark-300"
-          >
-            Style
-          </Text>
-          <ButtonStyleSelect
-            selected={buttonStyle}
-            onSelect={setButtonStyle}
-            itemsList={ButtonStyleList}
-          />
-        </div>
-      </div>
-
-      <div className="flex flex-col w-full gap-2 mt-1">
-        <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-          Action
-        </Text>
-        <CustomSelect
-          onChange={(value) => setAction(value.value)}
-          dropdownClassName="max-h-[130px] overflow-auto customScrollBar"
-          initialValue={actionsList[0]}
-          itemsList={actionsList}
-        />
-      </div>
-      {renderAction()}
-    </>
-  );
-};
-
-export default ButtonDropdown;
-
 const actionsList = [
   { label: 'Open URL', value: 'open-url', prefix: Link },
   {
@@ -321,3 +216,108 @@ const ButtonStyleList = [
     color: '#ffffff',
   },
 ];
+
+const ButtonDropdown: React.FC<ButtonDropdownProps> = ({
+  onChangeDropdown,
+}) => {
+  const [action, setAction] = useState<string>('open-url');
+  const [buttonStyle, setButtonStyle] = useState<IButtonStyle>(
+    ButtonStyleList[0],
+  );
+  const renderAction = () => {
+    switch (action) {
+      case 'open-url':
+        return (
+          <div className="flex flex-col w-full gap-2 mt-1">
+            <Text
+              as="span"
+              variant="B2-Regular"
+              className="text-neutral-dark-300"
+            >
+              URL formula
+            </Text>
+            <CustomInput defaultValue={''} />
+          </div>
+        );
+      case 'open-in-page-designer':
+        return (
+          <DropdownItem className="justify-center">
+            <Text as="span" variant="B2-Regular">
+              To use this action,{' '}
+              <Text
+                as="span"
+                className="text-theme-ocean-blue cursor-pointer"
+                variant="B2-Regular"
+              >
+                install a page designer extension.
+              </Text>
+            </Text>
+          </DropdownItem>
+        );
+
+      default:
+        return null;
+    }
+  };
+  return (
+    <>
+      <button
+        onClick={() => onChangeDropdown(null)}
+        style={{ border: '1px solid #EDEDED ' }}
+        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
+      >
+        <CursorDefaultIcon />
+        <Text as="span" variant="B2-Regular">
+          Button
+        </Text>
+        <ArrowDown2 className="ml-auto" size={16} />
+      </button>
+      <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
+        Trigger a customized action.
+      </Text>
+
+      <div className="flex  gap-3 mt-1">
+        <div className="flex flex-col  w-full gap-2">
+          <Text
+            as="span"
+            variant="B2-Regular"
+            className="text-neutral-dark-300"
+          >
+            Label
+          </Text>
+          <CustomInput defaultValue={'Button'} />
+        </div>
+        <div className="flex flex-col w-full gap-2">
+          <Text
+            as="span"
+            variant="B2-Regular"
+            className="text-neutral-dark-300"
+          >
+            Style
+          </Text>
+          <ButtonStyleSelect
+            selected={buttonStyle}
+            onSelect={setButtonStyle}
+            itemsList={ButtonStyleList}
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col w-full gap-2 mt-1">
+        <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
+          Action
+        </Text>
+        <CustomSelect
+          onChange={(value) => setAction(value.value)}
+          dropdownClassName="max-h-[130px] overflow-auto customScrollBar"
+          initialValue={actionsList[0]}
+          itemsList={actionsList}
+        />
+      </div>
+      {renderAction()}
+    </>
+  );
+};
+
+export default ButtonDropdown;
+

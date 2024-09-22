@@ -1,6 +1,6 @@
 import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
-import { Call, Link, Sms, User } from 'iconsax-react';
+import { Link } from 'iconsax-react';
 
 const ExpandURL = () => {
   return (

@@ -6,7 +6,7 @@ const ExpandButton = () => {
     <div className="flex justify-between items-start">
       {/* Button  Select Title */}
       <div className="flex items-center h-10  gap-2 text-neutral-dark-300">
-        <CursorDefaultIcon size={16} />
+        <CursorDefaultIcon />
         <Text as="span" variant="B2-Regular">
           Button
         </Text>

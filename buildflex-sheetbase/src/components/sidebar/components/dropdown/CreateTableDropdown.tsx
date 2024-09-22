@@ -50,7 +50,7 @@ const CreateTableDropdown = ({
       trigger={['click']}
       placement="bottomLeft"
       className={className}
-      dropdownRender={(menu) => (
+      dropdownRender={() => (
         <div className="flex flex-col gap-3 w-[350px] boxShadowSecondary rounded-lg !p-3">
           <div className="flex flex-col gap-1 ">
             <Text
@@ -78,7 +78,7 @@ const CreateTableDropdown = ({
                 key={item.key}
                 className="rounded hover:bg-gray-50 cursor-pointer"
               >
-                <item.icon size={20} className="size-5" />
+                <item.icon />
                 <Text as="span" variant="B2-Regular">
                   {item.label}
                 </Text>

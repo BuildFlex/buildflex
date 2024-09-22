@@ -3,165 +3,14 @@ import Text from '@/components/typography/Text';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
 import { DatePicker, Dropdown } from 'antd';
-import { Add } from 'iconsax-react';
-import React, { useId } from 'react';
 import dayjs from 'dayjs';
 import updateLocale from 'dayjs/plugin/updateLocale';
+import React, { useId } from 'react';
 
 dayjs.extend(updateLocale);
 dayjs.updateLocale('en', {
   weekStart: 1,
 });
-
-interface DateCellProps {
-  date: string;
-  time: string;
-  gmt: string;
-}
-const DateCell = ({ date, time, gmt }: DateCellProps) => {
-  const [isFocus, setIsFocus] = React.useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
-  const [isDatePickOpen, setIsDatePickOpen] = React.useState(false);
-  const [currentTime, setCurrentTime] = React.useState(time);
-  const [currentDate, setCurrentDate] = React.useState(date);
-  const handleDateChange = (date: string) => setCurrentDate(date);
-  const handleDropdownVisible = (isOpen: boolean) => setIsDropdownOpen(isOpen);
-  const ref = useOutsideClick(() => {
-    !isDropdownOpen && setIsFocus(false);
-  });
-
-  const id = useId();
-  return (
-    <div
-      onClick={(e) => {
-        e.stopPropagation();
-        setIsFocus(true);
-      }}
-      ref={ref}
-      className={cn(
-        'max-w-[164px] flex items-center gap-1 h-full w-full ',
-        isFocus &&
-          'after:content-[""] after:pointer-events-none after:absolute after:h-[calc(100%+2px)] after:w-[calc(100%+2px)] after:z-[2] after:-top-[1px] after:-left-[1px] after:border-theme-ocean-blue after:border-solid after:border',
-      )}
-    >
-      <div className="gap-1 h-[20px] flex justify-between items-end w-full ">
-        <label
-          htmlFor={'date-picker-' + id}
-          className="h-[18px] flex items-center  overflow-hidden relative"
-        >
-          <Text
-            as="span"
-            variant="B2-Regular"
-            className="whitespace-nowrap cursor-pointer "
-          >
-            {currentDate}
-          </Text>
-          <DatePicker
-            onCalendarChange={(dates, dateString) =>
-              setCurrentDate(dateString as string)
-            }
-            style={{
-              visibility: 'hidden',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              pointerEvents: 'none',
-            }}
-            id={'date-picker-' + id}
-            className="hidden"
-            format="M/D/YYYY"
-          />
-        </label>
-
-        <TimeDropdown
-          open={isDropdownOpen}
-          setOpen={handleDropdownVisible}
-          onSelect={(value) => setCurrentTime(value)}
-          times={times}
-        >
-          <div className="h-[18px] flex items-center">
-            <Text
-              as="span"
-              variant="B2-Regular"
-              className="whitespace-nowrap cursor-pointer "
-            >
-              {currentTime}
-            </Text>
-          </div>
-        </TimeDropdown>
-
-        <Text
-          as="span"
-          variant="sub-title"
-          className="whitespace-nowrap text-neutral-dark-300 "
-        >
-          {gmt}
-        </Text>
-      </div>
-      {isFocus && (
-        <div
-          className={cn(
-            'absolute  bg-white z-[11] pointer-events-none size-[10px] rounded-sm',
-            ' -bottom-[4px] -right-[4px] ',
-          )}
-          style={{ border: '1px solid #087AAF' }}
-        />
-      )}
-    </div>
-  );
-};
-
-export default DateCell;
-
-const TimeDropdown = ({
-  times,
-  setOpen,
-  open,
-  children,
-  onSelect,
-}: {
-  times: {
-    label: string;
-    id: string;
-  }[];
-  open: boolean;
-  onSelect: (value: string) => void;
-  setOpen: (value: boolean) => void;
-  children: React.ReactNode;
-}) => {
-  return (
-    <Dropdown
-      trigger={['click']}
-      open={open}
-      onOpenChange={setOpen}
-      placement="bottomLeft"
-      dropdownRender={(menu) => (
-        <div className="flex flex-col w-[112px] max-h-[200px] overflow-y-auto customScrollBar py-2 boxShadowSecondary box-border rounded-lg ">
-          {times.map((time, index) => (
-            <DropdownItem
-              onClick={() => {
-                onSelect(time.label);
-                setOpen(false);
-              }}
-              className=" cursor-pointer justify-center text-neutral-dark-300 hover:bg-gray-100"
-            >
-              <Text
-                variant="B2-Regular"
-                as="span"
-                className="text-neutral-dark-300"
-              >
-                {time.label}
-              </Text>
-            </DropdownItem>
-          ))}
-        </div>
-      )}
-      className=""
-    >
-      {children}
-    </Dropdown>
-  );
-};
 
 const times = [
   { label: '12:00am', id: '12am' },
@@ -213,3 +62,150 @@ const times = [
   { label: '11:00pm', id: '11pm' },
   { label: '11:30pm', id: '1130pm' },
 ];
+const TimeDropdown = ({
+  times,
+  setOpen,
+  open,
+  children,
+  onSelect,
+}: {
+  times: {
+    label: string;
+    id: string;
+  }[];
+  open: boolean;
+  onSelect: (value: string) => void;
+  setOpen: (value: boolean) => void;
+  children: React.ReactNode;
+}) => {
+  return (
+    <Dropdown
+      trigger={['click']}
+      open={open}
+      onOpenChange={setOpen}
+      placement="bottomLeft"
+      dropdownRender={() => (
+        <div className="flex flex-col w-[112px] max-h-[200px] overflow-y-auto customScrollBar py-2 boxShadowSecondary box-border rounded-lg ">
+          {times.map((time) => (
+            <DropdownItem
+              key={time.id}
+              onClick={() => {
+                onSelect(time.label);
+                setOpen(false);
+              }}
+              className=" cursor-pointer justify-center text-neutral-dark-300 hover:bg-gray-100"
+            >
+              <Text
+                variant="B2-Regular"
+                as="span"
+                className="text-neutral-dark-300"
+              >
+                {time.label}
+              </Text>
+            </DropdownItem>
+          ))}
+        </div>
+      )}
+      className=""
+    >
+      {children}
+    </Dropdown>
+  );
+};
+interface DateCellProps {
+  date: string;
+  time: string;
+  gmt: string;
+}
+const DateCell = ({ date, time, gmt }: DateCellProps) => {
+  const [isFocus, setIsFocus] = React.useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
+  const [currentTime, setCurrentTime] = React.useState(time);
+  const [currentDate, setCurrentDate] = React.useState(date);
+  const handleDropdownVisible = (isOpen: boolean) => setIsDropdownOpen(isOpen);
+  const ref = useOutsideClick(() => {
+    !isDropdownOpen && setIsFocus(false);
+  });
+
+  const id = useId();
+  return (
+    <div
+      onClick={(e) => {
+        e.stopPropagation();
+        setIsFocus(true);
+      }}
+      ref={ref}
+      className={cn(
+        'max-w-[164px] flex items-center gap-1 h-full w-full ',
+        isFocus &&
+          'after:content-[""] after:pointer-events-none after:absolute after:h-[calc(100%+2px)] after:w-[calc(100%+2px)] after:z-[2] after:-top-[1px] after:-left-[1px] after:border-theme-ocean-blue after:border-solid after:border',
+      )}
+    >
+      <div className="gap-1 h-[20px] flex justify-between items-end w-full ">
+        <label
+          htmlFor={`date-picker-${id}`}
+          className="h-[18px] flex items-center  overflow-hidden relative"
+        >
+          <Text
+            as="span"
+            variant="B2-Regular"
+            className="whitespace-nowrap cursor-pointer "
+          >
+            {currentDate}
+          </Text>
+          <DatePicker
+            onCalendarChange={(dates, dateString) =>
+              setCurrentDate(dateString as string)
+            }
+            style={{
+              visibility: 'hidden',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              pointerEvents: 'none',
+            }}
+            id={`date-picker-${id}`}
+            className="hidden"
+            format="M/D/YYYY"
+          />
+        </label>
+
+        <TimeDropdown
+          open={isDropdownOpen}
+          setOpen={handleDropdownVisible}
+          onSelect={(value) => setCurrentTime(value)}
+          times={times}
+        >
+          <div className="h-[18px] flex items-center">
+            <Text
+              as="span"
+              variant="B2-Regular"
+              className="whitespace-nowrap cursor-pointer "
+            >
+              {currentTime}
+            </Text>
+          </div>
+        </TimeDropdown>
+
+        <Text
+          as="span"
+          variant="sub-title"
+          className="whitespace-nowrap text-neutral-dark-300 "
+        >
+          {gmt}
+        </Text>
+      </div>
+      {isFocus && (
+        <div
+          className={cn(
+            'absolute  bg-white z-[11] pointer-events-none size-[10px] rounded-sm',
+            ' -bottom-[4px] -right-[4px] ',
+          )}
+          style={{ border: '1px solid #087AAF' }}
+        />
+      )}
+    </div>
+  );
+};
+
+export default DateCell;

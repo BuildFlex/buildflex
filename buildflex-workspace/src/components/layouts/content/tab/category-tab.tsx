@@ -1,6 +1,5 @@
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
-import React from 'react';
 interface CategoryTabProps {
   label: string;
   id: string;

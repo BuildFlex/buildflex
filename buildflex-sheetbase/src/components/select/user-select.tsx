@@ -28,7 +28,6 @@ const UserSelect = ({
 }: UserSelectProps) => {
   const [isShow, setIsShow] = React.useState(false);
   const [selected, setSelected] = useState<IUser>(initialValue ?? itemsList[0]);
-  const onOpen = () => setIsShow(true);
   const onClose = () => setIsShow(false);
   const ref = useOutsideClick(onClose, true);
   const handleSelect = (value: IUser) => setSelected(value);
@@ -73,7 +72,7 @@ const UserSelect = ({
         >
           {dropdownRender}
           <div className="flex w-full flex-col gap-1">
-            {itemsList.map((item, index) => {
+            {itemsList.map((item) => {
               return (
                 <DropdownItem
                   key={item.id}

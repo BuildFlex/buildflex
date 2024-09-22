@@ -28,6 +28,145 @@ interface LastModiFiedTimeDropdownProps {
   handleModalOpen: (isOpen: boolean) => void;
 }
 
+const SelectFieldModal: React.FC<{
+  handleHideAll: () => void;
+  setIsAllField: React.Dispatch<React.SetStateAction<boolean>>;
+  handleShowAll: () => void;
+  setSelectFields: React.Dispatch<React.SetStateAction<string[]>>;
+  selectFields: string[];
+  handleCancel: () => void;
+  isModalShow: boolean;
+}> = ({
+  handleShowAll,
+  handleHideAll,
+  setIsAllField,
+  setSelectFields,
+  selectFields,
+  handleCancel,
+  isModalShow,
+}) => {
+  return (
+    <Modal
+      modalRender={() => (
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+          className="w-[400px] overflow-hidden flex flex-col gap-3  p-6 box-border bg-white rounded-lg ant-modal-content"
+        >
+          {/* Header */}
+          <div className="flex flex-col gap-2">
+            <div className=" h-[23px] items-start box-border flex justify-between">
+              <Text
+                as="span"
+                className="text-neutral-dark-500"
+                variant="modal-title"
+              >
+                Select last modified fields
+              </Text>
+
+              <button
+                onClick={handleCancel}
+                className="border-none size-5 flex items-center justify-center p-0 outline-none bg-transparent cursor-pointer"
+              >
+                <CloseIcon className="size-5" />
+              </button>
+            </div>
+            <Text
+              as="span"
+              variant="B2-Regular"
+              className="text-neutral-dark-300"
+            >
+              The last modified time field will show the last time any of the
+              following selected fields were edited.
+            </Text>
+          </div>
+          {/* Content */}
+          <div className="flex flex-col gap-2 box-border  w-full max-h-[300px] ">
+            <CustomInput
+              placeholder="Find a field"
+              prefixIcon={
+                <SearchNormal1
+                  className="min-w-4"
+                  size={16}
+                  color={'#6A758B'}
+                />
+              }
+              className="min-h-9 h-9"
+            />
+            <div className="flex flex-col gap-1 h-full flex-1 overflow-auto customScrollBar">
+              {fields.map((field) => (
+                <DropdownItem key={field.id} className="text-neutral-dark-500">
+                  <Switch
+                    className="w-8"
+                    checked={selectFields.includes(field.id)}
+                    onChange={(checked) => {
+                      setSelectFields((prev) =>
+                        checked
+                          ? [...prev, field.id]
+                          : prev.filter((id) => id !== field.id),
+                      );
+                    }}
+                    size="small"
+                  />
+                  <field.icon size={16} />
+                  <Text as="span" variant="B2-Regular">
+                    {field.label}
+                  </Text>
+                </DropdownItem>
+              ))}
+            </div>
+            <div className="flex items-center gap-2 ">
+              <button
+                onClick={handleShowAll}
+                className="h-9 w-fit outline-none cursor-pointer border-none shadow-none text-neutral-dark-500  bg-transparent box-border rounded-lg"
+              >
+                <Text as="span" variant="B2-Medium">
+                  Select all
+                </Text>
+              </button>
+              <button
+                onClick={handleHideAll}
+                className="h-9 w-fit outline-none  cursor-pointer border-none shadow-none text-neutral-dark-500  bg-transparent box-border rounded-lg"
+              >
+                <Text as="span" variant="B2-Medium">
+                  Clear all
+                </Text>
+              </button>
+            </div>
+          </div>
+          {/* Footer */}
+          <div className="flex items-center gap-3 ">
+            <button
+              onClick={handleCancel}
+              style={{ border: '1px solid #CACFD8' }}
+              className="h-9 px-4 py-[6px] ml-auto w-fit outline-none cursor-pointer  shadow-none text-neutral-dark-500  bg-transparent box-border rounded-lg"
+            >
+              <Text as="span" variant="B2-Medium">
+                Cancel
+              </Text>
+            </button>
+            <button
+              onClick={() => {
+                setIsAllField(false);
+                handleCancel();
+              }}
+              className="h-9 px-4 py-[6px] text-white bg-theme-ocean-blue w-fit outline-none  cursor-pointer border-none shadow-none box-border rounded-lg"
+            >
+              <Text as="span" variant="B2-Medium">
+                Use selected field
+              </Text>
+            </button>
+          </div>
+        </div>
+      )}
+      open={isModalShow}
+      closeIcon={false}
+      onCancel={handleCancel}
+    />
+  );
+};
+
 export const LastModiFiedTimeDropdown: React.FC<
   LastModiFiedTimeDropdownProps
 > = ({ onChangeDropdown, handleModalOpen }) => {
@@ -266,144 +405,5 @@ export const LastModiFiedTimeDropdown: React.FC<
         isModalShow={isModalShow}
       />
     </>
-  );
-};
-
-const SelectFieldModal: React.FC<{
-  handleHideAll: () => void;
-  setIsAllField: React.Dispatch<React.SetStateAction<boolean>>;
-  handleShowAll: () => void;
-  setSelectFields: React.Dispatch<React.SetStateAction<string[]>>;
-  selectFields: string[];
-  handleCancel: () => void;
-  isModalShow: boolean;
-}> = ({
-  handleShowAll,
-  handleHideAll,
-  setIsAllField,
-  setSelectFields,
-  selectFields,
-  handleCancel,
-  isModalShow,
-}) => {
-  return (
-    <Modal
-      modalRender={(modal) => (
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-          className="w-[400px] overflow-hidden flex flex-col gap-3  p-6 box-border bg-white rounded-lg ant-modal-content"
-        >
-          {/* Header */}
-          <div className="flex flex-col gap-2">
-            <div className=" h-[23px] items-start box-border flex justify-between">
-              <Text
-                as="span"
-                className="text-neutral-dark-500"
-                variant="modal-title"
-              >
-                Select last modified fields
-              </Text>
-
-              <button
-                onClick={handleCancel}
-                className="border-none size-5 flex items-center justify-center p-0 outline-none bg-transparent cursor-pointer"
-              >
-                <CloseIcon className="size-5" />
-              </button>
-            </div>
-            <Text
-              as="span"
-              variant="B2-Regular"
-              className="text-neutral-dark-300"
-            >
-              The last modified time field will show the last time any of the
-              following selected fields were edited.
-            </Text>
-          </div>
-          {/* Content */}
-          <div className="flex flex-col gap-2 box-border  w-full max-h-[300px] ">
-            <CustomInput
-              placeholder="Find a field"
-              prefixIcon={
-                <SearchNormal1
-                  className="min-w-4"
-                  size={16}
-                  color={'#6A758B'}
-                />
-              }
-              className="min-h-9 h-9"
-            />
-            <div className="flex flex-col gap-1 h-full flex-1 overflow-auto customScrollBar">
-              {fields.map((field) => (
-                <DropdownItem key={field.id} className="text-neutral-dark-500">
-                  <Switch
-                    className="w-8"
-                    checked={selectFields.includes(field.id)}
-                    onChange={(checked) => {
-                      setSelectFields((prev) =>
-                        checked
-                          ? [...prev, field.id]
-                          : prev.filter((id) => id !== field.id),
-                      );
-                    }}
-                    size="small"
-                  />
-                  <field.icon size={16} />
-                  <Text as="span" variant="B2-Regular">
-                    {field.label}
-                  </Text>
-                </DropdownItem>
-              ))}
-            </div>
-            <div className="flex items-center gap-2 ">
-              <button
-                onClick={handleShowAll}
-                className="h-9 w-fit outline-none cursor-pointer border-none shadow-none text-neutral-dark-500  bg-transparent box-border rounded-lg"
-              >
-                <Text as="span" variant="B2-Medium">
-                  Select all
-                </Text>
-              </button>
-              <button
-                onClick={handleHideAll}
-                className="h-9 w-fit outline-none  cursor-pointer border-none shadow-none text-neutral-dark-500  bg-transparent box-border rounded-lg"
-              >
-                <Text as="span" variant="B2-Medium">
-                  Clear all
-                </Text>
-              </button>
-            </div>
-          </div>
-          {/* Footer */}
-          <div className="flex items-center gap-3 ">
-            <button
-              onClick={handleCancel}
-              style={{ border: '1px solid #CACFD8' }}
-              className="h-9 px-4 py-[6px] ml-auto w-fit outline-none cursor-pointer  shadow-none text-neutral-dark-500  bg-transparent box-border rounded-lg"
-            >
-              <Text as="span" variant="B2-Medium">
-                Cancel
-              </Text>
-            </button>
-            <button
-              onClick={() => {
-                setIsAllField(false);
-                handleCancel();
-              }}
-              className="h-9 px-4 py-[6px] text-white bg-theme-ocean-blue w-fit outline-none  cursor-pointer border-none shadow-none box-border rounded-lg"
-            >
-              <Text as="span" variant="B2-Medium">
-                Use selected field
-              </Text>
-            </button>
-          </div>
-        </div>
-      )}
-      open={isModalShow}
-      closeIcon={false}
-      onCancel={handleCancel}
-    />
   );
 };

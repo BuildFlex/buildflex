@@ -1,7 +1,5 @@
 import { CloseIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { Input } from 'antd';
-import React from 'react';
 
 const DuplicateFieldModal = ({
   handleCancel,

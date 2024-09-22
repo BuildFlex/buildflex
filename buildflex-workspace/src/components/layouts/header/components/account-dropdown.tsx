@@ -23,7 +23,7 @@ const AccountDropdown = () => {
         onOpenChange={(open) => !isModalOpen && setIsOpen(open)}
         placement="bottomRight"
         className="flex items-center relative justify-center"
-        dropdownRender={(menu) => (
+        dropdownRender={() => (
           <div className="flex gap-1 flex-col boxShadowSecondary p-3 overflow-hidden box-border rounded-lg w-[240px]">
             {AccountItems.map((item) => (
               <DropdownItem

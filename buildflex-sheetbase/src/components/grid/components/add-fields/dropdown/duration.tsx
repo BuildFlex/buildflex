@@ -6,42 +6,18 @@ import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { QuestionCircle } from '@/components/icons';
 import Select from '@/components/select/select';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+const durationFormatMap = new Map([
+  ['h:mm', '1:23'],
+  ['h:mm:ss', '1:23:40'],
+  ['h:mm:ss:ss', '1:23:40:00'],
+  ['h:mm:ss.s', '1:23:40.0'],
+  ['h:mm:ss.ss', '1:23:40.00'],
+  ['h:mm:ss.sss', '1:23:40.000'],
+]);
 
 interface DurationDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
 }
-
-const DurationDropdown: React.FC<DurationDropdownProps> = ({
-  onChangeDropdown,
-}) => {
-  const [durationFormat, setDurationFormat] = React.useState<string>('h:mm');
-  return (
-    <>
-      <button
-        onClick={() => onChangeDropdown(null)}
-        style={{ border: '1px solid #EDEDED ' }}
-        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
-      >
-        <Clock size={16} />
-        <Text as="span" variant="B2-Regular">
-          Duration
-        </Text>
-        <ArrowDown2 className="ml-auto" size={16} />
-      </button>
-      <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-        Enter a duration of time in hours, minutes or seconds (e.g. 1:23).
-      </Text>
-      <PrecisionSelect />
-      <DurationSelect
-        setDurationFormat={setDurationFormat}
-        durationFormat={durationFormat}
-      />
-    </>
-  );
-};
-
-export default DurationDropdown;
-
 const DurationSelect: React.FC<{
   durationFormat: string;
   setDurationFormat: (value: string) => void;
@@ -114,11 +90,34 @@ const PrecisionSelect: React.FC = () => (
   </div>
 );
 
-const durationFormatMap = new Map([
-  ['h:mm', '1:23'],
-  ['h:mm:ss', '1:23:40'],
-  ['h:mm:ss:ss', '1:23:40:00'],
-  ['h:mm:ss.s', '1:23:40.0'],
-  ['h:mm:ss.ss', '1:23:40.00'],
-  ['h:mm:ss.sss', '1:23:40.000'],
-]);
+const DurationDropdown: React.FC<DurationDropdownProps> = ({
+  onChangeDropdown,
+}) => {
+  const [durationFormat, setDurationFormat] = React.useState<string>('h:mm');
+  return (
+    <>
+      <button
+        onClick={() => onChangeDropdown(null)}
+        style={{ border: '1px solid #EDEDED ' }}
+        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
+      >
+        <Clock size={16} />
+        <Text as="span" variant="B2-Regular">
+          Duration
+        </Text>
+        <ArrowDown2 className="ml-auto" size={16} />
+      </button>
+      <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
+        Enter a duration of time in hours, minutes or seconds (e.g. 1:23).
+      </Text>
+      <PrecisionSelect />
+      <DurationSelect
+        setDurationFormat={setDurationFormat}
+        durationFormat={durationFormat}
+      />
+    </>
+  );
+};
+
+export default DurationDropdown;
+

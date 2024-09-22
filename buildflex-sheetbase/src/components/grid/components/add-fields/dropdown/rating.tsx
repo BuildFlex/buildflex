@@ -10,11 +10,42 @@ import {
   FlagIcon,
   LikeIcon,
   RateStarFilledIcon,
-  RateStarOutlineIcon
+  RateStarOutlineIcon,
 } from '@/components/icons';
 import ColorSelect from '@/components/select/color-select';
 import Select from '@/components/select/select';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+const CheckboxItem = [
+  {
+    id: 'checkbox',
+    label: CheckBoxIcon,
+  },
+  {
+    id: 'close',
+    label: CloseIcon,
+  },
+  {
+    id: 'star',
+    label: RateStarFilledIcon,
+  },
+
+  {
+    id: 'heart',
+    label: Heart,
+  },
+  {
+    id: 'like',
+    label: LikeIcon,
+  },
+  {
+    id: 'flag',
+    label: FlagIcon,
+  },
+  {
+    id: 'dot',
+    label: DotIcon,
+  },
+];
 
 interface RatingDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
@@ -100,34 +131,3 @@ const RatingDropdown: React.FC<RatingDropdownProps> = ({
 };
 
 export default RatingDropdown;
-const CheckboxItem = [
-  {
-    id: 'checkbox',
-    label: CheckBoxIcon,
-  },
-  {
-    id: 'close',
-    label: CloseIcon,
-  },
-  {
-    id: 'star',
-    label: RateStarFilledIcon,
-  },
-
-  {
-    id: 'heart',
-    label: Heart,
-  },
-  {
-    id: 'like',
-    label: LikeIcon,
-  },
-  {
-    id: 'flag',
-    label: FlagIcon,
-  },
-  {
-    id: 'dot',
-    label: DotIcon,
-  },
-];

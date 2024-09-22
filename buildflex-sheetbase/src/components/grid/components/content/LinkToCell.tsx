@@ -1,11 +1,10 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { CloseIcon } from '@/components/icons';
-import Tag from '@/components/sidebar/components/dropdown/TeamTag';
 import Text from '@/components/typography/Text';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
-import { Checkbox, Dropdown } from 'antd';
-import { Add, Maximize4 } from 'iconsax-react';
+import { Dropdown } from 'antd';
+import { Add } from 'iconsax-react';
 import React from 'react';
 import LinkToCellModal from './modal/link-to-cell-modal';
 interface LinkToCellProps {
@@ -14,6 +13,79 @@ interface LinkToCellProps {
     color: string;
   }[];
 }
+const LinkToDropdown = ({
+  selects,
+  setOpen,
+  open,
+}: {
+  selects: {
+    name: string;
+    color: string;
+  }[];
+  open: boolean;
+  setOpen: (value: boolean) => void;
+  children?: React.ReactNode;
+}) => {
+  return (
+    <Dropdown
+      trigger={['click']}
+      open={open}
+      onOpenChange={setOpen}
+      placement="bottomLeft"
+      dropdownRender={() => (
+        <div className="flex flex-col max-h-[200px] overflow-y-auto customScrollBar p-2 boxShadowSecondary box-border rounded-lg w-fit">
+          <DropdownItem className=" pr-0">
+            <Text
+              variant="B2-Regular"
+              as="span"
+              className="text-neutral-dark-300"
+            >
+              Search
+            </Text>
+            <button
+              className="size-7 rounded ml-auto bg-transparent cursor-pointer flex justify-center items-center "
+              style={{ border: '1px solid #EDEDED' }}
+            >
+              <Add size={16} className="text-neutral-dark-500  " />
+            </button>
+          </DropdownItem>
+          {selects.map((select, index) => (
+            <div
+              key={select.name}
+              onClick={() => setOpen(false)}
+              className="hover:bg-gray-100 w-[423px] box-border flex flex-col gap-1 rounded p-2 cursor-pointer"
+            >
+              <Text as="span" variant="B2-Regular">
+                {`Text-title ${select.name}-${index + 1}`}
+              </Text>
+              <div className="flex items-center gap-12">
+                {Array.from({ length: 5 }).map((number) => (
+                  <div
+                    key={`link-to-cell-${number as number}`}
+                    className="flex flex-col gap-1"
+                  >
+                    <span className="text-[10px] text-neutral-dark-300 font-lato">
+                      Sub-title
+                    </span>
+                    <Text as="span" variant="sub-title">
+                      Content
+                    </Text>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      className=""
+    >
+      <button className="bg-gray-100 h-5 w-5 justify-center  flex items-center rounded border-none cursor-pointer">
+        <Add size={20} className="text-neutral-dark-500  " />
+      </button>
+    </Dropdown>
+  );
+};
+
 const LinkToCell = ({ linkList }: LinkToCellProps) => {
   const [isFocus, setIsFocus] = React.useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
@@ -41,8 +113,9 @@ const LinkToCell = ({ linkList }: LinkToCellProps) => {
             )}
           >
             <div className="flex  flex-col gap-1 items-start overflow-y-auto h-fit w-full  max-h-[100px] customScrollBar ">
-              {linkList.map((select, index) => (
+              {linkList.map((select) => (
                 <div
+                  key={select.name}
                   className={cn(
                     'rounded w-fit whitespace-nowrap gap-1 min-h-6 h-6 flex items-center box-border  px-2  bg-semantic-50 ',
                   )}
@@ -72,8 +145,9 @@ const LinkToCell = ({ linkList }: LinkToCellProps) => {
           <LinkToCellModal />
         </>
       ) : (
-        linkList.map((select, index) => (
+        linkList.map((select) => (
           <div
+            key={select.name}
             className={cn(
               'rounded h-6 whitespace-nowrap gap-1 flex items-center box-border  px-2  bg-semantic-50 ',
             )}
@@ -90,73 +164,3 @@ const LinkToCell = ({ linkList }: LinkToCellProps) => {
   );
 };
 export default LinkToCell;
-
-const LinkToDropdown = ({
-  selects,
-  setOpen,
-  open,
-  children,
-}: {
-  selects: {
-    name: string;
-    color: string;
-  }[];
-  open: boolean;
-  setOpen: (value: boolean) => void;
-  children?: React.ReactNode;
-}) => {
-  return (
-    <Dropdown
-      trigger={['click']}
-      open={open}
-      onOpenChange={setOpen}
-      placement="bottomLeft"
-      dropdownRender={(menu) => (
-        <div className="flex flex-col max-h-[200px] overflow-y-auto customScrollBar p-2 boxShadowSecondary box-border rounded-lg w-fit">
-          <DropdownItem className=" pr-0">
-            <Text
-              variant="B2-Regular"
-              as="span"
-              className="text-neutral-dark-300"
-            >
-              Search
-            </Text>
-            <button
-              className="size-7 rounded ml-auto bg-transparent cursor-pointer flex justify-center items-center "
-              style={{ border: '1px solid #EDEDED' }}
-            >
-              <Add size={16} className="text-neutral-dark-500  " />
-            </button>
-          </DropdownItem>
-          {selects.map((select, index) => (
-            <div
-              onClick={() => setOpen(false)}
-              className="hover:bg-gray-100 w-[423px] box-border flex flex-col gap-1 rounded p-2 cursor-pointer"
-            >
-              <Text as="span" variant="B2-Regular">
-                {`Text-title ${index + 1}`}
-              </Text>
-              <div className="flex items-center gap-12">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[10px] text-neutral-dark-300 font-lato">
-                      Sub-title
-                    </span>
-                    <Text as="span" variant="sub-title">
-                      Content
-                    </Text>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-      className=""
-    >
-      <button className="bg-gray-100 h-5 w-5 justify-center  flex items-center rounded border-none cursor-pointer">
-        <Add size={20} className="text-neutral-dark-500  " />
-      </button>
-    </Dropdown>
-  );
-};

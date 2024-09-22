@@ -21,10 +21,17 @@ interface MenuItemProps {
 
 const MenuItem: React.FC<MenuItemProps> = ({ icon: Icon, label }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const handleHoverEnter = useCallback(() => {
+    setIsHovered(true);
+  }, []);
+  const handleHoverLeave = useCallback(() => {
+    setIsHovered(false);
+  }, []);
+
   return (
     <button
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleHoverEnter}
+      onMouseLeave={handleHoverLeave}
       className="flex w-full items-center justify-between px-3  h-9 rounded hover:bg-white/20 transition-colors duration-500 cursor-pointer"
     >
       <div className="flex items-center">

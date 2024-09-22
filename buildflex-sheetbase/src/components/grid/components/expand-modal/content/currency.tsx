@@ -1,6 +1,6 @@
 import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
-import { Call, DollarCircle, Hashtag, Link, Sms, User } from 'iconsax-react';
+import { DollarCircle } from 'iconsax-react';
 
 const ExpandCurrency = () => {
   return (

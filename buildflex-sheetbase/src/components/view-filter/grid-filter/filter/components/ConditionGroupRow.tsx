@@ -12,7 +12,6 @@ interface ConditionGroupRowProps {
   className?: string;
 }
 const ConditionGroupRow = ({
-  isFirstRow = false,
   condition,
   className,
 }: ConditionGroupRowProps) => {

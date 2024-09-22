@@ -1,10 +1,9 @@
-import React from 'react';
 interface IconProps {
   className?: string;
   color?: string;
   size?: number;
 }
-export const Chat1 = ({ className, color, size }: IconProps) => {
+export const Chat1 = ({ className }: IconProps) => {
   return (
     <svg
       className={className}
@@ -15,15 +14,15 @@ export const Chat1 = ({ className, color, size }: IconProps) => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M1.75 8.75C1.75 4.60786 5.10786 1.25 9.25 1.25H31.75C35.8921 1.25 39.25 4.60786 39.25 8.75V26.25C39.25 30.3921 35.8921 33.75 31.75 33.75H25.4422L21.4408 38.3231C21.2034 38.5944 20.8604 38.75 20.5 38.75C20.1396 38.75 19.7966 38.5944 19.5592 38.3231L15.5578 33.75H9.25C5.10786 33.75 1.75 30.3921 1.75 26.25V8.75ZM20.5 8.75C21.0836 8.75 21.5895 9.15381 21.7189 9.72281L22.4105 12.7643C22.7304 14.1711 23.8289 15.2696 25.2357 15.5895L28.2772 16.2811C28.8462 16.4105 29.25 16.9164 29.25 17.5C29.25 18.0836 28.8462 18.5895 28.2772 18.7189L25.2357 19.4105C23.8289 19.7304 22.7304 20.8289 22.4105 22.2357L21.7189 25.2772C21.5895 25.8462 21.0836 26.25 20.5 26.25C19.9164 26.25 19.4105 25.8462 19.2811 25.2772L18.5895 22.2357C18.2696 20.8289 17.1711 19.7304 15.7643 19.4105L12.7228 18.7189C12.1538 18.5895 11.75 18.0836 11.75 17.5C11.75 16.9164 12.1538 16.4105 12.7228 16.2811L15.7643 15.5895C17.1711 15.2696 18.2696 14.1711 18.5895 12.7643L19.2811 9.72281C19.4105 9.15381 19.9164 8.75 20.5 8.75Z"
         fill="white"
       />
     </svg>
   );
 };
-export const SparklesIcon = ({ className, color, size }: IconProps) => {
+export const SparklesIcon = () => {
   return (
     <svg
       width="16"
@@ -35,13 +34,13 @@ export const SparklesIcon = ({ className, color, size }: IconProps) => {
       <path
         d="M7.59998 2.3999L8.06174 4.44982C8.45342 6.1886 9.81127 7.54645 11.5501 7.93813L13.6 8.3999L11.5501 8.86167C9.81127 9.25335 8.45342 10.6112 8.06174 12.35L7.59998 14.3999L7.13821 12.35C6.74653 10.6112 5.38868 9.25335 3.6499 8.86167L1.59998 8.3999L3.6499 7.93813C5.38868 7.54645 6.74653 6.1886 7.13821 4.44983L7.59998 2.3999Z"
         stroke="#FCBF25"
-        stroke-width="1.5"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
       />
     </svg>
   );
 };
-export const CloseIcon = ({ className, color, size }: IconProps) => {
+export const CloseIcon = ({ className, color }: IconProps) => {
   return (
     <svg
       className={className}
@@ -54,14 +53,14 @@ export const CloseIcon = ({ className, color, size }: IconProps) => {
       <path
         d="M12.6668 3.33301L3.3335 12.6663M3.3335 3.33301L12.6668 12.6663"
         stroke={color || '#101828'}
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
 };
-export const CheckBoxIcon = ({ className, color, size }: IconProps) => {
+export const CheckBoxIcon = ({ className, color }: IconProps) => {
   return (
     <svg
       className={className}
@@ -98,7 +97,7 @@ export const StarIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const MoreIcon = ({ className }: IconProps) => {
+export const MoreIcon = () => {
   return (
     <svg
       width="16"
@@ -122,7 +121,7 @@ export const MoreIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const GroupIcon = ({ className }: IconProps) => {
+export const GroupIcon = () => {
   return (
     <svg
       width="24"

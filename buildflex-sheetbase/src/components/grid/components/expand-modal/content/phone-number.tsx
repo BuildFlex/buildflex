@@ -1,6 +1,6 @@
 import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
-import { Call, User } from 'iconsax-react';
+import { Call } from 'iconsax-react';
 
 const ExpandPhoneNumber = () => {
   return (

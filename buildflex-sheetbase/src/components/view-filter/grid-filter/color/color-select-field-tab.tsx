@@ -44,7 +44,7 @@ const ColorSelectFieldTab = ({
             </Text>
           </div>
           <SortSelect
-            dropdownRender={(menu) => (
+            dropdownRender={() => (
               <FindColorField
                 field={initialFields}
                 onSelectField={handleSelect}

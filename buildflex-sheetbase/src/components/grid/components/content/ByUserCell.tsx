@@ -1,11 +1,7 @@
 import Text from '@/components/typography/Text';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
-import { Checkbox, Dropdown } from 'antd';
 import React from 'react';
-import { SelectAddDropdown } from './MutilpleSelectCell';
-import { Add, ArrowDown2 } from 'iconsax-react';
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
 interface ByUserCellProps {
   user: {
     name: string;
@@ -40,7 +36,6 @@ const ByUserCell = ({ user, subText }: ByUserCellProps) => {
         <>
           <div
             style={{ boxShadow: 'none' }}
-            autoFocus
             className={cn(
               '  m-0    border-none',
               isActive

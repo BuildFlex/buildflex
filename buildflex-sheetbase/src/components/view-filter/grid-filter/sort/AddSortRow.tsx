@@ -29,7 +29,7 @@ const AddSortRow = ({ setFields, fields, buttonName }: AddSortRowProps) => {
       className="flex items-center relative justify-center"
       overlayClassName={cn(' boxShadowSecondary grid-dropdown !rounded-lg')}
       // menu={[]}
-      dropdownRender={(menu) => (
+      dropdownRender={() => (
         <FindField
           fields={filterFields}
           onSelectField={handleAdd}

@@ -11,6 +11,37 @@ import Text from '@/components/typography/Text';
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
 import { ArrowDown2, Heart, TickSquare } from 'iconsax-react';
 import React from 'react';
+const CheckboxItem = [
+  {
+    id: 'checkbox',
+    label: CheckBoxIcon,
+  },
+  {
+    id: 'close',
+    label: CloseIcon,
+  },
+  {
+    id: 'star',
+    label: RateStarFilledIcon,
+  },
+
+  {
+    id: 'heart',
+    label: Heart,
+  },
+  {
+    id: 'like',
+    label: LikeIcon,
+  },
+  {
+    id: 'flag',
+    label: FlagIcon,
+  },
+  {
+    id: 'dot',
+    label: DotIcon,
+  },
+];
 
 interface CheckboxDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
@@ -83,34 +114,3 @@ const CheckboxDropdown: React.FC<CheckboxDropdownProps> = ({
 };
 
 export default CheckboxDropdown;
-const CheckboxItem = [
-  {
-    id: 'checkbox',
-    label: CheckBoxIcon,
-  },
-  {
-    id: 'close',
-    label: CloseIcon,
-  },
-  {
-    id: 'star',
-    label: RateStarFilledIcon,
-  },
-
-  {
-    id: 'heart',
-    label: Heart,
-  },
-  {
-    id: 'like',
-    label: LikeIcon,
-  },
-  {
-    id: 'flag',
-    label: FlagIcon,
-  },
-  {
-    id: 'dot',
-    label: DotIcon,
-  },
-];

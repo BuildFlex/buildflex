@@ -22,7 +22,6 @@ import RowHeightRender from '../components/dropdown-render/RowHeightRender';
 import ShareAndSyncDropdownRender from '../components/dropdown-render/ShareAndSyncDropdownRender';
 import SortDropdownRender from '../components/dropdown-render/SortDropdownRender';
 import ViewDropdownRender from '../components/dropdown-render/ViewDropdownRender';
-import HideFieldsPopup from './hide-field';
 
 interface FilterItem {
   id: string;
@@ -131,7 +130,7 @@ const GridFilter: React.FC = () => {
       case 'view':
         return <ViewDropdownRender setActivePopup={setActivePopup} />;
       case 'fields':
-        return <HideFieldDropdownRender menu={menu} />;
+        return <HideFieldDropdownRender />;
       case 'filter':
         return <FilterDropdownRender />;
       case 'group':

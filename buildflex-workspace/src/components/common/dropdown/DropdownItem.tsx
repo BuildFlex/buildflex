@@ -6,7 +6,7 @@ interface DropdownItemProps {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-  onClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onClick?: () => void;
 }
 const DropdownItem = ({
   id,
@@ -15,10 +15,24 @@ const DropdownItem = ({
   className,
   onClick,
 }: DropdownItemProps) => {
+  if (onClick) {
+    return (
+      <button
+        id={id}
+        onClick={onClick}
+        style={style}
+        className={cn(
+          'px-2 py-[7px] text-neutral-dark-500 items-center h-8 flex gap-2 box-border rounded',
+          className,
+        )}
+      >
+        {children}
+      </button>
+    );
+  }
   return (
     <div
       id={id}
-      onClick={onClick}
       style={style}
       className={cn(
         'px-2 py-[7px] text-neutral-dark-500 items-center h-8 flex gap-2 box-border rounded',

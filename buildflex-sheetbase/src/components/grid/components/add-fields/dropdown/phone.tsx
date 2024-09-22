@@ -23,7 +23,7 @@ const PhoneDropdown: React.FC<PhoneDropdownProps> = ({ onChangeDropdown }) => {
         <ArrowDown2 className="ml-auto" size={16} />
       </button>
       <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-        {`Enter a telephone number (e.g. (415) 555-9876).`}
+        {'Enter a telephone number (e.g. (415) 555-9876).'}
       </Text>
     </>
   );

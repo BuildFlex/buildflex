@@ -17,7 +17,7 @@ const IconsSelector = () => {
         className="h-9 flex !border-none"
       />
       <div className="flex flex-wrap gap-2">
-        {IconsList.map((icon, index) => (
+        {IconsList.map((icon) => (
           <div
             className="size-8 rounded flex items-center justify-center text-primary-900 hover:bg-primary-100"
             key={icon.name}

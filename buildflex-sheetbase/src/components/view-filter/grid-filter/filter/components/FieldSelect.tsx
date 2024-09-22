@@ -31,7 +31,7 @@ const FieldSelect = ({
       value={value}
       open={isShow}
       onDropdownVisibleChange={(open) => setIsShow(open)}
-      dropdownRender={(menu) => (
+      dropdownRender={() => (
         <div className="flex flex-col gap-1 overflow-auto customScrollBar max-h-[260px] p-3 rounded-lg">
           {isSearch && (
             <CustomInput
@@ -42,6 +42,7 @@ const FieldSelect = ({
           )}
           {itemsList.map((item) => (
             <DropdownItem
+              key={typeof item === 'string' ? item : item.id}
               onClick={() => {
                 setValue(item);
                 setIsShow(false);

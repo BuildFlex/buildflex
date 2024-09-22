@@ -51,9 +51,7 @@ const FilterCondition = [
   },
 ];
 const FilterDropdownRender = () => {
-  const [showFields, setShowFields] = useState<string[]>([]);
-  const [filterConditions, setFilterConditions] =
-    useState<FilterConditionProps[]>(FilterCondition);
+  const [filterConditions] = useState<FilterConditionProps[]>(FilterCondition);
   return (
     <div className="flex flex-col gap-3 box-border p-3 rounded-lg min-w-[331px]  ">
       <DropdownItem className="text-neutral-dark-300 h-10">

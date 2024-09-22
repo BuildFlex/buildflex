@@ -27,7 +27,7 @@ const HistoryDropdown = () => {
       className="flex items-center relative justify-center"
       overlayClassName=" boxShadowSecondary rounded-lg "
       align={{ offset: [0, 10] }}
-      dropdownRender={(menu) => (
+      dropdownRender={() => (
         <div
           className={cn(
             'history-dropdown-container overflow-hidden max-w-[289px] w-[289px] box-border flex  p-3',
@@ -100,7 +100,9 @@ const HistoryDropdown = () => {
           {/*====== SUB MENU ======== */}
 
           <div
-            className={`submenu-content  relative   min-w-[265px] w-full box-border text-neutral-dark-500 `}
+            className={
+              'submenu-content  relative   min-w-[265px] w-full box-border text-neutral-dark-500 '
+            }
           >
             <SnapshotSubmenu
               className={

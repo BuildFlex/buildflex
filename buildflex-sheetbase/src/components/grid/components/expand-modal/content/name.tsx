@@ -1,6 +1,5 @@
 import Text from '@/components/typography/Text';
 import { Text as TextIcon } from 'iconsax-react';
-import React from 'react';
 
 const ExpandName = () => {
   return (

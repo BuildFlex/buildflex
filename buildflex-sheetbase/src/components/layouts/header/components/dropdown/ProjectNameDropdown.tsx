@@ -13,7 +13,7 @@ const ProjectNameDropdown = ({ name }: ProjectNameDropdownProps) => {
     <Dropdown
       trigger={['click']}
       placement="bottomLeft"
-      dropdownRender={(menu) => (
+      dropdownRender={() => (
         <div className="flex gap-3 flex-col p-3 overflow-hidden box-border rounded-lg w-[400px]">
           <div className="cursor-default items-center flex  h-10 text-gray-500 hover:bg-transparent">
             <p className=" text-xl leading-[26px]  font-bold  font-lato mx-3 whitespace-nowrap truncate">

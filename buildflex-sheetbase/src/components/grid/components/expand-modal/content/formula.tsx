@@ -6,7 +6,7 @@ const ExpandFormula = () => {
     <div className="flex justify-between items-start">
       {/* Formula  Select Title */}
       <div className="flex items-center h-9  gap-2 text-neutral-dark-300">
-        <FormulaIcon size={16} />
+        <FormulaIcon />
         <Text as="span" variant="B2-Regular">
           Formula
         </Text>

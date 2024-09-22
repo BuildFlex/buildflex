@@ -1,6 +1,5 @@
 import Text from '@/components/typography/Text';
 import { TextalignJustifycenter } from 'iconsax-react';
-import React from 'react';
 
 const ExpandNote = () => {
   return (

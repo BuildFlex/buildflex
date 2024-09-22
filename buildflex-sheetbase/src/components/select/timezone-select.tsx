@@ -30,7 +30,6 @@ const TimeZoneSelect = ({
   const [selected, setSelected] = useState<ITime>(
     initialValue ?? allTimezone[0],
   );
-  const onOpen = () => setIsShow(true);
   const onClose = () => setIsShow(false);
   const ref = useOutsideClick(onClose, true);
   const handleSelect = (value: ITime) => setSelected(value);
@@ -73,10 +72,10 @@ const TimeZoneSelect = ({
                   SUGGESTED TIME ZONES
                 </Text>
               </DropdownItem>
-              {suggestedTimezone.map((item, index) => {
+              {suggestedTimezone.map((item) => {
                 return (
                   <DropdownItem
-                    key={`${item.label}-${index}`}
+                    key={item.label}
                     onClick={() => handleSelect(item)}
                     className={cn(' hover:bg-gray-50 cursor-pointer', {
                       'bg-gray-100 hover:bg-gray-100': selected === item,
@@ -102,10 +101,10 @@ const TimeZoneSelect = ({
                   ALL TIME ZONE
                 </Text>
               </DropdownItem>
-              {allTimezone.map((item, index) => {
+              {allTimezone.map((item) => {
                 return (
                   <DropdownItem
-                    key={`${item.label}-${index}`}
+                    key={item.label}
                     onClick={() => handleSelect(item)}
                     className={cn(' hover:bg-gray-50 cursor-pointer', {
                       'bg-gray-100 hover:bg-gray-100': selected === item,

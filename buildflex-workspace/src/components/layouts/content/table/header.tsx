@@ -1,6 +1,5 @@
 import { CheckBoxIcon, MoreIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { Checkbox } from 'antd';
 import { ArrowDown2 } from 'iconsax-react';
 import React from 'react';
 

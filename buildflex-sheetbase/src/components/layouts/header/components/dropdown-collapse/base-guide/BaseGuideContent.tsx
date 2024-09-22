@@ -1,6 +1,20 @@
 import TextArea from 'antd/es/input/TextArea';
 import { DocumentDownload, InfoCircle } from 'iconsax-react';
 
+const defaultText = `Use this space to share the goals and details of your base with your team.
+
+Start by outlining your goal.
+
+Next, share details about key information in your base:
+
+This table contains…
+
+This view shows…
+
+This link contains…
+
+Teammates will see this guide when they first open the base and can find it anytime by clicking the down arrow on the top of their screen.`;
+
 const BaseGuideContent = () => {
   return (
     <div className="w-full !font-lato flex whitespace-normal flex-col ">
@@ -31,17 +45,3 @@ const BaseGuideContent = () => {
 };
 
 export default BaseGuideContent;
-
-const defaultText = `Use this space to share the goals and details of your base with your team.
-
-Start by outlining your goal.
-
-Next, share details about key information in your base:
-
-This table contains…
-
-This view shows…
-
-This link contains…
-
-Teammates will see this guide when they first open the base and can find it anytime by clicking the down arrow on the top of their screen.`;

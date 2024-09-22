@@ -1,5 +1,3 @@
-import React from 'react';
-
 const WorkflowIcon = ({ className }: { className?: string }) => {
   return (
     <svg

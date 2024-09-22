@@ -34,14 +34,12 @@ const Select = ({
 }: SelectProps) => {
   const [isShow, setIsShow] = React.useState(false);
   const [selected, setSelected] = useState<string | null>(initialValue ?? null);
-  const onOpen = () => setIsShow(true);
   const onClose = () => setIsShow(false);
   const ref = useOutsideClick(onClose, true);
   const handleChange = (value: string) => {
-    onChange && onChange(value);
+    onChange?.(value);
     setSelected(value);
   };
-  const handleSelect = (value: string) => setSelected(value);
   return (
     <div
       className={cn(
@@ -72,7 +70,7 @@ const Select = ({
             {itemsList.map((item, index) => {
               return (
                 <DropdownItem
-                  key={`${item}-${index}`}
+                  key={item}
                   onClick={() => handleChange(item)}
                   className={cn(' hover:bg-gray-50 cursor-pointer', {
                     'bg-gray-100 hover:bg-gray-100': selected === item,

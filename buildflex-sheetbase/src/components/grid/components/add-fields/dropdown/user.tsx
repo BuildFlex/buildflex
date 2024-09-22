@@ -63,7 +63,7 @@ const UserDropdown: React.FC<UserDropdownProps> = ({ onChangeDropdown }) => {
         <div className="flex h-8 items-center gap-2">
           <Switch className="w-8" size="small" />
           <Text as="span" variant="B2-Regular" className="h-[18px]">
-            Notify users with base access when they're added
+            {"Notify users with base access when they're added"}
           </Text>
         </div>
       </div>

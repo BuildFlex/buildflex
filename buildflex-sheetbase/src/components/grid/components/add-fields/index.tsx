@@ -159,8 +159,7 @@ const AddFields = () => {
         ' boxShadowSecondary w-auto  !min-w-[484px] !rounded-lg',
       )}
       align={{ offset: [-20, 10] }}
-      menu={[] as any}
-      dropdownRender={(menu) => (
+      dropdownRender={() => (
         <div
           className={cn(
             'p-3 flex flex-col gap-2',

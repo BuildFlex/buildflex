@@ -41,7 +41,7 @@ const ExpandDate = () => {
             left: 0,
             pointerEvents: 'none',
           }}
-          id={'date-picker-' + id}
+          id={`date-picker-${id}`}
           className="hidden"
           format="M/D/YYYY"
         />

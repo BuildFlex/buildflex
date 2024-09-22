@@ -1,17 +1,14 @@
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import { CustomInput } from '@/components/common/input/Input';
 import { CloseIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { Modal } from 'antd';
-import { Add, Image } from 'iconsax-react';
+import { Image } from 'iconsax-react';
 import React, { useState } from 'react';
 interface CreateOrganizationProps {
-  className?: string;
   handleCancel: () => void;
   isOpen: boolean;
 }
 const CreateOrganization = ({
-  className,
   handleCancel,
   isOpen,
 }: CreateOrganizationProps) => {
@@ -29,7 +26,7 @@ const CreateOrganization = ({
   return (
     <Modal
       zIndex={10000}
-      modalRender={(modal) => (
+      modalRender={() => (
         <div className="w-[400px] flex flex-col gap-4 p-6 box-border ant-modal-content">
           {' '}
           <div className="w-full items-start justify-between flex">

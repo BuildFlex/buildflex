@@ -1,8 +1,5 @@
-import { CloseIcon } from '@/components/icons';
 import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
-import { Input } from 'antd';
-import React from 'react';
 
 const EditFieldDescriptionModal = ({
   handleCancel,

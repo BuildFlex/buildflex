@@ -51,7 +51,6 @@ const SearchDropdown = ({ children }: { children: ReactNode }) => {
           <div className=" border-b border-neutral-200">
             <CustomInput
               placeholder="Search"
-              autoFocus={true}
               prefixIcon={
                 <SearchNormal1
                   className="min-w-4"

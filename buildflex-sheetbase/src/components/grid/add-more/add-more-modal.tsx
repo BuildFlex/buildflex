@@ -15,44 +15,6 @@ import {
   addMoreViews,
 } from './constants';
 
-const AddMoreModal = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const handleCancel = () => setIsOpen(false);
-  const handleOpen = () => setIsOpen(true);
-  return (
-    <>
-      <div
-        className="w-40 h-10 flex absolute bottom-16 z-20 left-[21px] rounded-3xl overflow-hidden bg-white boxShadowSecondary"
-        style={{ border: '1px solid #EDEDED' }}
-      >
-        <div
-          className="w-[60px] h-10 box-border flex items-center justify-center "
-          style={{ borderRight: '1px solid #EDEDED' }}
-        >
-          <Add size={24} />
-        </div>
-        <button
-          onClick={handleOpen}
-          className="w-[100px] h-10 bg-transparent border-none cursor-pointer hover:bg-gray-50 text-neutral-dark-500 flex items-center justify-center gap-2 p-2"
-        >
-          <Magicpen size={24} className="" />
-          <Text as="span" variant="B2-Regular">
-            Add...
-          </Text>
-        </button>
-      </div>
-      <AddModal handleCancel={handleCancel} isModalShow={isOpen} />
-    </>
-  );
-};
-
-export default AddMoreModal;
-
-interface AddModalProps {
-  isModalShow: boolean;
-  handleCancel: () => void;
-}
-
 const AddModal = ({ isModalShow, handleCancel }: AddModalProps) => {
   const [activeTab, setActiveTab] = useState('views');
   const handleMoveTo = (id: string) => {
@@ -63,7 +25,7 @@ const AddModal = ({ isModalShow, handleCancel }: AddModalProps) => {
     <Modal
       style={{ top: '5svh' }}
       width={'100svw'}
-      modalRender={(modal) => (
+      modalRender={() => (
         <div
           onClick={(e) => {
             e.stopPropagation();
@@ -75,7 +37,7 @@ const AddModal = ({ isModalShow, handleCancel }: AddModalProps) => {
             style={{ borderBottom: '1px solid #EDEDED' }}
             className="p-2 w-full  gap-10   h-[48px] box-border flex items-center "
           >
-            {addMoreTabs.map((tab, index) => (
+            {addMoreTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => handleMoveTo(tab.id)}
@@ -234,3 +196,41 @@ const SectionTitle = ({
     </div>
   );
 };
+
+const AddMoreModal = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleCancel = () => setIsOpen(false);
+  const handleOpen = () => setIsOpen(true);
+  return (
+    <>
+      <div
+        className="w-40 h-10 flex absolute bottom-16 z-20 left-[21px] rounded-3xl overflow-hidden bg-white boxShadowSecondary"
+        style={{ border: '1px solid #EDEDED' }}
+      >
+        <div
+          className="w-[60px] h-10 box-border flex items-center justify-center "
+          style={{ borderRight: '1px solid #EDEDED' }}
+        >
+          <Add size={24} />
+        </div>
+        <button
+          onClick={handleOpen}
+          className="w-[100px] h-10 bg-transparent border-none cursor-pointer hover:bg-gray-50 text-neutral-dark-500 flex items-center justify-center gap-2 p-2"
+        >
+          <Magicpen size={24} className="" />
+          <Text as="span" variant="B2-Regular">
+            Add...
+          </Text>
+        </button>
+      </div>
+      <AddModal handleCancel={handleCancel} isModalShow={isOpen} />
+    </>
+  );
+};
+
+export default AddMoreModal;
+
+interface AddModalProps {
+  isModalShow: boolean;
+  handleCancel: () => void;
+}

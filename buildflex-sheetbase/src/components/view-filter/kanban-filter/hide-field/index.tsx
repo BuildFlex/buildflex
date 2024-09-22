@@ -59,17 +59,17 @@ const HideFieldsPopup: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     };
   }, [onClose]);
 
-  const toggleField = (id: string) => {
-    setVisibleFields((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(id)) {
-        newSet.delete(id);
-      } else {
-        newSet.add(id);
-      }
-      return newSet;
-    });
-  };
+  // const toggleField = (id: string) => {
+  //   setVisibleFields((prev) => {
+  //     const newSet = new Set(prev);
+  //     if (newSet.has(id)) {
+  //       newSet.delete(id);
+  //     } else {
+  //       newSet.add(id);
+  //     }
+  //     return newSet;
+  //   });
+  // };
   const hideAll = useCallback(() => setVisibleFields(new Set()), []);
 
   const showAll = useCallback(() => {

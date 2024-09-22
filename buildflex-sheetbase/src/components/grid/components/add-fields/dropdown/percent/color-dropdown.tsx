@@ -16,6 +16,33 @@ export interface IColorCondition {
   color: string;
   isLast: boolean;
 }
+const filterConditions = [
+  {
+    id: '1',
+    type: 'condition' as FilterConditionType,
+  },
+  {
+    id: '4',
+    type: 'condition' as FilterConditionType,
+  },
+];
+const filterConditions2 = [
+  {
+    id: '1',
+    type: 'condition' as FilterConditionType,
+  },
+  {
+    id: '4',
+    type: 'condition' as FilterConditionType,
+  },
+];
+const filterConditions3 = [
+  {
+    id: '1',
+    type: 'condition' as FilterConditionType,
+  },
+];
+
 const ColorDropdown = () => {
   const colorConditions = [
     {
@@ -102,29 +129,3 @@ const ColorDropdown = () => {
   );
 };
 export default ColorDropdown;
-const filterConditions = [
-  {
-    id: '1',
-    type: 'condition' as FilterConditionType,
-  },
-  {
-    id: '4',
-    type: 'condition' as FilterConditionType,
-  },
-];
-const filterConditions2 = [
-  {
-    id: '1',
-    type: 'condition' as FilterConditionType,
-  },
-  {
-    id: '4',
-    type: 'condition' as FilterConditionType,
-  },
-];
-const filterConditions3 = [
-  {
-    id: '1',
-    type: 'condition' as FilterConditionType,
-  },
-];

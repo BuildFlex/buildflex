@@ -15,6 +15,27 @@ interface SortConditionRowProps {
   fields: IField[];
   isGroup?: boolean;
 }
+const SortLabel = ({ isFirstToLast = false }: { isFirstToLast?: boolean }) => {
+  return (
+    <div
+      className={cn(
+        'flex gap-2 box-border my-auto items-center ',
+        isFirstToLast
+          ? 'flex-row justify-start'
+          : 'flex-row-reverse justify-end',
+      )}
+    >
+      <Text as="span" variant="B2-Regular">
+        First
+      </Text>
+      <ArrowRight size={16} />
+      <Text as="span" variant="B2-Regular">
+        Last
+      </Text>
+    </div>
+  );
+};
+
 const SortConditionRow = ({
   setFields,
   field,
@@ -41,7 +62,7 @@ const SortConditionRow = ({
     <div className="flex justify-between items-end h-9">
       <div className="flex gap-3 h-full">
         <SortSelect
-          dropdownRender={(menu) => (
+          dropdownRender={() => (
             <FindField
               fields={filterFields}
               onSelectField={handleSelectField}
@@ -77,12 +98,12 @@ const SortConditionRow = ({
         />
       </div>
       {isGroup && <MoreButton />}
-      <div
+      <button
         onClick={handleRemoveField}
         className="cursor-pointer text-neutral-dark-300 hover:text-neutral-dark-500 size-9 flex items-center justify-center"
       >
         <CloseIcon color="currentColor" />
-      </div>
+      </button>
     </div>
   );
 };
@@ -100,26 +121,6 @@ export const SortByLabel = ({
       {<Icon size={16} /> ?? <Hashtag size={16} />}
       <Text as="span" variant="B2-Regular">
         {label}
-      </Text>
-    </div>
-  );
-};
-const SortLabel = ({ isFirstToLast = false }: { isFirstToLast?: boolean }) => {
-  return (
-    <div
-      className={cn(
-        'flex gap-2 box-border my-auto items-center ',
-        isFirstToLast
-          ? 'flex-row justify-start'
-          : 'flex-row-reverse justify-end',
-      )}
-    >
-      <Text as="span" variant="B2-Regular">
-        First
-      </Text>
-      <ArrowRight size={16} />
-      <Text as="span" variant="B2-Regular">
-        Last
       </Text>
     </div>
   );

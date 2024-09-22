@@ -26,7 +26,6 @@ const SortSelect = ({
   style,
   initialValue,
   itemsList,
-  searchPlaceholder,
   popupClassName,
   className,
   dropdownRender,

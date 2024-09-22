@@ -50,7 +50,7 @@ const ContentWrapper = () => {
         {AddCategoryList.map((item, index) => (
           <AddCategoryButton
             onClick={item.title === 'Sheetbase' ? handleShowModal : undefined}
-            key={`${item.title}-${index}`}
+            key={item.title}
             {...item}
           />
         ))}
@@ -58,7 +58,7 @@ const ContentWrapper = () => {
       <div className="flex flex-col flex-1 h-full  gap-4">
         {/* Tabs */}
         <div className="relative   border-b border-borderColor border-solid  h-[52px] flex items-start  ">
-          {tabs.map((tab, index) => (
+          {tabs.map((tab) => (
             <CategoryTab
               key={tab}
               id={tab}

@@ -11,73 +11,26 @@ import { Add, ArrowDown2, ChartCircle, Danger } from 'iconsax-react';
 import React, { useState } from 'react';
 import DropdownTab from '../components/dropdown-tab';
 import HighlightedTextarea from '../components/highlight-textarea';
+import { Link } from 'react-router-dom';
+
+const TableList = [
+  { label: 'Table 1', value: 'table-1', prefix: MoveToIcon },
+  { label: 'Table 2', value: 'table-2', prefix: MoveToIcon },
+  { label: 'Table 3', value: 'table-3', prefix: MoveToIcon },
+  { label: 'Table 4', value: 'table-4', prefix: MoveToIcon },
+];
 
 interface RollUpDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
 }
-
-export const RollUpDropdown: React.FC<RollUpDropdownProps> = ({
-  onChangeDropdown,
-}) => {
-  const [activeTab, setActiveTab] = useState('roll-up');
-  const [isAvailableSource, setIsAvailableSource] = useState<boolean>(false);
+const FormatingContent = () => {
   return (
-    <>
-      <button
-        onClick={() => onChangeDropdown(null)}
-        style={{ border: '1px solid #EDEDED ' }}
-        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
-      >
-        <ChartCircle size={16} />
-        <Text as="span" variant="B2-Regular">
-          Roll Up
-        </Text>
-        <ArrowDown2 className="ml-auto" size={16} />
-      </button>
-
-      <div className="flex gap-1 items-center">
-        <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-          Summarize data from linked records.
-        </Text>
-        <a
-          href="#"
-          className="w-fit h-[18px] flex items-center box-border"
-          style={{ borderBottom: '1px solid #101828 ' }}
-        >
-          <Text as="span" variant="B2-Medium" className="text-neutral-dark-500">
-            Learn more
-          </Text>
-        </a>
-      </div>
-
-      {/* Tab */}
-      <div className="relative flex mt-1 gap-4 text-neutral-dark-300 after:z-[0] after:content-[''] after:absolute after:w-full after:h-[1px] after:bg-borderColor after:bottom-0 ">
-        <DropdownTab
-          label="Roll up"
-          id="roll-up"
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
-        <DropdownTab
-          label="Formatting"
-          id="formatting"
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
-      </div>
-      {/* Tab Content */}
-      <div className="flex flex-col gap-2 mt-1">
-        {activeTab === 'roll-up' ? (
-          isAvailableSource ? (
-            <NoSourceRollUp />
-          ) : (
-            <RollUpContent />
-          )
-        ) : (
-          <FormatingContent />
-        )}
-      </div>
-    </>
+    <DropdownItem className="flex h-auto flex-col gap-2">
+      <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
+        Invalid configuration. Finish configuring your field in the formula tab,
+        then try to format your formula again.
+      </Text>
+    </DropdownItem>
   );
 };
 
@@ -88,17 +41,6 @@ const NoSourceRollUp = () => {
       <Text as="span" variant="B2-Regular">
         No available sources to roll up. Add a rollup source, then try to
         configure your rollup again.
-      </Text>
-    </DropdownItem>
-  );
-};
-
-const FormatingContent = () => {
-  return (
-    <DropdownItem className="flex h-auto flex-col gap-2">
-      <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-        Invalid configuration. Finish configuring your field in the formula tab,
-        then try to format your formula again.
       </Text>
     </DropdownItem>
   );
@@ -173,7 +115,7 @@ const RollUpContent = () => {
               >
                 {table}
               </Text>{' '}
-               table that meet certain conditions
+              table that meet certain conditions
             </Text>
           </div>
         </>
@@ -210,11 +152,11 @@ const RollUpContent = () => {
             Aggregation formula which rolls up the values in each linked record
           </Text>
           <HighlightedTextarea
-            initialValue={`ARRAYUNIQUE(values)`}
-            keywords={[`ARRAYUNIQUE`, `DATETIME_DIFF`, `'days'`, `'d'`]}
+            initialValue={'ARRAYUNIQUE(values)'}
+            keywords={['ARRAYUNIQUE', 'DATETIME_DIFF', "'days'", "'d'"]}
           />
           <DropdownItem className="cursor-pointer w-fit">
-            <SparklesIcon size={16} />
+            <SparklesIcon />
             <Text as="span" variant="B2-Regular">
               Generate formula
             </Text>
@@ -225,9 +167,67 @@ const RollUpContent = () => {
   );
 };
 
-const TableList = [
-  { label: 'Table 1', value: 'table-1', prefix: MoveToIcon },
-  { label: 'Table 2', value: 'table-2', prefix: MoveToIcon },
-  { label: 'Table 3', value: 'table-3', prefix: MoveToIcon },
-  { label: 'Table 4', value: 'table-4', prefix: MoveToIcon },
-];
+export const RollUpDropdown: React.FC<RollUpDropdownProps> = ({
+  onChangeDropdown,
+}) => {
+  const [activeTab, setActiveTab] = useState('roll-up');
+  const [isAvailableSource] = useState<boolean>(false);
+  return (
+    <>
+      <button
+        onClick={() => onChangeDropdown(null)}
+        style={{ border: '1px solid #EDEDED ' }}
+        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
+      >
+        <ChartCircle size={16} />
+        <Text as="span" variant="B2-Regular">
+          Roll Up
+        </Text>
+        <ArrowDown2 className="ml-auto" size={16} />
+      </button>
+
+      <div className="flex gap-1 items-center">
+        <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
+          Summarize data from linked records.
+        </Text>
+        <Link
+          to="#"
+          className="w-fit h-[18px] flex items-center box-border"
+          style={{ borderBottom: '1px solid #101828 ' }}
+        >
+          <Text as="span" variant="B2-Medium" className="text-neutral-dark-500">
+            Learn more
+          </Text>
+        </Link>
+      </div>
+
+      {/* Tab */}
+      <div className="relative flex mt-1 gap-4 text-neutral-dark-300 after:z-[0] after:content-[''] after:absolute after:w-full after:h-[1px] after:bg-borderColor after:bottom-0 ">
+        <DropdownTab
+          label="Roll up"
+          id="roll-up"
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+        <DropdownTab
+          label="Formatting"
+          id="formatting"
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+      </div>
+      {/* Tab Content */}
+      <div className="flex flex-col gap-2 mt-1">
+        {activeTab === 'roll-up' ? (
+          isAvailableSource ? (
+            <NoSourceRollUp />
+          ) : (
+            <RollUpContent />
+          )
+        ) : (
+          <FormatingContent />
+        )}
+      </div>
+    </>
+  );
+};

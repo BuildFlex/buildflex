@@ -47,8 +47,8 @@ export const MSExcelIcon = () => {
           y2="16.5625"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#163C27" />
-          <stop offset="1" stop-color="#2A6043" />
+          <stop stopColor="#163C27" />
+          <stop offset="1" stopColor="#2A6043" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_10710_73916"
@@ -58,8 +58,8 @@ export const MSExcelIcon = () => {
           y2="10"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#185A30" />
-          <stop offset="1" stop-color="#176F3D" />
+          <stop stopColor="#185A30" />
+          <stop offset="1" stopColor="#176F3D" />
         </linearGradient>
         <clipPath id="clip0_10710_73916">
           <rect

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const MobileAppIcon = ({ className }: { className?: string }) => {
   return (
     <svg

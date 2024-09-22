@@ -48,7 +48,7 @@ const SettingConfirmModal = ({
         {children}
       </DropdownItem>
       <Modal
-        modalRender={(modal) => (
+        modalRender={() => (
           <div className="w-[400px] flex flex-col gap-4 p-6 box-border ant-modal-content">
             {' '}
             <div className="w-full items-start justify-between flex">
