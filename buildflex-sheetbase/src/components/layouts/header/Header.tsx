@@ -12,6 +12,24 @@ import HelpButton from './components/help/HelpButton';
 import NotiButton from './components/notification/NotiButton';
 import ShareButton from './components/share/share-button';
 import './header.css';
+const breadcrumbItems = [
+  {
+    text: 'NETKO Solution',
+    variant: 'B2-Regular' as TextVariant,
+    className: 'text-gray-100',
+  },
+  {
+    text: 'Michael Nguyen',
+    variant: 'B2-Regular' as TextVariant,
+    className: 'text-gray-100',
+  },
+  {
+    variant: 'B2-Bold' as TextVariant,
+    isLast: true,
+    className: 'text-white ',
+    component: <ProjectNameDropdown name="NETKO’s Project Management 2" />,
+  },
+];
 
 const Header = () => {
   const { theme } = useTheme();
@@ -19,7 +37,7 @@ const Header = () => {
     <header
       id={'header'}
       className={cn(
-        `flex px-3 items-center box-border h-[60px] bg-red-200  text-white`,
+        'flex px-3 items-center box-border h-[60px] bg-red-200  text-white',
         theme.linearBackground,
       )}
     >
@@ -52,22 +70,3 @@ const Header = () => {
 };
 
 export default Header;
-
-const breadcrumbItems = [
-  {
-    text: 'NETKO Solution',
-    variant: 'B2-Regular' as TextVariant,
-    className: 'text-gray-100',
-  },
-  {
-    text: 'Michael Nguyen',
-    variant: 'B2-Regular' as TextVariant,
-    className: 'text-gray-100',
-  },
-  {
-    variant: 'B2-Bold' as TextVariant,
-    isLast: true,
-    className: 'text-white ',
-    component: <ProjectNameDropdown name="NETKO’s Project Management 2" />,
-  },
-];

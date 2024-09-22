@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SheetbaseIcon = ({ className }: { className?: string }) => {
   return (
     <svg

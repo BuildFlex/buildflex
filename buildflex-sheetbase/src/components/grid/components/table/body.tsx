@@ -1,31 +1,151 @@
-import { MoveToIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
+import { cn } from '@/utils/cn';
+import { Checkbox } from 'antd';
 import { Add, Maximize4 } from 'iconsax-react';
-import { text } from 'node:stream/consumers';
 import React from 'react';
-import { gridTableFields } from '../../GridUI';
-import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
-import TextCell from '../content/TextCell';
 import AttachmentCell from '../content/AttachmentCell';
+import ButtonCell from '../content/ButtonCell';
+import ByUserCell from '../content/ByUserCell';
 import CheckBoxCell from '../content/CheckBoxCell';
-import MutilpleSelectCell from '../content/MutilpleSelectCell';
-import UserCell from '../content/UserCell';
 import DateCell from '../content/DateCell';
 import LinkCell from '../content/LinkCell';
 import LinkToCell from '../content/LinkToCell';
-import ButtonCell from '../content/ButtonCell';
-import RatingCell from '../content/RatingCell';
-import ExpandModal from '../expand-modal/expand-modal';
-import { Checkbox } from 'antd';
-import SingleLineCell from '../content/SingleTextCell';
 import LongTextCell from '../content/LongTextCell';
-import { cn } from '@/utils/cn';
-import SingleSelectCell from '../content/SingleSelectCell';
+import MutilpleSelectCell from '../content/MutilpleSelectCell';
 import NumberCell from '../content/NumberCell';
+import RatingCell from '../content/RatingCell';
 import ResultCell from '../content/ResultCell';
+import SingleSelectCell from '../content/SingleSelectCell';
+import SingleLineCell from '../content/SingleTextCell';
+import TextCell from '../content/TextCell';
 import TimeCell from '../content/TimeCell';
-import ByUserCell from '../content/ByUserCell';
+import UserCell from '../content/UserCell';
+import ExpandModal from '../expand-modal/expand-modal';
+const renderCell = (field: FakeContentItem) => {
+  switch (field.id) {
+    case 'single-line':
+      return <SingleLineCell text={field.data.text} />;
+    case 'long-text':
+      return <LongTextCell text={field.data.text} />;
+    case 'attachment':
+      return <AttachmentCell images={field.data.images} />;
+    case 'checkbox':
+      return <CheckBoxCell isCheck={field.data.checked} />;
+    case 'multiple-select':
+      return <MutilpleSelectCell selects={field.data.selectValues} />;
+    case 'single-select':
+      return (
+        <SingleSelectCell
+          select={field.data.selectValues[0]}
+          selects={field.data.selectValues}
+        />
+      );
+    case 'user':
+      return <UserCell user={field.data.user} />;
+    case 'date':
+      return (
+        <DateCell
+          date={field.data.date}
+          time={field.data.time}
+          gmt={field.data.gmt}
+        />
+      );
+    case 'phone':
+      return (
+        <TextCell text={`${field.data.phoneCountryCode} ${field.data.phone}`} />
+      );
+    case 'email':
+      return <LinkCell text={field.data.text} />;
+    case 'url':
+      return <LinkCell text={field.data.text} />;
+    case 'number':
+      return (
+        <NumberCell
+          className="w-full flex items-center justify-end"
+          number={field.data.number}
+          shortNumber={field.data.shortNumber}
+        />
+      );
+    case 'currency':
+      return (
+        <TextCell
+          className="w-full flex items-center justify-end"
+          text={field.data.text}
+        />
+      );
+    case 'percent':
+      return (
+        <TextCell
+          className="w-full flex items-center justify-end"
+          text={field.data.text}
+        />
+      );
+    case 'duration':
+      return (
+        <TextCell
+          className="w-full flex items-center justify-end"
+          text={field.data.text}
+        />
+      );
+    case 'rating':
+      return <RatingCell rating={field.data.rating} />;
+    case 'formula':
+      return <ResultCell subText={field.data.subText} text={field.data.text} />;
+    case 'rollup':
+      return <ResultCell subText={field.data.subText} text={field.data.text} />;
+    case 'count':
+      return (
+        <ResultCell
+          isTextRight={true}
+          subText={field.data.subText}
+          text={field.data.text}
+        />
+      );
+    case 'lookup':
+      return <ResultCell subText={field.data.subText} text={field.data.text} />;
+    case 'created-time':
+      return (
+        <TimeCell
+          subText={field.data.subText}
+          date={field.data.date}
+          time={field.data.time}
+          gmt={field.data.gmt}
+        />
+      );
+    case 'modified-time':
+      return (
+        <TimeCell
+          subText={field.data.subText}
+          date={field.data.date}
+          time={field.data.time}
+        />
+      );
+    case 'created-by':
+      return <ByUserCell user={field.data.user} subText={field.data.subText} />;
+    case 'modified-by':
+      return <ByUserCell user={field.data.user} subText={field.data.subText} />;
+    case 'autonumber':
+      return (
+        <ResultCell
+          isTextRight={true}
+          subText={field.data.subText}
+          text={field.data.text}
+        />
+      );
+    case 'barcode':
+      return <TextCell text={field.data.text} />;
+    case 'button':
+      return <ButtonCell name={field.data.text} />;
+    case 'link-to-another-record':
+      return <LinkToCell linkList={field.data.links} />;
+    default:
+      return (
+        <Text as="span" variant="B2-Regular">
+          {field.id}
+        </Text>
+      );
+  }
+};
 
 const fakeContent = [
   {
@@ -207,8 +327,11 @@ const GridTabBody = () => {
   return (
     <>
       <tbody className="h-full w-full  text-neutral-dark-500">
-        {Array.from({ length: rows }).map((_, rowIndex) => (
-          <tr key={rowIndex} className="h-9 max-h-9 bg-white">
+        {Array.from({ length: rows }).map((number, rowIndex) => (
+          <tr
+            key={`GridTabRow-${number as number}`}
+            className="h-9 max-h-9 bg-white"
+          >
             {/* Number Col */}
             <td
               style={{
@@ -240,10 +363,10 @@ const GridTabBody = () => {
             </td>
             {/* Number Col */}
 
-            {fakeContent.map((field, columnIndex) => {
+            {fakeContent.map((field) => {
               return (
                 <td
-                  key={`${field.id}-${rowIndex}-${columnIndex}`}
+                  key={`${field.id}-${number}-${field.id}`}
                   style={{
                     borderRight: '1px solid #EDEDED',
                     borderBottom: '1px solid #EDEDED',
@@ -293,129 +416,3 @@ const GridTabBody = () => {
 };
 
 export default GridTabBody;
-
-const renderCell = (field: FakeContentItem) => {
-  switch (field.id) {
-    case 'single-line':
-      return <SingleLineCell text={field.data.text} />;
-    case 'long-text':
-      return <LongTextCell text={field.data.text} />;
-    case 'attachment':
-      return <AttachmentCell images={field.data.images} />;
-    case 'checkbox':
-      return <CheckBoxCell isCheck={field.data.checked} />;
-    case 'multiple-select':
-      return <MutilpleSelectCell selects={field.data.selectValues} />;
-    case 'single-select':
-      return (
-        <SingleSelectCell
-          select={field.data.selectValues[0]}
-          selects={field.data.selectValues}
-        />
-      );
-    case 'user':
-      return <UserCell user={field.data.user} />;
-    case 'date':
-      return (
-        <DateCell
-          date={field.data.date}
-          time={field.data.time}
-          gmt={field.data.gmt}
-        />
-      );
-    case 'phone':
-      return (
-        <TextCell text={`${field.data.phoneCountryCode} ${field.data.phone}`} />
-      );
-    case 'email':
-      return <LinkCell text={field.data.text} />;
-    case 'url':
-      return <LinkCell text={field.data.text} />;
-    case 'number':
-      return (
-        <NumberCell
-          className="w-full flex items-center justify-end"
-          number={field.data.number}
-          shortNumber={field.data.shortNumber}
-        />
-      );
-    case 'currency':
-      return (
-        <TextCell
-          className="w-full flex items-center justify-end"
-          text={field.data.text}
-        />
-      );
-    case 'percent':
-      return (
-        <TextCell
-          className="w-full flex items-center justify-end"
-          text={field.data.text}
-        />
-      );
-    case 'duration':
-      return (
-        <TextCell
-          className="w-full flex items-center justify-end"
-          text={field.data.text}
-        />
-      );
-    case 'rating':
-      return <RatingCell rating={field.data.rating} />;
-    case 'formula':
-      return <ResultCell subText={field.data.subText} text={field.data.text} />;
-    case 'rollup':
-      return <ResultCell subText={field.data.subText} text={field.data.text} />;
-    case 'count':
-      return (
-        <ResultCell
-          isTextRight={true}
-          subText={field.data.subText}
-          text={field.data.text}
-        />
-      );
-    case 'lookup':
-      return <ResultCell subText={field.data.subText} text={field.data.text} />;
-    case 'created-time':
-      return (
-        <TimeCell
-          subText={field.data.subText}
-          date={field.data.date}
-          time={field.data.time}
-          gmt={field.data.gmt}
-        />
-      );
-    case 'modified-time':
-      return (
-        <TimeCell
-          subText={field.data.subText}
-          date={field.data.date}
-          time={field.data.time}
-        />
-      );
-    case 'created-by':
-      return <ByUserCell user={field.data.user} subText={field.data.subText} />;
-    case 'modified-by':
-      return <ByUserCell user={field.data.user} subText={field.data.subText} />;
-    case 'autonumber':
-      return (
-        <ResultCell
-          isTextRight={true}
-          subText={field.data.subText}
-          text={field.data.text}
-        />
-      );
-    case 'barcode':
-      return <TextCell text={field.data.text} />;
-    case 'button':
-      return <ButtonCell name={field.data.text} />;
-    case 'link-to-another-record':
-      return <LinkToCell linkList={field.data.links} />;
-    default:
-      return (
-        <Text as="span" variant="B2-Regular">
-          {field.id}
-        </Text>
-      );
-  }
-};

@@ -66,7 +66,6 @@ const SectionMoreDropdown = ({ className }: { className?: string }) => {
                 <div className=" border-b border-neutral-200">
                   <CustomInput
                     placeholder="Search section"
-                    autoFocus={true}
                     prefixIcon={
                       <SearchNormal1
                         className="min-w-4"

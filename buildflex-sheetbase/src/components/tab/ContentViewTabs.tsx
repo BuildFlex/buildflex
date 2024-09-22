@@ -23,16 +23,8 @@ const AdminManagement: React.FC = () => (
     {/* <Grid /> */}
   </>
 );
-const CalendarView: React.FC = () => (
-  <>
-    <GridFilter />
-  </>
-);
-const GalleryView: React.FC = () => (
-  <>
-    <GridFilter />
-  </>
-);
+const CalendarView: React.FC = () => <GridFilter />;
+const GalleryView: React.FC = () => <GridFilter />;
 
 const tabs: Tab[] = [
   {
@@ -55,7 +47,7 @@ const TabComponent: React.FC = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { theme } = useTheme();
   const truncateText = (text: string, maxLength: number) => {
-    return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+    return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
   };
 
   const handleDrawerClose = useCallback(() => setIsDrawerOpen(false), []);
@@ -71,7 +63,7 @@ const TabComponent: React.FC = () => {
             <button
               key={tab.id}
               className={cn(
-                `flex items-center h-8  gap-2 p-2 text-sm border-none cursor-pointer`,
+                'flex items-center h-8  gap-2 p-2 text-sm border-none cursor-pointer',
                 isActive
                   ? 'bg-white text-blue-600'
                   : 'text-gray-600 bg-gray-50 hover:bg-white',

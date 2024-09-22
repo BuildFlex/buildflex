@@ -19,9 +19,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
   const id = useId();
   return (
     <nav className="flex items-center gap-3 ">
-      {items.map((item, index) => (
+      {items.map((item) => (
         <div
-          key={`${id}-${index}`}
+          key={`${id}-${item.text}`}
           className={cn(
             'workspace__nav-item flex items-center gap-2 cursor-pointer',
             item.isLast && 'truncate w-max',

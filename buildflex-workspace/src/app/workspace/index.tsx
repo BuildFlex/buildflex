@@ -1,4 +1,3 @@
-import React from 'react';
 import ContentWrapper from '../../components/layouts/content';
 import Header from '../../components/layouts/header/Header';
 

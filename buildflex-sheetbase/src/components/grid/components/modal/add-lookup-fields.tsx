@@ -2,8 +2,6 @@ import { CloseIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { fields } from '@/components/view-filter/components/dropdown-render/HideFieldDropdownRender';
 import FindField from '@/components/view-filter/grid-filter/sort/FindField';
-import { Input } from 'antd';
-import React from 'react';
 
 const AddLookupFieldsModal = ({
   handleCancel,

@@ -34,7 +34,7 @@ import {
   User,
   UserTick,
 } from 'iconsax-react';
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 interface Field {
   id: string;
   icon: React.ElementType;
@@ -70,7 +70,7 @@ export const fields: Field[] = [
   { id: 'barcode', icon: Barcode, label: 'Barcode' },
   { id: 'button', icon: CursorDefaultIcon, label: 'Button' },
 ];
-const HideFieldDropdownRender = ({ menu }: { menu: ReactNode }) => {
+const HideFieldDropdownRender = () => {
   const [showFields, setShowFields] = useState<string[]>([]);
   const handleShowAll = () => {
     setShowFields(fields.map((field) => field.id));

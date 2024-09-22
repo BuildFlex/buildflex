@@ -57,12 +57,12 @@ const AddConditionDropdown = ({ className }: { className?: string }) => {
       )}
       overlayClassName=" boxShadowSecondary !rounded-lg"
     >
-      <div className="size-4" onClick={(e) => setIsOpen(true)}>
+      <button className="size-4" onClick={() => setIsOpen(true)}>
         <Add
           size={16}
           className="  text-neutral-dark-300 hover:text-gray-500 cursor-pointer"
         />
-      </div>
+      </button>
     </Dropdown>
   );
 };

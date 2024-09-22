@@ -8,7 +8,47 @@ interface RatingCellProps {
   rating: number;
   className?: string;
 }
-const RatingCell = ({ rating, className }: RatingCellProps) => {
+const RattingDropdown = ({
+  setOpen,
+  open,
+}: {
+  open: boolean;
+  setOpen: (value: boolean) => void;
+  children?: React.ReactNode;
+}) => {
+  const [value, setValue] = React.useState(-1);
+  const id = useId();
+  return (
+    <Dropdown
+      trigger={['click']}
+      open={open}
+      onOpenChange={setOpen}
+      placement="bottomRight"
+      dropdownRender={() => (
+        <div className="flex gap-2 h-9 box-border p-2 rounded-lg w-[180px]">
+          {Array.from({ length: 5 }).map((number, index) => (
+            <div
+              key={`${id}-${number}`}
+              className="size-5 "
+              onMouseEnter={() => setValue(index)}
+            >
+              <RateStarIcon
+                color={value >= index ? '#FCBF25' : '#F2F4F7'}
+                className="size-5"
+              />
+            </div>
+          ))}
+        </div>
+      )}
+      className=""
+      overlayClassName="project-name-dropdown rounded-lg boxShadowSecondary"
+    >
+      <ArrowDown2 size={20} className="text-neutral-dark-500 ml-auto  " />
+    </Dropdown>
+  );
+};
+
+const RatingCell = ({ rating }: RatingCellProps) => {
   const [isFocus, setIsFocus] = React.useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
   const ref = useOutsideClick(() => {
@@ -26,11 +66,11 @@ const RatingCell = ({ rating, className }: RatingCellProps) => {
           'after:content-[""] overflow-x-auto after:pointer-events-none after:absolute after:h-[calc(100%+2px)] after:w-[calc(100%+2px)] after:z-[2] after:-top-[1px] after:-left-[1px] after:border-theme-ocean-blue after:border-solid after:border',
       )}
     >
-      {Array.from({ length: 5 }).map((_, index) =>
+      {Array.from({ length: 5 }).map((star, index) =>
         index < rating ? (
-          <RateStarFilledIcon className="size-5" key={`${id}-${index}`} />
+          <RateStarFilledIcon className="size-5" key={`${id}-${star}`} />
         ) : (
-          <RateStarIcon className="size-5" key={`${id}-${index}`} />
+          <RateStarIcon className="size-5" key={`${id}-${star}`} />
         ),
       )}
       {isFocus && (
@@ -54,43 +94,3 @@ const RatingCell = ({ rating, className }: RatingCellProps) => {
 
 export default RatingCell;
 
-const RattingDropdown = ({
-  setOpen,
-  open,
-  children,
-}: {
-  open: boolean;
-  setOpen: (value: boolean) => void;
-  children?: React.ReactNode;
-}) => {
-  const [value, setValue] = React.useState(-1);
-  const id = useId();
-  return (
-    <Dropdown
-      trigger={['click']}
-      open={open}
-      onOpenChange={setOpen}
-      placement="bottomRight"
-      dropdownRender={(menu) => (
-        <div className="flex gap-2 h-9 box-border p-2 rounded-lg w-[180px]">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div
-              key={`${id}-${index}`}
-              className="size-5 "
-              onMouseEnter={() => setValue(index)}
-            >
-              <RateStarIcon
-                color={value >= index ? '#FCBF25' : '#F2F4F7'}
-                className="size-5"
-              />
-            </div>
-          ))}
-        </div>
-      )}
-      className=""
-      overlayClassName="project-name-dropdown rounded-lg boxShadowSecondary"
-    >
-      <ArrowDown2 size={20} className="text-neutral-dark-500 ml-auto  " />
-    </Dropdown>
-  );
-};

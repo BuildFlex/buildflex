@@ -9,6 +9,34 @@ interface BuildWithSheetbaseProps {
   onBack: () => void;
   className?: string;
 }
+const HelpList = [
+  { key: 'quick-tips', title: 'Quick tips', count: 12 },
+  { key: 'tutorials', title: 'Tutorials', count: 2 },
+  { key: 'videos', title: 'Videos', count: 41 },
+];
+const QuickTipsList = [
+  {
+    title: 'Text title',
+    imagePath: '/help/quick-tip-default-2.png',
+  },
+  {
+    title: 'Text title',
+    imagePath: '/help/quick-tip-default-2.png',
+  },
+  {
+    title: 'Text title',
+    imagePath: '/help/quick-tip-default-2.png',
+  },
+  {
+    title: 'Text title',
+    imagePath: '/help/quick-tip-default-2.png',
+  },
+  {
+    title: 'Text title',
+    imagePath: '/help/quick-tip-default-2.png',
+  },
+];
+
 const BuildWithSheetbase = ({
   onClose,
   onBack,
@@ -32,9 +60,9 @@ const BuildWithSheetbase = ({
         onClose={onClose}
       />
       <div className="flex gap-3 flex-col">
-        {HelpList.map((i, index) => {
+        {HelpList.map((i) => {
           return (
-            <div className="flex flex-col">
+            <div className="flex flex-col" key={i.key}>
               <div
                 className=" flex gap-2 cursor-pointer box-border items-center min-h-10 h-10 "
                 style={{
@@ -68,10 +96,10 @@ const BuildWithSheetbase = ({
                     activeTab === i.key ? 'grid' : 'hidden',
                   )}
                 >
-                  {QuickTipsList.map((tip, index) => {
+                  {QuickTipsList.map((tip) => {
                     return (
                       <div
-                        key={`${i.key}-${i.title}-${index}`}
+                        key={`${i.key}-${i.title}`}
                         className="flex  flex-col  gap-2 items-start"
                       >
                         <img
@@ -104,30 +132,3 @@ const BuildWithSheetbase = ({
 };
 
 export default BuildWithSheetbase;
-const HelpList = [
-  { key: 'quick-tips', title: 'Quick tips', count: 12 },
-  { key: 'tutorials', title: 'Tutorials', count: 2 },
-  { key: 'videos', title: 'Videos', count: 41 },
-];
-const QuickTipsList = [
-  {
-    title: 'Text title',
-    imagePath: '/help/quick-tip-default-2.png',
-  },
-  {
-    title: 'Text title',
-    imagePath: '/help/quick-tip-default-2.png',
-  },
-  {
-    title: 'Text title',
-    imagePath: '/help/quick-tip-default-2.png',
-  },
-  {
-    title: 'Text title',
-    imagePath: '/help/quick-tip-default-2.png',
-  },
-  {
-    title: 'Text title',
-    imagePath: '/help/quick-tip-default-2.png',
-  },
-];

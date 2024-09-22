@@ -14,6 +14,29 @@ import {
 } from 'iconsax-react';
 import React, { useState } from 'react';
 
+const TagList = [
+  {
+    id: 'sheetBase-1',
+    name: 'SheetBase 1',
+    className: 'bg-[#F2F4F7]',
+  },
+  {
+    id: 'sheetBase-2',
+    name: 'SheetBase 2',
+    className: 'bg-[#CFF5D1]',
+  },
+  {
+    id: 'sheetBase-3',
+    name: 'SheetBase 3',
+    className: 'bg-[#FFD4E0]',
+  },
+  {
+    id: 'sheetBase-4',
+    name: 'SheetBase 4',
+    className: 'bg-[#FFD4E0]',
+  },
+];
+
 interface MultipleSelectDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
 }
@@ -40,12 +63,6 @@ const MultipleSelectDropdown: React.FC<MultipleSelectDropdownProps> = ({
     const newOptions = options.filter((op) => option.id !== op.id);
     setOptions(newOptions);
   };
-  const handleChange = (value: IOption, index: number) =>
-    setOptions((prev) => {
-      const newOptions = [...prev];
-      newOptions[index] = value;
-      return newOptions;
-    });
 
   return (
     <>
@@ -87,7 +104,7 @@ const MultipleSelectDropdown: React.FC<MultipleSelectDropdownProps> = ({
         </div>
         <div className="h-[1px] w-full bg-borderColor " />
         <div className="flex gap-1 overflow-auto max-h-[80px] customScrollBar flex-col w-full">
-          {options.map((option, index) => (
+          {options.map((option) => (
             <DropdownItem
               key={option.id}
               className=" py-0 h-8  text-neutral-dark-500"
@@ -149,26 +166,3 @@ const MultipleSelectDropdown: React.FC<MultipleSelectDropdownProps> = ({
 };
 
 export default MultipleSelectDropdown;
-
-const TagList = [
-  {
-    id: 'sheetBase-1',
-    name: 'SheetBase 1',
-    className: 'bg-[#F2F4F7]',
-  },
-  {
-    id: 'sheetBase-2',
-    name: 'SheetBase 2',
-    className: 'bg-[#CFF5D1]',
-  },
-  {
-    id: 'sheetBase-3',
-    name: 'SheetBase 3',
-    className: 'bg-[#FFD4E0]',
-  },
-  {
-    id: 'sheetBase-4',
-    name: 'SheetBase 4',
-    className: 'bg-[#FFD4E0]',
-  },
-];

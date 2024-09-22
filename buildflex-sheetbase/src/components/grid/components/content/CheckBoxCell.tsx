@@ -1,8 +1,6 @@
 import { CheckBoxIcon } from '@/components/icons';
-import Text from '@/components/typography/Text';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
-import { Checkbox } from 'antd';
 import React from 'react';
 interface CheckBoxCellProps {
   isCheck: boolean;

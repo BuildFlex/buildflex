@@ -27,7 +27,6 @@ const SingleLineCell = ({ text, className }: SingleLineCellProps) => {
         <>
           <CustomInput
             defaultValue={text}
-            autoFocus
             onClick={() => setIsFocus(true)}
             className="rounded-lg !border-none px-0 overflow-hidden"
             inputClassName="whitespace-nowrap truncate h-[18px]"

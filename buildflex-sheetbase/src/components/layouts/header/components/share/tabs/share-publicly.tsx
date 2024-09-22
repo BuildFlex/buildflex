@@ -1,6 +1,5 @@
 import { QuestionCircle } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { useTheme } from '@/provider/theme-provider';
 import { cn } from '@/utils/cn';
 import { Switch } from 'antd';
 import { ArrowRotateLeft, CodeCircle, ExportSquare } from 'iconsax-react';
@@ -28,7 +27,7 @@ const SharePublicly = () => {
   return (
     <div
       className="flex flex-col min-h-[64px]  box-border"
-      style={{ border: `1px solid #EDEDED` }}
+      style={{ border: '1px solid #EDEDED' }}
     >
       <div className="h-[64px] px-4 py-3 items-center flex box-border rounded gap-6">
         <Switch onChange={setIsActive} className="w-8" size="small" />
@@ -52,10 +51,10 @@ const SharePublicly = () => {
       {isActive && (
         <div
           className="py-4 pl-[72px] flex gap-2 flex-col"
-          style={{ borderTop: `1px solid #EDEDED` }}
+          style={{ borderTop: '1px solid #EDEDED' }}
         >
           <div
-            style={{ border: `1px solid #EDEDED` }}
+            style={{ border: '1px solid #EDEDED' }}
             className="h-9 rounded max-w-[415px] items-center flex gap-2 px-2 text-neutral-dark-300"
           >
             <Text

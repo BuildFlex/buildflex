@@ -34,7 +34,7 @@ const AdditionalResources = () => {
         </Text>
       </DropdownItem>
       <div className="flex flex-col gap-2">
-        {items.map((item, index) => (
+        {items.map((item) => (
           <DropdownItem
             key={item.text}
             className={cn('text-white px-0 cursor-pointer')}

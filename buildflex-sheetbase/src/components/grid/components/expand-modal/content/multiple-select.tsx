@@ -1,6 +1,28 @@
 import TagMultipleSelect from '@/components/select/tag-multiple-select';
 import Text from '@/components/typography/Text';
 import { Task } from 'iconsax-react';
+const TagList = [
+  {
+    id: 'Text-1',
+    name: 'Text 1',
+    className: 'bg-gray-50',
+  },
+  {
+    id: 'Text-2',
+    name: 'Text 2',
+    className: 'bg-[#CFF5D1]',
+  },
+  {
+    id: 'Text-3',
+    name: 'Text 3',
+    className: 'bg-[#FFD4E0]',
+  },
+  {
+    id: 'Text-4',
+    name: 'Text 4',
+    className: 'bg-[#FFD4E0]',
+  },
+];
 
 const ExpandMultipleSelect = () => {
   return (
@@ -24,26 +46,3 @@ const ExpandMultipleSelect = () => {
 };
 
 export default ExpandMultipleSelect;
-
-const TagList = [
-  {
-    id: 'Text-1',
-    name: 'Text 1',
-    className: 'bg-gray-50',
-  },
-  {
-    id: 'Text-2',
-    name: 'Text 2',
-    className: 'bg-[#CFF5D1]',
-  },
-  {
-    id: 'Text-3',
-    name: 'Text 3',
-    className: 'bg-[#FFD4E0]',
-  },
-  {
-    id: 'Text-4',
-    name: 'Text 4',
-    className: 'bg-[#FFD4E0]',
-  },
-];

@@ -3,6 +3,7 @@ import { ArrowDown2, UserTick } from 'iconsax-react';
 import React from 'react';
 
 import { IField } from '@/components/view-filter/components/dropdown-render/GroupDropdownRender';
+import { Link } from 'react-router-dom';
 
 interface CreatedByDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
@@ -28,15 +29,15 @@ const CreatedByDropdown: React.FC<CreatedByDropdownProps> = ({
         <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
           See which user created the record.{' '}
         </Text>{' '}
-        <a
-          href="#"
-          className="w-fit inline-block h-[18px] flex items-center box-border"
+        <Link
+          to="#"
+          className="w-fit h-[18px] flex items-center box-border"
           style={{ borderBottom: '1px solid #101828 ' }}
         >
           <Text as="span" variant="B2-Medium" className="text-neutral-dark-500">
             Learn more
           </Text>
-        </a>
+        </Link>
       </div>
     </>
   );

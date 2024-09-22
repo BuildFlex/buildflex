@@ -2,7 +2,6 @@ import { Chat1 } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
 import { Add } from 'iconsax-react';
-import React from 'react';
 
 const RecommendContent = () => {
   return (
@@ -42,8 +41,9 @@ const RecommendContent = () => {
         </Text>
       </button>
       {/* Themes */}
-      {Array.from({ length: 10 }).map((_, index) => (
+      {Array.from({ length: 10 }).map((number, index) => (
         <button
+          key={`recommend-content-${number as number}`}
           className={cn(
             ' flex white border relative border-borderColor flex-col gap-1 items-center justify-center rounded-lg size-[255px] overflow-hidden',
           )}

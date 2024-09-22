@@ -8,8 +8,8 @@ import CategoryRow from './row';
 const CategoryBody = () => {
   return (
     <div className="h-full flex flex-col gap-4 w-full  text-neutral-dark-500 px-1">
-      {data.map((item, index) => (
-        <CategoryRow key={`${item.name}-${index}`} {...item} />
+      {data.map((item) => (
+        <CategoryRow key={item.name} {...item} />
       ))}
     </div>
   );

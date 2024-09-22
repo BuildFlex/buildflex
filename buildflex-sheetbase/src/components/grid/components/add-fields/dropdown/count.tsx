@@ -9,39 +9,16 @@ import { Switch } from 'antd';
 import { Add, ArrowDown2, Danger, Math } from 'iconsax-react';
 import React, { useState } from 'react';
 
+const TableList = [
+  { label: 'Table 1', value: 'table-1', prefix: MoveToIcon },
+  { label: 'Table 2', value: 'table-2', prefix: MoveToIcon },
+  { label: 'Table 3', value: 'table-3', prefix: MoveToIcon },
+  { label: 'Table 4', value: 'table-4', prefix: MoveToIcon },
+];
+
 interface CountDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
 }
-
-export const CountDropdown: React.FC<CountDropdownProps> = ({
-  onChangeDropdown,
-}) => {
-  const [isAvailableSource, setIsAvailableSource] = useState<boolean>(false);
-  return (
-    <>
-      <button
-        onClick={() => onChangeDropdown(null)}
-        style={{ border: '1px solid #EDEDED ' }}
-        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
-      >
-        <Math size={16} />
-        <Text as="span" variant="B2-Regular">
-          Count
-        </Text>
-        <ArrowDown2 className="ml-auto" size={16} />
-      </button>
-
-      <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-        Count the number of linked records.
-      </Text>
-
-      {/*  Content */}
-      <div className="flex flex-col gap-2 mt-1">
-        {isAvailableSource ? <NoSourceCount /> : <CountContent />}
-      </div>
-    </>
-  );
-};
 
 const NoSourceCount = () => {
   return (
@@ -57,7 +34,6 @@ const NoSourceCount = () => {
 
 const CountContent = () => {
   const [table, setTable] = useState<string | null>(null);
-  const [tableField, setTableField] = useState<string | null>(null);
   const [conditions, setConditions] = useState<boolean>(false);
   return (
     <>
@@ -94,7 +70,7 @@ const CountContent = () => {
             >
               {table}
             </Text>{' '}
-             table that meet certain conditions
+            table that meet certain conditions
           </Text>
         </div>
       )}
@@ -124,9 +100,32 @@ const CountContent = () => {
   );
 };
 
-const TableList = [
-  { label: 'Table 1', value: 'table-1', prefix: MoveToIcon },
-  { label: 'Table 2', value: 'table-2', prefix: MoveToIcon },
-  { label: 'Table 3', value: 'table-3', prefix: MoveToIcon },
-  { label: 'Table 4', value: 'table-4', prefix: MoveToIcon },
-];
+export const CountDropdown: React.FC<CountDropdownProps> = ({
+  onChangeDropdown,
+}) => {
+  const [isAvailableSource] = useState<boolean>(false);
+  return (
+    <>
+      <button
+        onClick={() => onChangeDropdown(null)}
+        style={{ border: '1px solid #EDEDED ' }}
+        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
+      >
+        <Math size={16} />
+        <Text as="span" variant="B2-Regular">
+          Count
+        </Text>
+        <ArrowDown2 className="ml-auto" size={16} />
+      </button>
+
+      <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
+        Count the number of linked records.
+      </Text>
+
+      {/*  Content */}
+      <div className="flex flex-col gap-2 mt-1">
+        {isAvailableSource ? <NoSourceCount /> : <CountContent />}
+      </div>
+    </>
+  );
+};

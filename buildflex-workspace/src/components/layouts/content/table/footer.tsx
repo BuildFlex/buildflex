@@ -34,11 +34,11 @@ const CategoryFooter = () => {
       pages = [1, '...', currentPage, '...', totalPage];
     }
 
-    return pages.map((page, index) => {
+    return pages.map((page) => {
       if (typeof page === 'number') {
         return (
           <button
-            key={`${page}-${index}`}
+            key={page}
             className={cn(
               'size-8 rounded-md flex items-center justify-center',
               page === currentPage
@@ -54,10 +54,7 @@ const CategoryFooter = () => {
         );
       } else {
         return (
-          <div
-            key={`${page}-${index}`}
-            className="size-8 flex items-center justify-center"
-          >
+          <div key={page} className="size-8 flex items-center justify-center">
             <Text
               as="span"
               variant="B2-Regular"

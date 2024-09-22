@@ -1,6 +1,37 @@
 import React, { CSSProperties } from 'react';
 
 import { faker } from '@faker-js/faker';
+import {
+  Cell,
+  ColumnDef,
+  Header,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from '@tanstack/react-table';
+
+// needed for table body level scope DnD setup
+import {
+  DndContext,
+  KeyboardSensor,
+  MouseSensor,
+  TouchSensor,
+  closestCenter,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from '@dnd-kit/core';
+import { restrictToHorizontalAxis } from '@dnd-kit/modifiers';
+import {
+  SortableContext,
+  arrayMove,
+  horizontalListSortingStrategy,
+  useSortable,
+} from '@dnd-kit/sortable';
+
+// needed for row & cell level scope DnD setup
+import { CSS } from '@dnd-kit/utilities';
+import { Book } from 'iconsax-react';
 
 export type Person = {
   firstName: string;
@@ -38,7 +69,7 @@ const newPerson = (): Person => {
 export function makeData(...lens: number[]) {
   const makeDataLevel = (depth = 0): Person[] => {
     const len = lens[depth]!;
-    return range(len).map((d): Person => {
+    return range(len).map(() => {
       return {
         ...newPerson(),
         subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
@@ -49,47 +80,14 @@ export function makeData(...lens: number[]) {
   return makeDataLevel();
 }
 
-import {
-  Cell,
-  ColumnDef,
-  Header,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
-
-// needed for table body level scope DnD setup
-import {
-  DndContext,
-  KeyboardSensor,
-  MouseSensor,
-  TouchSensor,
-  closestCenter,
-  useSensor,
-  useSensors,
-  type DragEndEvent,
-} from '@dnd-kit/core';
-import { restrictToHorizontalAxis } from '@dnd-kit/modifiers';
-import {
-  SortableContext,
-  arrayMove,
-  horizontalListSortingStrategy,
-} from '@dnd-kit/sortable';
-
-// needed for row & cell level scope DnD setup
-import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
-import { Book } from 'iconsax-react';
-
 const DraggableTableHeader = ({
   header,
 }: {
   header: Header<Person, unknown>;
 }) => {
-  const { attributes, isDragging, listeners, setNodeRef, transform } =
-    useSortable({
-      id: header.column.id,
-    });
+  const { attributes, listeners, setNodeRef } = useSortable({
+    id: header.column.id,
+  });
 
   const style: CSSProperties = {
     // opacity: isDragging ? 0.8 : 1,
@@ -145,13 +143,11 @@ const DragAlongCell = ({ cell }: { cell: Cell<Person, unknown> }) => {
   );
 };
 
-import { IconProps } from 'iconsax-react';
-
 // Update the ColumnDef type
-type CustomColumnDef<T> = ColumnDef<T> & {
-  leftIcon?: React.ComponentType<IconProps>;
-  rightIcon?: React.ComponentType<IconProps>;
-};
+// type CustomColumnDef<T> = ColumnDef<T> & {
+//   leftIcon?: React.ComponentType<IconProps>;
+//   rightIcon?: React.ComponentType<IconProps>;
+// };
 
 function Grid() {
   const columns = React.useMemo<ColumnDef<Person>[]>(
@@ -197,7 +193,7 @@ function Grid() {
     [],
   );
 
-  const [data, setData] = React.useState(() => makeData(10));
+  const [data] = React.useState(() => makeData(10));
   const [columnOrder, setColumnOrder] = React.useState<string[]>(() =>
     columns.map((c) => c.id!),
   );

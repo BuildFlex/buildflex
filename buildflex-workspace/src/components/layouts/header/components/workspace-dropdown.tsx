@@ -1,7 +1,7 @@
 import DropdownItem from '@/components/common/dropdown/DropdownItem';
 import Text from '@/components/typography/Text';
 import { Dropdown } from 'antd';
-import { ArrowDown2, Setting2, Share, User } from 'iconsax-react';
+import { ArrowDown2, Share, User } from 'iconsax-react';
 import { useState } from 'react';
 
 const WorkSpaceItems = [
@@ -18,7 +18,7 @@ const WorkSpaceDropdown = () => {
       onOpenChange={(open) => setIsOpen(open)}
       placement="bottomRight"
       className="flex items-center relative justify-center"
-      dropdownRender={(menu) => (
+      dropdownRender={() => (
         <div className="flex gap-1 flex-col boxShadowSecondary p-3 overflow-hidden box-border rounded-lg w-[240px]">
           {WorkSpaceItems.map((item) => (
             <DropdownItem

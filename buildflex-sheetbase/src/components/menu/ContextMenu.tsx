@@ -58,12 +58,15 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ items, children }) => {
           className="absolute bg-white shadow-lg rounded-md py-2"
           style={{ top: position.y, left: position.x }}
         >
-          {items.map((item, index) =>
+          {items.map((item) =>
             item.type === 'separator' ? (
-              <hr key={`separator-${index}`} className="my-1 border-gray-200" />
+              <hr
+                key={`separator-${item.label}`}
+                className="my-1 border-gray-200"
+              />
             ) : (
               <button
-                key={`${item.label}-${index}`}
+                key={item.label}
                 className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center"
                 onClick={() => handleContextMenuClick(item)}
               >

@@ -1,10 +1,4 @@
-export default function WorkSpaceIcon({
-  className,
-  color,
-}: {
-  className?: string;
-  color?: string;
-}) {
+export default function WorkSpaceIcon() {
   return (
     <svg
       width="140"
@@ -82,8 +76,8 @@ export default function WorkSpaceIcon({
           y2="36"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#21D4A7" />
-          <stop offset="1" stop-color="#0DA8D3" />
+          <stop stopColor="#21D4A7" />
+          <stop offset="1" stopColor="#0DA8D3" />
         </linearGradient>
       </defs>
     </svg>

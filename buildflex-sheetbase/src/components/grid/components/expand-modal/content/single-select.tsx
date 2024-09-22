@@ -1,6 +1,28 @@
 import TagSelect from '@/components/select/tag-select';
 import Text from '@/components/typography/Text';
-import { ArrowCircleDown, ArrowCircleDown2, Task } from 'iconsax-react';
+import { ArrowCircleDown } from 'iconsax-react';
+const TagList = [
+  {
+    id: 'Text-1',
+    name: 'Text 1',
+    className: 'bg-gray-50',
+  },
+  {
+    id: 'Text-2',
+    name: 'Text 2',
+    className: 'bg-[#CFF5D1]',
+  },
+  {
+    id: 'Text-3',
+    name: 'Text 3',
+    className: 'bg-[#FFD4E0]',
+  },
+  {
+    id: 'Text-4',
+    name: 'Text 4',
+    className: 'bg-[#FFD4E0]',
+  },
+];
 
 const ExpandSingleSelect = () => {
   return (
@@ -25,26 +47,3 @@ const ExpandSingleSelect = () => {
 };
 
 export default ExpandSingleSelect;
-
-const TagList = [
-  {
-    id: 'Text-1',
-    name: 'Text 1',
-    className: 'bg-gray-50',
-  },
-  {
-    id: 'Text-2',
-    name: 'Text 2',
-    className: 'bg-[#CFF5D1]',
-  },
-  {
-    id: 'Text-3',
-    name: 'Text 3',
-    className: 'bg-[#FFD4E0]',
-  },
-  {
-    id: 'Text-4',
-    name: 'Text 4',
-    className: 'bg-[#FFD4E0]',
-  },
-];

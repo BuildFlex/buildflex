@@ -72,10 +72,10 @@ const ShareViewTab = () => {
           </div>
           <div
             className="py-4 pl-[72px] flex gap-2 flex-col"
-            style={{ borderTop: `1px solid #EDEDED` }}
+            style={{ borderTop: '1px solid #EDEDED' }}
           >
             <div
-              style={{ border: `1px solid #EDEDED` }}
+              style={{ border: '1px solid #EDEDED' }}
               className="h-9 rounded max-w-[415px] items-center text-neutral-dark-300 flex gap-2 px-2"
             >
               <Text
@@ -98,7 +98,7 @@ const ShareViewTab = () => {
                   style={
                     item.isChildren
                       ? {
-                          borderLeft: `1px solid #EDEDED`,
+                          borderLeft: '1px solid #EDEDED',
                           paddingLeft: 8,
                           marginLeft: 16,
                         }

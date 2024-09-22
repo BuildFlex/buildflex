@@ -1,12 +1,11 @@
 import ConversationIcon from '@/components/icons/conversation-icon';
 import Text from '@/components/typography/Text';
 import { ArrowDown2, Notification } from 'iconsax-react';
-import React from 'react';
 
-interface ExpandSideBarProps {
-  onClose: (isOpen: boolean) => void;
-}
-const ExpandSideBar = ({ onClose }: ExpandSideBarProps) => {
+// interface ExpandSideBarProps {
+//   onClose: (isOpen: boolean) => void;
+// }
+const ExpandSideBar = () => {
   return (
     <div
       className=" flex flex-col gap-4 box-border w-[360px] min-w-[360px]"

@@ -38,7 +38,7 @@ export const Example = ({ className, textClassName }: ExampleProps) => {
           variant="B2-Regular"
           className={cn('text-danger font-sourceCodePro', textClassName)}
         >
-          Name & "-" & Date
+          {'Name & "-" & Date'}
         </Text>
         <Text
           as="span"

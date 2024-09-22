@@ -1,5 +1,3 @@
-import React from 'react';
-
 const CategoryIcon = ({ className }: { className?: string }) => {
   return (
     <svg

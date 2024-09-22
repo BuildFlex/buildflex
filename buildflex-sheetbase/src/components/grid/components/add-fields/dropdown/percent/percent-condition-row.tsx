@@ -16,6 +16,15 @@ interface PercentConditionRowProps {
   isFirstRow?: boolean;
   className?: string;
 }
+const operatorList = [
+  { id: 'equal', icon: EqualSignIcon, label: '=' },
+  { id: 'notEqual', icon: NotEqualSignIcon, label: '≠' },
+  { id: 'lessThan', icon: LessThanIcon, label: '<' },
+  { id: 'greaterThan', icon: GreaterThanIcon, label: '>' },
+  { id: 'lessThanOrEqual', icon: LessThanOrEqualIcon, label: '≤' },
+  { id: 'greaterThanOrEqual', icon: GreaterThanOrEqualIcon, label: '≥' },
+];
+
 const PercentConditionRow = ({
   isFirstRow = false,
   className,
@@ -82,11 +91,3 @@ const PercentConditionRow = ({
 };
 
 export default PercentConditionRow;
-const operatorList = [
-  { id: 'equal', icon: EqualSignIcon, label: '=' },
-  { id: 'notEqual', icon: NotEqualSignIcon, label: '≠' },
-  { id: 'lessThan', icon: LessThanIcon, label: '<' },
-  { id: 'greaterThan', icon: GreaterThanIcon, label: '>' },
-  { id: 'lessThanOrEqual', icon: LessThanOrEqualIcon, label: '≤' },
-  { id: 'greaterThanOrEqual', icon: GreaterThanOrEqualIcon, label: '≥' },
-];

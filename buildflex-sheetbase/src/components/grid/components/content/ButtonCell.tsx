@@ -6,7 +6,7 @@ interface ButtonCellProps {
   name: string;
   className?: string;
 }
-const ButtonCell = ({ name, className }: ButtonCellProps) => {
+const ButtonCell = ({ name }: ButtonCellProps) => {
   const [isFocus, setIsFocus] = React.useState(false);
   const ref = useOutsideClick(() => {
     setIsFocus(false);

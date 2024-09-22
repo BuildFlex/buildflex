@@ -98,7 +98,7 @@ const HelpSidebar = ({ onClose }: HelpSidebarProps) => {
   return (
     <div
       className={cn(
-        'fixed help-sidebar-contaier z-20 right-0 top-[60px] customScrollBar  bottom-0 w-[380px] flex flex-col  dropdown-container   p-4 box-border max-h-[calc(100svh-60px)] h-full overflow-y-auto overflow-x-hidden text-white',
+        'fixed help-sidebar-contaier z-40 right-0 top-[60px] customScrollBar  bottom-0 w-[380px] flex flex-col  dropdown-container   p-4 box-border max-h-[calc(100svh-60px)] h-full overflow-y-auto overflow-x-hidden text-white',
 
         theme.linearBackground,
         activeItem ? 'inside' : 'outside',
@@ -115,7 +115,7 @@ const HelpSidebar = ({ onClose }: HelpSidebarProps) => {
             />
           </div>
           <div className="flex gap-3 flex-col">
-            {dropdownItems.map((item, index) => (
+            {dropdownItems.map((item) => (
               <DropdownItem
                 key={item.id}
                 onClick={item.isTab ? () => setActiveItem(item.id) : undefined}
@@ -137,7 +137,9 @@ const HelpSidebar = ({ onClose }: HelpSidebarProps) => {
       </div>
       {/*====== SUB MENU ======== */}
       <div
-        className={`submenu-content absolute w-full flex flex-col p-4 top-0 left-0 box-border h-full`}
+        className={
+          'submenu-content absolute w-full flex flex-col p-4 top-0 left-0 box-border h-full'
+        }
       >
         {renderSubMenu(activeItem, handleBack)}
       </div>

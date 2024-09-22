@@ -4,7 +4,7 @@ interface IconProps {
   size?: number;
 }
 
-export const EqualSignIcon = ({ className, color, size }: IconProps) => {
+export const EqualSignIcon = () => {
   return (
     <svg
       width="16"
@@ -16,19 +16,19 @@ export const EqualSignIcon = ({ className, color, size }: IconProps) => {
       <path
         d="M2.6665 5.33301L13.3332 5.33301"
         stroke="#141B34"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
       <path
         d="M2.6665 10.666L13.3332 10.666"
         stroke="#141B34"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
     </svg>
   );
 };
-export const NotEqualSignIcon = ({ className, color, size }: IconProps) => {
+export const NotEqualSignIcon = () => {
   return (
     <svg
       width="16"
@@ -40,25 +40,25 @@ export const NotEqualSignIcon = ({ className, color, size }: IconProps) => {
       <path
         d="M2.6665 5.33398L13.3332 5.33398"
         stroke="#141B34"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
       <path
         d="M2.6665 10.667L13.3332 10.667"
         stroke="#141B34"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
       <path
         d="M4 13.3337L12 2.66699"
         stroke="#141B34"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
     </svg>
   );
 };
-export const LessThanIcon = ({ className, color, size }: IconProps) => {
+export const LessThanIcon = () => {
   return (
     <svg
       width="16"
@@ -70,14 +70,14 @@ export const LessThanIcon = ({ className, color, size }: IconProps) => {
       <path
         d="M11.3332 2.66699L5.77945 6.69401C4.29552 7.77001 4.29552 8.23064 5.77946 9.30664L11.3332 13.3337"
         stroke="#141B34"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
 };
-export const LessThanOrEqualIcon = ({ className, color, size }: IconProps) => {
+export const LessThanOrEqualIcon = () => {
   return (
     <svg
       width="16"
@@ -89,19 +89,19 @@ export const LessThanOrEqualIcon = ({ className, color, size }: IconProps) => {
       <path
         d="M2 13.334L14 13.334"
         stroke="#141B34"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
       <path
         d="M14 10.667L4.55855 10.667C2.97142 10.667 2.17786 10.667 2.02322 10.2488C1.86859 9.83068 2.49144 9.36905 3.73715 8.44581L11.5343 2.66699"
         stroke="#141B34"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
     </svg>
   );
 };
-export const GreaterThanIcon = ({ className, color, size }: IconProps) => {
+export const GreaterThanIcon = () => {
   return (
     <svg
       width="16"
@@ -113,23 +113,19 @@ export const GreaterThanIcon = ({ className, color, size }: IconProps) => {
       <path
         d="M2 13.334L14 13.334"
         stroke="#141B34"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
       <path
         d="M14 10.667L4.55855 10.667C2.97142 10.667 2.17786 10.667 2.02322 10.2488C1.86859 9.83068 2.49144 9.36905 3.73715 8.44581L11.5343 2.66699"
         stroke="#141B34"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
     </svg>
   );
 };
-export const GreaterThanOrEqualIcon = ({
-  className,
-  color,
-  size,
-}: IconProps) => {
+export const GreaterThanOrEqualIcon = () => {
   return (
     <svg
       width="16"
@@ -141,15 +137,15 @@ export const GreaterThanOrEqualIcon = ({
       <path
         d="M4.6665 2.66699L10.2202 6.69401C11.7042 7.77001 11.7042 8.23064 10.2202 9.30664L4.6665 13.3337"
         stroke="#141B34"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
 };
 // below icons is not supported by iconsax-react
-export const FlagIcon = ({ className, color, size }: IconProps) => {
+export const FlagIcon = ({ color }: IconProps) => {
   return (
     <svg
       width="20"
@@ -165,7 +161,7 @@ export const FlagIcon = ({ className, color, size }: IconProps) => {
     </svg>
   );
 };
-export const LikeIcon = ({ className, color, size }: IconProps) => {
+export const LikeIcon = ({ className, color }: IconProps) => {
   return (
     <svg
       className={className}
@@ -182,7 +178,7 @@ export const LikeIcon = ({ className, color, size }: IconProps) => {
     </svg>
   );
 };
-export const DotIcon = ({ className, color, size }: IconProps) => {
+export const DotIcon = ({ color }: IconProps) => {
   return (
     <svg
       width="20"
@@ -198,7 +194,7 @@ export const DotIcon = ({ className, color, size }: IconProps) => {
     </svg>
   );
 };
-export const ConfigureIcon = ({ className, color }: IconProps) => {
+export const ConfigureIcon = () => {
   return (
     <svg
       width="16"
@@ -228,7 +224,7 @@ export const ConfigureIcon = ({ className, color }: IconProps) => {
     </svg>
   );
 };
-export const GroupIcon = ({ className, color }: IconProps) => {
+export const GroupIcon = () => {
   return (
     <svg
       width="16"
@@ -270,7 +266,7 @@ export const GroupIcon = ({ className, color }: IconProps) => {
     </svg>
   );
 };
-export const SortDownIcon = ({ className, color }: IconProps) => {
+export const SortDownIcon = () => {
   return (
     <svg
       width="16"
@@ -297,21 +293,21 @@ export const SortDownIcon = ({ className, color }: IconProps) => {
       <path
         d="M7.99992 9.95443L10.6666 12.6211L13.3333 9.95443"
         stroke="#101828"
-        stroke-miterlimit="10"
+        strokeMiterlimit="10"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M10.6666 6L10.6666 12"
         stroke="#101828"
-        stroke-miterlimit="10"
+        strokeMiterlimit="10"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
     </svg>
   );
 };
-export const RateStarOutlineIcon = ({ className, color, size }: IconProps) => {
+export const RateStarOutlineIcon = ({ className, color }: IconProps) => {
   return (
     <svg
       className={className}
@@ -474,7 +470,7 @@ export const LeftBullet = ({ className, color }: IconProps) => {
   );
 };
 
-export const RowHeightShortIcon = ({ className }: IconProps) => {
+export const RowHeightShortIcon = () => {
   return (
     <svg
       width="16"
@@ -508,7 +504,7 @@ export const RowHeightShortIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const RowHeightMediumIcon = ({ className }: IconProps) => {
+export const RowHeightMediumIcon = () => {
   return (
     <svg
       width="16"
@@ -542,7 +538,7 @@ export const RowHeightMediumIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const RowHeightTallIcon = ({ className }: IconProps) => {
+export const RowHeightTallIcon = () => {
   return (
     <svg
       width="16"
@@ -581,7 +577,7 @@ export const RowHeightTallIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const RowHeightExtraIcon = ({ className }: IconProps) => {
+export const RowHeightExtraIcon = () => {
   return (
     <svg
       width="16"
@@ -619,7 +615,7 @@ export const RowHeightExtraIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const CursorDefaultIcon = ({ className }: IconProps) => {
+export const CursorDefaultIcon = () => {
   return (
     <svg
       width="16"
@@ -635,7 +631,7 @@ export const CursorDefaultIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const AutoNumberIcon = ({ className }: IconProps) => {
+export const AutoNumberIcon = () => {
   return (
     <svg
       width="16"
@@ -671,7 +667,7 @@ export const AutoNumberIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const FormulaIcon = ({ className }: IconProps) => {
+export const FormulaIcon = () => {
   return (
     <svg
       width="16"
@@ -691,7 +687,7 @@ export const FormulaIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const ChooseBoxIcon = ({ className, color }: IconProps) => {
+export const ChooseBoxIcon = () => {
   return (
     <svg
       width="16"
@@ -764,7 +760,7 @@ export const MoveIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const SparklesIcon = ({ className, color }: IconProps) => {
+export const SparklesIcon = () => {
   return (
     <svg
       width="16"
@@ -817,7 +813,7 @@ export const ArrowRotate = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const LaptopIcon = ({ className }: IconProps) => {
+export const LaptopIcon = () => {
   return (
     <svg
       width="16"
@@ -897,7 +893,7 @@ export const MoreVert = ({ className }: IconProps) => {
   );
 };
 
-export const CheckBoxIcon = ({ className, color, size }: IconProps) => {
+export const CheckBoxIcon = ({ className, color }: IconProps) => {
   return (
     <svg
       className={className}
@@ -917,7 +913,7 @@ export const CheckBoxIcon = ({ className, color, size }: IconProps) => {
     </svg>
   );
 };
-export const RedoIcon = ({ className }: IconProps) => {
+export const RedoIcon = () => {
   return (
     <svg
       width="16"
@@ -958,7 +954,7 @@ export const UndoIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const UnorderedListIcon = ({ className }: IconProps) => {
+export const UnorderedListIcon = () => {
   return (
     <svg
       width="16"
@@ -975,7 +971,7 @@ export const UnorderedListIcon = ({ className }: IconProps) => {
   );
 };
 
-export const CloseIcon = ({ className, color, size }: IconProps) => {
+export const CloseIcon = ({ className, color }: IconProps) => {
   return (
     <svg
       className={className}
@@ -988,9 +984,9 @@ export const CloseIcon = ({ className, color, size }: IconProps) => {
       <path
         d="M12.6668 3.33301L3.3335 12.6663M3.3335 3.33301L12.6668 12.6663"
         stroke={color || '#101828'}
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -1036,7 +1032,7 @@ export const PlusIcon = ({ className }: IconProps) => {
   );
 };
 
-export const CSVIcon = ({ className }: IconProps) => {
+export const CSVIcon = () => {
   return (
     <svg
       width="20"
@@ -1067,7 +1063,7 @@ export const CSVIcon = ({ className }: IconProps) => {
   );
 };
 
-export const GoogleCalendarIcon = ({ className }: IconProps) => {
+export const GoogleCalendarIcon = () => {
   return (
     <svg
       width="20"
@@ -1108,7 +1104,7 @@ export const GoogleCalendarIcon = ({ className }: IconProps) => {
   );
 };
 
-export const GoogleSheetIcon = ({ className }: IconProps) => {
+export const GoogleSheetIcon = () => {
   return (
     <svg
       width="20"
@@ -1144,7 +1140,7 @@ export const GoogleSheetIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const MicrosoftExcelIcon = ({ className }: IconProps) => {
+export const MicrosoftExcelIcon = () => {
   return (
     <svg
       width="20"
@@ -1186,7 +1182,7 @@ export const MicrosoftExcelIcon = ({ className }: IconProps) => {
     </svg>
   );
 };
-export const SaleForceIcon = ({ className }: IconProps) => {
+export const SaleForceIcon = () => {
   return (
     <svg
       width="24"

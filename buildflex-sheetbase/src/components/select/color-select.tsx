@@ -31,7 +31,6 @@ const colorList = [
   '#616670',
 ];
 const ColorSelect = ({
-  labelRender,
   itemsList,
   dropdownRender,
   selected,
@@ -42,7 +41,6 @@ const ColorSelect = ({
 }: ColorSelectProps) => {
   const [isShow, setIsShow] = React.useState(false);
 
-  const onOpen = () => setIsShow(true);
   const onClose = () => setIsShow(false);
   const ref = useOutsideClick(onClose, true);
   return (
@@ -71,10 +69,10 @@ const ColorSelect = ({
           >
             <div className="flex flex-wrap w-[264px] max-h-[200px]  customScrollBarMedium  overflow-y-auto ">
               {colorList.map((color) =>
-                itemsList.map((item, index) => {
+                itemsList.map((item) => {
                   return (
                     <DropdownItem
-                      key={`${color}-${item.id}-${index}`}
+                      key={`${color}-${item.id}`}
                       onClick={() => onSelect({ ...item, color })}
                       className={cn(
                         ' hover:bg-gray-50  size-9 p-0 basis-9 flex items-center justify-center cursor-pointer',

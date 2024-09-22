@@ -43,7 +43,7 @@ const SectionAddDropdown = ({ className }: { className?: string }) => {
       open={open}
       onOpenChange={(status) => setOpen(status)}
       className={className}
-      dropdownRender={(menu) => (
+      dropdownRender={() => (
         <div className="flex w-[160px] box-border flex-col gap-1 p-3 rounded-lg">
           {itemsList.map((item) => (
             <DropdownItem

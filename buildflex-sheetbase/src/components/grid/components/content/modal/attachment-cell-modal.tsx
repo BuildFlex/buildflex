@@ -6,7 +6,6 @@ import {
   DocumentText,
   Maximize4,
   Paperclip2,
-  TextalignJustifycenter,
 } from 'iconsax-react';
 import React, { useState } from 'react';
 import Draggable from 'react-draggable';
@@ -94,8 +93,11 @@ const AttachmentCellModal = () => {
               {/* Image display */}
               <div className="flex flex-wrap gap-2 max-h-[316px] overflow-auto customScrollBar">
                 {attachment.length !== 0 ? (
-                  attachment.map((file, index) => (
-                    <div className="flex basis-[260px]  flex-col gap-2 rounded-lg w-fit overflow-hidden">
+                  attachment.map((file) => (
+                    <div
+                      key={file.name}
+                      className="flex basis-[260px]  flex-col gap-2 rounded-lg w-fit overflow-hidden"
+                    >
                       <img
                         src={URL.createObjectURL(file)}
                         alt="attachment"

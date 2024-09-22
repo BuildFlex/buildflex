@@ -21,7 +21,6 @@ interface ButtonStyleSelectProps {
 }
 
 const ButtonStyleSelect = ({
-  labelRender,
   itemsList,
   dropdownRender,
   selected,
@@ -32,7 +31,6 @@ const ButtonStyleSelect = ({
 }: ButtonStyleSelectProps) => {
   const [isShow, setIsShow] = React.useState(false);
 
-  const onOpen = () => setIsShow(true);
   const onClose = () => setIsShow(false);
   const ref = useOutsideClick(onClose, true);
   return (
@@ -66,10 +64,10 @@ const ButtonStyleSelect = ({
               dropdownClassName,
             )}
           >
-            {itemsList.map((item, index) => {
+            {itemsList.map((item) => {
               return (
                 <DropdownItem
-                  key={`${item.id}-${index}`}
+                  key={item.id}
                   onClick={() => onSelect(item)}
                   className={cn(
                     ' hover:bg-gray-50  size-12 p-0 basis-12 flex items-center justify-center cursor-pointer',

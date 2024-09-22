@@ -23,7 +23,7 @@ const URLDropdown: React.FC<URLDropdownProps> = ({ onChangeDropdown }) => {
         <ArrowDown2 className="ml-auto" size={16} />
       </button>
       <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-        {`Enter a URL (e.g. airtable.com or https://airtable.com/universe).`}
+        {'Enter a URL (e.g. airtable.com or https://airtable.com/universe).'}
       </Text>
     </>
   );

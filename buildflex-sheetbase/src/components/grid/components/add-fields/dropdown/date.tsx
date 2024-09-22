@@ -47,11 +47,11 @@ const DateDropdown: React.FC<DateDropdownProps> = ({ onChangeDropdown }) => {
         <ArrowDown2 className="ml-auto" size={16} />
       </button>
       <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-        {`Enter a date (e.g. 11/12/2023) or choose one from a calendar.`}
+        {'Enter a date (e.g. 11/12/2023) or choose one from a calendar.'}
       </Text>
       <div className="flex flex-col gap-2 mt-1">
         <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-          {`Date format.`}
+          {'Date format.'}
         </Text>
         <Select
           position="bottom"

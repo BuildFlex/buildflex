@@ -11,7 +11,7 @@ const ColorConditionCollapse = ({ items }: { items: any[] | undefined }) => {
     <Collapse
       expandIcon={() => null}
       expandIconPosition="end"
-      items={items?.map((item, index) => ({
+      items={items?.map((item) => ({
         children: (
           <div className="no-border-select flex flex-col gap-3 pl-6">
             {item?.conditions.map((i: any, index: number) => {

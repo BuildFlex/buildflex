@@ -1,35 +1,20 @@
-import { CloseIcon, MoreVert } from '@/components/icons';
-import { CustomInput } from '@/components/input/Input';
-import Text from '@/components/typography/Text';
 import { Modal } from 'antd';
-import {
-  ArrowDown2,
-  Link,
-  Link2,
-  Link21,
-  MessageText,
-  More,
-  More2,
-  SearchNormal1,
-} from 'iconsax-react';
-import ExpandHeader from './header';
+import { useState } from 'react';
 import ExpandContent from './expand-content';
 import ExpandSideBar from './expand-sidebar';
-import { useState } from 'react';
+import ExpandHeader from './header';
 interface ExpandModalProps {
   isModalShow: boolean;
   handleCancel: () => void;
 }
 const ExpandModal = ({ isModalShow, handleCancel }: ExpandModalProps) => {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
-  const handleSideBarOpen = (isOpen: boolean) => {
-    setIsSideBarOpen(isOpen);
-  };
+
   return (
     <Modal
       style={{ top: '5svh' }}
       width={'100svw'}
-      modalRender={(modal) => (
+      modalRender={() => (
         <div
           onClick={(e) => {
             e.stopPropagation();
@@ -42,7 +27,7 @@ const ExpandModal = ({ isModalShow, handleCancel }: ExpandModalProps) => {
           />
           <div className="flex h-full box-border w-full">
             <ExpandContent />
-            {isSideBarOpen && <ExpandSideBar onClose={handleSideBarOpen} />}
+            {isSideBarOpen && <ExpandSideBar />}
           </div>
         </div>
       )}

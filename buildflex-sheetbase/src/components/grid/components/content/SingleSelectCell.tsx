@@ -1,9 +1,7 @@
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import Tag from '@/components/sidebar/components/dropdown/TeamTag';
 import Text from '@/components/typography/Text';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
-import { Add, ArrowDown2, Maximize4 } from 'iconsax-react';
+import { ArrowDown2 } from 'iconsax-react';
 import React from 'react';
 import { SelectAddDropdown } from './MutilpleSelectCell';
 interface SingleSelectCellProps {

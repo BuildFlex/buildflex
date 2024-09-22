@@ -12,107 +12,32 @@ interface CurrencyDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
 }
 
-const CurrencyDropdown: React.FC<CurrencyDropdownProps> = ({
-  onChangeDropdown,
-}) => {
-  const [activeTab, setActiveTab] = useState('formatting');
-  const [decimalPlaces, setDecimalPlaces] = useState<string>('0');
-  const [separators, setSeparators] = useState<string>('Local');
-  const [symbol, setSymbol] = useState<string>('$');
-  const [numberAbbreviation, setNumberAbbreviation] = useState<string | null>(
-    null,
-  );
+const decimalPlacesMap = new Map<string, string>([
+  ['0', '1'],
+  ['1', '1.0'],
+  ['2', '1.00'],
+  ['3', '1.000'],
+  ['4', '1.0000'],
+  ['5', '1.00000'],
+  ['6', '1.000000'],
+  ['7', '1.0000000'],
+  ['8', '1.00000000'],
+]);
 
-  return (
-    <>
-      <button
-        onClick={() => onChangeDropdown(null)}
-        style={{ border: '1px solid #EDEDED ' }}
-        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
-      >
-        <DollarCircle size={16} />
-        <Text as="span" variant="B2-Regular">
-          Currency
-        </Text>
-        <ArrowDown2 className="ml-auto" size={16} />
-      </button>
-      <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
-        Enter a monetary amount, or prefill each new cell with a default value.
-      </Text>
-      <div className="relative flex mt-1 gap-4 text-neutral-dark-300 after:z-[0] after:content-[''] after:absolute after:w-full after:h-[1px] after:bg-borderColor after:bottom-0 ">
-        <DropdownTab
-          id="formatting"
-          label="Formatting"
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
-        <DropdownTab
-          id="default"
-          label="Default"
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
-      </div>
-      <div className="flex flex-col mt-2 gap-3">
-        {activeTab === 'formatting' ? (
-          <FormattingTab
-            setSymbol={setSymbol}
-            symbol={symbol}
-            decimalPlaces={decimalPlaces}
-            setDecimalPlaces={setDecimalPlaces}
-            separators={separators}
-            setSeparators={setSeparators}
-            numberAbbreviation={numberAbbreviation}
-            setNumberAbbreviation={setNumberAbbreviation}
-          />
-        ) : (
-          <CustomInput placeholder="Enter default number (optional)" />
-        )}
-      </div>
-    </>
-  );
-};
+const separatorsMap = new Map<string, string>([
+  ['Local', '1,000,000.00'],
+  ['Comma, period', '1,000,000.00'],
+  ['Period, comma', '1.000.000,00'],
+  ['Space, comma', '1 000 000,00'],
+  ['Space, period', '1 000 000.00'],
+]);
 
-const FormattingTab: React.FC<{
-  decimalPlaces: string;
-  setDecimalPlaces: (value: string) => void;
-  separators: string;
-  setSeparators: (value: string) => void;
-  numberAbbreviation: string | null;
-  setNumberAbbreviation: (value: string | null) => void;
-  setSymbol: (value: string) => void;
-  symbol: string;
-}> = ({
-  decimalPlaces,
-  setDecimalPlaces,
-  separators,
-  setSeparators,
-  numberAbbreviation,
-  setNumberAbbreviation,
-  setSymbol,
-  symbol,
-}) => (
-  <>
-    <PresetSelect />
-    <SymbolSelect setSymbol={setSymbol} />
-    <DecimalPlacesSelect
-      decimalPlaces={decimalPlaces}
-      symbol={symbol}
-      setDecimalPlaces={setDecimalPlaces}
-    />
-    <SeparatorsSelect separators={separators} setSeparators={setSeparators} />
-    <NumberAbbreviationSelect
-      numberAbbreviation={numberAbbreviation}
-      setNumberAbbreviation={setNumberAbbreviation}
-    />
-    <div className="w-full bg-borderColor h-[1px] min-h-[1px]" />
-    <DropdownItem>
-      <Text as="span" variant="B2-Regular">
-        Preview: 3,456.0
-      </Text>
-    </DropdownItem>
-  </>
-);
+const NumberAbbreviationMap = new Map<string, string>([
+  ['Thousand', 'K'],
+  ['Million', 'M'],
+  ['Billion', 'B'],
+]);
+
 const SymbolSelect: React.FC<{
   setSymbol: (value: string) => void;
 }> = ({ setSymbol }) => (
@@ -278,7 +203,7 @@ const SeparatorsSelect: React.FC<{
 const NumberAbbreviationSelect: React.FC<{
   numberAbbreviation: string | null;
   setNumberAbbreviation: (value: string | null) => void;
-}> = ({ numberAbbreviation, setNumberAbbreviation }) => (
+}> = ({ setNumberAbbreviation }) => (
   <div className="flex flex-col gap-2 mt-1">
     <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
       Large number abbreviation
@@ -323,31 +248,105 @@ const NumberAbbreviationSelect: React.FC<{
     </div>
   </div>
 );
+const FormattingTab: React.FC<{
+  decimalPlaces: string;
+  setDecimalPlaces: (value: string) => void;
+  separators: string;
+  setSeparators: (value: string) => void;
+  numberAbbreviation: string | null;
+  setNumberAbbreviation: (value: string | null) => void;
+  setSymbol: (value: string) => void;
+  symbol: string;
+}> = ({
+  decimalPlaces,
+  setDecimalPlaces,
+  separators,
+  setSeparators,
+  numberAbbreviation,
+  setNumberAbbreviation,
+  setSymbol,
+  symbol,
+}) => (
+  <>
+    <PresetSelect />
+    <SymbolSelect setSymbol={setSymbol} />
+    <DecimalPlacesSelect
+      decimalPlaces={decimalPlaces}
+      symbol={symbol}
+      setDecimalPlaces={setDecimalPlaces}
+    />
+    <SeparatorsSelect separators={separators} setSeparators={setSeparators} />
+    <NumberAbbreviationSelect
+      numberAbbreviation={numberAbbreviation}
+      setNumberAbbreviation={setNumberAbbreviation}
+    />
+    <div className="w-full bg-borderColor h-[1px] min-h-[1px]" />
+    <DropdownItem>
+      <Text as="span" variant="B2-Regular">
+        Preview: 3,456.0
+      </Text>
+    </DropdownItem>
+  </>
+);
+const CurrencyDropdown: React.FC<CurrencyDropdownProps> = ({
+  onChangeDropdown,
+}) => {
+  const [activeTab, setActiveTab] = useState('formatting');
+  const [decimalPlaces, setDecimalPlaces] = useState<string>('0');
+  const [separators, setSeparators] = useState<string>('Local');
+  const [symbol, setSymbol] = useState<string>('$');
+  const [numberAbbreviation, setNumberAbbreviation] = useState<string | null>(
+    null,
+  );
+
+  return (
+    <>
+      <button
+        onClick={() => onChangeDropdown(null)}
+        style={{ border: '1px solid #EDEDED ' }}
+        className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
+      >
+        <DollarCircle size={16} />
+        <Text as="span" variant="B2-Regular">
+          Currency
+        </Text>
+        <ArrowDown2 className="ml-auto" size={16} />
+      </button>
+      <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
+        Enter a monetary amount, or prefill each new cell with a default value.
+      </Text>
+      <div className="relative flex mt-1 gap-4 text-neutral-dark-300 after:z-[0] after:content-[''] after:absolute after:w-full after:h-[1px] after:bg-borderColor after:bottom-0 ">
+        <DropdownTab
+          id="formatting"
+          label="Formatting"
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+        <DropdownTab
+          id="default"
+          label="Default"
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+      </div>
+      <div className="flex flex-col mt-2 gap-3">
+        {activeTab === 'formatting' ? (
+          <FormattingTab
+            setSymbol={setSymbol}
+            symbol={symbol}
+            decimalPlaces={decimalPlaces}
+            setDecimalPlaces={setDecimalPlaces}
+            separators={separators}
+            setSeparators={setSeparators}
+            numberAbbreviation={numberAbbreviation}
+            setNumberAbbreviation={setNumberAbbreviation}
+          />
+        ) : (
+          <CustomInput placeholder="Enter default number (optional)" />
+        )}
+      </div>
+    </>
+  );
+};
 
 export default CurrencyDropdown;
-
-const decimalPlacesMap = new Map<string, string>([
-  ['0', '1'],
-  ['1', '1.0'],
-  ['2', '1.00'],
-  ['3', '1.000'],
-  ['4', '1.0000'],
-  ['5', '1.00000'],
-  ['6', '1.000000'],
-  ['7', '1.0000000'],
-  ['8', '1.00000000'],
-]);
-
-const separatorsMap = new Map<string, string>([
-  ['Local', '1,000,000.00'],
-  ['Comma, period', '1,000,000.00'],
-  ['Period, comma', '1.000.000,00'],
-  ['Space, comma', '1 000 000,00'],
-  ['Space, period', '1 000 000.00'],
-]);
-
-const NumberAbbreviationMap = new Map<string, string>([
-  ['Thousand', 'K'],
-  ['Million', 'M'],
-  ['Billion', 'B'],
-]);

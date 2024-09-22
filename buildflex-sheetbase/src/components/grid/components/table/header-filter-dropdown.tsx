@@ -1,12 +1,8 @@
-import {
-  CloseIcon,
-  ConfigureIcon,
-  GroupIcon,
-  MoreVert,
-  SortDownIcon,
-} from '@/components/icons';
+import DropdownItem from '@/components/common/dropdown/DropdownItem';
+import { ConfigureIcon, GroupIcon, SortDownIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { Divider, Dropdown, DropdownProps, MenuProps, Modal } from 'antd';
+import { cn } from '@/utils/cn';
+import { Divider, Dropdown, DropdownProps, Modal } from 'antd';
 import {
   ArrowDown2,
   ArrowLeft,
@@ -19,16 +15,58 @@ import {
   Link,
   Lock,
   SearchStatus,
-  Slack,
   Trash,
 } from 'iconsax-react';
 import { useState } from 'react';
-import DuplicateFieldModal from '../modal/duplicate-field';
-import EditFieldDescriptionModal from '../modal/edit-field';
 import AddLookupFieldsModal from '../modal/add-lookup-fields';
 import ChangeThePrimaryFieldModal from '../modal/change-the-primary-field';
-import DropdownItem from '@/components/common/dropdown/DropdownItem';
-import { cn } from '@/utils/cn';
+import DuplicateFieldModal from '../modal/duplicate-field';
+import EditFieldDescriptionModal from '../modal/edit-field';
+const moreItemList = [
+  { key: 'edit-field', text: 'Edit field', icon: Edit2 },
+  { key: 'add-lookup-fields', text: 'Add lookup fields', icon: SearchStatus },
+  { key: 'divider', type: 'divider' },
+  { key: 'duplicate-field', text: 'Duplicate field', icon: Copy },
+  { key: 'insert-left', text: 'Insert left', icon: ArrowLeft },
+  { key: 'insert-right', text: 'Insert right', icon: ArrowRight },
+  { key: 'change-primary-field', text: 'Change primary field', icon: Code },
+  { key: 'divider', type: 'divider' },
+  {
+    key: 'configure-date-dependencies',
+    text: 'Configure date dependencies',
+    icon: ConfigureIcon,
+  },
+  { key: 'divider', type: 'divider' },
+  { key: 'copy-field-url', text: 'Copy field URL', icon: Link },
+  {
+    key: 'edit-field-description',
+    text: 'Edit field description',
+    icon: InfoCircle,
+  },
+  {
+    key: 'edit-field-permisstions',
+    text: 'Edit field permissions',
+    icon: Lock,
+  },
+  { key: 'divider', type: 'divider' },
+  { key: 'sort-a-to-z', text: 'Sort A → Z', icon: SortDownIcon },
+  { key: 'sort-z-to-a', text: 'Sort Z → A', icon: SortDownIcon },
+  { key: 'divider', type: 'divider' },
+  {
+    key: 'filter-by-this-field',
+    text: 'Filter by this field',
+    icon: SortDownIcon,
+  },
+  { key: 'group-by-this-field', text: 'Group by this field', icon: GroupIcon },
+  { key: 'divider', type: 'divider' },
+  { key: 'hide-filed', text: 'Hide Field', icon: EyeSlash },
+  {
+    key: 'delete-filed',
+    text: 'Delete Field',
+    icon: Trash,
+    className: 'text-danger',
+  },
+];
 
 const HeaderFilterDropdown = () => {
   const [activeModal, setActiveModal] = useState<string | null>(null);
@@ -124,50 +162,3 @@ const HeaderFilterDropdown = () => {
 };
 
 export default HeaderFilterDropdown;
-
-const moreItemList = [
-  { key: 'edit-field', text: 'Edit field', icon: Edit2 },
-  { key: 'add-lookup-fields', text: 'Add lookup fields', icon: SearchStatus },
-  { key: 'divider', type: 'divider' },
-  { key: 'duplicate-field', text: 'Duplicate field', icon: Copy },
-  { key: 'insert-left', text: 'Insert left', icon: ArrowLeft },
-  { key: 'insert-right', text: 'Insert right', icon: ArrowRight },
-  { key: 'change-primary-field', text: 'Change primary field', icon: Code },
-  { key: 'divider', type: 'divider' },
-  {
-    key: 'configure-date-dependencies',
-    text: 'Configure date dependencies',
-    icon: ConfigureIcon,
-  },
-  { key: 'divider', type: 'divider' },
-  { key: 'copy-field-url', text: 'Copy field URL', icon: Link },
-  {
-    key: 'edit-field-description',
-    text: 'Edit field description',
-    icon: InfoCircle,
-  },
-  {
-    key: 'edit-field-permisstions',
-    text: 'Edit field permissions',
-    icon: Lock,
-  },
-  { key: 'divider', type: 'divider' },
-  { key: 'sort-a-to-z', text: 'Sort A → Z', icon: SortDownIcon },
-  { key: 'sort-z-to-a', text: 'Sort Z → A', icon: SortDownIcon },
-  { key: 'divider', type: 'divider' },
-  {
-    key: 'filter-by-this-field',
-    text: 'Filter by this field',
-    icon: SortDownIcon,
-  },
-  { key: 'group-by-this-field', text: 'Group by this field', icon: GroupIcon },
-  { key: 'divider', type: 'divider' },
-  { key: 'hide-filed', text: 'Hide Field', icon: EyeSlash },
-  {
-    key: 'delete-filed',
-    text: 'Delete Field',
-    icon: Trash,
-    className: 'text-danger',
-  },
-];
-

@@ -118,7 +118,7 @@ const switchList = [
   {
     label: 'Use AI to show top matches when selecting a record',
     id: 'use-ai-to-show-top-matches-when-selecting-a-record',
-    icon: <SparklesIcon className="cursor-pointer" />,
+    icon: <SparklesIcon />,
     isTeam: true,
   },
 ];
@@ -184,6 +184,7 @@ const LinkToAnotherRecordDropdown: React.FC<
       <div className="flex flex-col h-full w-full box-border text-neutral-dark-300">
         {switchList.map((item) => (
           <SwitchWithLabel
+            key={item.id}
             id={item.id}
             label={item.label}
             checked={allowList.includes(item.id)}

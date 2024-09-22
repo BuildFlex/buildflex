@@ -223,7 +223,7 @@ const FindAField: React.FC = () => {
             <ul className="p-0">
               {filteredFields.map((field, index) => (
                 <li
-                  key={`${field.label}-${index}`}
+                  key={field.label}
                   className="flex items-center px-2 py-2 hover:bg-gray-100 cursor-pointer"
                 >
                   {field.icon}

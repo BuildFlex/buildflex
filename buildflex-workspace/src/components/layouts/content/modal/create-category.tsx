@@ -3,7 +3,7 @@ import { CloseIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { Modal } from 'antd';
 import { Add } from 'iconsax-react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const CreateCategory = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +22,7 @@ const CreateCategory = () => {
         </Text>
       </button>
       <Modal
-        modalRender={(modal) => (
+        modalRender={() => (
           <div className="w-[400px] flex flex-col gap-4 p-6 box-border ant-modal-content">
             {' '}
             <div className="w-full items-start justify-between flex">

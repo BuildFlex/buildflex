@@ -52,7 +52,7 @@ const ShareButton = ({ theme }: { theme: ITheme }) => {
         </Text>
       </button>
       <Modal
-        modalRender={(modal) => (
+        modalRender={() => (
           <div
             onClick={(e) => e.stopPropagation()}
             className="w-[710px] overflow-hidden flex flex-col   !p-0 box-border bg-white rounded-lg ant-modal-content"
@@ -91,11 +91,10 @@ const ShareButton = ({ theme }: { theme: ITheme }) => {
               <div className="flex  flex-col box-border  gap-3 py-10 bg-gray-100">
                 {sidebarTabs.map((tab) => (
                   <div
+                    key={tab.key}
                     onClick={() => setActiveTab(tab.key)}
                     style={{
-                      borderLeft:
-                        '2px solid ' +
-                        (activeTab === tab.key ? theme.hexCode : 'transparent'),
+                      borderLeft: `2px solid ${activeTab === tab.key ? theme.hexCode : 'transparent'}`,
                     }}
                     className={cn(
                       ' w-[140px] box-border justify-center items-center flex flex-col  gap-2',
@@ -140,7 +139,7 @@ const ShareButton = ({ theme }: { theme: ITheme }) => {
                       <Tabs
                         defaultActiveKey="Email invited"
                         className="share-base-tab  "
-                        items={baseTabs.map((item, i) => {
+                        items={baseTabs.map((item) => {
                           return {
                             key: item.key,
                             label: item.title,

@@ -17,7 +17,6 @@ const FindColorField = ({
   searchPlaceholder,
   className,
   onSelectField,
-  field,
 }: FindColorFieldProps) => {
   const [isShowAll, setIsShowAll] = React.useState(false);
   return (

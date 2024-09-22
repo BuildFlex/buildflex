@@ -1,36 +1,29 @@
 import Text from '@/components/typography/Text';
-import {
-  Add,
-  DocumentText,
-  Paperclip2,
-  TextalignJustifycenter,
-  Text as TextIcon,
-} from 'iconsax-react';
-import React from 'react';
-import ExpandName from './content/name';
-import ExpandNote from './content/note';
+import { Add } from 'iconsax-react';
 import ExpandAttachment from './content/attachment';
-import ExpandCheckbox from './content/checkbox';
-import ExpandMultipleSelect from './content/multiple-select';
-import ExpandSingleSelect from './content/single-select';
-import ExpandUser from './content/user';
-import ExpandPhoneNumber from './content/phone-number';
-import ExpandEmail from './content/email';
-import ExpandURL from './content/url';
-import ExpandNumber from './content/number';
-import ExpandCurrency from './content/currency';
-import ExpandPercent from './content/percent';
-import ExpandRating from './content/rating';
-import ExpandFormula from './content/formula';
-import ExpandCreated from './content/created';
-import ExpandLastModified from './content/last-modified';
-import ExpandCreatedBy from './content/created-by';
-import ExpandLastModifiedBy from './content/last-modified-by';
 import ExpandAutoNumber from './content/auto-number';
 import ExpandBarcode from './content/barcode';
 import ExpandButton from './content/button';
-import ExpandLinkToAnotherRecord from './content/link-to-another-record';
+import ExpandCheckbox from './content/checkbox';
+import ExpandCreated from './content/created';
+import ExpandCreatedBy from './content/created-by';
+import ExpandCurrency from './content/currency';
 import ExpandDate from './content/date';
+import ExpandEmail from './content/email';
+import ExpandFormula from './content/formula';
+import ExpandLastModified from './content/last-modified';
+import ExpandLastModifiedBy from './content/last-modified-by';
+import ExpandLinkToAnotherRecord from './content/link-to-another-record';
+import ExpandMultipleSelect from './content/multiple-select';
+import ExpandName from './content/name';
+import ExpandNote from './content/note';
+import ExpandNumber from './content/number';
+import ExpandPercent from './content/percent';
+import ExpandPhoneNumber from './content/phone-number';
+import ExpandRating from './content/rating';
+import ExpandSingleSelect from './content/single-select';
+import ExpandURL from './content/url';
+import ExpandUser from './content/user';
 
 const ExpandContent = () => {
   return (

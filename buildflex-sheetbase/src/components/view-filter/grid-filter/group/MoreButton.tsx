@@ -1,25 +1,6 @@
 import { CheckBoxIcon, MoreVert } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { Dropdown, MenuProps } from 'antd';
-
-const MoreButton = () => {
-  return (
-    <Dropdown
-      menu={{ items: moreItems }}
-      trigger={['click']}
-      placement="bottomRight"
-      className="flex items-center relative justify-center"
-      overlayClassName=" boxShadowSecondary !w-[280px] project-more-dropdown "
-    >
-      <div className="size-9 flex items-center justify-center box-border hover:text-neutral-dark-500 text-neutral-dark-300">
-        <MoreVert className="size-4 px-2 cursor-pointer " />
-      </div>
-    </Dropdown>
-  );
-};
-
-export default MoreButton;
-
 const moreItems: MenuProps['items'] = [
   {
     key: 'hide-groups-with-no-records',
@@ -43,3 +24,22 @@ const moreItems: MenuProps['items'] = [
     ),
   },
 ];
+
+const MoreButton = () => {
+  return (
+    <Dropdown
+      menu={{ items: moreItems }}
+      trigger={['click']}
+      placement="bottomRight"
+      className="flex items-center relative justify-center"
+      overlayClassName=" boxShadowSecondary !w-[280px] project-more-dropdown "
+    >
+      <div className="size-9 flex items-center justify-center box-border hover:text-neutral-dark-500 text-neutral-dark-300">
+        <MoreVert className="size-4 px-2 cursor-pointer " />
+      </div>
+    </Dropdown>
+  );
+};
+
+export default MoreButton;
+

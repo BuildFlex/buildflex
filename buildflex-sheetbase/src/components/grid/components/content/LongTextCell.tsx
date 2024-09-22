@@ -1,8 +1,6 @@
-import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { cn } from '@/utils/cn';
-import { Maximize4 } from 'iconsax-react';
 import React from 'react';
 import LongTextCellModal from './modal/long-text-cell-modal';
 interface LongTextCellProps {
@@ -39,7 +37,6 @@ const LongTextCell = ({ text, className }: LongTextCellProps) => {
             defaultValue={text}
             style={{ boxShadow: 'none' }}
             rows={1}
-            autoFocus
             className={cn(
               '  m-0   font-lato text-sm  resize-none  border-none',
               isActive

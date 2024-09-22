@@ -1,6 +1,6 @@
 import { CustomInput } from '@/components/input/Input';
 import Text from '@/components/typography/Text';
-import { Call, Hashtag, Link, Sms, User } from 'iconsax-react';
+import { Hashtag } from 'iconsax-react';
 
 const ExpandNumber = () => {
   return (

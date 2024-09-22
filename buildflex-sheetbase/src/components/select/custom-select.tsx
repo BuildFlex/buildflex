@@ -34,12 +34,11 @@ const CustomSelect = ({
   const [selected, setSelected] = useState<ICutomSelectItem | null>(
     initialValue ?? null,
   );
-  const onOpen = () => setIsShow(true);
   const onClose = () => setIsShow(false);
   const ref = useOutsideClick(onClose, true);
   const handleSelect = (value: ICutomSelectItem) => {
     setSelected(value);
-    onChange && onChange(value);
+    onChange?.(value);
   };
   return (
     <div
@@ -91,10 +90,10 @@ const CustomSelect = ({
             </Text>
           </DropdownItem>
           <div className="flex w-full flex-col gap-1">
-            {itemsList.map((item, index) => {
+            {itemsList.map((item) => {
               return (
                 <DropdownItem
-                  key={`${item.value}-${index}`}
+                  key={item.value}
                   onClick={() => handleSelect(item)}
                   className={cn(' hover:bg-gray-50 cursor-pointer', {
                     'bg-gray-100 hover:bg-gray-100':

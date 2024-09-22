@@ -33,8 +33,8 @@ const SheetbaseGradientIcon = () => {
           y2="6.29995"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#076D9C" />
-          <stop offset="1" stop-color="#014F7A" />
+          <stop stopColor="#076D9C" />
+          <stop offset="1" stopColor="#014F7A" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_11348_91079"
@@ -44,8 +44,8 @@ const SheetbaseGradientIcon = () => {
           y2="7.90024"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#076D9C" />
-          <stop offset="1" stop-color="#014F7A" />
+          <stop stopColor="#076D9C" />
+          <stop offset="1" stopColor="#014F7A" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_11348_91079"
@@ -55,8 +55,8 @@ const SheetbaseGradientIcon = () => {
           y2="8.11467"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#076D9C" />
-          <stop offset="1" stop-color="#014F7A" />
+          <stop stopColor="#076D9C" />
+          <stop offset="1" stopColor="#014F7A" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_11348_91079"
@@ -66,8 +66,8 @@ const SheetbaseGradientIcon = () => {
           y2="8.43558"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#076D9C" />
-          <stop offset="1" stop-color="#014F7A" />
+          <stop stopColor="#076D9C" />
+          <stop offset="1" stopColor="#014F7A" />
         </linearGradient>
       </defs>
     </svg>

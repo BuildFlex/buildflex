@@ -6,6 +6,7 @@ import { ArrowDown2 } from 'iconsax-react';
 import React, { useState } from 'react';
 import DropdownTab from '../components/dropdown-tab';
 import HighlightedTextarea from '../components/highlight-textarea';
+import { Link } from 'react-router-dom';
 
 interface FormulaDropdownProps {
   onChangeDropdown: (value: IField | null) => void;
@@ -23,7 +24,7 @@ export const FormulaDropdown: React.FC<FormulaDropdownProps> = ({
         style={{ border: '1px solid #EDEDED ' }}
         className="text-neutral-dark-500 flex gap-2 rounded items-center px-2 bg-transparent min-h-9 box-border hover:bg-gray-50 cursor-pointer"
       >
-        <FormulaIcon size={16} />
+        <FormulaIcon />
         <Text as="span" variant="B2-Regular">
           Formula
         </Text>
@@ -34,15 +35,15 @@ export const FormulaDropdown: React.FC<FormulaDropdownProps> = ({
         <Text as="span" variant="B2-Regular" className="text-neutral-dark-300">
           Compute values based on fields.
         </Text>
-        <a
-          href="#"
+        <Link
+          to={'#'}
           className="w-fit h-[18px] flex items-center box-border"
           style={{ borderBottom: '1px solid #101828 ' }}
         >
           <Text as="span" variant="B2-Medium" className="text-neutral-dark-500">
             Learn more
           </Text>
-        </a>
+        </Link>
       </div>
 
       {/* Tab */}
@@ -65,11 +66,13 @@ export const FormulaDropdown: React.FC<FormulaDropdownProps> = ({
         {activeTab === 'formula' ? (
           <>
             <HighlightedTextarea
-              initialValue={`DATETIME_DIFF({End date},{Start date},'days')&'d'|`}
-              keywords={[`DATETIME_DIFF`, `'days'`, `'d'`]}
+              initialValue={
+                "DATETIME_DIFF({End date},{Start date},'days')&'d'|"
+              }
+              keywords={['DATETIME_DIFF', "'days'", "'d'"]}
             />
             <DropdownItem className="cursor-pointer w-fit">
-              <SparklesIcon size={16} />
+              <SparklesIcon />
               <Text as="span" variant="B2-Regular">
                 Generate formula
               </Text>

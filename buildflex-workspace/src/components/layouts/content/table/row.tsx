@@ -1,8 +1,6 @@
-import { MoreIcon, StarIcon } from '@/components/icons';
-import SheetbaseIcon from '@/components/icons/sheetbase-icon';
+import { StarIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
-import { cn } from '@/utils/cn';
-import React, { ElementType } from 'react';
+import { ElementType } from 'react';
 import RowMoreDropdown from './row-more-dropdown';
 
 interface CategoryRowProps {
@@ -43,7 +41,7 @@ const CategoryRow = ({
         <Text as="span" variant="B2-SemiBold">
           {lastEditor}
         </Text>
-        <div className="items-center flex gap-2"></div>
+        <div className="items-center flex gap-2" />
       </div>
       <div className="flex items-center h-10 min-w-[169px]   justify-end gap-2 ml-auto">
         <button className="w-[57px]  group-hover:flex hidden rounded-lg py-[6px] h-8 whitespace-nowrap px-4 gap-2  items-center bg-brand-PRIMARY text-white">

@@ -43,6 +43,7 @@ const UserMultipleSelect = ({
     >
       {selectedUser.map((user) => (
         <div
+          key={user.id}
           className={cn(
             'flex gap-1 relative bg-gray-100 rounded-full  items-center  min-w-[90px] box-border h-[24px]',
             'bg-[#E0F2FE] text-theme-ocean-blue',
@@ -83,7 +84,7 @@ const UserMultipleSelect = ({
         >
           {dropdownRender}
           <div className="flex w-full flex-col gap-1">
-            {users.map((item, index) => {
+            {users.map((item) => {
               const isSelected = selectedUser.find(
                 (user) => user.id === item.id,
               );

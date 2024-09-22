@@ -1,13 +1,7 @@
-import { CloseIcon, MoveToIcon } from '@/components/icons';
+import { MoveToIcon } from '@/components/icons';
 import Text from '@/components/typography/Text';
 import { cn } from '@/utils/cn';
-import {
-  Add,
-  CloseCircle,
-  Maximize4,
-  Task,
-  TextalignJustifycenter,
-} from 'iconsax-react';
+import { Add, CloseCircle, Maximize4 } from 'iconsax-react';
 import React from 'react';
 import Draggable from 'react-draggable';
 
